@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-11-10 08:03:46</td>
+            <td class="headerValue">2022-11-11 08:03:55</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">39</td>
@@ -114,7 +114,7 @@
 <a name="52"><span class="lineNum">      52 </span>            :     uint8_t slot_id;</a>
 <a name="53"><span class="lineNum">      53 </span>            :     uint8_t mut_auth_requested;</a>
 <a name="54"><span class="lineNum">      54 </span>            :     uint8_t root_cert_index;</a>
-<a name="55"><span class="lineNum">      55 </span>            : #if !LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
+<a name="55"><span class="lineNum">      55 </span>            : #if !(LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT)</a>
 <a name="56"><span class="lineNum">      56 </span>            :     bool status;</a>
 <a name="57"><span class="lineNum">      57 </span>            : #endif</a>
 <a name="58"><span class="lineNum">      58 </span>            : </a>
@@ -183,26 +183,26 @@
 <a name="121"><span class="lineNum">     121 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_PARAMETER;</span></a>
 <a name="122"><span class="lineNum">     122 </span>            :         }</a>
 <a name="123"><span class="lineNum">     123 </span>            : </a>
-<a name="124"><span class="lineNum">     124 </span>            :     #if !LIBSPDM_ENABLE_CAPABILITY_CERT_CAP</a>
+<a name="124"><span class="lineNum">     124 </span>            :     #if !(LIBSPDM_ENABLE_CAPABILITY_CERT_CAP)</a>
 <a name="125"><span class="lineNum">     125 </span>            :         LIBSPDM_ASSERT(((*(uint32_t *)data) &amp; SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_CAP) == 0);</a>
-<a name="126"><span class="lineNum">     126 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_CERT_CAP*/</a>
+<a name="126"><span class="lineNum">     126 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_CERT_CAP */</a>
 <a name="127"><span class="lineNum">     127 </span>            : </a>
-<a name="128"><span class="lineNum">     128 </span>            :     #if !LIBSPDM_ENABLE_CAPABILITY_CHAL_CAP</a>
+<a name="128"><span class="lineNum">     128 </span>            :     #if !(LIBSPDM_ENABLE_CAPABILITY_CHAL_CAP)</a>
 <a name="129"><span class="lineNum">     129 </span>            :         LIBSPDM_ASSERT(((*(uint32_t *)data) &amp; SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CHAL_CAP) == 0);</a>
-<a name="130"><span class="lineNum">     130 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_CHAL_CAP*/</a>
+<a name="130"><span class="lineNum">     130 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_CHAL_CAP */</a>
 <a name="131"><span class="lineNum">     131 </span>            : </a>
-<a name="132"><span class="lineNum">     132 </span>            :     #if !LIBSPDM_ENABLE_CAPABILITY_MEAS_CAP</a>
+<a name="132"><span class="lineNum">     132 </span>            :     #if !(LIBSPDM_ENABLE_CAPABILITY_MEAS_CAP)</a>
 <a name="133"><span class="lineNum">     133 </span>            :         LIBSPDM_ASSERT(((*(uint32_t *)data) &amp; SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MEAS_CAP) == 0);</a>
-<a name="134"><span class="lineNum">     134 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_MEAS_CAP*/</a>
+<a name="134"><span class="lineNum">     134 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_MEAS_CAP */</a>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
-<a name="136"><span class="lineNum">     136 </span>            :     #if !LIBSPDM_ENABLE_CAPABILITY_KEY_EX_CAP</a>
+<a name="136"><span class="lineNum">     136 </span>            :     #if !(LIBSPDM_ENABLE_CAPABILITY_KEY_EX_CAP)</a>
 <a name="137"><span class="lineNum">     137 </span>            :         LIBSPDM_ASSERT(((*(uint32_t *)data) &amp; SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_KEY_EX_CAP) ==</a>
 <a name="138"><span class="lineNum">     138 </span>            :                        0);</a>
-<a name="139"><span class="lineNum">     139 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_KEY_EX_CAP*/</a>
+<a name="139"><span class="lineNum">     139 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_KEY_EX_CAP */</a>
 <a name="140"><span class="lineNum">     140 </span>            : </a>
-<a name="141"><span class="lineNum">     141 </span>            :     #if !LIBSPDM_ENABLE_CAPABILITY_PSK_EX_CAP</a>
+<a name="141"><span class="lineNum">     141 </span>            :     #if !(LIBSPDM_ENABLE_CAPABILITY_PSK_EX_CAP)</a>
 <a name="142"><span class="lineNum">     142 </span>            :         LIBSPDM_ASSERT(((*(uint32_t *)data) &amp; SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_PSK_CAP) == 0);</a>
-<a name="143"><span class="lineNum">     143 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_PSK_EX_CAP*/</a>
+<a name="143"><span class="lineNum">     143 </span>            :     #endif /* !LIBSPDM_ENABLE_CAPABILITY_PSK_EX_CAP */</a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
 <a name="145"><span class="lineNum">     145 </span><span class="lineNoCov">          0 :         if (parameter-&gt;location == LIBSPDM_DATA_LOCATION_CONNECTION) {</span></a>
 <a name="146"><span class="lineNum">     146 </span><span class="lineNoCov">          0 :             spdm_context-&gt;connection_info.capability.flags = *(uint32_t *)data;</span></a>

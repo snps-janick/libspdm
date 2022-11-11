@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-11-10 08:03:46</td>
+            <td class="headerValue">2022-11-11 08:03:55</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -655,7 +655,7 @@
 <a name="593"><span class="lineNum">     593 </span>            :     libspdm_session_info_t *session_info;</a>
 <a name="594"><span class="lineNum">     594 </span>            :     libspdm_session_state_t session_state;</a>
 <a name="595"><span class="lineNum">     595 </span>            : </a>
-<a name="596"><span class="lineNum">     596 </span>            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP || LIBSPDM_ENABLE_CHUNK_CAP</a>
+<a name="596"><span class="lineNum">     596 </span>            :     #if (LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP) || (LIBSPDM_ENABLE_CHUNK_CAP)</a>
 <a name="597"><span class="lineNum">     597 </span>            :     spdm_message_header_t *spdm_response;</a>
 <a name="598"><span class="lineNum">     598 </span>            :     size_t response_capacity;</a>
 <a name="599"><span class="lineNum">     599 </span>            :     libspdm_chunk_info_t *send_info;</a>
@@ -680,7 +680,7 @@
 <a name="618"><span class="lineNum">     618 </span>            :         }</a>
 <a name="619"><span class="lineNum">     619 </span>            :     }</a>
 <a name="620"><span class="lineNum">     620 </span>            : </a>
-<a name="621"><span class="lineNum">     621 </span>            :     #if !LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP &amp;&amp; !LIBSPDM_ENABLE_CHUNK_CAP</a>
+<a name="621"><span class="lineNum">     621 </span>            :     #if !(LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP) &amp;&amp; !(LIBSPDM_ENABLE_CHUNK_CAP)</a>
 <a name="622"><span class="lineNum">     622 </span>            :     status = libspdm_receive_response(spdm_context, session_id, false, response_size, response);</a>
 <a name="623"><span class="lineNum">     623 </span>            :     #else /* LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP */</a>
 <a name="624"><span class="lineNum">     624 </span><span class="lineCov">       2288 :     send_info = &amp;spdm_context-&gt;chunk_context.send;</span></a>
