@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-11-27 08:04:36</td>
+            <td class="headerValue">2022-11-28 08:05:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -131,9 +131,9 @@
 <a name="69"><span class="lineNum">      69 </span>            :      * is not true of free_pool() below, so protect it.*/</a>
 <a name="70"><span class="lineNum">      70 </span>            : </a>
 <a name="71"><span class="lineNum">      71 </span><span class="lineCov">   11075100 :     if (ptr != NULL) {</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">   11064600 :         pool_hdr = (CRYPTMEM_HEAD *)ptr - 1;</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">   11064600 :         LIBSPDM_ASSERT(pool_hdr-&gt;version == CRYPTMEM_HEAD_VERSION);</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">   11064600 :         free_pool(pool_hdr);</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">   11064700 :         pool_hdr = (CRYPTMEM_HEAD *)ptr - 1;</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">   11064700 :         LIBSPDM_ASSERT(pool_hdr-&gt;version == CRYPTMEM_HEAD_VERSION);</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">   11064700 :         free_pool(pool_hdr);</span></a>
 <a name="75"><span class="lineNum">      75 </span>            :     }</a>
 <a name="76"><span class="lineNum">      76 </span><span class="lineCov">   11075100 : }</span></a>
 </pre>
