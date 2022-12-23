@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-12-22 08:04:20</td>
+            <td class="headerValue">2022-12-23 08:04:39</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -639,31 +639,31 @@
 <a name="577"><span class="lineNum">     577 </span>            : </a>
 <a name="578"><span class="lineNum">     578 </span><span class="lineCov">         22 :     opaque_length = *(uint16_t *)ptr;</span></a>
 <a name="579"><span class="lineNum">     579 </span><span class="lineCov">         22 :     if (opaque_length &gt; SPDM_MAX_OPAQUE_DATA_SIZE) {</span></a>
-<a name="580"><span class="lineNum">     580 </span><span class="lineNoCov">          0 :         libspdm_free_session_id(spdm_context, *session_id);</span></a>
-<a name="581"><span class="lineNum">     581 </span><span class="lineNoCov">          0 :         libspdm_secured_message_dhe_free(</span></a>
-<a name="582"><span class="lineNum">     582 </span><span class="lineNoCov">          0 :             spdm_context-&gt;connection_info.algorithm.dhe_named_group, dhe_context);</span></a>
-<a name="583"><span class="lineNum">     583 </span><span class="lineNoCov">          0 :         status = LIBSPDM_STATUS_INVALID_MSG_FIELD;</span></a>
-<a name="584"><span class="lineNum">     584 </span><span class="lineNoCov">          0 :         goto receive_done;</span></a>
+<a name="580"><span class="lineNum">     580 </span><span class="lineCov">          1 :         libspdm_free_session_id(spdm_context, *session_id);</span></a>
+<a name="581"><span class="lineNum">     581 </span><span class="lineCov">          1 :         libspdm_secured_message_dhe_free(</span></a>
+<a name="582"><span class="lineNum">     582 </span><span class="lineCov">          1 :             spdm_context-&gt;connection_info.algorithm.dhe_named_group, dhe_context);</span></a>
+<a name="583"><span class="lineNum">     583 </span><span class="lineCov">          1 :         status = LIBSPDM_STATUS_INVALID_MSG_FIELD;</span></a>
+<a name="584"><span class="lineNum">     584 </span><span class="lineCov">          1 :         goto receive_done;</span></a>
 <a name="585"><span class="lineNum">     585 </span>            :     }</a>
-<a name="586"><span class="lineNum">     586 </span><span class="lineCov">         22 :     ptr += sizeof(uint16_t);</span></a>
-<a name="587"><span class="lineNum">     587 </span><span class="lineCov">         22 :     if (spdm_response_size &lt;</span></a>
-<a name="588"><span class="lineNum">     588 </span><span class="lineCov">         22 :         sizeof(spdm_key_exchange_response_t) + dhe_key_size +</span></a>
-<a name="589"><span class="lineNum">     589 </span><span class="lineCov">         22 :         measurement_summary_hash_size + sizeof(uint16_t) +</span></a>
-<a name="590"><span class="lineNum">     590 </span><span class="lineCov">         22 :         opaque_length + signature_size + hmac_size) {</span></a>
+<a name="586"><span class="lineNum">     586 </span><span class="lineCov">         21 :     ptr += sizeof(uint16_t);</span></a>
+<a name="587"><span class="lineNum">     587 </span><span class="lineCov">         21 :     if (spdm_response_size &lt;</span></a>
+<a name="588"><span class="lineNum">     588 </span><span class="lineCov">         21 :         sizeof(spdm_key_exchange_response_t) + dhe_key_size +</span></a>
+<a name="589"><span class="lineNum">     589 </span><span class="lineCov">         21 :         measurement_summary_hash_size + sizeof(uint16_t) +</span></a>
+<a name="590"><span class="lineNum">     590 </span><span class="lineCov">         21 :         opaque_length + signature_size + hmac_size) {</span></a>
 <a name="591"><span class="lineNum">     591 </span><span class="lineCov">          2 :         libspdm_free_session_id(spdm_context, *session_id);</span></a>
 <a name="592"><span class="lineNum">     592 </span><span class="lineCov">          2 :         libspdm_secured_message_dhe_free(</span></a>
 <a name="593"><span class="lineNum">     593 </span><span class="lineCov">          2 :             spdm_context-&gt;connection_info.algorithm.dhe_named_group, dhe_context);</span></a>
 <a name="594"><span class="lineNum">     594 </span><span class="lineCov">          2 :         status = LIBSPDM_STATUS_INVALID_MSG_SIZE;</span></a>
 <a name="595"><span class="lineNum">     595 </span><span class="lineCov">          2 :         goto receive_done;</span></a>
 <a name="596"><span class="lineNum">     596 </span>            :     }</a>
-<a name="597"><span class="lineNum">     597 </span><span class="lineCov">         20 :     status = libspdm_process_opaque_data_version_selection_data(</span></a>
+<a name="597"><span class="lineNum">     597 </span><span class="lineCov">         19 :     status = libspdm_process_opaque_data_version_selection_data(</span></a>
 <a name="598"><span class="lineNum">     598 </span>            :         spdm_context, opaque_length, ptr);</a>
-<a name="599"><span class="lineNum">     599 </span><span class="lineCov">         20 :     if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
-<a name="600"><span class="lineNum">     600 </span><span class="lineCov">          1 :         libspdm_free_session_id(spdm_context, *session_id);</span></a>
-<a name="601"><span class="lineNum">     601 </span><span class="lineCov">          1 :         libspdm_secured_message_dhe_free(</span></a>
-<a name="602"><span class="lineNum">     602 </span><span class="lineCov">          1 :             spdm_context-&gt;connection_info.algorithm.dhe_named_group, dhe_context);</span></a>
-<a name="603"><span class="lineNum">     603 </span><span class="lineCov">          1 :         status = LIBSPDM_STATUS_INVALID_MSG_FIELD;</span></a>
-<a name="604"><span class="lineNum">     604 </span><span class="lineCov">          1 :         goto receive_done;</span></a>
+<a name="599"><span class="lineNum">     599 </span><span class="lineCov">         19 :     if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
+<a name="600"><span class="lineNum">     600 </span><span class="lineNoCov">          0 :         libspdm_free_session_id(spdm_context, *session_id);</span></a>
+<a name="601"><span class="lineNum">     601 </span><span class="lineNoCov">          0 :         libspdm_secured_message_dhe_free(</span></a>
+<a name="602"><span class="lineNum">     602 </span><span class="lineNoCov">          0 :             spdm_context-&gt;connection_info.algorithm.dhe_named_group, dhe_context);</span></a>
+<a name="603"><span class="lineNum">     603 </span><span class="lineNoCov">          0 :         status = LIBSPDM_STATUS_INVALID_MSG_FIELD;</span></a>
+<a name="604"><span class="lineNum">     604 </span><span class="lineNoCov">          0 :         goto receive_done;</span></a>
 <a name="605"><span class="lineNum">     605 </span>            :     }</a>
 <a name="606"><span class="lineNum">     606 </span>            : </a>
 <a name="607"><span class="lineNum">     607 </span><span class="lineCov">         19 :     ptr += opaque_length;</span></a>

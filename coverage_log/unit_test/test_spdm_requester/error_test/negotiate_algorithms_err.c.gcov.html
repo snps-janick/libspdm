@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-12-22 08:04:20</td>
+            <td class="headerValue">2022-12-23 08:04:39</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">44</td>
@@ -74,7 +74,7 @@
 <a name="12"><span class="lineNum">      12 </span>            :     spdm_message_header_t header;</a>
 <a name="13"><span class="lineNum">      13 </span>            :     uint16_t length;</a>
 <a name="14"><span class="lineNum">      14 </span>            :     uint8_t measurement_specification_sel;</a>
-<a name="15"><span class="lineNum">      15 </span>            :     uint8_t other_params_support;</a>
+<a name="15"><span class="lineNum">      15 </span>            :     uint8_t other_params_selection;</a>
 <a name="16"><span class="lineNum">      16 </span>            :     uint32_t measurement_hash_algo;</a>
 <a name="17"><span class="lineNum">      17 </span>            :     uint32_t base_asym_sel;</a>
 <a name="18"><span class="lineNum">      18 </span>            :     uint32_t base_hash_sel;</a>
@@ -1298,7 +1298,7 @@
 <a name="1236"><span class="lineNum">    1236 </span><span class="lineCov">          2 :         spdm_response-&gt;length = sizeof(libspdm_algorithms_response_spdm11_t);</span></a>
 <a name="1237"><span class="lineNum">    1237 </span><span class="lineCov">          2 :         spdm_response-&gt;measurement_specification_sel =</span></a>
 <a name="1238"><span class="lineNum">    1238 </span>            :             SPDM_MEASUREMENT_BLOCK_HEADER_SPECIFICATION_DMTF;</a>
-<a name="1239"><span class="lineNum">    1239 </span><span class="lineCov">          2 :         spdm_response-&gt;other_params_support = SPDM_ALGORITHMS_OPAQUE_DATA_FORMAT_1;</span></a>
+<a name="1239"><span class="lineNum">    1239 </span><span class="lineCov">          2 :         spdm_response-&gt;other_params_selection = SPDM_ALGORITHMS_OPAQUE_DATA_FORMAT_1;</span></a>
 <a name="1240"><span class="lineNum">    1240 </span><span class="lineCov">          2 :         spdm_response-&gt;measurement_hash_algo = m_libspdm_use_measurement_hash_algo;</span></a>
 <a name="1241"><span class="lineNum">    1241 </span><span class="lineCov">          2 :         spdm_response-&gt;base_asym_sel = m_libspdm_use_asym_algo;</span></a>
 <a name="1242"><span class="lineNum">    1242 </span><span class="lineCov">          2 :         spdm_response-&gt;base_hash_sel = m_libspdm_use_hash_algo;</span></a>
@@ -1345,7 +1345,7 @@
 <a name="1283"><span class="lineNum">    1283 </span><span class="lineCov">          1 :         spdm_response-&gt;length = sizeof(libspdm_algorithms_response_spdm11_t);</span></a>
 <a name="1284"><span class="lineNum">    1284 </span><span class="lineCov">          1 :         spdm_response-&gt;measurement_specification_sel =</span></a>
 <a name="1285"><span class="lineNum">    1285 </span>            :             SPDM_MEASUREMENT_BLOCK_HEADER_SPECIFICATION_DMTF;</a>
-<a name="1286"><span class="lineNum">    1286 </span><span class="lineCov">          1 :         spdm_response-&gt;other_params_support = 0;</span></a>
+<a name="1286"><span class="lineNum">    1286 </span><span class="lineCov">          1 :         spdm_response-&gt;other_params_selection = 0;</span></a>
 <a name="1287"><span class="lineNum">    1287 </span><span class="lineCov">          1 :         spdm_response-&gt;measurement_hash_algo = m_libspdm_use_measurement_hash_algo;</span></a>
 <a name="1288"><span class="lineNum">    1288 </span><span class="lineCov">          1 :         spdm_response-&gt;base_asym_sel = m_libspdm_use_asym_algo;</span></a>
 <a name="1289"><span class="lineNum">    1289 </span><span class="lineCov">          1 :         spdm_response-&gt;base_hash_sel = m_libspdm_use_hash_algo;</span></a>
@@ -1647,7 +1647,7 @@
 <a name="1585"><span class="lineNum">    1585 </span><span class="lineCov">          1 :         spdm_response-&gt;measurement_specification_sel =</span></a>
 <a name="1586"><span class="lineNum">    1586 </span>            :             SPDM_MEASUREMENT_BLOCK_HEADER_SPECIFICATION_DMTF;</a>
 <a name="1587"><span class="lineNum">    1587 </span>            :         /* Two bits set when only one should be set. */</a>
-<a name="1588"><span class="lineNum">    1588 </span><span class="lineCov">          1 :         spdm_response-&gt;other_params_support =</span></a>
+<a name="1588"><span class="lineNum">    1588 </span><span class="lineCov">          1 :         spdm_response-&gt;other_params_selection =</span></a>
 <a name="1589"><span class="lineNum">    1589 </span>            :             SPDM_ALGORITHMS_OPAQUE_DATA_FORMAT_0 |</a>
 <a name="1590"><span class="lineNum">    1590 </span>            :             SPDM_ALGORITHMS_OPAQUE_DATA_FORMAT_1;</a>
 <a name="1591"><span class="lineNum">    1591 </span><span class="lineCov">          1 :         spdm_response-&gt;measurement_hash_algo =</span></a>

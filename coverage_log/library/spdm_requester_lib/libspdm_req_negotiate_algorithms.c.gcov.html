@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-12-22 08:04:20</td>
+            <td class="headerValue">2022-12-23 08:04:39</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -87,7 +87,7 @@
 <a name="25"><span class="lineNum">      25 </span>            :     spdm_message_header_t header;</a>
 <a name="26"><span class="lineNum">      26 </span>            :     uint16_t length;</a>
 <a name="27"><span class="lineNum">      27 </span>            :     uint8_t measurement_specification_sel;</a>
-<a name="28"><span class="lineNum">      28 </span>            :     uint8_t other_params_support;</a>
+<a name="28"><span class="lineNum">      28 </span>            :     uint8_t other_params_selection;</a>
 <a name="29"><span class="lineNum">      29 </span>            :     uint32_t measurement_hash_algo;</a>
 <a name="30"><span class="lineNum">      30 </span>            :     uint32_t base_asym_sel;</a>
 <a name="31"><span class="lineNum">      31 </span>            :     uint32_t base_hash_sel;</a>
@@ -363,7 +363,7 @@
 <a name="301"><span class="lineNum">     301 </span><span class="lineCov">         22 :         spdm_response-&gt;measurement_specification_sel;</span></a>
 <a name="302"><span class="lineNum">     302 </span><span class="lineCov">         22 :     if (spdm_response-&gt;header.spdm_version &gt;= SPDM_MESSAGE_VERSION_12) {</span></a>
 <a name="303"><span class="lineNum">     303 </span><span class="lineCov">          6 :         spdm_context-&gt;connection_info.algorithm.other_params_support =</span></a>
-<a name="304"><span class="lineNum">     304 </span><span class="lineCov">          6 :             spdm_response-&gt;other_params_support;</span></a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">          6 :             spdm_response-&gt;other_params_selection;</span></a>
 <a name="305"><span class="lineNum">     305 </span>            :     }</a>
 <a name="306"><span class="lineNum">     306 </span><span class="lineCov">         22 :     spdm_context-&gt;connection_info.algorithm.measurement_hash_algo =</span></a>
 <a name="307"><span class="lineNum">     307 </span><span class="lineCov">         22 :         spdm_response-&gt;measurement_hash_algo;</span></a>

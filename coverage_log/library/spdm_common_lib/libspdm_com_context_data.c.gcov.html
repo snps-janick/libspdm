@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-12-22 08:04:20</td>
+            <td class="headerValue">2022-12-23 08:04:39</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">41</td>
@@ -1759,9 +1759,9 @@
 <a name="1697"><span class="lineNum">    1697 </span>            :  *</a>
 <a name="1698"><span class="lineNum">    1698 </span>            :  * @return the connection version.</a>
 <a name="1699"><span class="lineNum">    1699 </span>            :  **/</a>
-<a name="1700"><span class="lineNum">    1700 </span><span class="lineCov">       7087 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
+<a name="1700"><span class="lineNum">    1700 </span><span class="lineCov">       7089 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
 <a name="1701"><span class="lineNum">    1701 </span>            : {</a>
-<a name="1702"><span class="lineNum">    1702 </span><span class="lineCov">       7087 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
+<a name="1702"><span class="lineNum">    1702 </span><span class="lineCov">       7089 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
 <a name="1703"><span class="lineNum">    1703 </span>            : }</a>
 <a name="1704"><span class="lineNum">    1704 </span>            : </a>
 <a name="1705"><span class="lineNum">    1705 </span>            : /**</a>
@@ -1945,19 +1945,19 @@
 <a name="1883"><span class="lineNum">    1883 </span>            :  * @param  scratch_buffer_size      Size of the scratch buffer.</a>
 <a name="1884"><span class="lineNum">    1884 </span>            :  *</a>
 <a name="1885"><span class="lineNum">    1885 </span>            :  **/</a>
-<a name="1886"><span class="lineNum">    1886 </span><span class="lineCov">       5309 : void libspdm_get_scratch_buffer (</span></a>
+<a name="1886"><span class="lineNum">    1886 </span><span class="lineCov">       5311 : void libspdm_get_scratch_buffer (</span></a>
 <a name="1887"><span class="lineNum">    1887 </span>            :     void *context,</a>
 <a name="1888"><span class="lineNum">    1888 </span>            :     void **scratch_buffer,</a>
 <a name="1889"><span class="lineNum">    1889 </span>            :     size_t *scratch_buffer_size)</a>
 <a name="1890"><span class="lineNum">    1890 </span>            : {</a>
 <a name="1891"><span class="lineNum">    1891 </span>            :     libspdm_context_t *spdm_context;</a>
 <a name="1892"><span class="lineNum">    1892 </span>            : </a>
-<a name="1893"><span class="lineNum">    1893 </span><span class="lineCov">       5309 :     spdm_context = context;</span></a>
-<a name="1894"><span class="lineNum">    1894 </span><span class="lineCov">       5309 :     LIBSPDM_ASSERT (spdm_context-&gt;scratch_buffer != NULL);</span></a>
-<a name="1895"><span class="lineNum">    1895 </span><span class="lineCov">       5309 :     LIBSPDM_ASSERT (spdm_context-&gt;scratch_buffer_size &gt;= LIBSPDM_SCRATCH_BUFFER_SIZE);</span></a>
-<a name="1896"><span class="lineNum">    1896 </span><span class="lineCov">       5309 :     *scratch_buffer = spdm_context-&gt;scratch_buffer;</span></a>
-<a name="1897"><span class="lineNum">    1897 </span><span class="lineCov">       5309 :     *scratch_buffer_size = spdm_context-&gt;scratch_buffer_size;</span></a>
-<a name="1898"><span class="lineNum">    1898 </span><span class="lineCov">       5309 : }</span></a>
+<a name="1893"><span class="lineNum">    1893 </span><span class="lineCov">       5311 :     spdm_context = context;</span></a>
+<a name="1894"><span class="lineNum">    1894 </span><span class="lineCov">       5311 :     LIBSPDM_ASSERT (spdm_context-&gt;scratch_buffer != NULL);</span></a>
+<a name="1895"><span class="lineNum">    1895 </span><span class="lineCov">       5311 :     LIBSPDM_ASSERT (spdm_context-&gt;scratch_buffer_size &gt;= LIBSPDM_SCRATCH_BUFFER_SIZE);</span></a>
+<a name="1896"><span class="lineNum">    1896 </span><span class="lineCov">       5311 :     *scratch_buffer = spdm_context-&gt;scratch_buffer;</span></a>
+<a name="1897"><span class="lineNum">    1897 </span><span class="lineCov">       5311 :     *scratch_buffer_size = spdm_context-&gt;scratch_buffer_size;</span></a>
+<a name="1898"><span class="lineNum">    1898 </span><span class="lineCov">       5311 : }</span></a>
 <a name="1899"><span class="lineNum">    1899 </span>            : </a>
 <a name="1900"><span class="lineNum">    1900 </span>            : /**</a>
 <a name="1901"><span class="lineNum">    1901 </span>            :  * Acquire a device sender buffer for transport layer message.</a>
@@ -2015,14 +2015,14 @@
 <a name="1953"><span class="lineNum">    1953 </span>            :  * @param  receiver_buffer_size       Size of the sender buffer.</a>
 <a name="1954"><span class="lineNum">    1954 </span>            :  *</a>
 <a name="1955"><span class="lineNum">    1955 </span>            :  **/</a>
-<a name="1956"><span class="lineNum">    1956 </span><span class="lineCov">       2509 : void libspdm_get_sender_buffer (</span></a>
+<a name="1956"><span class="lineNum">    1956 </span><span class="lineCov">       2510 : void libspdm_get_sender_buffer (</span></a>
 <a name="1957"><span class="lineNum">    1957 </span>            :     libspdm_context_t *spdm_context,</a>
 <a name="1958"><span class="lineNum">    1958 </span>            :     void **sender_buffer,</a>
 <a name="1959"><span class="lineNum">    1959 </span>            :     size_t *sender_buffer_size)</a>
 <a name="1960"><span class="lineNum">    1960 </span>            : {</a>
-<a name="1961"><span class="lineNum">    1961 </span><span class="lineCov">       2509 :     *sender_buffer = spdm_context-&gt;sender_buffer;</span></a>
-<a name="1962"><span class="lineNum">    1962 </span><span class="lineCov">       2509 :     *sender_buffer_size = spdm_context-&gt;sender_buffer_size;</span></a>
-<a name="1963"><span class="lineNum">    1963 </span><span class="lineCov">       2509 : }</span></a>
+<a name="1961"><span class="lineNum">    1961 </span><span class="lineCov">       2510 :     *sender_buffer = spdm_context-&gt;sender_buffer;</span></a>
+<a name="1962"><span class="lineNum">    1962 </span><span class="lineCov">       2510 :     *sender_buffer_size = spdm_context-&gt;sender_buffer_size;</span></a>
+<a name="1963"><span class="lineNum">    1963 </span><span class="lineCov">       2510 : }</span></a>
 <a name="1964"><span class="lineNum">    1964 </span>            : </a>
 <a name="1965"><span class="lineNum">    1965 </span>            : /**</a>
 <a name="1966"><span class="lineNum">    1966 </span>            :  * Acquire a device receiver buffer for transport layer message.</a>
@@ -2110,14 +2110,14 @@
 <a name="2048"><span class="lineNum">    2048 </span>            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="2049"><span class="lineNum">    2049 </span>            :  * @param  last_spdm_error                Last SPDM error struct of an SPDM context.</a>
 <a name="2050"><span class="lineNum">    2050 </span>            :  */</a>
-<a name="2051"><span class="lineNum">    2051 </span><span class="lineCov">       2595 : void libspdm_set_last_spdm_error_struct(void *context, libspdm_error_struct_t *last_spdm_error)</span></a>
+<a name="2051"><span class="lineNum">    2051 </span><span class="lineCov">       2596 : void libspdm_set_last_spdm_error_struct(void *context, libspdm_error_struct_t *last_spdm_error)</span></a>
 <a name="2052"><span class="lineNum">    2052 </span>            : {</a>
 <a name="2053"><span class="lineNum">    2053 </span>            :     libspdm_context_t *spdm_context;</a>
 <a name="2054"><span class="lineNum">    2054 </span>            : </a>
-<a name="2055"><span class="lineNum">    2055 </span><span class="lineCov">       2595 :     spdm_context = context;</span></a>
-<a name="2056"><span class="lineNum">    2056 </span><span class="lineCov">       2595 :     libspdm_copy_mem(&amp;spdm_context-&gt;last_spdm_error, sizeof(spdm_context-&gt;last_spdm_error),</span></a>
+<a name="2055"><span class="lineNum">    2055 </span><span class="lineCov">       2596 :     spdm_context = context;</span></a>
+<a name="2056"><span class="lineNum">    2056 </span><span class="lineCov">       2596 :     libspdm_copy_mem(&amp;spdm_context-&gt;last_spdm_error, sizeof(spdm_context-&gt;last_spdm_error),</span></a>
 <a name="2057"><span class="lineNum">    2057 </span>            :                      last_spdm_error, sizeof(libspdm_error_struct_t));</a>
-<a name="2058"><span class="lineNum">    2058 </span><span class="lineCov">       2595 : }</span></a>
+<a name="2058"><span class="lineNum">    2058 </span><span class="lineCov">       2596 : }</span></a>
 <a name="2059"><span class="lineNum">    2059 </span>            : </a>
 <a name="2060"><span class="lineNum">    2060 </span>            : /**</a>
 <a name="2061"><span class="lineNum">    2061 </span>            :  * Initialize an SPDM context, as well as all secured message contexts,</a>
