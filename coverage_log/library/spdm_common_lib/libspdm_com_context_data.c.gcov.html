@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-12 08:05:20</td>
+            <td class="headerValue">2023-01-13 08:04:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">42</td>
@@ -2026,7 +2026,7 @@
 <a name="1964"><span class="lineNum">    1964 </span>            :     }</a>
 <a name="1965"><span class="lineNum">    1965 </span><span class="lineCov">       2444 :     spdm_context-&gt;sender_buffer = *msg_buf_ptr;</span></a>
 <a name="1966"><span class="lineNum">    1966 </span><span class="lineCov">       2444 :     spdm_context-&gt;sender_buffer_size = *max_msg_size;</span></a>
-<a name="1967"><span class="lineNum">    1967 </span>            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP || LIBSPDM_ENABLE_CHUNK_CAP</a>
+<a name="1967"><span class="lineNum">    1967 </span>            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="1968"><span class="lineNum">    1968 </span>            :     /* it return scratch buffer, because the requester need build message there.*/</a>
 <a name="1969"><span class="lineNum">    1969 </span><span class="lineCov">       2444 :     *msg_buf_ptr = spdm_context-&gt;scratch_buffer +</span></a>
 <a name="1970"><span class="lineNum">    1970 </span>            :                    LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_OFFSET;</a>
@@ -2091,7 +2091,7 @@
 <a name="2029"><span class="lineNum">    2029 </span>            :     }</a>
 <a name="2030"><span class="lineNum">    2030 </span><span class="lineCov">       2411 :     spdm_context-&gt;receiver_buffer = *msg_buf_ptr;</span></a>
 <a name="2031"><span class="lineNum">    2031 </span><span class="lineCov">       2411 :     spdm_context-&gt;receiver_buffer_size = *max_msg_size;</span></a>
-<a name="2032"><span class="lineNum">    2032 </span>            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP || LIBSPDM_ENABLE_CHUNK_CAP</a>
+<a name="2032"><span class="lineNum">    2032 </span>            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="2033"><span class="lineNum">    2033 </span>            :     /* it return scratch buffer, because the requester need build message there.*/</a>
 <a name="2034"><span class="lineNum">    2034 </span><span class="lineCov">       2411 :     *msg_buf_ptr = spdm_context-&gt;scratch_buffer +</span></a>
 <a name="2035"><span class="lineNum">    2035 </span>            :                    LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_OFFSET;</a>

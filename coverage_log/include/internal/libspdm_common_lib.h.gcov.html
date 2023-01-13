@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-12 08:05:20</td>
+            <td class="headerValue">2023-01-13 08:04:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -330,7 +330,7 @@
 <a name="268"><span class="lineNum">     268 </span>            :     libspdm_large_managed_buffer_t certificate_chain_buffer;</a>
 <a name="269"><span class="lineNum">     269 </span>            : } libspdm_encap_context_t;</a>
 <a name="270"><span class="lineNum">     270 </span>            : </a>
-<a name="271"><span class="lineNum">     271 </span>            : #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP || LIBSPDM_ENABLE_CHUNK_CAP</a>
+<a name="271"><span class="lineNum">     271 </span>            : #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="272"><span class="lineNum">     272 </span>            : typedef struct {</a>
 <a name="273"><span class="lineNum">     273 </span>            :     bool chunk_in_use;</a>
 <a name="274"><span class="lineNum">     274 </span>            :     uint8_t chunk_handle;</a>
@@ -453,7 +453,7 @@
 <a name="391"><span class="lineNum">     391 </span>            :     /* See LIBSPDM_DATA_HANDLE_ERROR_RETURN_POLICY_*. */</a>
 <a name="392"><span class="lineNum">     392 </span>            :     uint8_t handle_error_return_policy;</a>
 <a name="393"><span class="lineNum">     393 </span>            : </a>
-<a name="394"><span class="lineNum">     394 </span>            : #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP || LIBSPDM_ENABLE_CHUNK_CAP</a>
+<a name="394"><span class="lineNum">     394 </span>            : #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="395"><span class="lineNum">     395 </span>            :     /* Chunk specific context */</a>
 <a name="396"><span class="lineNum">     396 </span>            :     libspdm_chunk_context_t chunk_context;</a>
 <a name="397"><span class="lineNum">     397 </span>            : #endif /* LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP */</a>
