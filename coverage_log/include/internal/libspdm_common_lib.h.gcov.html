@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-13 08:04:36</td>
+            <td class="headerValue">2023-01-14 08:04:50</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -1364,9 +1364,9 @@
 <a name="1302"><span class="lineNum">    1302 </span>            :  * @return true   At most one bit is set.</a>
 <a name="1303"><span class="lineNum">    1303 </span>            :  * @return false  More than one bit is set.</a>
 <a name="1304"><span class="lineNum">    1304 </span>            :  */</a>
-<a name="1305"><span class="lineNum">    1305 </span><span class="lineCov">        221 : static inline bool libspdm_onehot0(uint32_t mask)</span></a>
+<a name="1305"><span class="lineNum">    1305 </span><span class="lineCov">        232 : static inline bool libspdm_onehot0(uint32_t mask)</span></a>
 <a name="1306"><span class="lineNum">    1306 </span>            : {</a>
-<a name="1307"><span class="lineNum">    1307 </span><span class="lineCov">        221 :     return !mask || !(mask &amp; (mask - 1));</span></a>
+<a name="1307"><span class="lineNum">    1307 </span><span class="lineCov">        232 :     return !mask || !(mask &amp; (mask - 1));</span></a>
 <a name="1308"><span class="lineNum">    1308 </span>            : }</a>
 <a name="1309"><span class="lineNum">    1309 </span>            : </a>
 <a name="1310"><span class="lineNum">    1310 </span>            : #endif /* SPDM_COMMON_LIB_INTERNAL_H */</a>

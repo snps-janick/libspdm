@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-13 08:04:36</td>
+            <td class="headerValue">2023-01-14 08:04:50</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">22</td>
@@ -232,9 +232,9 @@
 <a name="170"><span class="lineNum">     170 </span><span class="lineNoCov">          0 :     LIBSPDM_ASSERT(false);</span></a>
 <a name="171"><span class="lineNum">     171 </span>            : }</a>
 <a name="172"><span class="lineNum">     172 </span>            : </a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        407 : uint32_t libspdm_get_asym_signature_size(uint32_t base_asym_algo)</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        401 : uint32_t libspdm_get_asym_signature_size(uint32_t base_asym_algo)</span></a>
 <a name="174"><span class="lineNum">     174 </span>            : {</a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">        407 :     switch (base_asym_algo) {</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">        401 :     switch (base_asym_algo) {</span></a>
 <a name="176"><span class="lineNum">     176 </span><span class="lineCov">         46 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSASSA_2048:</span></a>
 <a name="177"><span class="lineNum">     177 </span>            :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSAPSS_2048:</a>
 <a name="178"><span class="lineNum">     178 </span><span class="lineCov">         46 :         return 256;</span></a>
@@ -244,8 +244,8 @@
 <a name="182"><span class="lineNum">     182 </span><span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSASSA_4096:</span></a>
 <a name="183"><span class="lineNum">     183 </span>            :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSAPSS_4096:</a>
 <a name="184"><span class="lineNum">     184 </span><span class="lineNoCov">          0 :         return 512;</span></a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">        354 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P256:</span></a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">        354 :         return 32 * 2;</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">        348 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P256:</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">        348 :         return 32 * 2;</span></a>
 <a name="187"><span class="lineNum">     187 </span><span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P384:</span></a>
 <a name="188"><span class="lineNum">     188 </span><span class="lineNoCov">          0 :         return 48 * 2;</span></a>
 <a name="189"><span class="lineNum">     189 </span><span class="lineCov">          3 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P521:</span></a>
