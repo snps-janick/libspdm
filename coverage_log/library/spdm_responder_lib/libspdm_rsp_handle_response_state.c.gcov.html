@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">22</td>
-            <td class="headerCovTableEntry">27</td>
-            <td class="headerCovTableEntryMed">81.5 %</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntry">26</td>
+            <td class="headerCovTableEntryMed">80.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-16 08:04:43</td>
+            <td class="headerValue">2023-01-17 08:04:49</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -93,11 +93,11 @@
 <a name="31"><span class="lineNum">      31 </span><span class="lineCov">         17 :         libspdm_set_connection_state(spdm_context,</span></a>
 <a name="32"><span class="lineNum">      32 </span>            :                                      LIBSPDM_CONNECTION_STATE_NOT_STARTED);</a>
 <a name="33"><span class="lineNum">      33 </span><span class="lineCov">         17 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">         12 :     case LIBSPDM_RESPONSE_STATE_NOT_READY:</span></a>
-<a name="35"><span class="lineNum">      35 </span>            :         /*do not update ErrorData if a previous request has not been completed*/</a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">         12 :         if(request_code != SPDM_RESPOND_IF_READY) {</span></a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         11 :             spdm_context-&gt;cache_spdm_request_size =</span></a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">         11 :                 spdm_context-&gt;last_spdm_request_size;</span></a>
+<a name="34"><span class="lineNum">      34 </span>            :     #if LIBSPDM_RESPOND_IF_READY_SUPPORT</a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">         12 :     case LIBSPDM_RESPONSE_STATE_NOT_READY:</span></a>
+<a name="36"><span class="lineNum">      36 </span>            :         /*do not update ErrorData if a previous request has not been completed*/</a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         12 :         if(request_code != SPDM_RESPOND_IF_READY) {</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">         11 :             spdm_context-&gt;cache_spdm_request_size = spdm_context-&gt;last_spdm_request_size;</span></a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineCov">         11 :             libspdm_copy_mem(spdm_context-&gt;cache_spdm_request,</span></a>
 <a name="40"><span class="lineNum">      40 </span>            :                              sizeof(spdm_context-&gt;cache_spdm_request),</a>
 <a name="41"><span class="lineNum">      41 </span><span class="lineCov">         11 :                              spdm_context-&gt;last_spdm_request,</span></a>
@@ -112,16 +112,17 @@
 <a name="50"><span class="lineNum">      50 </span>            :             sizeof(spdm_error_data_response_not_ready_t),</a>
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">         12 :             (uint8_t *)(void *)&amp;spdm_context-&gt;error_data,</span></a>
 <a name="52"><span class="lineNum">      52 </span>            :             response_size, response);</a>
-<a name="53"><span class="lineNum">      53 </span>            :     /* NOTE: Need to reset status to Normal in up level*/</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineNoCov">          0 :     case LIBSPDM_RESPONSE_STATE_PROCESSING_ENCAP:</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineNoCov">          0 :         return libspdm_generate_error_response(spdm_context,</span></a>
-<a name="56"><span class="lineNum">      56 </span>            :                                                SPDM_ERROR_CODE_REQUEST_IN_FLIGHT,</a>
-<a name="57"><span class="lineNum">      57 </span>            :                                                0, response_size, response);</a>
-<a name="58"><span class="lineNum">      58 </span>            :     /* NOTE: Need let SPDM_ENCAPSULATED_RESPONSE_ACK reset the State*/</a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineNoCov">          0 :     default:</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
-<a name="61"><span class="lineNum">      61 </span>            :     }</a>
-<a name="62"><span class="lineNum">      62 </span>            : }</a>
+<a name="53"><span class="lineNum">      53 </span>            :     #endif /* LIBSPDM_RESPOND_IF_READY_SUPPORT */</a>
+<a name="54"><span class="lineNum">      54 </span>            :     /* NOTE: Need to reset status to Normal in up level*/</a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineNoCov">          0 :     case LIBSPDM_RESPONSE_STATE_PROCESSING_ENCAP:</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineNoCov">          0 :         return libspdm_generate_error_response(spdm_context,</span></a>
+<a name="57"><span class="lineNum">      57 </span>            :                                                SPDM_ERROR_CODE_REQUEST_IN_FLIGHT,</a>
+<a name="58"><span class="lineNum">      58 </span>            :                                                0, response_size, response);</a>
+<a name="59"><span class="lineNum">      59 </span>            :     /* NOTE: Need let SPDM_ENCAPSULATED_RESPONSE_ACK reset the State*/</a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 :     default:</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineNoCov">          0 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
+<a name="62"><span class="lineNum">      62 </span>            :     }</a>
+<a name="63"><span class="lineNum">      63 </span>            : }</a>
 </pre>
       </td>
     </tr>

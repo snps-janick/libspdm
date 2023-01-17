@@ -31,17 +31,17 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">105</td>
-            <td class="headerCovTableEntry">117</td>
-            <td class="headerCovTableEntryMed">89.7 %</td>
+            <td class="headerCovTableEntry">98</td>
+            <td class="headerCovTableEntry">108</td>
+            <td class="headerCovTableEntryHi">90.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-16 08:04:43</td>
+            <td class="headerValue">2023-01-17 08:04:49</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">3</td>
-            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -282,46 +282,27 @@
 <a name="220"><span class="lineNum">     220 </span><span class="lineCov">         33 :     return status;</span></a>
 <a name="221"><span class="lineNum">     221 </span>            : }</a>
 <a name="222"><span class="lineNum">     222 </span>            : </a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         37 : libspdm_return_t libspdm_get_digest(void *context, uint8_t *slot_mask, void *total_digest_buffer)</span></a>
-<a name="224"><span class="lineNum">     224 </span>            : {</a>
-<a name="225"><span class="lineNum">     225 </span>            :     libspdm_context_t *spdm_context;</a>
-<a name="226"><span class="lineNum">     226 </span>            :     size_t retry;</a>
-<a name="227"><span class="lineNum">     227 </span>            :     libspdm_return_t status;</a>
-<a name="228"><span class="lineNum">     228 </span>            : </a>
-<a name="229"><span class="lineNum">     229 </span><span class="lineCov">         37 :     spdm_context = context;</span></a>
-<a name="230"><span class="lineNum">     230 </span><span class="lineCov">         37 :     spdm_context-&gt;crypto_request = true;</span></a>
-<a name="231"><span class="lineNum">     231 </span><span class="lineCov">         37 :     retry = spdm_context-&gt;retry_times;</span></a>
-<a name="232"><span class="lineNum">     232 </span>            :     do {</a>
-<a name="233"><span class="lineNum">     233 </span><span class="lineCov">         37 :         status = libspdm_try_get_digest(spdm_context, NULL, slot_mask, total_digest_buffer);</span></a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">         37 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         36 :             return status;</span></a>
-<a name="236"><span class="lineNum">     236 </span>            :         }</a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">          1 :     } while (retry-- != 0);</span></a>
-<a name="238"><span class="lineNum">     238 </span>            : </a>
-<a name="239"><span class="lineNum">     239 </span><span class="lineCov">          1 :     return status;</span></a>
-<a name="240"><span class="lineNum">     240 </span>            : }</a>
-<a name="241"><span class="lineNum">     241 </span>            : </a>
-<a name="242"><span class="lineNum">     242 </span><span class="lineCov">          1 : libspdm_return_t libspdm_get_digest_in_session(void *context, const uint32_t *session_id,</span></a>
-<a name="243"><span class="lineNum">     243 </span>            :                                                uint8_t *slot_mask, void *total_digest_buffer)</a>
-<a name="244"><span class="lineNum">     244 </span>            : {</a>
-<a name="245"><span class="lineNum">     245 </span>            :     libspdm_context_t *spdm_context;</a>
-<a name="246"><span class="lineNum">     246 </span>            :     size_t retry;</a>
-<a name="247"><span class="lineNum">     247 </span>            :     libspdm_return_t status;</a>
-<a name="248"><span class="lineNum">     248 </span>            : </a>
-<a name="249"><span class="lineNum">     249 </span><span class="lineCov">          1 :     spdm_context = context;</span></a>
-<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          1 :     spdm_context-&gt;crypto_request = true;</span></a>
-<a name="251"><span class="lineNum">     251 </span><span class="lineCov">          1 :     retry = spdm_context-&gt;retry_times;</span></a>
-<a name="252"><span class="lineNum">     252 </span>            :     do {</a>
-<a name="253"><span class="lineNum">     253 </span><span class="lineCov">          1 :         status = libspdm_try_get_digest(spdm_context, session_id, slot_mask, total_digest_buffer);</span></a>
-<a name="254"><span class="lineNum">     254 </span><span class="lineCov">          1 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
-<a name="255"><span class="lineNum">     255 </span><span class="lineCov">          1 :             return status;</span></a>
-<a name="256"><span class="lineNum">     256 </span>            :         }</a>
-<a name="257"><span class="lineNum">     257 </span><span class="lineNoCov">          0 :     } while (retry-- != 0);</span></a>
-<a name="258"><span class="lineNum">     258 </span>            : </a>
-<a name="259"><span class="lineNum">     259 </span><span class="lineNoCov">          0 :     return status;</span></a>
-<a name="260"><span class="lineNum">     260 </span>            : }</a>
-<a name="261"><span class="lineNum">     261 </span>            : </a>
-<a name="262"><span class="lineNum">     262 </span>            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CERT_CAP*/</a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         38 : libspdm_return_t libspdm_get_digest(void *context, const uint32_t *session_id,</span></a>
+<a name="224"><span class="lineNum">     224 </span>            :                                     uint8_t *slot_mask, void *total_digest_buffer)</a>
+<a name="225"><span class="lineNum">     225 </span>            : {</a>
+<a name="226"><span class="lineNum">     226 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="227"><span class="lineNum">     227 </span>            :     size_t retry;</a>
+<a name="228"><span class="lineNum">     228 </span>            :     libspdm_return_t status;</a>
+<a name="229"><span class="lineNum">     229 </span>            : </a>
+<a name="230"><span class="lineNum">     230 </span><span class="lineCov">         38 :     spdm_context = context;</span></a>
+<a name="231"><span class="lineNum">     231 </span><span class="lineCov">         38 :     spdm_context-&gt;crypto_request = true;</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">         38 :     retry = spdm_context-&gt;retry_times;</span></a>
+<a name="233"><span class="lineNum">     233 </span>            :     do {</a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">         38 :         status = libspdm_try_get_digest(spdm_context, session_id, slot_mask, total_digest_buffer);</span></a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">         38 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
+<a name="236"><span class="lineNum">     236 </span><span class="lineCov">         37 :             return status;</span></a>
+<a name="237"><span class="lineNum">     237 </span>            :         }</a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">          1 :     } while (retry-- != 0);</span></a>
+<a name="239"><span class="lineNum">     239 </span>            : </a>
+<a name="240"><span class="lineNum">     240 </span><span class="lineCov">          1 :     return status;</span></a>
+<a name="241"><span class="lineNum">     241 </span>            : }</a>
+<a name="242"><span class="lineNum">     242 </span>            : </a>
+<a name="243"><span class="lineNum">     243 </span>            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CERT_CAP*/</a>
 </pre>
       </td>
     </tr>

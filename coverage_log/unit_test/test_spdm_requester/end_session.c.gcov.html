@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-16 08:04:43</td>
+            <td class="headerValue">2023-01-17 08:04:49</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
@@ -1504,55 +1504,55 @@
 <a name="1442"><span class="lineNum">    1442 </span><span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.aead_cipher_suite =</span></a>
 <a name="1443"><span class="lineNum">    1443 </span>            :         m_libspdm_use_aead_algo;</a>
 <a name="1444"><span class="lineNum">    1444 </span>            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
-<a name="1445"><span class="lineNum">    1445 </span>            :     spdm_context-&gt;connection_info.peer_used_cert_chain[0].buffer_size =</a>
-<a name="1446"><span class="lineNum">    1446 </span>            :         data_size;</a>
-<a name="1447"><span class="lineNum">    1447 </span>            :     libspdm_copy_mem(spdm_context-&gt;connection_info.peer_used_cert_chain[0].buffer,</a>
-<a name="1448"><span class="lineNum">    1448 </span>            :                      sizeof(spdm_context-&gt;connection_info.peer_used_cert_chain[0].buffer),</a>
-<a name="1449"><span class="lineNum">    1449 </span>            :                      data, data_size);</a>
-<a name="1450"><span class="lineNum">    1450 </span>            : #endif</a>
-<a name="1451"><span class="lineNum">    1451 </span><span class="lineCov">          1 :     libspdm_zero_mem(m_local_psk_hint, 32);</span></a>
-<a name="1452"><span class="lineNum">    1452 </span><span class="lineCov">          1 :     libspdm_copy_mem(&amp;m_local_psk_hint[0], sizeof(m_local_psk_hint),</span></a>
-<a name="1453"><span class="lineNum">    1453 </span>            :                      LIBSPDM_TEST_PSK_HINT_STRING, sizeof(LIBSPDM_TEST_PSK_HINT_STRING));</a>
-<a name="1454"><span class="lineNum">    1454 </span><span class="lineCov">          1 :     spdm_context-&gt;local_context.psk_hint_size =</span></a>
-<a name="1455"><span class="lineNum">    1455 </span>            :         sizeof(LIBSPDM_TEST_PSK_HINT_STRING);</a>
-<a name="1456"><span class="lineNum">    1456 </span><span class="lineCov">          1 :     spdm_context-&gt;local_context.psk_hint = m_local_psk_hint;</span></a>
-<a name="1457"><span class="lineNum">    1457 </span>            : </a>
-<a name="1458"><span class="lineNum">    1458 </span><span class="lineCov">          1 :     session_id = 0xFFFFFFFF;</span></a>
-<a name="1459"><span class="lineNum">    1459 </span><span class="lineCov">          1 :     session_info = &amp;spdm_context-&gt;session_info[0];</span></a>
-<a name="1460"><span class="lineNum">    1460 </span><span class="lineCov">          1 :     libspdm_session_info_init(spdm_context, session_info, session_id, true);</span></a>
-<a name="1461"><span class="lineNum">    1461 </span><span class="lineCov">          1 :     libspdm_secured_message_set_session_state(</span></a>
-<a name="1462"><span class="lineNum">    1462 </span>            :         session_info-&gt;secured_message_context,</a>
-<a name="1463"><span class="lineNum">    1463 </span>            :         LIBSPDM_SESSION_STATE_ESTABLISHED);</a>
-<a name="1464"><span class="lineNum">    1464 </span><span class="lineCov">          1 :     libspdm_set_mem(m_dummy_key_buffer,</span></a>
-<a name="1465"><span class="lineNum">    1465 </span>            :                     ((libspdm_secured_message_context_t</a>
-<a name="1466"><span class="lineNum">    1466 </span><span class="lineCov">          1 :                       *)(session_info-&gt;secured_message_context))</span></a>
-<a name="1467"><span class="lineNum">    1467 </span>            :                     -&gt;aead_key_size,</a>
-<a name="1468"><span class="lineNum">    1468 </span>            :                     (uint8_t)(0xFF));</a>
-<a name="1469"><span class="lineNum">    1469 </span><span class="lineCov">          1 :     libspdm_secured_message_set_response_data_encryption_key(</span></a>
-<a name="1470"><span class="lineNum">    1470 </span>            :         session_info-&gt;secured_message_context, m_dummy_key_buffer,</a>
-<a name="1471"><span class="lineNum">    1471 </span>            :         ((libspdm_secured_message_context_t</a>
-<a name="1472"><span class="lineNum">    1472 </span><span class="lineCov">          1 :           *)(session_info-&gt;secured_message_context))</span></a>
-<a name="1473"><span class="lineNum">    1473 </span>            :         -&gt;aead_key_size);</a>
-<a name="1474"><span class="lineNum">    1474 </span><span class="lineCov">          1 :     libspdm_set_mem(m_dummy_salt_buffer,</span></a>
-<a name="1475"><span class="lineNum">    1475 </span>            :                     ((libspdm_secured_message_context_t</a>
-<a name="1476"><span class="lineNum">    1476 </span><span class="lineCov">          1 :                       *)(session_info-&gt;secured_message_context))</span></a>
-<a name="1477"><span class="lineNum">    1477 </span>            :                     -&gt;aead_iv_size,</a>
-<a name="1478"><span class="lineNum">    1478 </span>            :                     (uint8_t)(0xFF));</a>
-<a name="1479"><span class="lineNum">    1479 </span><span class="lineCov">          1 :     libspdm_secured_message_set_response_data_salt(</span></a>
-<a name="1480"><span class="lineNum">    1480 </span>            :         session_info-&gt;secured_message_context, m_dummy_salt_buffer,</a>
-<a name="1481"><span class="lineNum">    1481 </span>            :         ((libspdm_secured_message_context_t</a>
-<a name="1482"><span class="lineNum">    1482 </span><span class="lineCov">          1 :           *)(session_info-&gt;secured_message_context))</span></a>
-<a name="1483"><span class="lineNum">    1483 </span>            :         -&gt;aead_iv_size);</a>
-<a name="1484"><span class="lineNum">    1484 </span>            :     ((libspdm_secured_message_context_t *)(session_info</a>
-<a name="1485"><span class="lineNum">    1485 </span><span class="lineCov">          1 :                                            -&gt;secured_message_context))</span></a>
-<a name="1486"><span class="lineNum">    1486 </span><span class="lineCov">          1 :     -&gt;application_secret.response_data_sequence_number = 0;</span></a>
-<a name="1487"><span class="lineNum">    1487 </span>            : </a>
-<a name="1488"><span class="lineNum">    1488 </span><span class="lineCov">          1 :     status = libspdm_send_receive_end_session(spdm_context, session_id, 0);</span></a>
-<a name="1489"><span class="lineNum">    1489 </span><span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1490"><span class="lineNum">    1490 </span><span class="lineCov">          1 :     assert_int_equal(</span></a>
-<a name="1491"><span class="lineNum">    1491 </span>            :         libspdm_secured_message_get_session_state(</a>
-<a name="1492"><span class="lineNum">    1492 </span>            :             spdm_context-&gt;session_info[0].secured_message_context),</a>
-<a name="1493"><span class="lineNum">    1493 </span>            :         LIBSPDM_SESSION_STATE_NOT_STARTED);</a>
+<a name="1445"><span class="lineNum">    1445 </span>            :     spdm_context-&gt;connection_info.peer_used_cert_chain[0].buffer_size = data_size;</a>
+<a name="1446"><span class="lineNum">    1446 </span>            :     libspdm_copy_mem(spdm_context-&gt;connection_info.peer_used_cert_chain[0].buffer,</a>
+<a name="1447"><span class="lineNum">    1447 </span>            :                      sizeof(spdm_context-&gt;connection_info.peer_used_cert_chain[0].buffer),</a>
+<a name="1448"><span class="lineNum">    1448 </span>            :                      data, data_size);</a>
+<a name="1449"><span class="lineNum">    1449 </span>            : #endif</a>
+<a name="1450"><span class="lineNum">    1450 </span><span class="lineCov">          1 :     libspdm_zero_mem(m_local_psk_hint, 32);</span></a>
+<a name="1451"><span class="lineNum">    1451 </span><span class="lineCov">          1 :     libspdm_copy_mem(&amp;m_local_psk_hint[0], sizeof(m_local_psk_hint),</span></a>
+<a name="1452"><span class="lineNum">    1452 </span>            :                      LIBSPDM_TEST_PSK_HINT_STRING, sizeof(LIBSPDM_TEST_PSK_HINT_STRING));</a>
+<a name="1453"><span class="lineNum">    1453 </span><span class="lineCov">          1 :     spdm_context-&gt;local_context.psk_hint_size = sizeof(LIBSPDM_TEST_PSK_HINT_STRING);</span></a>
+<a name="1454"><span class="lineNum">    1454 </span><span class="lineCov">          1 :     spdm_context-&gt;local_context.psk_hint = m_local_psk_hint;</span></a>
+<a name="1455"><span class="lineNum">    1455 </span>            : </a>
+<a name="1456"><span class="lineNum">    1456 </span><span class="lineCov">          1 :     session_id = 0xFFFFFFFF;</span></a>
+<a name="1457"><span class="lineNum">    1457 </span><span class="lineCov">          1 :     session_info = &amp;spdm_context-&gt;session_info[0];</span></a>
+<a name="1458"><span class="lineNum">    1458 </span><span class="lineCov">          1 :     libspdm_session_info_init(spdm_context, session_info, session_id, true);</span></a>
+<a name="1459"><span class="lineNum">    1459 </span><span class="lineCov">          1 :     libspdm_secured_message_set_session_state(</span></a>
+<a name="1460"><span class="lineNum">    1460 </span>            :         session_info-&gt;secured_message_context,</a>
+<a name="1461"><span class="lineNum">    1461 </span>            :         LIBSPDM_SESSION_STATE_ESTABLISHED);</a>
+<a name="1462"><span class="lineNum">    1462 </span><span class="lineCov">          1 :     libspdm_set_mem(m_dummy_key_buffer,</span></a>
+<a name="1463"><span class="lineNum">    1463 </span>            :                     ((libspdm_secured_message_context_t</a>
+<a name="1464"><span class="lineNum">    1464 </span><span class="lineCov">          1 :                       *)(session_info-&gt;secured_message_context))</span></a>
+<a name="1465"><span class="lineNum">    1465 </span>            :                     -&gt;aead_key_size,</a>
+<a name="1466"><span class="lineNum">    1466 </span>            :                     (uint8_t)(0xFF));</a>
+<a name="1467"><span class="lineNum">    1467 </span><span class="lineCov">          1 :     libspdm_secured_message_set_response_data_encryption_key(</span></a>
+<a name="1468"><span class="lineNum">    1468 </span>            :         session_info-&gt;secured_message_context, m_dummy_key_buffer,</a>
+<a name="1469"><span class="lineNum">    1469 </span>            :         ((libspdm_secured_message_context_t</a>
+<a name="1470"><span class="lineNum">    1470 </span><span class="lineCov">          1 :           *)(session_info-&gt;secured_message_context))</span></a>
+<a name="1471"><span class="lineNum">    1471 </span>            :         -&gt;aead_key_size);</a>
+<a name="1472"><span class="lineNum">    1472 </span><span class="lineCov">          1 :     libspdm_set_mem(m_dummy_salt_buffer,</span></a>
+<a name="1473"><span class="lineNum">    1473 </span>            :                     ((libspdm_secured_message_context_t</a>
+<a name="1474"><span class="lineNum">    1474 </span><span class="lineCov">          1 :                       *)(session_info-&gt;secured_message_context))</span></a>
+<a name="1475"><span class="lineNum">    1475 </span>            :                     -&gt;aead_iv_size,</a>
+<a name="1476"><span class="lineNum">    1476 </span>            :                     (uint8_t)(0xFF));</a>
+<a name="1477"><span class="lineNum">    1477 </span><span class="lineCov">          1 :     libspdm_secured_message_set_response_data_salt(</span></a>
+<a name="1478"><span class="lineNum">    1478 </span>            :         session_info-&gt;secured_message_context, m_dummy_salt_buffer,</a>
+<a name="1479"><span class="lineNum">    1479 </span>            :         ((libspdm_secured_message_context_t</a>
+<a name="1480"><span class="lineNum">    1480 </span><span class="lineCov">          1 :           *)(session_info-&gt;secured_message_context))-&gt;aead_iv_size);</span></a>
+<a name="1481"><span class="lineNum">    1481 </span><span class="lineCov">          1 :     ((libspdm_secured_message_context_t *)(session_info-&gt;secured_message_context))</span></a>
+<a name="1482"><span class="lineNum">    1482 </span><span class="lineCov">          1 :     -&gt;application_secret.response_data_sequence_number = 0;</span></a>
+<a name="1483"><span class="lineNum">    1483 </span>            : </a>
+<a name="1484"><span class="lineNum">    1484 </span><span class="lineCov">          1 :     status = libspdm_send_receive_end_session(spdm_context, session_id, 0);</span></a>
+<a name="1485"><span class="lineNum">    1485 </span>            :     if (LIBSPDM_RESPOND_IF_READY_SUPPORT) {</a>
+<a name="1486"><span class="lineNum">    1486 </span><span class="lineCov">          1 :         assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1487"><span class="lineNum">    1487 </span><span class="lineCov">          1 :         assert_int_equal(</span></a>
+<a name="1488"><span class="lineNum">    1488 </span>            :             libspdm_secured_message_get_session_state(</a>
+<a name="1489"><span class="lineNum">    1489 </span>            :                 spdm_context-&gt;session_info[0].secured_message_context),</a>
+<a name="1490"><span class="lineNum">    1490 </span>            :             LIBSPDM_SESSION_STATE_NOT_STARTED);</a>
+<a name="1491"><span class="lineNum">    1491 </span>            :     } else {</a>
+<a name="1492"><span class="lineNum">    1492 </span>            :         assert_int_equal(status, LIBSPDM_STATUS_NOT_READY_PEER);</a>
+<a name="1493"><span class="lineNum">    1493 </span>            :     }</a>
 <a name="1494"><span class="lineNum">    1494 </span><span class="lineCov">          1 :     free(data);</span></a>
 <a name="1495"><span class="lineNum">    1495 </span><span class="lineCov">          1 : }</span></a>
 <a name="1496"><span class="lineNum">    1496 </span>            : </a>

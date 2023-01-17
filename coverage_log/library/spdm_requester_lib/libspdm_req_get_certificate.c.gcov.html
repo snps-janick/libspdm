@@ -32,17 +32,17 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">139</td>
-            <td class="headerCovTableEntry">205</td>
-            <td class="headerCovTableEntryLo">67.8 %</td>
+            <td class="headerCovTableEntry">194</td>
+            <td class="headerCovTableEntryLo">71.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-16 08:04:43</td>
+            <td class="headerValue">2023-01-17 08:04:49</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryLo">71.4 %</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -434,122 +434,81 @@
 <a name="372"><span class="lineNum">     372 </span><span class="lineCov">         46 :     return status;</span></a>
 <a name="373"><span class="lineNum">     373 </span>            : }</a>
 <a name="374"><span class="lineNum">     374 </span>            : </a>
-<a name="375"><span class="lineNum">     375 </span><span class="lineCov">         44 : libspdm_return_t libspdm_get_certificate(void *context, uint8_t slot_id,</span></a>
-<a name="376"><span class="lineNum">     376 </span>            :                                          size_t *cert_chain_size,</a>
-<a name="377"><span class="lineNum">     377 </span>            :                                          void *cert_chain)</a>
-<a name="378"><span class="lineNum">     378 </span>            : {</a>
-<a name="379"><span class="lineNum">     379 </span><span class="lineCov">         44 :     return libspdm_get_certificate_choose_length(context, slot_id,</span></a>
-<a name="380"><span class="lineNum">     380 </span>            :                                                  LIBSPDM_MAX_CERT_CHAIN_BLOCK_LEN,</a>
-<a name="381"><span class="lineNum">     381 </span>            :                                                  cert_chain_size, cert_chain);</a>
-<a name="382"><span class="lineNum">     382 </span>            : }</a>
-<a name="383"><span class="lineNum">     383 </span>            : </a>
-<a name="384"><span class="lineNum">     384 </span><span class="lineNoCov">          0 : libspdm_return_t libspdm_get_certificate_ex(void *context, uint8_t slot_id,</span></a>
-<a name="385"><span class="lineNum">     385 </span>            :                                             size_t *cert_chain_size,</a>
-<a name="386"><span class="lineNum">     386 </span>            :                                             void *cert_chain,</a>
-<a name="387"><span class="lineNum">     387 </span>            :                                             const void **trust_anchor,</a>
-<a name="388"><span class="lineNum">     388 </span>            :                                             size_t *trust_anchor_size)</a>
-<a name="389"><span class="lineNum">     389 </span>            : {</a>
-<a name="390"><span class="lineNum">     390 </span><span class="lineNoCov">          0 :     return libspdm_get_certificate_choose_length_ex(context, slot_id,</span></a>
-<a name="391"><span class="lineNum">     391 </span>            :                                                     LIBSPDM_MAX_CERT_CHAIN_BLOCK_LEN,</a>
-<a name="392"><span class="lineNum">     392 </span>            :                                                     cert_chain_size, cert_chain,</a>
-<a name="393"><span class="lineNum">     393 </span>            :                                                     trust_anchor, trust_anchor_size);</a>
-<a name="394"><span class="lineNum">     394 </span>            : }</a>
-<a name="395"><span class="lineNum">     395 </span>            : </a>
-<a name="396"><span class="lineNum">     396 </span><span class="lineCov">          1 : libspdm_return_t libspdm_get_certificate_in_session(void *context, const uint32_t *session_id,</span></a>
-<a name="397"><span class="lineNum">     397 </span>            :                                                     uint8_t slot_id,</a>
-<a name="398"><span class="lineNum">     398 </span>            :                                                     size_t *cert_chain_size,</a>
-<a name="399"><span class="lineNum">     399 </span>            :                                                     void *cert_chain,</a>
-<a name="400"><span class="lineNum">     400 </span>            :                                                     const void **trust_anchor,</a>
-<a name="401"><span class="lineNum">     401 </span>            :                                                     size_t *trust_anchor_size)</a>
-<a name="402"><span class="lineNum">     402 </span>            : {</a>
-<a name="403"><span class="lineNum">     403 </span><span class="lineCov">          1 :     return libspdm_get_certificate_choose_length_in_session(context,</span></a>
-<a name="404"><span class="lineNum">     404 </span>            :                                                             session_id,</a>
-<a name="405"><span class="lineNum">     405 </span>            :                                                             slot_id,</a>
-<a name="406"><span class="lineNum">     406 </span>            :                                                             LIBSPDM_MAX_CERT_CHAIN_BLOCK_LEN,</a>
-<a name="407"><span class="lineNum">     407 </span>            :                                                             cert_chain_size, cert_chain,</a>
-<a name="408"><span class="lineNum">     408 </span>            :                                                             trust_anchor, trust_anchor_size);</a>
-<a name="409"><span class="lineNum">     409 </span>            : }</a>
-<a name="410"><span class="lineNum">     410 </span>            : </a>
-<a name="411"><span class="lineNum">     411 </span><span class="lineCov">         45 : libspdm_return_t libspdm_get_certificate_choose_length(void *context,</span></a>
-<a name="412"><span class="lineNum">     412 </span>            :                                                        uint8_t slot_id,</a>
-<a name="413"><span class="lineNum">     413 </span>            :                                                        uint16_t length,</a>
-<a name="414"><span class="lineNum">     414 </span>            :                                                        size_t *cert_chain_size,</a>
-<a name="415"><span class="lineNum">     415 </span>            :                                                        void *cert_chain)</a>
-<a name="416"><span class="lineNum">     416 </span>            : {</a>
-<a name="417"><span class="lineNum">     417 </span>            :     libspdm_context_t *spdm_context;</a>
-<a name="418"><span class="lineNum">     418 </span>            :     size_t retry;</a>
-<a name="419"><span class="lineNum">     419 </span>            :     libspdm_return_t status;</a>
-<a name="420"><span class="lineNum">     420 </span>            : </a>
-<a name="421"><span class="lineNum">     421 </span><span class="lineCov">         45 :     spdm_context = context;</span></a>
-<a name="422"><span class="lineNum">     422 </span><span class="lineCov">         45 :     spdm_context-&gt;crypto_request = true;</span></a>
-<a name="423"><span class="lineNum">     423 </span><span class="lineCov">         45 :     retry = spdm_context-&gt;retry_times;</span></a>
-<a name="424"><span class="lineNum">     424 </span>            :     do {</a>
-<a name="425"><span class="lineNum">     425 </span><span class="lineCov">         46 :         status = libspdm_try_get_certificate(spdm_context, NULL, slot_id, length,</span></a>
-<a name="426"><span class="lineNum">     426 </span>            :                                              cert_chain_size, cert_chain, NULL, NULL);</a>
-<a name="427"><span class="lineNum">     427 </span><span class="lineCov">         46 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
-<a name="428"><span class="lineNum">     428 </span><span class="lineCov">         44 :             return status;</span></a>
-<a name="429"><span class="lineNum">     429 </span>            :         }</a>
-<a name="430"><span class="lineNum">     430 </span><span class="lineCov">          2 :     } while (retry-- != 0);</span></a>
-<a name="431"><span class="lineNum">     431 </span>            : </a>
-<a name="432"><span class="lineNum">     432 </span><span class="lineCov">          1 :     return status;</span></a>
-<a name="433"><span class="lineNum">     433 </span>            : }</a>
-<a name="434"><span class="lineNum">     434 </span>            : </a>
-<a name="435"><span class="lineNum">     435 </span><span class="lineNoCov">          0 : libspdm_return_t libspdm_get_certificate_choose_length_ex(void *context,</span></a>
-<a name="436"><span class="lineNum">     436 </span>            :                                                           uint8_t slot_id,</a>
-<a name="437"><span class="lineNum">     437 </span>            :                                                           uint16_t length,</a>
-<a name="438"><span class="lineNum">     438 </span>            :                                                           size_t *cert_chain_size,</a>
-<a name="439"><span class="lineNum">     439 </span>            :                                                           void *cert_chain,</a>
-<a name="440"><span class="lineNum">     440 </span>            :                                                           const void **trust_anchor,</a>
-<a name="441"><span class="lineNum">     441 </span>            :                                                           size_t *trust_anchor_size)</a>
-<a name="442"><span class="lineNum">     442 </span>            : {</a>
-<a name="443"><span class="lineNum">     443 </span>            :     libspdm_context_t *spdm_context;</a>
-<a name="444"><span class="lineNum">     444 </span>            :     size_t retry;</a>
-<a name="445"><span class="lineNum">     445 </span>            :     libspdm_return_t status;</a>
-<a name="446"><span class="lineNum">     446 </span>            : </a>
-<a name="447"><span class="lineNum">     447 </span><span class="lineNoCov">          0 :     spdm_context = context;</span></a>
-<a name="448"><span class="lineNum">     448 </span><span class="lineNoCov">          0 :     spdm_context-&gt;crypto_request = true;</span></a>
-<a name="449"><span class="lineNum">     449 </span><span class="lineNoCov">          0 :     retry = spdm_context-&gt;retry_times;</span></a>
-<a name="450"><span class="lineNum">     450 </span>            :     do {</a>
-<a name="451"><span class="lineNum">     451 </span><span class="lineNoCov">          0 :         status = libspdm_try_get_certificate(spdm_context, NULL, slot_id, length,</span></a>
-<a name="452"><span class="lineNum">     452 </span>            :                                              cert_chain_size, cert_chain, trust_anchor,</a>
-<a name="453"><span class="lineNum">     453 </span>            :                                              trust_anchor_size);</a>
-<a name="454"><span class="lineNum">     454 </span><span class="lineNoCov">          0 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
-<a name="455"><span class="lineNum">     455 </span><span class="lineNoCov">          0 :             return status;</span></a>
-<a name="456"><span class="lineNum">     456 </span>            :         }</a>
-<a name="457"><span class="lineNum">     457 </span><span class="lineNoCov">          0 :     } while (retry-- != 0);</span></a>
-<a name="458"><span class="lineNum">     458 </span>            : </a>
-<a name="459"><span class="lineNum">     459 </span><span class="lineNoCov">          0 :     return status;</span></a>
-<a name="460"><span class="lineNum">     460 </span>            : }</a>
-<a name="461"><span class="lineNum">     461 </span>            : </a>
-<a name="462"><span class="lineNum">     462 </span><span class="lineCov">          1 : libspdm_return_t libspdm_get_certificate_choose_length_in_session(void *context,</span></a>
-<a name="463"><span class="lineNum">     463 </span>            :                                                                   const uint32_t *session_id,</a>
-<a name="464"><span class="lineNum">     464 </span>            :                                                                   uint8_t slot_id,</a>
-<a name="465"><span class="lineNum">     465 </span>            :                                                                   uint16_t length,</a>
-<a name="466"><span class="lineNum">     466 </span>            :                                                                   size_t *cert_chain_size,</a>
-<a name="467"><span class="lineNum">     467 </span>            :                                                                   void *cert_chain,</a>
-<a name="468"><span class="lineNum">     468 </span>            :                                                                   const void **trust_anchor,</a>
-<a name="469"><span class="lineNum">     469 </span>            :                                                                   size_t *trust_anchor_size)</a>
-<a name="470"><span class="lineNum">     470 </span>            : {</a>
-<a name="471"><span class="lineNum">     471 </span>            :     libspdm_context_t *spdm_context;</a>
-<a name="472"><span class="lineNum">     472 </span>            :     size_t retry;</a>
-<a name="473"><span class="lineNum">     473 </span>            :     libspdm_return_t status;</a>
-<a name="474"><span class="lineNum">     474 </span>            : </a>
-<a name="475"><span class="lineNum">     475 </span><span class="lineCov">          1 :     spdm_context = context;</span></a>
-<a name="476"><span class="lineNum">     476 </span><span class="lineCov">          1 :     spdm_context-&gt;crypto_request = true;</span></a>
-<a name="477"><span class="lineNum">     477 </span><span class="lineCov">          1 :     retry = spdm_context-&gt;retry_times;</span></a>
-<a name="478"><span class="lineNum">     478 </span>            :     do {</a>
-<a name="479"><span class="lineNum">     479 </span><span class="lineCov">          1 :         status = libspdm_try_get_certificate(spdm_context, session_id, slot_id, length,</span></a>
-<a name="480"><span class="lineNum">     480 </span>            :                                              cert_chain_size, cert_chain, trust_anchor,</a>
-<a name="481"><span class="lineNum">     481 </span>            :                                              trust_anchor_size);</a>
-<a name="482"><span class="lineNum">     482 </span><span class="lineCov">          1 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
-<a name="483"><span class="lineNum">     483 </span><span class="lineCov">          1 :             return status;</span></a>
-<a name="484"><span class="lineNum">     484 </span>            :         }</a>
-<a name="485"><span class="lineNum">     485 </span><span class="lineNoCov">          0 :     } while (retry-- != 0);</span></a>
-<a name="486"><span class="lineNum">     486 </span>            : </a>
-<a name="487"><span class="lineNum">     487 </span><span class="lineNoCov">          0 :     return status;</span></a>
-<a name="488"><span class="lineNum">     488 </span>            : }</a>
-<a name="489"><span class="lineNum">     489 </span>            : </a>
-<a name="490"><span class="lineNum">     490 </span>            : #endif /* LIBSPDM_ENABLE_CAPABILITY_CERT_CAP*/</a>
+<a name="375"><span class="lineNum">     375 </span><span class="lineCov">         44 : libspdm_return_t libspdm_get_certificate(void *context, const uint32_t *session_id,</span></a>
+<a name="376"><span class="lineNum">     376 </span>            :                                          uint8_t slot_id,</a>
+<a name="377"><span class="lineNum">     377 </span>            :                                          size_t *cert_chain_size,</a>
+<a name="378"><span class="lineNum">     378 </span>            :                                          void *cert_chain)</a>
+<a name="379"><span class="lineNum">     379 </span>            : {</a>
+<a name="380"><span class="lineNum">     380 </span><span class="lineCov">         44 :     return libspdm_get_certificate_choose_length(context, session_id, slot_id,</span></a>
+<a name="381"><span class="lineNum">     381 </span>            :                                                  LIBSPDM_MAX_CERT_CHAIN_BLOCK_LEN,</a>
+<a name="382"><span class="lineNum">     382 </span>            :                                                  cert_chain_size, cert_chain);</a>
+<a name="383"><span class="lineNum">     383 </span>            : }</a>
+<a name="384"><span class="lineNum">     384 </span>            : </a>
+<a name="385"><span class="lineNum">     385 </span><span class="lineCov">          1 : libspdm_return_t libspdm_get_certificate_ex(void *context, const uint32_t *session_id,</span></a>
+<a name="386"><span class="lineNum">     386 </span>            :                                             uint8_t slot_id,</a>
+<a name="387"><span class="lineNum">     387 </span>            :                                             size_t *cert_chain_size,</a>
+<a name="388"><span class="lineNum">     388 </span>            :                                             void *cert_chain,</a>
+<a name="389"><span class="lineNum">     389 </span>            :                                             const void **trust_anchor,</a>
+<a name="390"><span class="lineNum">     390 </span>            :                                             size_t *trust_anchor_size)</a>
+<a name="391"><span class="lineNum">     391 </span>            : {</a>
+<a name="392"><span class="lineNum">     392 </span><span class="lineCov">          1 :     return libspdm_get_certificate_choose_length_ex(context, session_id, slot_id,</span></a>
+<a name="393"><span class="lineNum">     393 </span>            :                                                     LIBSPDM_MAX_CERT_CHAIN_BLOCK_LEN,</a>
+<a name="394"><span class="lineNum">     394 </span>            :                                                     cert_chain_size, cert_chain,</a>
+<a name="395"><span class="lineNum">     395 </span>            :                                                     trust_anchor, trust_anchor_size);</a>
+<a name="396"><span class="lineNum">     396 </span>            : }</a>
+<a name="397"><span class="lineNum">     397 </span>            : </a>
+<a name="398"><span class="lineNum">     398 </span><span class="lineCov">         45 : libspdm_return_t libspdm_get_certificate_choose_length(void *context, const uint32_t *session_id,</span></a>
+<a name="399"><span class="lineNum">     399 </span>            :                                                        uint8_t slot_id,</a>
+<a name="400"><span class="lineNum">     400 </span>            :                                                        uint16_t length,</a>
+<a name="401"><span class="lineNum">     401 </span>            :                                                        size_t *cert_chain_size,</a>
+<a name="402"><span class="lineNum">     402 </span>            :                                                        void *cert_chain)</a>
+<a name="403"><span class="lineNum">     403 </span>            : {</a>
+<a name="404"><span class="lineNum">     404 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="405"><span class="lineNum">     405 </span>            :     size_t retry;</a>
+<a name="406"><span class="lineNum">     406 </span>            :     libspdm_return_t status;</a>
+<a name="407"><span class="lineNum">     407 </span>            : </a>
+<a name="408"><span class="lineNum">     408 </span><span class="lineCov">         45 :     spdm_context = context;</span></a>
+<a name="409"><span class="lineNum">     409 </span><span class="lineCov">         45 :     spdm_context-&gt;crypto_request = true;</span></a>
+<a name="410"><span class="lineNum">     410 </span><span class="lineCov">         45 :     retry = spdm_context-&gt;retry_times;</span></a>
+<a name="411"><span class="lineNum">     411 </span>            :     do {</a>
+<a name="412"><span class="lineNum">     412 </span><span class="lineCov">         46 :         status = libspdm_try_get_certificate(spdm_context, session_id, slot_id, length,</span></a>
+<a name="413"><span class="lineNum">     413 </span>            :                                              cert_chain_size, cert_chain, NULL, NULL);</a>
+<a name="414"><span class="lineNum">     414 </span><span class="lineCov">         46 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
+<a name="415"><span class="lineNum">     415 </span><span class="lineCov">         44 :             return status;</span></a>
+<a name="416"><span class="lineNum">     416 </span>            :         }</a>
+<a name="417"><span class="lineNum">     417 </span><span class="lineCov">          2 :     } while (retry-- != 0);</span></a>
+<a name="418"><span class="lineNum">     418 </span>            : </a>
+<a name="419"><span class="lineNum">     419 </span><span class="lineCov">          1 :     return status;</span></a>
+<a name="420"><span class="lineNum">     420 </span>            : }</a>
+<a name="421"><span class="lineNum">     421 </span>            : </a>
+<a name="422"><span class="lineNum">     422 </span><span class="lineCov">          1 : libspdm_return_t libspdm_get_certificate_choose_length_ex(void *context, const uint32_t *session_id,</span></a>
+<a name="423"><span class="lineNum">     423 </span>            :                                                           uint8_t slot_id,</a>
+<a name="424"><span class="lineNum">     424 </span>            :                                                           uint16_t length,</a>
+<a name="425"><span class="lineNum">     425 </span>            :                                                           size_t *cert_chain_size,</a>
+<a name="426"><span class="lineNum">     426 </span>            :                                                           void *cert_chain,</a>
+<a name="427"><span class="lineNum">     427 </span>            :                                                           const void **trust_anchor,</a>
+<a name="428"><span class="lineNum">     428 </span>            :                                                           size_t *trust_anchor_size)</a>
+<a name="429"><span class="lineNum">     429 </span>            : {</a>
+<a name="430"><span class="lineNum">     430 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="431"><span class="lineNum">     431 </span>            :     size_t retry;</a>
+<a name="432"><span class="lineNum">     432 </span>            :     libspdm_return_t status;</a>
+<a name="433"><span class="lineNum">     433 </span>            : </a>
+<a name="434"><span class="lineNum">     434 </span><span class="lineCov">          1 :     spdm_context = context;</span></a>
+<a name="435"><span class="lineNum">     435 </span><span class="lineCov">          1 :     spdm_context-&gt;crypto_request = true;</span></a>
+<a name="436"><span class="lineNum">     436 </span><span class="lineCov">          1 :     retry = spdm_context-&gt;retry_times;</span></a>
+<a name="437"><span class="lineNum">     437 </span>            :     do {</a>
+<a name="438"><span class="lineNum">     438 </span><span class="lineCov">          1 :         status = libspdm_try_get_certificate(spdm_context, session_id, slot_id, length,</span></a>
+<a name="439"><span class="lineNum">     439 </span>            :                                              cert_chain_size, cert_chain, trust_anchor,</a>
+<a name="440"><span class="lineNum">     440 </span>            :                                              trust_anchor_size);</a>
+<a name="441"><span class="lineNum">     441 </span><span class="lineCov">          1 :         if (status != LIBSPDM_STATUS_BUSY_PEER) {</span></a>
+<a name="442"><span class="lineNum">     442 </span><span class="lineCov">          1 :             return status;</span></a>
+<a name="443"><span class="lineNum">     443 </span>            :         }</a>
+<a name="444"><span class="lineNum">     444 </span><span class="lineNoCov">          0 :     } while (retry-- != 0);</span></a>
+<a name="445"><span class="lineNum">     445 </span>            : </a>
+<a name="446"><span class="lineNum">     446 </span><span class="lineNoCov">          0 :     return status;</span></a>
+<a name="447"><span class="lineNum">     447 </span>            : }</a>
+<a name="448"><span class="lineNum">     448 </span>            : </a>
+<a name="449"><span class="lineNum">     449 </span>            : #endif /* LIBSPDM_ENABLE_CAPABILITY_CERT_CAP*/</a>
 </pre>
       </td>
     </tr>
