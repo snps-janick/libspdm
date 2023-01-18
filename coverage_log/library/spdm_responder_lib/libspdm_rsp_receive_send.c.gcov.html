@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-01-17 08:04:49</td>
+            <td class="headerValue">2023-01-18 08:05:11</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -189,11 +189,11 @@
 <a name="127"><span class="lineNum">     127 </span>            :  * @retval RETURN_SUCCESS               The SPDM request is received successfully.</a>
 <a name="128"><span class="lineNum">     128 </span>            :  * @retval RETURN_DEVICE_ERROR          A device error occurs when the SPDM request is received from the device.</a>
 <a name="129"><span class="lineNum">     129 </span>            :  **/</a>
-<a name="130"><span class="lineNum">     130 </span><span class="lineNoCov">          0 : libspdm_return_t libspdm_process_request(void *context, uint32_t **session_id,</span></a>
+<a name="130"><span class="lineNum">     130 </span><span class="lineNoCov">          0 : libspdm_return_t libspdm_process_request(void *spdm_context, uint32_t **session_id,</span></a>
 <a name="131"><span class="lineNum">     131 </span>            :                                          bool *is_app_message,</a>
 <a name="132"><span class="lineNum">     132 </span>            :                                          size_t request_size, void *request)</a>
 <a name="133"><span class="lineNum">     133 </span>            : {</a>
-<a name="134"><span class="lineNum">     134 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="134"><span class="lineNum">     134 </span>            :     libspdm_context_t *context;</a>
 <a name="135"><span class="lineNum">     135 </span>            :     void *temp_session_context;</a>
 <a name="136"><span class="lineNum">     136 </span>            :     libspdm_return_t status;</a>
 <a name="137"><span class="lineNum">     137 </span>            :     libspdm_session_info_t *session_info;</a>
@@ -205,7 +205,7 @@
 <a name="143"><span class="lineNum">     143 </span>            :     bool result;</a>
 <a name="144"><span class="lineNum">     144 </span>            :     bool reset_key_update;</a>
 <a name="145"><span class="lineNum">     145 </span>            : </a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineNoCov">          0 :     spdm_context = context;</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineNoCov">          0 :     context = spdm_context;</span></a>
 <a name="147"><span class="lineNum">     147 </span>            :     size_t transport_header_size;</a>
 <a name="148"><span class="lineNum">     148 </span>            :     uint8_t *scratch_buffer;</a>
 <a name="149"><span class="lineNum">     149 </span>            :     size_t scratch_buffer_size;</a>
@@ -220,14 +220,14 @@
 <a name="158"><span class="lineNum">     158 </span><span class="lineNoCov">          0 :     LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;SpdmReceiveRequest[.] ...\n&quot;));</span></a>
 <a name="159"><span class="lineNum">     159 </span>            : </a>
 <a name="160"><span class="lineNum">     160 </span><span class="lineNoCov">          0 :     message_session_id = NULL;</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineNoCov">          0 :     spdm_context-&gt;last_spdm_request_session_id_valid = false;</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineNoCov">          0 :     spdm_context-&gt;last_spdm_request_size = sizeof(spdm_context-&gt;last_spdm_request);</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineNoCov">          0 :     context-&gt;last_spdm_request_session_id_valid = false;</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineNoCov">          0 :     context-&gt;last_spdm_request_size = sizeof(context-&gt;last_spdm_request);</span></a>
 <a name="163"><span class="lineNum">     163 </span>            : </a>
 <a name="164"><span class="lineNum">     164 </span>            :     /* always use scratch buffer to response.</a>
 <a name="165"><span class="lineNum">     165 </span>            :      * if it is secured message, this scratch buffer will be used.</a>
 <a name="166"><span class="lineNum">     166 </span>            :      * if it is normal message, the response ptr will point to receiver buffer. */</a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineNoCov">          0 :     transport_header_size = spdm_context-&gt;transport_get_header_size(spdm_context);</span></a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineNoCov">          0 :     libspdm_get_scratch_buffer (spdm_context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineNoCov">          0 :     transport_header_size = context-&gt;transport_get_header_size(context);</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineNoCov">          0 :     libspdm_get_scratch_buffer (context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="169"><span class="lineNum">     169 </span>            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="170"><span class="lineNum">     170 </span><span class="lineNoCov">          0 :     decoded_message_ptr = scratch_buffer + LIBSPDM_SCRATCH_BUFFER_SECURE_MESSAGE_OFFSET +</span></a>
 <a name="171"><span class="lineNum">     171 </span>            :                           transport_header_size;</a>
@@ -240,8 +240,8 @@
 <a name="178"><span class="lineNum">     178 </span><span class="lineNoCov">          0 :     backup_decoded_message_ptr = decoded_message_ptr;</span></a>
 <a name="179"><span class="lineNum">     179 </span><span class="lineNoCov">          0 :     backup_decoded_message_size = decoded_message_size;</span></a>
 <a name="180"><span class="lineNum">     180 </span>            : </a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineNoCov">          0 :     status = spdm_context-&gt;transport_decode_message(</span></a>
-<a name="182"><span class="lineNum">     182 </span>            :         spdm_context, &amp;message_session_id, is_app_message, true,</a>
+<a name="181"><span class="lineNum">     181 </span><span class="lineNoCov">          0 :     status = context-&gt;transport_decode_message(</span></a>
+<a name="182"><span class="lineNum">     182 </span>            :         context, &amp;message_session_id, is_app_message, true,</a>
 <a name="183"><span class="lineNum">     183 </span>            :         request_size, request, &amp;decoded_message_size,</a>
 <a name="184"><span class="lineNum">     184 </span>            :         (void **)&amp;decoded_message_ptr);</a>
 <a name="185"><span class="lineNum">     185 </span>            : </a>
@@ -255,7 +255,7 @@
 <a name="193"><span class="lineNum">     193 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_STATE_LOCAL;</span></a>
 <a name="194"><span class="lineNum">     194 </span>            :         }</a>
 <a name="195"><span class="lineNum">     195 </span><span class="lineNoCov">          0 :         temp_session_context = libspdm_get_secured_message_context_via_session_id(</span></a>
-<a name="196"><span class="lineNum">     196 </span>            :             spdm_context, *message_session_id);</a>
+<a name="196"><span class="lineNum">     196 </span>            :             context, *message_session_id);</a>
 <a name="197"><span class="lineNum">     197 </span><span class="lineNoCov">          0 :         if (temp_session_context == NULL) {</span></a>
 <a name="198"><span class="lineNum">     198 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_STATE_LOCAL;</span></a>
 <a name="199"><span class="lineNum">     199 </span>            :         }</a>
@@ -266,7 +266,7 @@
 <a name="204"><span class="lineNum">     204 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_STATE_LOCAL;</span></a>
 <a name="205"><span class="lineNum">     205 </span>            :         }</a>
 <a name="206"><span class="lineNum">     206 </span><span class="lineNoCov">          0 :         libspdm_trigger_key_update_callback(</span></a>
-<a name="207"><span class="lineNum">     207 </span>            :             spdm_context, *message_session_id,</a>
+<a name="207"><span class="lineNum">     207 </span>            :             context, *message_session_id,</a>
 <a name="208"><span class="lineNum">     208 </span>            :             LIBSPDM_KEY_UPDATE_OPERATION_DISCARD_UPDATE,</a>
 <a name="209"><span class="lineNum">     209 </span>            :             LIBSPDM_KEY_UPDATE_ACTION_REQUESTER);</a>
 <a name="210"><span class="lineNum">     210 </span>            : </a>
@@ -275,8 +275,8 @@
 <a name="213"><span class="lineNum">     213 </span><span class="lineNoCov">          0 :         message_session_id = NULL;</span></a>
 <a name="214"><span class="lineNum">     214 </span><span class="lineNoCov">          0 :         decoded_message_ptr = backup_decoded_message_ptr;</span></a>
 <a name="215"><span class="lineNum">     215 </span><span class="lineNoCov">          0 :         decoded_message_size = backup_decoded_message_size;</span></a>
-<a name="216"><span class="lineNum">     216 </span><span class="lineNoCov">          0 :         status = spdm_context-&gt;transport_decode_message(</span></a>
-<a name="217"><span class="lineNum">     217 </span>            :             spdm_context, &amp;message_session_id, is_app_message, true,</a>
+<a name="216"><span class="lineNum">     216 </span><span class="lineNoCov">          0 :         status = context-&gt;transport_decode_message(</span></a>
+<a name="217"><span class="lineNum">     217 </span>            :             context, &amp;message_session_id, is_app_message, true,</a>
 <a name="218"><span class="lineNum">     218 </span>            :             request_size, request, &amp;decoded_message_size,</a>
 <a name="219"><span class="lineNum">     219 </span>            :             (void **)&amp;decoded_message_ptr);</a>
 <a name="220"><span class="lineNum">     220 </span>            : </a>
@@ -285,12 +285,12 @@
 <a name="223"><span class="lineNum">     223 </span>            : </a>
 <a name="224"><span class="lineNum">     224 </span><span class="lineNoCov">          0 :     if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
 <a name="225"><span class="lineNum">     225 </span><span class="lineNoCov">          0 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;transport_decode_message : %p\n&quot;, status));</span></a>
-<a name="226"><span class="lineNum">     226 </span><span class="lineNoCov">          0 :         if (spdm_context-&gt;last_spdm_error.error_code != 0) {</span></a>
+<a name="226"><span class="lineNum">     226 </span><span class="lineNoCov">          0 :         if (context-&gt;last_spdm_error.error_code != 0) {</span></a>
 <a name="227"><span class="lineNum">     227 </span>            : </a>
 <a name="228"><span class="lineNum">     228 </span>            :             /* If the SPDM error code is Non-Zero, that means we need send the error message back to requester.</a>
 <a name="229"><span class="lineNum">     229 </span>            :              * In this case, we need return SUCCESS and let caller invoke libspdm_build_response() to send an ERROR message.*/</a>
 <a name="230"><span class="lineNum">     230 </span>            : </a>
-<a name="231"><span class="lineNum">     231 </span><span class="lineNoCov">          0 :             *session_id = &amp;spdm_context-&gt;last_spdm_error.session_id;</span></a>
+<a name="231"><span class="lineNum">     231 </span><span class="lineNoCov">          0 :             *session_id = &amp;context-&gt;last_spdm_error.session_id;</span></a>
 <a name="232"><span class="lineNum">     232 </span><span class="lineNoCov">          0 :             *is_app_message = false;</span></a>
 <a name="233"><span class="lineNum">     233 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="234"><span class="lineNum">     234 </span>            :         }</a>
@@ -315,20 +315,20 @@
 <a name="253"><span class="lineNum">     253 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_STATE_LOCAL;</span></a>
 <a name="254"><span class="lineNum">     254 </span>            :         }</a>
 <a name="255"><span class="lineNum">     255 </span><span class="lineNoCov">          0 :         libspdm_trigger_key_update_callback(</span></a>
-<a name="256"><span class="lineNum">     256 </span>            :             spdm_context, *message_session_id,</a>
+<a name="256"><span class="lineNum">     256 </span>            :             context, *message_session_id,</a>
 <a name="257"><span class="lineNum">     257 </span>            :             LIBSPDM_KEY_UPDATE_OPERATION_CREATE_UPDATE,</a>
 <a name="258"><span class="lineNum">     258 </span>            :             LIBSPDM_KEY_UPDATE_ACTION_REQUESTER);</a>
 <a name="259"><span class="lineNum">     259 </span>            :     }</a>
 <a name="260"><span class="lineNum">     260 </span>            : </a>
-<a name="261"><span class="lineNum">     261 </span><span class="lineNoCov">          0 :     spdm_context-&gt;last_spdm_request_size = decoded_message_size;</span></a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineNoCov">          0 :     libspdm_copy_mem (spdm_context-&gt;last_spdm_request,</span></a>
-<a name="263"><span class="lineNum">     263 </span>            :                       sizeof(spdm_context-&gt;last_spdm_request),</a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineNoCov">          0 :     context-&gt;last_spdm_request_size = decoded_message_size;</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineNoCov">          0 :     libspdm_copy_mem (context-&gt;last_spdm_request,</span></a>
+<a name="263"><span class="lineNum">     263 </span>            :                       sizeof(context-&gt;last_spdm_request),</a>
 <a name="264"><span class="lineNum">     264 </span>            :                       decoded_message_ptr,</a>
 <a name="265"><span class="lineNum">     265 </span>            :                       decoded_message_size);</a>
 <a name="266"><span class="lineNum">     266 </span>            : </a>
 <a name="267"><span class="lineNum">     267 </span><span class="lineNoCov">          0 :     if (!(*is_app_message)) {</span></a>
 <a name="268"><span class="lineNum">     268 </span>            :         /* Check for minimal SPDM message size. */</a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineNoCov">          0 :         if (spdm_context-&gt;last_spdm_request_size &lt; sizeof(spdm_message_header_t)) {</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineNoCov">          0 :         if (context-&gt;last_spdm_request_size &lt; sizeof(spdm_message_header_t)) {</span></a>
 <a name="270"><span class="lineNum">     270 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
 <a name="271"><span class="lineNum">     271 </span>            :         }</a>
 <a name="272"><span class="lineNum">     272 </span>            :     }</a>
@@ -336,19 +336,19 @@
 <a name="274"><span class="lineNum">     274 </span><span class="lineNoCov">          0 :     *session_id = message_session_id;</span></a>
 <a name="275"><span class="lineNum">     275 </span>            : </a>
 <a name="276"><span class="lineNum">     276 </span><span class="lineNoCov">          0 :     if (message_session_id != NULL) {</span></a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineNoCov">          0 :         session_info = libspdm_get_session_info_via_session_id(spdm_context, *message_session_id);</span></a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineNoCov">          0 :         session_info = libspdm_get_session_info_via_session_id(context, *message_session_id);</span></a>
 <a name="278"><span class="lineNum">     278 </span><span class="lineNoCov">          0 :         if (session_info == NULL) {</span></a>
 <a name="279"><span class="lineNum">     279 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
 <a name="280"><span class="lineNum">     280 </span>            :         }</a>
-<a name="281"><span class="lineNum">     281 </span><span class="lineNoCov">          0 :         spdm_context-&gt;last_spdm_request_session_id = *message_session_id;</span></a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineNoCov">          0 :         spdm_context-&gt;last_spdm_request_session_id_valid = true;</span></a>
+<a name="281"><span class="lineNum">     281 </span><span class="lineNoCov">          0 :         context-&gt;last_spdm_request_session_id = *message_session_id;</span></a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineNoCov">          0 :         context-&gt;last_spdm_request_session_id_valid = true;</span></a>
 <a name="283"><span class="lineNum">     283 </span>            :     }</a>
 <a name="284"><span class="lineNum">     284 </span>            : </a>
 <a name="285"><span class="lineNum">     285 </span><span class="lineNoCov">          0 :     LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;SpdmReceiveRequest[%x] (0x%x): \n&quot;,</span></a>
 <a name="286"><span class="lineNum">     286 </span>            :                    (message_session_id != NULL) ? *message_session_id : 0,</a>
-<a name="287"><span class="lineNum">     287 </span>            :                    spdm_context-&gt;last_spdm_request_size));</a>
-<a name="288"><span class="lineNum">     288 </span><span class="lineNoCov">          0 :     LIBSPDM_INTERNAL_DUMP_HEX((uint8_t *)spdm_context-&gt;last_spdm_request,</span></a>
-<a name="289"><span class="lineNum">     289 </span>            :                               spdm_context-&gt;last_spdm_request_size);</a>
+<a name="287"><span class="lineNum">     287 </span>            :                    context-&gt;last_spdm_request_size));</a>
+<a name="288"><span class="lineNum">     288 </span><span class="lineNoCov">          0 :     LIBSPDM_INTERNAL_DUMP_HEX((uint8_t *)context-&gt;last_spdm_request,</span></a>
+<a name="289"><span class="lineNum">     289 </span>            :                               context-&gt;last_spdm_request_size);</a>
 <a name="290"><span class="lineNum">     290 </span>            : </a>
 <a name="291"><span class="lineNum">     291 </span><span class="lineNoCov">          0 :     return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="292"><span class="lineNum">     292 </span>            : }</a>
@@ -431,17 +431,17 @@
 <a name="369"><span class="lineNum">     369 </span>            :     }</a>
 <a name="370"><span class="lineNum">     370 </span><span class="lineCov">         63 : }</span></a>
 <a name="371"><span class="lineNum">     371 </span>            : </a>
-<a name="372"><span class="lineNum">     372 </span><span class="lineCov">         15 : void libspdm_trigger_key_update_callback(void *context, uint32_t session_id,</span></a>
+<a name="372"><span class="lineNum">     372 </span><span class="lineCov">         15 : void libspdm_trigger_key_update_callback(void *spdm_context, uint32_t session_id,</span></a>
 <a name="373"><span class="lineNum">     373 </span>            :                                          libspdm_key_update_operation_t key_update_op,</a>
 <a name="374"><span class="lineNum">     374 </span>            :                                          libspdm_key_update_action_t key_update_action)</a>
 <a name="375"><span class="lineNum">     375 </span>            : {</a>
-<a name="376"><span class="lineNum">     376 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="376"><span class="lineNum">     376 </span>            :     libspdm_context_t *context;</a>
 <a name="377"><span class="lineNum">     377 </span>            : </a>
-<a name="378"><span class="lineNum">     378 </span><span class="lineCov">         15 :     spdm_context = context;</span></a>
-<a name="379"><span class="lineNum">     379 </span><span class="lineCov">         15 :     if (spdm_context-&gt;spdm_key_update_callback != NULL) {</span></a>
+<a name="378"><span class="lineNum">     378 </span><span class="lineCov">         15 :     context = spdm_context;</span></a>
+<a name="379"><span class="lineNum">     379 </span><span class="lineCov">         15 :     if (context-&gt;spdm_key_update_callback != NULL) {</span></a>
 <a name="380"><span class="lineNum">     380 </span><span class="lineNoCov">          0 :         ((libspdm_key_update_callback_func)</span></a>
-<a name="381"><span class="lineNum">     381 </span><span class="lineNoCov">          0 :          spdm_context-&gt;spdm_key_update_callback)(spdm_context, session_id, key_update_op,</span></a>
-<a name="382"><span class="lineNum">     382 </span>            :                                                  key_update_action);</a>
+<a name="381"><span class="lineNum">     381 </span><span class="lineNoCov">          0 :          context-&gt;spdm_key_update_callback)(context, session_id, key_update_op,</span></a>
+<a name="382"><span class="lineNum">     382 </span>            :                                             key_update_action);</a>
 <a name="383"><span class="lineNum">     383 </span>            :     }</a>
 <a name="384"><span class="lineNum">     384 </span><span class="lineCov">         15 : }</span></a>
 <a name="385"><span class="lineNum">     385 </span>            : </a>
@@ -463,12 +463,12 @@
 <a name="401"><span class="lineNum">     401 </span>            :  * @retval RETURN_UNSUPPORTED           Just ignore this message: return UNSUPPORTED and clear response_size.</a>
 <a name="402"><span class="lineNum">     402 </span>            :  *                                      Continue the dispatch without send response.</a>
 <a name="403"><span class="lineNum">     403 </span>            :  **/</a>
-<a name="404"><span class="lineNum">     404 </span><span class="lineCov">          1 : libspdm_return_t libspdm_build_response(void *context, const uint32_t *session_id,</span></a>
+<a name="404"><span class="lineNum">     404 </span><span class="lineCov">          1 : libspdm_return_t libspdm_build_response(void *spdm_context, const uint32_t *session_id,</span></a>
 <a name="405"><span class="lineNum">     405 </span>            :                                         bool is_app_message,</a>
 <a name="406"><span class="lineNum">     406 </span>            :                                         size_t *response_size,</a>
 <a name="407"><span class="lineNum">     407 </span>            :                                         void **response)</a>
 <a name="408"><span class="lineNum">     408 </span>            : {</a>
-<a name="409"><span class="lineNum">     409 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="409"><span class="lineNum">     409 </span>            :     libspdm_context_t *context;</a>
 <a name="410"><span class="lineNum">     410 </span>            :     uint8_t *my_response;</a>
 <a name="411"><span class="lineNum">     411 </span>            :     size_t my_response_size;</a>
 <a name="412"><span class="lineNum">     412 </span>            :     libspdm_return_t status;</a>
@@ -493,14 +493,14 @@
 <a name="431"><span class="lineNum">     431 </span>            :     uint8_t *chunk_ptr;</a>
 <a name="432"><span class="lineNum">     432 </span>            :     #endif /* LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP */</a>
 <a name="433"><span class="lineNum">     433 </span>            : </a>
-<a name="434"><span class="lineNum">     434 </span><span class="lineCov">          1 :     spdm_context = context;</span></a>
+<a name="434"><span class="lineNum">     434 </span><span class="lineCov">          1 :     context = spdm_context;</span></a>
 <a name="435"><span class="lineNum">     435 </span><span class="lineCov">          1 :     status = LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
 <a name="436"><span class="lineNum">     436 </span>            : </a>
 <a name="437"><span class="lineNum">     437 </span>            :     /* For secure message, setup my_response to scratch buffer</a>
 <a name="438"><span class="lineNum">     438 </span>            :      * For non-secure message, setup my_response to sender buffer*/</a>
-<a name="439"><span class="lineNum">     439 </span><span class="lineCov">          1 :     transport_header_size = spdm_context-&gt;transport_get_header_size(spdm_context);</span></a>
+<a name="439"><span class="lineNum">     439 </span><span class="lineCov">          1 :     transport_header_size = context-&gt;transport_get_header_size(context);</span></a>
 <a name="440"><span class="lineNum">     440 </span><span class="lineCov">          1 :     if (session_id != NULL) {</span></a>
-<a name="441"><span class="lineNum">     441 </span><span class="lineNoCov">          0 :         libspdm_get_scratch_buffer (spdm_context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
+<a name="441"><span class="lineNum">     441 </span><span class="lineNoCov">          0 :         libspdm_get_scratch_buffer (context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="442"><span class="lineNum">     442 </span>            :         #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="443"><span class="lineNum">     443 </span><span class="lineNoCov">          0 :         my_response = scratch_buffer + LIBSPDM_SCRATCH_BUFFER_SECURE_MESSAGE_OFFSET +</span></a>
 <a name="444"><span class="lineNum">     444 </span>            :                       transport_header_size;</a>
@@ -515,17 +515,17 @@
 <a name="453"><span class="lineNum">     453 </span>            :     }</a>
 <a name="454"><span class="lineNum">     454 </span><span class="lineCov">          1 :     libspdm_zero_mem(my_response, my_response_size);</span></a>
 <a name="455"><span class="lineNum">     455 </span>            : </a>
-<a name="456"><span class="lineNum">     456 </span><span class="lineCov">          1 :     if (spdm_context-&gt;last_spdm_error.error_code != 0) {</span></a>
+<a name="456"><span class="lineNum">     456 </span><span class="lineCov">          1 :     if (context-&gt;last_spdm_error.error_code != 0) {</span></a>
 <a name="457"><span class="lineNum">     457 </span>            : </a>
 <a name="458"><span class="lineNum">     458 </span>            :         /* Error in libspdm_process_request(), and we need send error message directly.*/</a>
 <a name="459"><span class="lineNum">     459 </span>            : </a>
-<a name="460"><span class="lineNum">     460 </span><span class="lineNoCov">          0 :         switch (spdm_context-&gt;last_spdm_error.error_code) {</span></a>
+<a name="460"><span class="lineNum">     460 </span><span class="lineNoCov">          0 :         switch (context-&gt;last_spdm_error.error_code) {</span></a>
 <a name="461"><span class="lineNum">     461 </span><span class="lineNoCov">          0 :         case SPDM_ERROR_CODE_DECRYPT_ERROR:</span></a>
 <a name="462"><span class="lineNum">     462 </span>            :             /* session ID is valid. Use it to encrypt the error message.*/</a>
-<a name="463"><span class="lineNum">     463 </span><span class="lineNoCov">          0 :             if((spdm_context-&gt;handle_error_return_policy &amp;</span></a>
+<a name="463"><span class="lineNum">     463 </span><span class="lineNoCov">          0 :             if((context-&gt;handle_error_return_policy &amp;</span></a>
 <a name="464"><span class="lineNum">     464 </span>            :                 LIBSPDM_DATA_HANDLE_ERROR_RETURN_POLICY_DROP_ON_DECRYPT_ERROR) == 0) {</a>
 <a name="465"><span class="lineNum">     465 </span><span class="lineNoCov">          0 :                 status = libspdm_generate_error_response(</span></a>
-<a name="466"><span class="lineNum">     466 </span>            :                     spdm_context, SPDM_ERROR_CODE_DECRYPT_ERROR, 0,</a>
+<a name="466"><span class="lineNum">     466 </span>            :                     context, SPDM_ERROR_CODE_DECRYPT_ERROR, 0,</a>
 <a name="467"><span class="lineNum">     467 </span>            :                     &amp;my_response_size, my_response);</a>
 <a name="468"><span class="lineNum">     468 </span>            :             } else {</a>
 <a name="469"><span class="lineNum">     469 </span>            :                 /**</a>
@@ -558,20 +558,20 @@
 <a name="496"><span class="lineNum">     496 </span>            :                        (session_id != NULL) ? *session_id : 0, my_response_size));</a>
 <a name="497"><span class="lineNum">     497 </span><span class="lineNoCov">          0 :         LIBSPDM_INTERNAL_DUMP_HEX(my_response, my_response_size);</span></a>
 <a name="498"><span class="lineNum">     498 </span>            : </a>
-<a name="499"><span class="lineNum">     499 </span><span class="lineNoCov">          0 :         status = spdm_context-&gt;transport_encode_message(</span></a>
-<a name="500"><span class="lineNum">     500 </span>            :             spdm_context, session_id, false, false,</a>
+<a name="499"><span class="lineNum">     499 </span><span class="lineNoCov">          0 :         status = context-&gt;transport_encode_message(</span></a>
+<a name="500"><span class="lineNum">     500 </span>            :             context, session_id, false, false,</a>
 <a name="501"><span class="lineNum">     501 </span>            :             my_response_size, my_response, response_size, response);</a>
 <a name="502"><span class="lineNum">     502 </span><span class="lineNoCov">          0 :         if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
 <a name="503"><span class="lineNum">     503 </span><span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;transport_encode_message : %p\n&quot;, status));</span></a>
 <a name="504"><span class="lineNum">     504 </span><span class="lineNoCov">          0 :             return status;</span></a>
 <a name="505"><span class="lineNum">     505 </span>            :         }</a>
 <a name="506"><span class="lineNum">     506 </span>            : </a>
-<a name="507"><span class="lineNum">     507 </span><span class="lineNoCov">          0 :         libspdm_zero_mem(&amp;spdm_context-&gt;last_spdm_error, sizeof(spdm_context-&gt;last_spdm_error));</span></a>
+<a name="507"><span class="lineNum">     507 </span><span class="lineNoCov">          0 :         libspdm_zero_mem(&amp;context-&gt;last_spdm_error, sizeof(context-&gt;last_spdm_error));</span></a>
 <a name="508"><span class="lineNum">     508 </span><span class="lineNoCov">          0 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="509"><span class="lineNum">     509 </span>            :     }</a>
 <a name="510"><span class="lineNum">     510 </span>            : </a>
 <a name="511"><span class="lineNum">     511 </span><span class="lineCov">          1 :     if (session_id != NULL) {</span></a>
-<a name="512"><span class="lineNum">     512 </span><span class="lineNoCov">          0 :         session_info = libspdm_get_session_info_via_session_id(spdm_context, *session_id);</span></a>
+<a name="512"><span class="lineNum">     512 </span><span class="lineNoCov">          0 :         session_info = libspdm_get_session_info_via_session_id(context, *session_id);</span></a>
 <a name="513"><span class="lineNum">     513 </span><span class="lineNoCov">          0 :         if (session_info == NULL) {</span></a>
 <a name="514"><span class="lineNum">     514 </span><span class="lineNoCov">          0 :             LIBSPDM_ASSERT(false);</span></a>
 <a name="515"><span class="lineNum">     515 </span><span class="lineNoCov">          0 :             return LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
@@ -591,70 +591,70 @@
 <a name="529"><span class="lineNum">     529 </span><span class="lineCov">          1 :     LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;SpdmSendResponse[%x] ...\n&quot;,</span></a>
 <a name="530"><span class="lineNum">     530 </span>            :                    (session_id != NULL) ? *session_id : 0));</a>
 <a name="531"><span class="lineNum">     531 </span>            : </a>
-<a name="532"><span class="lineNum">     532 </span><span class="lineCov">          1 :     spdm_request = (void *)spdm_context-&gt;last_spdm_request;</span></a>
-<a name="533"><span class="lineNum">     533 </span><span class="lineCov">          1 :     if (spdm_context-&gt;last_spdm_request_size == 0) {</span></a>
+<a name="532"><span class="lineNum">     532 </span><span class="lineCov">          1 :     spdm_request = (void *)context-&gt;last_spdm_request;</span></a>
+<a name="533"><span class="lineNum">     533 </span><span class="lineCov">          1 :     if (context-&gt;last_spdm_request_size == 0) {</span></a>
 <a name="534"><span class="lineNum">     534 </span><span class="lineNoCov">          0 :         return LIBSPDM_STATUS_INVALID_STATE_LOCAL;</span></a>
 <a name="535"><span class="lineNum">     535 </span>            :     }</a>
 <a name="536"><span class="lineNum">     536 </span>            : </a>
 <a name="537"><span class="lineNum">     537 </span><span class="lineCov">          1 :     get_response_func = NULL;</span></a>
 <a name="538"><span class="lineNum">     538 </span><span class="lineCov">          1 :     if (!is_app_message) {</span></a>
-<a name="539"><span class="lineNum">     539 </span><span class="lineCov">          1 :         get_response_func = libspdm_get_response_func_via_last_request(spdm_context);</span></a>
+<a name="539"><span class="lineNum">     539 </span><span class="lineCov">          1 :         get_response_func = libspdm_get_response_func_via_last_request(context);</span></a>
 <a name="540"><span class="lineNum">     540 </span>            : </a>
 <a name="541"><span class="lineNum">     541 </span>            :         #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="542"><span class="lineNum">     542 </span>            :         /* If responder is expecting chunk_get or chunk_send requests</a>
 <a name="543"><span class="lineNum">     543 </span>            :          * and gets other requests instead, drop out of chunking mode */</a>
-<a name="544"><span class="lineNum">     544 </span><span class="lineCov">          1 :         if (spdm_context-&gt;chunk_context.get.chunk_in_use</span></a>
+<a name="544"><span class="lineNum">     544 </span><span class="lineCov">          1 :         if (context-&gt;chunk_context.get.chunk_in_use</span></a>
 <a name="545"><span class="lineNum">     545 </span><span class="lineNoCov">          0 :             &amp;&amp; get_response_func != libspdm_get_response_chunk_get) {</span></a>
 <a name="546"><span class="lineNum">     546 </span>            : </a>
-<a name="547"><span class="lineNum">     547 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.get.chunk_in_use = false;</span></a>
-<a name="548"><span class="lineNum">     548 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.get.chunk_handle++; /* implicit wrap - around to 0. */</span></a>
-<a name="549"><span class="lineNum">     549 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.get.chunk_seq_no = 0;</span></a>
+<a name="547"><span class="lineNum">     547 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.get.chunk_in_use = false;</span></a>
+<a name="548"><span class="lineNum">     548 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.get.chunk_handle++; /* implicit wrap - around to 0. */</span></a>
+<a name="549"><span class="lineNum">     549 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.get.chunk_seq_no = 0;</span></a>
 <a name="550"><span class="lineNum">     550 </span>            : </a>
-<a name="551"><span class="lineNum">     551 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.get.large_message = NULL;</span></a>
-<a name="552"><span class="lineNum">     552 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.get.large_message_size = 0;</span></a>
-<a name="553"><span class="lineNum">     553 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.get.chunk_bytes_transferred = 0;</span></a>
+<a name="551"><span class="lineNum">     551 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.get.large_message = NULL;</span></a>
+<a name="552"><span class="lineNum">     552 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.get.large_message_size = 0;</span></a>
+<a name="553"><span class="lineNum">     553 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.get.chunk_bytes_transferred = 0;</span></a>
 <a name="554"><span class="lineNum">     554 </span>            :         }</a>
-<a name="555"><span class="lineNum">     555 </span><span class="lineCov">          1 :         if (spdm_context-&gt;chunk_context.send.chunk_in_use</span></a>
+<a name="555"><span class="lineNum">     555 </span><span class="lineCov">          1 :         if (context-&gt;chunk_context.send.chunk_in_use</span></a>
 <a name="556"><span class="lineNum">     556 </span><span class="lineNoCov">          0 :             &amp;&amp; get_response_func != libspdm_get_response_chunk_send) {</span></a>
 <a name="557"><span class="lineNum">     557 </span>            : </a>
-<a name="558"><span class="lineNum">     558 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.send.chunk_in_use = false;</span></a>
-<a name="559"><span class="lineNum">     559 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.send.chunk_handle = 0;</span></a>
-<a name="560"><span class="lineNum">     560 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.send.chunk_seq_no = 0;</span></a>
+<a name="558"><span class="lineNum">     558 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.send.chunk_in_use = false;</span></a>
+<a name="559"><span class="lineNum">     559 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.send.chunk_handle = 0;</span></a>
+<a name="560"><span class="lineNum">     560 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.send.chunk_seq_no = 0;</span></a>
 <a name="561"><span class="lineNum">     561 </span>            : </a>
-<a name="562"><span class="lineNum">     562 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.send.large_message = NULL;</span></a>
-<a name="563"><span class="lineNum">     563 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.send.large_message_size = 0;</span></a>
-<a name="564"><span class="lineNum">     564 </span><span class="lineNoCov">          0 :             spdm_context-&gt;chunk_context.send.chunk_bytes_transferred = 0;</span></a>
+<a name="562"><span class="lineNum">     562 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.send.large_message = NULL;</span></a>
+<a name="563"><span class="lineNum">     563 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.send.large_message_size = 0;</span></a>
+<a name="564"><span class="lineNum">     564 </span><span class="lineNoCov">          0 :             context-&gt;chunk_context.send.chunk_bytes_transferred = 0;</span></a>
 <a name="565"><span class="lineNum">     565 </span>            :         }</a>
 <a name="566"><span class="lineNum">     566 </span>            :         #endif /* LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP */</a>
 <a name="567"><span class="lineNum">     567 </span>            : </a>
 <a name="568"><span class="lineNum">     568 </span><span class="lineCov">          1 :         if (get_response_func != NULL) {</span></a>
 <a name="569"><span class="lineNum">     569 </span><span class="lineCov">          1 :             status = get_response_func(</span></a>
-<a name="570"><span class="lineNum">     570 </span>            :                 spdm_context,</a>
-<a name="571"><span class="lineNum">     571 </span>            :                 spdm_context-&gt;last_spdm_request_size,</a>
-<a name="572"><span class="lineNum">     572 </span><span class="lineCov">          1 :                 spdm_context-&gt;last_spdm_request,</span></a>
+<a name="570"><span class="lineNum">     570 </span>            :                 context,</a>
+<a name="571"><span class="lineNum">     571 </span>            :                 context-&gt;last_spdm_request_size,</a>
+<a name="572"><span class="lineNum">     572 </span><span class="lineCov">          1 :                 context-&gt;last_spdm_request,</span></a>
 <a name="573"><span class="lineNum">     573 </span>            :                 &amp;my_response_size, my_response);</a>
 <a name="574"><span class="lineNum">     574 </span>            :         }</a>
 <a name="575"><span class="lineNum">     575 </span>            :     }</a>
 <a name="576"><span class="lineNum">     576 </span><span class="lineCov">          1 :     if (is_app_message || (get_response_func == NULL)) {</span></a>
-<a name="577"><span class="lineNum">     577 </span><span class="lineNoCov">          0 :         if (spdm_context-&gt;get_response_func != 0) {</span></a>
-<a name="578"><span class="lineNum">     578 </span><span class="lineNoCov">          0 :             status = ((libspdm_get_response_func) spdm_context-&gt;get_response_func)(</span></a>
-<a name="579"><span class="lineNum">     579 </span>            :                 spdm_context, session_id, is_app_message,</a>
-<a name="580"><span class="lineNum">     580 </span>            :                 spdm_context-&gt;last_spdm_request_size,</a>
-<a name="581"><span class="lineNum">     581 </span><span class="lineNoCov">          0 :                 spdm_context-&gt;last_spdm_request,</span></a>
+<a name="577"><span class="lineNum">     577 </span><span class="lineNoCov">          0 :         if (context-&gt;get_response_func != 0) {</span></a>
+<a name="578"><span class="lineNum">     578 </span><span class="lineNoCov">          0 :             status = ((libspdm_get_response_func) context-&gt;get_response_func)(</span></a>
+<a name="579"><span class="lineNum">     579 </span>            :                 context, session_id, is_app_message,</a>
+<a name="580"><span class="lineNum">     580 </span>            :                 context-&gt;last_spdm_request_size,</a>
+<a name="581"><span class="lineNum">     581 </span><span class="lineNoCov">          0 :                 context-&gt;last_spdm_request,</span></a>
 <a name="582"><span class="lineNum">     582 </span>            :                 &amp;my_response_size, my_response);</a>
 <a name="583"><span class="lineNum">     583 </span>            :         } else {</a>
 <a name="584"><span class="lineNum">     584 </span><span class="lineNoCov">          0 :             status = LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
 <a name="585"><span class="lineNum">     585 </span>            :         }</a>
 <a name="586"><span class="lineNum">     586 </span>            :     }</a>
 <a name="587"><span class="lineNum">     587 </span>            : </a>
-<a name="588"><span class="lineNum">     588 </span><span class="lineCov">          1 :     if ((spdm_context-&gt;connection_info.capability.data_transfer_size != 0) &amp;&amp;</span></a>
-<a name="589"><span class="lineNum">     589 </span><span class="lineCov">          2 :         (my_response_size &gt; spdm_context-&gt;connection_info.capability.data_transfer_size) &amp;&amp;</span></a>
+<a name="588"><span class="lineNum">     588 </span><span class="lineCov">          1 :     if ((context-&gt;connection_info.capability.data_transfer_size != 0) &amp;&amp;</span></a>
+<a name="589"><span class="lineNum">     589 </span><span class="lineCov">          2 :         (my_response_size &gt; context-&gt;connection_info.capability.data_transfer_size) &amp;&amp;</span></a>
 <a name="590"><span class="lineNum">     590 </span><span class="lineCov">          1 :         libspdm_is_capabilities_flag_supported(</span></a>
-<a name="591"><span class="lineNum">     591 </span>            :             spdm_context, false, 0,</a>
+<a name="591"><span class="lineNum">     591 </span>            :             context, false, 0,</a>
 <a name="592"><span class="lineNum">     592 </span>            :             SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CHUNK_CAP)) {</a>
 <a name="593"><span class="lineNum">     593 </span>            :         #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="594"><span class="lineNum">     594 </span>            : </a>
-<a name="595"><span class="lineNum">     595 </span><span class="lineCov">          1 :         get_info = &amp;spdm_context-&gt;chunk_context.get;</span></a>
+<a name="595"><span class="lineNum">     595 </span><span class="lineCov">          1 :         get_info = &amp;context-&gt;chunk_context.get;</span></a>
 <a name="596"><span class="lineNum">     596 </span>            : </a>
 <a name="597"><span class="lineNum">     597 </span>            :         /* Saving multiple large responses is not an expected use case.</a>
 <a name="598"><span class="lineNum">     598 </span>            :          * Therefore, if the requester did not perform chunk_get requests for</a>
@@ -664,7 +664,7 @@
 <a name="602"><span class="lineNum">     602 </span>            :                            &quot;Warning: Overwriting previous unrequested chunk_get info.\n&quot;));</a>
 <a name="603"><span class="lineNum">     603 </span>            :         }</a>
 <a name="604"><span class="lineNum">     604 </span>            : </a>
-<a name="605"><span class="lineNum">     605 </span><span class="lineCov">          1 :         libspdm_get_scratch_buffer(spdm_context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
+<a name="605"><span class="lineNum">     605 </span><span class="lineCov">          1 :         libspdm_get_scratch_buffer(context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="606"><span class="lineNum">     606 </span><span class="lineCov">          1 :         LIBSPDM_ASSERT(scratch_buffer_size &gt;= LIBSPDM_SCRATCH_BUFFER_SIZE);</span></a>
 <a name="607"><span class="lineNum">     607 </span>            : </a>
 <a name="608"><span class="lineNum">     608 </span>            :         /* The first LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE bytes of the scratch</a>
@@ -704,7 +704,7 @@
 <a name="642"><span class="lineNum">     642 </span><span class="lineCov">          1 :                 get_info-&gt;large_message_size = my_response_size;</span></a>
 <a name="643"><span class="lineNum">     643 </span>            :             }</a>
 <a name="644"><span class="lineNum">     644 </span>            : </a>
-<a name="645"><span class="lineNum">     645 </span><span class="lineCov">          1 :             status = libspdm_generate_extended_error_response(spdm_context,</span></a>
+<a name="645"><span class="lineNum">     645 </span><span class="lineCov">          1 :             status = libspdm_generate_extended_error_response(context,</span></a>
 <a name="646"><span class="lineNum">     646 </span>            :                                                               SPDM_ERROR_CODE_LARGE_RESPONSE, 0,</a>
 <a name="647"><span class="lineNum">     647 </span>            :                                                               sizeof(uint8_t),</a>
 <a name="648"><span class="lineNum">     648 </span><span class="lineCov">          1 :                                                               &amp;get_info-&gt;chunk_handle,</span></a>
@@ -716,7 +716,7 @@
 <a name="654"><span class="lineNum">     654 </span><span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_ERROR,</span></a>
 <a name="655"><span class="lineNum">     655 </span>            :                            &quot;Warning: Could not save chunk. Scratch buffer too small.\n&quot;));</a>
 <a name="656"><span class="lineNum">     656 </span>            : </a>
-<a name="657"><span class="lineNum">     657 </span><span class="lineNoCov">          0 :             status = libspdm_generate_error_response(spdm_context,</span></a>
+<a name="657"><span class="lineNum">     657 </span><span class="lineNoCov">          0 :             status = libspdm_generate_error_response(context,</span></a>
 <a name="658"><span class="lineNum">     658 </span>            :                                                      SPDM_ERROR_CODE_LARGE_RESPONSE,</a>
 <a name="659"><span class="lineNum">     659 </span><span class="lineNoCov">          0 :                                                      spdm_request-&gt;request_response_code,</span></a>
 <a name="660"><span class="lineNum">     660 </span>            :                                                      &amp;my_response_size, my_response);</a>
@@ -737,7 +737,7 @@
 <a name="675"><span class="lineNum">     675 </span>            : </a>
 <a name="676"><span class="lineNum">     676 </span><span class="lineCov">          1 :     if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
 <a name="677"><span class="lineNum">     677 </span><span class="lineNoCov">          0 :         status = libspdm_generate_error_response(</span></a>
-<a name="678"><span class="lineNum">     678 </span>            :             spdm_context, SPDM_ERROR_CODE_UNSUPPORTED_REQUEST,</a>
+<a name="678"><span class="lineNum">     678 </span>            :             context, SPDM_ERROR_CODE_UNSUPPORTED_REQUEST,</a>
 <a name="679"><span class="lineNum">     679 </span><span class="lineNoCov">          0 :             spdm_request-&gt;request_response_code, &amp;my_response_size,</span></a>
 <a name="680"><span class="lineNum">     680 </span>            :             my_response);</a>
 <a name="681"><span class="lineNum">     681 </span><span class="lineNoCov">          0 :         if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
@@ -749,8 +749,8 @@
 <a name="687"><span class="lineNum">     687 </span>            :                    (session_id != NULL) ? *session_id : 0, my_response_size));</a>
 <a name="688"><span class="lineNum">     688 </span><span class="lineCov">          1 :     LIBSPDM_INTERNAL_DUMP_HEX(my_response, my_response_size);</span></a>
 <a name="689"><span class="lineNum">     689 </span>            : </a>
-<a name="690"><span class="lineNum">     690 </span><span class="lineCov">          1 :     status = spdm_context-&gt;transport_encode_message(</span></a>
-<a name="691"><span class="lineNum">     691 </span>            :         spdm_context, session_id, is_app_message, false,</a>
+<a name="690"><span class="lineNum">     690 </span><span class="lineCov">          1 :     status = context-&gt;transport_encode_message(</span></a>
+<a name="691"><span class="lineNum">     691 </span>            :         context, session_id, is_app_message, false,</a>
 <a name="692"><span class="lineNum">     692 </span>            :         my_response_size, my_response, response_size, response);</a>
 <a name="693"><span class="lineNum">     693 </span><span class="lineCov">          1 :     if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
 <a name="694"><span class="lineNum">     694 </span><span class="lineNoCov">          0 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;transport_encode_message : %p\n&quot;, status));</span></a>
@@ -784,24 +784,24 @@
 <a name="722"><span class="lineNum">     722 </span><span class="lineNoCov">          0 :         switch (request_response_code) {</span></a>
 <a name="723"><span class="lineNum">     723 </span><span class="lineNoCov">          0 :         case SPDM_FINISH_RSP:</span></a>
 <a name="724"><span class="lineNum">     724 </span><span class="lineNoCov">          0 :             if (!libspdm_is_capabilities_flag_supported(</span></a>
-<a name="725"><span class="lineNum">     725 </span>            :                     spdm_context, false,</a>
+<a name="725"><span class="lineNum">     725 </span>            :                     context, false,</a>
 <a name="726"><span class="lineNum">     726 </span>            :                     SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HANDSHAKE_IN_THE_CLEAR_CAP,</a>
 <a name="727"><span class="lineNum">     727 </span>            :                     SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HANDSHAKE_IN_THE_CLEAR_CAP)) {</a>
 <a name="728"><span class="lineNum">     728 </span><span class="lineNoCov">          0 :                 libspdm_set_session_state(</span></a>
-<a name="729"><span class="lineNum">     729 </span>            :                     spdm_context, *session_id,</a>
+<a name="729"><span class="lineNum">     729 </span>            :                     context, *session_id,</a>
 <a name="730"><span class="lineNum">     730 </span>            :                     LIBSPDM_SESSION_STATE_ESTABLISHED);</a>
 <a name="731"><span class="lineNum">     731 </span>            :             }</a>
 <a name="732"><span class="lineNum">     732 </span><span class="lineNoCov">          0 :             break;</span></a>
 <a name="733"><span class="lineNum">     733 </span><span class="lineNoCov">          0 :         case SPDM_PSK_FINISH_RSP:</span></a>
-<a name="734"><span class="lineNum">     734 </span><span class="lineNoCov">          0 :             libspdm_set_session_state(spdm_context, *session_id,</span></a>
+<a name="734"><span class="lineNum">     734 </span><span class="lineNoCov">          0 :             libspdm_set_session_state(context, *session_id,</span></a>
 <a name="735"><span class="lineNum">     735 </span>            :                                       LIBSPDM_SESSION_STATE_ESTABLISHED);</a>
 <a name="736"><span class="lineNum">     736 </span><span class="lineNoCov">          0 :             break;</span></a>
 <a name="737"><span class="lineNum">     737 </span><span class="lineNoCov">          0 :         case SPDM_END_SESSION_ACK:</span></a>
-<a name="738"><span class="lineNum">     738 </span><span class="lineNoCov">          0 :             libspdm_set_session_state(spdm_context, *session_id,</span></a>
+<a name="738"><span class="lineNum">     738 </span><span class="lineNoCov">          0 :             libspdm_set_session_state(context, *session_id,</span></a>
 <a name="739"><span class="lineNum">     739 </span>            :                                       LIBSPDM_SESSION_STATE_NOT_STARTED);</a>
 <a name="740"><span class="lineNum">     740 </span>            :             #if LIBSPDM_ENABLE_CAPABILITY_HBEAT_CAP</a>
 <a name="741"><span class="lineNum">     741 </span><span class="lineNoCov">          0 :             if (libspdm_is_capabilities_flag_supported(</span></a>
-<a name="742"><span class="lineNum">     742 </span>            :                     spdm_context, false,</a>
+<a name="742"><span class="lineNum">     742 </span>            :                     context, false,</a>
 <a name="743"><span class="lineNum">     743 </span>            :                     SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HBEAT_CAP,</a>
 <a name="744"><span class="lineNum">     744 </span>            :                     SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HBEAT_CAP)) {</a>
 <a name="745"><span class="lineNum">     745 </span><span class="lineNoCov">          0 :                 result = libspdm_stop_watchdog(*session_id);</span></a>
@@ -811,12 +811,12 @@
 <a name="749"><span class="lineNum">     749 </span>            :                 }</a>
 <a name="750"><span class="lineNum">     750 </span>            :             }</a>
 <a name="751"><span class="lineNum">     751 </span>            :             #endif /* LIBSPDM_ENABLE_CAPABILITY_HBEAT_CAP */</a>
-<a name="752"><span class="lineNum">     752 </span><span class="lineNoCov">          0 :             libspdm_free_session_id(spdm_context, *session_id);</span></a>
+<a name="752"><span class="lineNum">     752 </span><span class="lineNoCov">          0 :             libspdm_free_session_id(context, *session_id);</span></a>
 <a name="753"><span class="lineNum">     753 </span><span class="lineNoCov">          0 :             break;</span></a>
 <a name="754"><span class="lineNum">     754 </span><span class="lineNoCov">          0 :         default:</span></a>
 <a name="755"><span class="lineNum">     755 </span>            :             #if LIBSPDM_ENABLE_CAPABILITY_HBEAT_CAP</a>
 <a name="756"><span class="lineNum">     756 </span><span class="lineNoCov">          0 :             if (libspdm_is_capabilities_flag_supported(</span></a>
-<a name="757"><span class="lineNum">     757 </span>            :                     spdm_context, false,</a>
+<a name="757"><span class="lineNum">     757 </span>            :                     context, false,</a>
 <a name="758"><span class="lineNum">     758 </span>            :                     SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HBEAT_CAP,</a>
 <a name="759"><span class="lineNum">     759 </span>            :                     SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HBEAT_CAP)) {</a>
 <a name="760"><span class="lineNum">     760 </span>            :                 /* reset watchdog in any session messages. */</a>
@@ -833,12 +833,12 @@
 <a name="771"><span class="lineNum">     771 </span><span class="lineCov">          1 :         switch (request_response_code) {</span></a>
 <a name="772"><span class="lineNum">     772 </span><span class="lineNoCov">          0 :         case SPDM_FINISH_RSP:</span></a>
 <a name="773"><span class="lineNum">     773 </span><span class="lineNoCov">          0 :             if (libspdm_is_capabilities_flag_supported(</span></a>
-<a name="774"><span class="lineNum">     774 </span>            :                     spdm_context, false,</a>
+<a name="774"><span class="lineNum">     774 </span>            :                     context, false,</a>
 <a name="775"><span class="lineNum">     775 </span>            :                     SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HANDSHAKE_IN_THE_CLEAR_CAP,</a>
 <a name="776"><span class="lineNum">     776 </span>            :                     SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HANDSHAKE_IN_THE_CLEAR_CAP)) {</a>
 <a name="777"><span class="lineNum">     777 </span><span class="lineNoCov">          0 :                 libspdm_set_session_state(</span></a>
-<a name="778"><span class="lineNum">     778 </span>            :                     spdm_context,</a>
-<a name="779"><span class="lineNum">     779 </span>            :                     spdm_context-&gt;latest_session_id,</a>
+<a name="778"><span class="lineNum">     778 </span>            :                     context,</a>
+<a name="779"><span class="lineNum">     779 </span>            :                     context-&gt;latest_session_id,</a>
 <a name="780"><span class="lineNum">     780 </span>            :                     LIBSPDM_SESSION_STATE_ESTABLISHED);</a>
 <a name="781"><span class="lineNum">     781 </span>            :             }</a>
 <a name="782"><span class="lineNum">     782 </span><span class="lineNoCov">          0 :             break;</span></a>
@@ -860,39 +860,39 @@
 <a name="798"><span class="lineNum">     798 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="799"><span class="lineNum">     799 </span>            : </a>
 <a name="800"><span class="lineNum">     800 </span><span class="lineNoCov">          0 : void libspdm_register_session_state_callback_func(</span></a>
-<a name="801"><span class="lineNum">     801 </span>            :     void *context,</a>
+<a name="801"><span class="lineNum">     801 </span>            :     void *spdm_context,</a>
 <a name="802"><span class="lineNum">     802 </span>            :     libspdm_session_state_callback_func spdm_session_state_callback)</a>
 <a name="803"><span class="lineNum">     803 </span>            : {</a>
-<a name="804"><span class="lineNum">     804 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="804"><span class="lineNum">     804 </span>            :     libspdm_context_t *context;</a>
 <a name="805"><span class="lineNum">     805 </span>            : </a>
-<a name="806"><span class="lineNum">     806 </span><span class="lineNoCov">          0 :     LIBSPDM_ASSERT(context != NULL);</span></a>
+<a name="806"><span class="lineNum">     806 </span><span class="lineNoCov">          0 :     LIBSPDM_ASSERT(spdm_context != NULL);</span></a>
 <a name="807"><span class="lineNum">     807 </span>            : </a>
-<a name="808"><span class="lineNum">     808 </span><span class="lineNoCov">          0 :     spdm_context = context;</span></a>
+<a name="808"><span class="lineNum">     808 </span><span class="lineNoCov">          0 :     context = spdm_context;</span></a>
 <a name="809"><span class="lineNum">     809 </span>            : </a>
-<a name="810"><span class="lineNum">     810 </span><span class="lineNoCov">          0 :     spdm_context-&gt;spdm_session_state_callback = (void *)spdm_session_state_callback;</span></a>
+<a name="810"><span class="lineNum">     810 </span><span class="lineNoCov">          0 :     context-&gt;spdm_session_state_callback = (void *)spdm_session_state_callback;</span></a>
 <a name="811"><span class="lineNum">     811 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="812"><span class="lineNum">     812 </span>            : </a>
 <a name="813"><span class="lineNum">     813 </span><span class="lineNoCov">          0 : void libspdm_register_connection_state_callback_func(</span></a>
-<a name="814"><span class="lineNum">     814 </span>            :     void *context,</a>
+<a name="814"><span class="lineNum">     814 </span>            :     void *spdm_context,</a>
 <a name="815"><span class="lineNum">     815 </span>            :     libspdm_connection_state_callback_func spdm_connection_state_callback)</a>
 <a name="816"><span class="lineNum">     816 </span>            : {</a>
-<a name="817"><span class="lineNum">     817 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="817"><span class="lineNum">     817 </span>            :     libspdm_context_t *context;</a>
 <a name="818"><span class="lineNum">     818 </span>            : </a>
-<a name="819"><span class="lineNum">     819 </span><span class="lineNoCov">          0 :     LIBSPDM_ASSERT(context != NULL);</span></a>
+<a name="819"><span class="lineNum">     819 </span><span class="lineNoCov">          0 :     LIBSPDM_ASSERT(spdm_context != NULL);</span></a>
 <a name="820"><span class="lineNum">     820 </span>            : </a>
-<a name="821"><span class="lineNum">     821 </span><span class="lineNoCov">          0 :     spdm_context = context;</span></a>
-<a name="822"><span class="lineNum">     822 </span><span class="lineNoCov">          0 :     spdm_context-&gt;spdm_connection_state_callback = (void *)spdm_connection_state_callback;</span></a>
+<a name="821"><span class="lineNum">     821 </span><span class="lineNoCov">          0 :     context = spdm_context;</span></a>
+<a name="822"><span class="lineNum">     822 </span><span class="lineNoCov">          0 :     context-&gt;spdm_connection_state_callback = (void *)spdm_connection_state_callback;</span></a>
 <a name="823"><span class="lineNum">     823 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="824"><span class="lineNum">     824 </span>            : </a>
 <a name="825"><span class="lineNum">     825 </span><span class="lineNoCov">          0 : void libspdm_register_key_update_callback_func(</span></a>
-<a name="826"><span class="lineNum">     826 </span>            :     void *context, libspdm_key_update_callback_func spdm_key_update_callback)</a>
+<a name="826"><span class="lineNum">     826 </span>            :     void *spdm_context, libspdm_key_update_callback_func spdm_key_update_callback)</a>
 <a name="827"><span class="lineNum">     827 </span>            : {</a>
-<a name="828"><span class="lineNum">     828 </span>            :     libspdm_context_t *spdm_context;</a>
+<a name="828"><span class="lineNum">     828 </span>            :     libspdm_context_t *context;</a>
 <a name="829"><span class="lineNum">     829 </span>            : </a>
-<a name="830"><span class="lineNum">     830 </span><span class="lineNoCov">          0 :     LIBSPDM_ASSERT(context != NULL);</span></a>
+<a name="830"><span class="lineNum">     830 </span><span class="lineNoCov">          0 :     LIBSPDM_ASSERT(spdm_context != NULL);</span></a>
 <a name="831"><span class="lineNum">     831 </span>            : </a>
-<a name="832"><span class="lineNum">     832 </span><span class="lineNoCov">          0 :     spdm_context = context;</span></a>
-<a name="833"><span class="lineNum">     833 </span><span class="lineNoCov">          0 :     spdm_context-&gt;spdm_key_update_callback = (void *)spdm_key_update_callback;</span></a>
+<a name="832"><span class="lineNum">     832 </span><span class="lineNoCov">          0 :     context = spdm_context;</span></a>
+<a name="833"><span class="lineNum">     833 </span><span class="lineNoCov">          0 :     context-&gt;spdm_key_update_callback = (void *)spdm_key_update_callback;</span></a>
 <a name="834"><span class="lineNum">     834 </span><span class="lineNoCov">          0 : }</span></a>
 </pre>
       </td>
