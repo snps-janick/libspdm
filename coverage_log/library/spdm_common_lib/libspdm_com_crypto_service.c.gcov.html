@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-02-20 08:06:15</td>
+            <td class="headerValue">2023-02-21 08:04:32</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -878,7 +878,7 @@
 <a name="807"><span class="lineNum">     807 </span>                :            :  * @retval true  hash verification pass.</a>
 <a name="808"><span class="lineNum">     808 </span>                :            :  * @retval false hash verification fail.</a>
 <a name="809"><span class="lineNum">     809 </span>                :            :  **/</a>
-<a name="810"><span class="lineNum">     810 </span>                :<span class="lineCov">         14 : bool libspdm_verify_certificate_chain_hash(libspdm_context_t *spdm_context,</span></a>
+<a name="810"><span class="lineNum">     810 </span>                :<span class="lineCov">         15 : bool libspdm_verify_certificate_chain_hash(libspdm_context_t *spdm_context,</span></a>
 <a name="811"><span class="lineNum">     811 </span>                :            :                                            const void *certificate_chain_hash,</a>
 <a name="812"><span class="lineNum">     812 </span>                :            :                                            size_t certificate_chain_hash_size)</a>
 <a name="813"><span class="lineNum">     813 </span>                :            : {</a>
@@ -921,27 +921,27 @@
 <a name="850"><span class="lineNum">     850 </span>                :            :         return false;</a>
 <a name="851"><span class="lineNum">     851 </span>                :            :     }</a>
 <a name="852"><span class="lineNum">     852 </span>                :            : #else</a>
-<a name="853"><span class="lineNum">     853 </span>                :<span class="lineCov">         14 :     slot_id = spdm_context-&gt;connection_info.peer_used_cert_chain_slot_id;</span></a>
-<a name="854"><span class="lineNum">     854 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">         14 :     LIBSPDM_ASSERT(slot_id &lt; SPDM_MAX_SLOT_COUNT);</span></a>
+<a name="853"><span class="lineNum">     853 </span>                :<span class="lineCov">         15 :     slot_id = spdm_context-&gt;connection_info.peer_used_cert_chain_slot_id;</span></a>
+<a name="854"><span class="lineNum">     854 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         15 :     LIBSPDM_ASSERT(slot_id &lt; SPDM_MAX_SLOT_COUNT);</span></a>
 <a name="855"><span class="lineNum">     855 </span>                :            : </a>
-<a name="856"><span class="lineNum">     856 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">         14 :     LIBSPDM_ASSERT(</span></a>
+<a name="856"><span class="lineNum">     856 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         15 :     LIBSPDM_ASSERT(</span></a>
 <a name="857"><span class="lineNum">     857 </span>                :            :         spdm_context-&gt;connection_info.peer_used_cert_chain[slot_id].buffer_hash_size != 0);</a>
 <a name="858"><span class="lineNum">     858 </span>                :            : </a>
-<a name="859"><span class="lineNum">     859 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">         14 :     if (spdm_context-&gt;connection_info.peer_used_cert_chain[slot_id].buffer_hash_size !=</span></a>
+<a name="859"><span class="lineNum">     859 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         15 :     if (spdm_context-&gt;connection_info.peer_used_cert_chain[slot_id].buffer_hash_size !=</span></a>
 <a name="860"><span class="lineNum">     860 </span>                :            :         certificate_chain_hash_size) {</a>
 <a name="861"><span class="lineNum">     861 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;!!! verify_certificate_chain_hash - FAIL !!!\n&quot;));</span></a>
 <a name="862"><span class="lineNum">     862 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="863"><span class="lineNum">     863 </span>                :            :     }</a>
 <a name="864"><span class="lineNum">     864 </span>                :            : </a>
-<a name="865"><span class="lineNum">     865 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">         14 :     if (libspdm_const_compare_mem(certificate_chain_hash,</span></a>
-<a name="866"><span class="lineNum">     866 </span>                :<span class="lineCov">         14 :                                   spdm_context-&gt;connection_info.peer_used_cert_chain[slot_id].</span></a>
+<a name="865"><span class="lineNum">     865 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         15 :     if (libspdm_const_compare_mem(certificate_chain_hash,</span></a>
+<a name="866"><span class="lineNum">     866 </span>                :<span class="lineCov">         15 :                                   spdm_context-&gt;connection_info.peer_used_cert_chain[slot_id].</span></a>
 <a name="867"><span class="lineNum">     867 </span>                :            :                                   buffer_hash, certificate_chain_hash_size) != 0) {</a>
 <a name="868"><span class="lineNum">     868 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;!!! verify_certificate_chain_hash - FAIL !!!\n&quot;));</span></a>
 <a name="869"><span class="lineNum">     869 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="870"><span class="lineNum">     870 </span>                :            :     }</a>
 <a name="871"><span class="lineNum">     871 </span>                :            : #endif</a>
-<a name="872"><span class="lineNum">     872 </span>                :<span class="lineCov">         14 :     LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;!!! verify_certificate_chain_hash - PASS !!!\n&quot;));</span></a>
-<a name="873"><span class="lineNum">     873 </span>                :<span class="lineCov">         14 :     return true;</span></a>
+<a name="872"><span class="lineNum">     872 </span>                :<span class="lineCov">         15 :     LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;!!! verify_certificate_chain_hash - PASS !!!\n&quot;));</span></a>
+<a name="873"><span class="lineNum">     873 </span>                :<span class="lineCov">         15 :     return true;</span></a>
 <a name="874"><span class="lineNum">     874 </span>                :            : }</a>
 <a name="875"><span class="lineNum">     875 </span>                :            : </a>
 <a name="876"><span class="lineNum">     876 </span>                :            : /**</a>
@@ -1155,14 +1155,14 @@
 <a name="1084"><span class="lineNum">    1084 </span>                :            :  * @return measurement summary hash size according to type.</a>
 <a name="1085"><span class="lineNum">    1085 </span>                :            :  **/</a>
 <a name="1086"><span class="lineNum">    1086 </span>                :            : uint32_t</a>
-<a name="1087"><span class="lineNum">    1087 </span>                :<span class="lineCov">         93 : libspdm_get_measurement_summary_hash_size(libspdm_context_t *spdm_context,</span></a>
+<a name="1087"><span class="lineNum">    1087 </span>                :<span class="lineCov">         94 : libspdm_get_measurement_summary_hash_size(libspdm_context_t *spdm_context,</span></a>
 <a name="1088"><span class="lineNum">    1088 </span>                :            :                                           bool is_requester,</a>
 <a name="1089"><span class="lineNum">    1089 </span>                :            :                                           uint8_t measurement_summary_hash_type)</a>
 <a name="1090"><span class="lineNum">    1090 </span>                :            : {</a>
-<a name="1091"><span class="lineNum">    1091 </span>        [<span class="branchCov" title="Branch 0 was taken 53 times"> + </span><span class="branchCov" title="Branch 1 was taken 40 times"> + </span>]:<span class="lineCov">         93 :     if (!libspdm_is_capabilities_flag_supported(</span></a>
+<a name="1091"><span class="lineNum">    1091 </span>        [<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchCov" title="Branch 1 was taken 40 times"> + </span>]:<span class="lineCov">         94 :     if (!libspdm_is_capabilities_flag_supported(</span></a>
 <a name="1092"><span class="lineNum">    1092 </span>                :            :             spdm_context, is_requester, 0,</a>
 <a name="1093"><span class="lineNum">    1093 </span>                :            :             SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MEAS_CAP)) {</a>
-<a name="1094"><span class="lineNum">    1094 </span>                :<span class="lineCov">         53 :         return 0;</span></a>
+<a name="1094"><span class="lineNum">    1094 </span>                :<span class="lineCov">         54 :         return 0;</span></a>
 <a name="1095"><span class="lineNum">    1095 </span>                :            :     }</a>
 <a name="1096"><span class="lineNum">    1096 </span>                :            : </a>
 <a name="1097"><span class="lineNum">    1097 </span>     [<span class="branchCov" title="Branch 0 was taken 14 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span>]:<span class="lineCov">         40 :     switch (measurement_summary_hash_type) {</span></a>
