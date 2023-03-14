@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-13 08:05:15</td>
+            <td class="headerValue">2023-03-14 08:08:38</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">42</td>
@@ -851,82 +851,82 @@
 <a name="765"><span class="lineNum">     765 </span>                :            :  *</a>
 <a name="766"><span class="lineNum">     766 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="767"><span class="lineNum">     767 </span>                :            :  **/</a>
-<a name="768"><span class="lineNum">     768 </span>                :<span class="lineCov">        564 : void libspdm_reset_message_a(libspdm_context_t *spdm_context)</span></a>
+<a name="768"><span class="lineNum">     768 </span>                :<span class="lineCov">        561 : void libspdm_reset_message_a(libspdm_context_t *spdm_context)</span></a>
 <a name="769"><span class="lineNum">     769 </span>                :            : {</a>
-<a name="770"><span class="lineNum">     770 </span>                :<span class="lineCov">        564 :     libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_a);</span></a>
-<a name="771"><span class="lineNum">     771 </span>                :<span class="lineCov">        564 : }</span></a>
+<a name="770"><span class="lineNum">     770 </span>                :<span class="lineCov">        561 :     libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_a);</span></a>
+<a name="771"><span class="lineNum">     771 </span>                :<span class="lineCov">        561 : }</span></a>
 <a name="772"><span class="lineNum">     772 </span>                :            : </a>
 <a name="773"><span class="lineNum">     773 </span>                :            : /**</a>
 <a name="774"><span class="lineNum">     774 </span>                :            :  * Reset message B cache in SPDM context.</a>
 <a name="775"><span class="lineNum">     775 </span>                :            :  *</a>
 <a name="776"><span class="lineNum">     776 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="777"><span class="lineNum">     777 </span>                :            :  **/</a>
-<a name="778"><span class="lineNum">     778 </span>                :<span class="lineCov">        936 : void libspdm_reset_message_b(libspdm_context_t *spdm_context)</span></a>
+<a name="778"><span class="lineNum">     778 </span>                :<span class="lineCov">        940 : void libspdm_reset_message_b(libspdm_context_t *spdm_context)</span></a>
 <a name="779"><span class="lineNum">     779 </span>                :            : {</a>
 <a name="780"><span class="lineNum">     780 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="781"><span class="lineNum">     781 </span>                :            :     libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_b);</a>
 <a name="782"><span class="lineNum">     782 </span>                :            : #else</a>
-<a name="783"><span class="lineNum">     783 </span>        [<span class="branchCov" title="Branch 0 was taken 165 times"> + </span><span class="branchCov" title="Branch 1 was taken 771 times"> + </span>]:<span class="lineCov">        936 :     if (spdm_context-&gt;transcript.digest_context_m1m2 != NULL) {</span></a>
+<a name="783"><span class="lineNum">     783 </span>        [<span class="branchCov" title="Branch 0 was taken 165 times"> + </span><span class="branchCov" title="Branch 1 was taken 775 times"> + </span>]:<span class="lineCov">        940 :     if (spdm_context-&gt;transcript.digest_context_m1m2 != NULL) {</span></a>
 <a name="784"><span class="lineNum">     784 </span>                :<span class="lineCov">        165 :         libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="785"><span class="lineNum">     785 </span>                :            :                            spdm_context-&gt;transcript.digest_context_m1m2);</a>
 <a name="786"><span class="lineNum">     786 </span>                :<span class="lineCov">        165 :         spdm_context-&gt;transcript.digest_context_m1m2 = NULL;</span></a>
 <a name="787"><span class="lineNum">     787 </span>                :            :     }</a>
 <a name="788"><span class="lineNum">     788 </span>                :            : #endif</a>
-<a name="789"><span class="lineNum">     789 </span>                :<span class="lineCov">        936 : }</span></a>
+<a name="789"><span class="lineNum">     789 </span>                :<span class="lineCov">        940 : }</span></a>
 <a name="790"><span class="lineNum">     790 </span>                :            : </a>
 <a name="791"><span class="lineNum">     791 </span>                :            : /**</a>
 <a name="792"><span class="lineNum">     792 </span>                :            :  * Reset message C cache in SPDM context.</a>
 <a name="793"><span class="lineNum">     793 </span>                :            :  *</a>
 <a name="794"><span class="lineNum">     794 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="795"><span class="lineNum">     795 </span>                :            :  **/</a>
-<a name="796"><span class="lineNum">     796 </span>                :<span class="lineCov">        555 : void libspdm_reset_message_c(libspdm_context_t *spdm_context)</span></a>
+<a name="796"><span class="lineNum">     796 </span>                :<span class="lineCov">        552 : void libspdm_reset_message_c(libspdm_context_t *spdm_context)</span></a>
 <a name="797"><span class="lineNum">     797 </span>                :            : {</a>
 <a name="798"><span class="lineNum">     798 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="799"><span class="lineNum">     799 </span>                :            :     libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_c);</a>
 <a name="800"><span class="lineNum">     800 </span>                :            : #else</a>
-<a name="801"><span class="lineNum">     801 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 555 times"> + </span>]:<span class="lineCov">        555 :     if (spdm_context-&gt;transcript.digest_context_m1m2 != NULL) {</span></a>
+<a name="801"><span class="lineNum">     801 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 552 times"> + </span>]:<span class="lineCov">        552 :     if (spdm_context-&gt;transcript.digest_context_m1m2 != NULL) {</span></a>
 <a name="802"><span class="lineNum">     802 </span>                :<span class="lineNoCov">          0 :         libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="803"><span class="lineNum">     803 </span>                :            :                            spdm_context-&gt;transcript.digest_context_m1m2);</a>
 <a name="804"><span class="lineNum">     804 </span>                :<span class="lineNoCov">          0 :         spdm_context-&gt;transcript.digest_context_m1m2 = NULL;</span></a>
 <a name="805"><span class="lineNum">     805 </span>                :            :     }</a>
 <a name="806"><span class="lineNum">     806 </span>                :            : #endif</a>
-<a name="807"><span class="lineNum">     807 </span>                :<span class="lineCov">        555 : }</span></a>
+<a name="807"><span class="lineNum">     807 </span>                :<span class="lineCov">        552 : }</span></a>
 <a name="808"><span class="lineNum">     808 </span>                :            : </a>
 <a name="809"><span class="lineNum">     809 </span>                :            : /**</a>
 <a name="810"><span class="lineNum">     810 </span>                :            :  * Reset message MutB cache in SPDM context.</a>
 <a name="811"><span class="lineNum">     811 </span>                :            :  *</a>
 <a name="812"><span class="lineNum">     812 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="813"><span class="lineNum">     813 </span>                :            :  **/</a>
-<a name="814"><span class="lineNum">     814 </span>                :<span class="lineCov">        424 : void libspdm_reset_message_mut_b(libspdm_context_t *spdm_context)</span></a>
+<a name="814"><span class="lineNum">     814 </span>                :<span class="lineCov">        423 : void libspdm_reset_message_mut_b(libspdm_context_t *spdm_context)</span></a>
 <a name="815"><span class="lineNum">     815 </span>                :            : {</a>
 <a name="816"><span class="lineNum">     816 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="817"><span class="lineNum">     817 </span>                :            :     libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_mut_b);</a>
 <a name="818"><span class="lineNum">     818 </span>                :            : #else</a>
-<a name="819"><span class="lineNum">     819 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 415 times"> + </span>]:<span class="lineCov">        424 :     if (spdm_context-&gt;transcript.digest_context_mut_m1m2 != NULL) {</span></a>
-<a name="820"><span class="lineNum">     820 </span>                :<span class="lineCov">          9 :         libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="819"><span class="lineNum">     819 </span>        [<span class="branchCov" title="Branch 0 was taken 14 times"> + </span><span class="branchCov" title="Branch 1 was taken 409 times"> + </span>]:<span class="lineCov">        423 :     if (spdm_context-&gt;transcript.digest_context_mut_m1m2 != NULL) {</span></a>
+<a name="820"><span class="lineNum">     820 </span>                :<span class="lineCov">         14 :         libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="821"><span class="lineNum">     821 </span>                :            :                            spdm_context-&gt;transcript.digest_context_mut_m1m2);</a>
-<a name="822"><span class="lineNum">     822 </span>                :<span class="lineCov">          9 :         spdm_context-&gt;transcript.digest_context_mut_m1m2 = NULL;</span></a>
+<a name="822"><span class="lineNum">     822 </span>                :<span class="lineCov">         14 :         spdm_context-&gt;transcript.digest_context_mut_m1m2 = NULL;</span></a>
 <a name="823"><span class="lineNum">     823 </span>                :            :     }</a>
 <a name="824"><span class="lineNum">     824 </span>                :            : #endif</a>
-<a name="825"><span class="lineNum">     825 </span>                :<span class="lineCov">        424 : }</span></a>
+<a name="825"><span class="lineNum">     825 </span>                :<span class="lineCov">        423 : }</span></a>
 <a name="826"><span class="lineNum">     826 </span>                :            : </a>
 <a name="827"><span class="lineNum">     827 </span>                :            : /**</a>
 <a name="828"><span class="lineNum">     828 </span>                :            :  * Reset message MutC cache in SPDM context.</a>
 <a name="829"><span class="lineNum">     829 </span>                :            :  *</a>
 <a name="830"><span class="lineNum">     830 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="831"><span class="lineNum">     831 </span>                :            :  **/</a>
-<a name="832"><span class="lineNum">     832 </span>                :<span class="lineCov">        424 : void libspdm_reset_message_mut_c(libspdm_context_t *spdm_context)</span></a>
+<a name="832"><span class="lineNum">     832 </span>                :<span class="lineCov">        423 : void libspdm_reset_message_mut_c(libspdm_context_t *spdm_context)</span></a>
 <a name="833"><span class="lineNum">     833 </span>                :            : {</a>
 <a name="834"><span class="lineNum">     834 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="835"><span class="lineNum">     835 </span>                :            :     libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_mut_c);</a>
 <a name="836"><span class="lineNum">     836 </span>                :            : #else</a>
-<a name="837"><span class="lineNum">     837 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 424 times"> + </span>]:<span class="lineCov">        424 :     if (spdm_context-&gt;transcript.digest_context_mut_m1m2 != NULL) {</span></a>
+<a name="837"><span class="lineNum">     837 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 423 times"> + </span>]:<span class="lineCov">        423 :     if (spdm_context-&gt;transcript.digest_context_mut_m1m2 != NULL) {</span></a>
 <a name="838"><span class="lineNum">     838 </span>                :<span class="lineNoCov">          0 :         libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="839"><span class="lineNum">     839 </span>                :            :                            spdm_context-&gt;transcript.digest_context_mut_m1m2);</a>
 <a name="840"><span class="lineNum">     840 </span>                :<span class="lineNoCov">          0 :         spdm_context-&gt;transcript.digest_context_mut_m1m2 = NULL;</span></a>
 <a name="841"><span class="lineNum">     841 </span>                :            :     }</a>
 <a name="842"><span class="lineNum">     842 </span>                :            : #endif</a>
-<a name="843"><span class="lineNum">     843 </span>                :<span class="lineCov">        424 : }</span></a>
+<a name="843"><span class="lineNum">     843 </span>                :<span class="lineCov">        423 : }</span></a>
 <a name="844"><span class="lineNum">     844 </span>                :            : </a>
 <a name="845"><span class="lineNum">     845 </span>                :            : /**</a>
 <a name="846"><span class="lineNum">     846 </span>                :            :  * Reset message M cache in SPDM context.</a>
@@ -936,11 +936,11 @@
 <a name="850"><span class="lineNum">     850 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="851"><span class="lineNum">     851 </span>                :            :  * @param  session_info                  A pointer to the SPDM session context.</a>
 <a name="852"><span class="lineNum">     852 </span>                :            :  **/</a>
-<a name="853"><span class="lineNum">     853 </span>                :<span class="lineCov">       3819 : void libspdm_reset_message_m(libspdm_context_t *spdm_context, void *session_info)</span></a>
+<a name="853"><span class="lineNum">     853 </span>                :<span class="lineCov">       3821 : void libspdm_reset_message_m(libspdm_context_t *spdm_context, void *session_info)</span></a>
 <a name="854"><span class="lineNum">     854 </span>                :            : {</a>
 <a name="855"><span class="lineNum">     855 </span>                :            :     libspdm_session_info_t *spdm_session_info;</a>
 <a name="856"><span class="lineNum">     856 </span>                :            : </a>
-<a name="857"><span class="lineNum">     857 </span>                :<span class="lineCov">       3819 :     spdm_session_info = session_info;</span></a>
+<a name="857"><span class="lineNum">     857 </span>                :<span class="lineCov">       3821 :     spdm_session_info = session_info;</span></a>
 <a name="858"><span class="lineNum">     858 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="859"><span class="lineNum">     859 </span>                :            :     if (spdm_session_info == NULL) {</a>
 <a name="860"><span class="lineNum">     860 </span>                :            :         libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_m);</a>
@@ -948,21 +948,21 @@
 <a name="862"><span class="lineNum">     862 </span>                :            :         libspdm_reset_managed_buffer(&amp;spdm_session_info-&gt;session_transcript.message_m);</a>
 <a name="863"><span class="lineNum">     863 </span>                :            :     }</a>
 <a name="864"><span class="lineNum">     864 </span>                :            : #else</a>
-<a name="865"><span class="lineNum">     865 </span>        [<span class="branchCov" title="Branch 0 was taken 3561 times"> + </span><span class="branchCov" title="Branch 1 was taken 258 times"> + </span>]:<span class="lineCov">       3819 :     if (spdm_session_info == NULL) {</span></a>
-<a name="866"><span class="lineNum">     866 </span>        [<span class="branchCov" title="Branch 0 was taken 44 times"> + </span><span class="branchCov" title="Branch 1 was taken 3517 times"> + </span>]:<span class="lineCov">       3561 :         if (spdm_context-&gt;transcript.digest_context_l1l2 != NULL) {</span></a>
+<a name="865"><span class="lineNum">     865 </span>        [<span class="branchCov" title="Branch 0 was taken 3564 times"> + </span><span class="branchCov" title="Branch 1 was taken 257 times"> + </span>]:<span class="lineCov">       3821 :     if (spdm_session_info == NULL) {</span></a>
+<a name="866"><span class="lineNum">     866 </span>        [<span class="branchCov" title="Branch 0 was taken 44 times"> + </span><span class="branchCov" title="Branch 1 was taken 3520 times"> + </span>]:<span class="lineCov">       3564 :         if (spdm_context-&gt;transcript.digest_context_l1l2 != NULL) {</span></a>
 <a name="867"><span class="lineNum">     867 </span>                :<span class="lineCov">         44 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="868"><span class="lineNum">     868 </span>                :            :                                spdm_context-&gt;transcript.digest_context_l1l2);</a>
 <a name="869"><span class="lineNum">     869 </span>                :<span class="lineCov">         44 :             spdm_context-&gt;transcript.digest_context_l1l2 = NULL;</span></a>
 <a name="870"><span class="lineNum">     870 </span>                :            :         }</a>
 <a name="871"><span class="lineNum">     871 </span>                :            :     } else {</a>
-<a name="872"><span class="lineNum">     872 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 256 times"> + </span>]:<span class="lineCov">        258 :         if (spdm_session_info-&gt;session_transcript.digest_context_l1l2 != NULL) {</span></a>
+<a name="872"><span class="lineNum">     872 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 255 times"> + </span>]:<span class="lineCov">        257 :         if (spdm_session_info-&gt;session_transcript.digest_context_l1l2 != NULL) {</span></a>
 <a name="873"><span class="lineNum">     873 </span>                :<span class="lineCov">          2 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="874"><span class="lineNum">     874 </span>                :            :                                spdm_session_info-&gt;session_transcript.digest_context_l1l2);</a>
 <a name="875"><span class="lineNum">     875 </span>                :<span class="lineCov">          2 :             spdm_session_info-&gt;session_transcript.digest_context_l1l2 = NULL;</span></a>
 <a name="876"><span class="lineNum">     876 </span>                :            :         }</a>
 <a name="877"><span class="lineNum">     877 </span>                :            :     }</a>
 <a name="878"><span class="lineNum">     878 </span>                :            : #endif</a>
-<a name="879"><span class="lineNum">     879 </span>                :<span class="lineCov">       3819 : }</span></a>
+<a name="879"><span class="lineNum">     879 </span>                :<span class="lineCov">       3821 : }</span></a>
 <a name="880"><span class="lineNum">     880 </span>                :            : </a>
 <a name="881"><span class="lineNum">     881 </span>                :            : /**</a>
 <a name="882"><span class="lineNum">     882 </span>                :            :  * Reset message K cache in SPDM context.</a>
@@ -1027,26 +1027,26 @@
 <a name="941"><span class="lineNum">     941 </span>                :            :  * @param  spdm_session_info             A pointer to the SPDM session context.</a>
 <a name="942"><span class="lineNum">     942 </span>                :            :  * @param  spdm_request                   The SPDM request code.</a>
 <a name="943"><span class="lineNum">     943 </span>                :            :  */</a>
-<a name="944"><span class="lineNum">     944 </span>                :<span class="lineCov">       3950 : void libspdm_reset_message_buffer_via_request_code(void *context, void *session_info,</span></a>
+<a name="944"><span class="lineNum">     944 </span>                :<span class="lineCov">       3954 : void libspdm_reset_message_buffer_via_request_code(void *context, void *session_info,</span></a>
 <a name="945"><span class="lineNum">     945 </span>                :            :                                                    uint8_t request_code)</a>
 <a name="946"><span class="lineNum">     946 </span>                :            : {</a>
 <a name="947"><span class="lineNum">     947 </span>                :            :     libspdm_context_t *spdm_context;</a>
 <a name="948"><span class="lineNum">     948 </span>                :            : </a>
-<a name="949"><span class="lineNum">     949 </span>                :<span class="lineCov">       3950 :     spdm_context = context;</span></a>
+<a name="949"><span class="lineNum">     949 </span>                :<span class="lineCov">       3954 :     spdm_context = context;</span></a>
 <a name="950"><span class="lineNum">     950 </span>                :            :     /**</a>
 <a name="951"><span class="lineNum">     951 </span>                :            :      * Any request other than SPDM_GET_MEASUREMENTS resets L1/L2</a>
 <a name="952"><span class="lineNum">     952 </span>                :            :      */</a>
-<a name="953"><span class="lineNum">     953 </span>        [<span class="branchCov" title="Branch 0 was taken 3636 times"> + </span><span class="branchCov" title="Branch 1 was taken 314 times"> + </span>]:<span class="lineCov">       3950 :     if (request_code != SPDM_GET_MEASUREMENTS) {</span></a>
-<a name="954"><span class="lineNum">     954 </span>                :<span class="lineCov">       3636 :         libspdm_reset_message_m(spdm_context, session_info);</span></a>
+<a name="953"><span class="lineNum">     953 </span>        [<span class="branchCov" title="Branch 0 was taken 3640 times"> + </span><span class="branchCov" title="Branch 1 was taken 314 times"> + </span>]:<span class="lineCov">       3954 :     if (request_code != SPDM_GET_MEASUREMENTS) {</span></a>
+<a name="954"><span class="lineNum">     954 </span>                :<span class="lineCov">       3640 :         libspdm_reset_message_m(spdm_context, session_info);</span></a>
 <a name="955"><span class="lineNum">     955 </span>                :            :     }</a>
 <a name="956"><span class="lineNum">     956 </span>                :            :     /**</a>
 <a name="957"><span class="lineNum">     957 </span>                :            :      * If the Requester issued GET_MEASUREMENTS or KEY_EXCHANGE or FINISH or PSK_EXCHANGE</a>
 <a name="958"><span class="lineNum">     958 </span>                :            :      * or PSK_FINISH or KEY_UPDATE or HEARTBEAT or GET_ENCAPSULATED_REQUEST or DELIVER_ENCAPSULATED_RESPONSE</a>
 <a name="959"><span class="lineNum">     959 </span>                :            :      * or END_SESSION request(s) and skipped CHALLENGE completion, M1 and M2 are reset to null.</a>
 <a name="960"><span class="lineNum">     960 </span>                :            :      */</a>
-<a name="961"><span class="lineNum">     961 </span>  [<span class="branchCov" title="Branch 0 was taken 728 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span><span class="branchCov" title="Branch 2 was taken 42 times"> + </span><span class="branchCov" title="Branch 3 was taken 3176 times"> + </span>]:<span class="lineCov">       3950 :     switch (request_code)</span></a>
+<a name="961"><span class="lineNum">     961 </span>  [<span class="branchCov" title="Branch 0 was taken 727 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span><span class="branchCov" title="Branch 2 was taken 47 times"> + </span><span class="branchCov" title="Branch 3 was taken 3176 times"> + </span>]:<span class="lineCov">       3954 :     switch (request_code)</span></a>
 <a name="962"><span class="lineNum">     962 </span>                :            :     {</a>
-<a name="963"><span class="lineNum">     963 </span>                :<span class="lineCov">        728 :     case SPDM_KEY_EXCHANGE:</span></a>
+<a name="963"><span class="lineNum">     963 </span>                :<span class="lineCov">        727 :     case SPDM_KEY_EXCHANGE:</span></a>
 <a name="964"><span class="lineNum">     964 </span>                :            :     case SPDM_GET_MEASUREMENTS:</a>
 <a name="965"><span class="lineNum">     965 </span>                :            :     case SPDM_FINISH:</a>
 <a name="966"><span class="lineNum">     966 </span>                :            :     case SPDM_PSK_EXCHANGE:</a>
@@ -1055,14 +1055,14 @@
 <a name="969"><span class="lineNum">     969 </span>                :            :     case SPDM_HEARTBEAT:</a>
 <a name="970"><span class="lineNum">     970 </span>                :            :     case SPDM_GET_ENCAPSULATED_REQUEST:</a>
 <a name="971"><span class="lineNum">     971 </span>                :            :     case SPDM_END_SESSION:</a>
-<a name="972"><span class="lineNum">     972 </span>        [<span class="branchCov" title="Branch 0 was taken 410 times"> + </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        728 :         if (spdm_context-&gt;connection_info.connection_state &lt;</span></a>
+<a name="972"><span class="lineNum">     972 </span>        [<span class="branchCov" title="Branch 0 was taken 409 times"> + </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        727 :         if (spdm_context-&gt;connection_info.connection_state &lt;</span></a>
 <a name="973"><span class="lineNum">     973 </span>                :            :             LIBSPDM_CONNECTION_STATE_AUTHENTICATED) {</a>
-<a name="974"><span class="lineNum">     974 </span>                :<span class="lineCov">        410 :             libspdm_reset_message_b(spdm_context);</span></a>
-<a name="975"><span class="lineNum">     975 </span>                :<span class="lineCov">        410 :             libspdm_reset_message_c(spdm_context);</span></a>
-<a name="976"><span class="lineNum">     976 </span>                :<span class="lineCov">        410 :             libspdm_reset_message_mut_b(spdm_context);</span></a>
-<a name="977"><span class="lineNum">     977 </span>                :<span class="lineCov">        410 :             libspdm_reset_message_mut_c(spdm_context);</span></a>
+<a name="974"><span class="lineNum">     974 </span>                :<span class="lineCov">        409 :             libspdm_reset_message_b(spdm_context);</span></a>
+<a name="975"><span class="lineNum">     975 </span>                :<span class="lineCov">        409 :             libspdm_reset_message_c(spdm_context);</span></a>
+<a name="976"><span class="lineNum">     976 </span>                :<span class="lineCov">        409 :             libspdm_reset_message_mut_b(spdm_context);</span></a>
+<a name="977"><span class="lineNum">     977 </span>                :<span class="lineCov">        409 :             libspdm_reset_message_mut_c(spdm_context);</span></a>
 <a name="978"><span class="lineNum">     978 </span>                :            :         }</a>
-<a name="979"><span class="lineNum">     979 </span>                :<span class="lineCov">        728 :         break;</span></a>
+<a name="979"><span class="lineNum">     979 </span>                :<span class="lineCov">        727 :         break;</span></a>
 <a name="980"><span class="lineNum">     980 </span>                :<span class="lineCov">          4 :     case SPDM_DELIVER_ENCAPSULATED_RESPONSE:</span></a>
 <a name="981"><span class="lineNum">     981 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :         if (spdm_context-&gt;connection_info.connection_state &lt;</span></a>
 <a name="982"><span class="lineNum">     982 </span>                :            :             LIBSPDM_CONNECTION_STATE_AUTHENTICATED) {</a>
@@ -1070,13 +1070,13 @@
 <a name="984"><span class="lineNum">     984 </span>                :<span class="lineCov">          4 :             libspdm_reset_message_c(spdm_context);</span></a>
 <a name="985"><span class="lineNum">     985 </span>                :            :         }</a>
 <a name="986"><span class="lineNum">     986 </span>                :<span class="lineCov">          4 :         break;</span></a>
-<a name="987"><span class="lineNum">     987 </span>                :<span class="lineCov">         42 :     case SPDM_GET_DIGESTS:</span></a>
-<a name="988"><span class="lineNum">     988 </span>                :<span class="lineCov">         42 :         libspdm_reset_message_b(spdm_context);</span></a>
-<a name="989"><span class="lineNum">     989 </span>                :<span class="lineCov">         42 :         break;</span></a>
+<a name="987"><span class="lineNum">     987 </span>                :<span class="lineCov">         47 :     case SPDM_GET_DIGESTS:</span></a>
+<a name="988"><span class="lineNum">     988 </span>                :<span class="lineCov">         47 :         libspdm_reset_message_b(spdm_context);</span></a>
+<a name="989"><span class="lineNum">     989 </span>                :<span class="lineCov">         47 :         break;</span></a>
 <a name="990"><span class="lineNum">     990 </span>                :<span class="lineCov">       3176 :     default:</span></a>
 <a name="991"><span class="lineNum">     991 </span>                :<span class="lineCov">       3176 :         break;</span></a>
 <a name="992"><span class="lineNum">     992 </span>                :            :     }</a>
-<a name="993"><span class="lineNum">     993 </span>                :<span class="lineCov">       3950 : }</span></a>
+<a name="993"><span class="lineNum">     993 </span>                :<span class="lineCov">       3954 : }</span></a>
 <a name="994"><span class="lineNum">     994 </span>                :            : /**</a>
 <a name="995"><span class="lineNum">     995 </span>                :            :  * Append message A cache in SPDM context.</a>
 <a name="996"><span class="lineNum">     996 </span>                :            :  *</a>
@@ -1230,7 +1230,7 @@
 <a name="1144"><span class="lineNum">    1144 </span>                :            :  * @return RETURN_SUCCESS          message is appended.</a>
 <a name="1145"><span class="lineNum">    1145 </span>                :            :  * @return RETURN_OUT_OF_RESOURCES message is not appended because the internal cache is full.</a>
 <a name="1146"><span class="lineNum">    1146 </span>                :            :  **/</a>
-<a name="1147"><span class="lineNum">    1147 </span>                :<span class="lineCov">       2776 : libspdm_return_t libspdm_append_message_mut_b(libspdm_context_t *spdm_context, const void *message,</span></a>
+<a name="1147"><span class="lineNum">    1147 </span>                :<span class="lineCov">       2786 : libspdm_return_t libspdm_append_message_mut_b(libspdm_context_t *spdm_context, const void *message,</span></a>
 <a name="1148"><span class="lineNum">    1148 </span>                :            :                                               size_t message_size)</a>
 <a name="1149"><span class="lineNum">    1149 </span>                :            : {</a>
 <a name="1150"><span class="lineNum">    1150 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
@@ -1240,21 +1240,21 @@
 <a name="1154"><span class="lineNum">    1154 </span>                :            :     {</a>
 <a name="1155"><span class="lineNum">    1155 </span>                :            :         bool result;</a>
 <a name="1156"><span class="lineNum">    1156 </span>                :            : </a>
-<a name="1157"><span class="lineNum">    1157 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 2767 times"> + </span>]:<span class="lineCov">       2776 :         if (spdm_context-&gt;transcript.digest_context_mut_m1m2 == NULL) {</span></a>
-<a name="1158"><span class="lineNum">    1158 </span>                :<span class="lineCov">          9 :             spdm_context-&gt;transcript.digest_context_mut_m1m2 = libspdm_hash_new (</span></a>
+<a name="1157"><span class="lineNum">    1157 </span>        [<span class="branchCov" title="Branch 0 was taken 14 times"> + </span><span class="branchCov" title="Branch 1 was taken 2772 times"> + </span>]:<span class="lineCov">       2786 :         if (spdm_context-&gt;transcript.digest_context_mut_m1m2 == NULL) {</span></a>
+<a name="1158"><span class="lineNum">    1158 </span>                :<span class="lineCov">         14 :             spdm_context-&gt;transcript.digest_context_mut_m1m2 = libspdm_hash_new (</span></a>
 <a name="1159"><span class="lineNum">    1159 </span>                :            :                 spdm_context-&gt;connection_info.algorithm.base_hash_algo);</a>
-<a name="1160"><span class="lineNum">    1160 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :             if (spdm_context-&gt;transcript.digest_context_mut_m1m2 == NULL) {</span></a>
+<a name="1160"><span class="lineNum">    1160 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">         14 :             if (spdm_context-&gt;transcript.digest_context_mut_m1m2 == NULL) {</span></a>
 <a name="1161"><span class="lineNum">    1161 </span>                :<span class="lineNoCov">          0 :                 return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1162"><span class="lineNum">    1162 </span>                :            :             }</a>
-<a name="1163"><span class="lineNum">    1163 </span>                :<span class="lineCov">          9 :             result = libspdm_hash_init (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1163"><span class="lineNum">    1163 </span>                :<span class="lineCov">         14 :             result = libspdm_hash_init (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1164"><span class="lineNum">    1164 </span>                :            :                                         spdm_context-&gt;transcript.digest_context_mut_m1m2);</a>
-<a name="1165"><span class="lineNum">    1165 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 9 times"> + </span>]:<span class="lineCov">          9 :             if (!result) {</span></a>
+<a name="1165"><span class="lineNum">    1165 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">         14 :             if (!result) {</span></a>
 <a name="1166"><span class="lineNum">    1166 </span>                :<span class="lineNoCov">          0 :                 libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1167"><span class="lineNum">    1167 </span>                :            :                                    spdm_context-&gt;transcript.digest_context_mut_m1m2);</a>
 <a name="1168"><span class="lineNum">    1168 </span>                :<span class="lineNoCov">          0 :                 spdm_context-&gt;transcript.digest_context_mut_m1m2 = NULL;</span></a>
 <a name="1169"><span class="lineNum">    1169 </span>                :<span class="lineNoCov">          0 :                 return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1170"><span class="lineNum">    1170 </span>                :            :             }</a>
-<a name="1171"><span class="lineNum">    1171 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 8 times"> + </span>]:<span class="lineCov">          9 :             if ((spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT) &gt;</span></a>
+<a name="1171"><span class="lineNum">    1171 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 13 times"> + </span>]:<span class="lineCov">         14 :             if ((spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT) &gt;</span></a>
 <a name="1172"><span class="lineNum">    1172 </span>                :            :                 SPDM_MESSAGE_VERSION_11) {</a>
 <a name="1173"><span class="lineNum">    1173 </span>                :            : </a>
 <a name="1174"><span class="lineNum">    1174 </span>                :            :                 /* Need append VCA since 1.2 script */</a>
@@ -1273,17 +1273,17 @@
 <a name="1187"><span class="lineNum">    1187 </span>                :            :             }</a>
 <a name="1188"><span class="lineNum">    1188 </span>                :            :         }</a>
 <a name="1189"><span class="lineNum">    1189 </span>                :            : </a>
-<a name="1190"><span class="lineNum">    1190 </span>                :<span class="lineCov">       2776 :         result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1190"><span class="lineNum">    1190 </span>                :<span class="lineCov">       2786 :         result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1191"><span class="lineNum">    1191 </span>                :            :                                       spdm_context-&gt;transcript.digest_context_mut_m1m2, message,</a>
 <a name="1192"><span class="lineNum">    1192 </span>                :            :                                       message_size);</a>
-<a name="1193"><span class="lineNum">    1193 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2776 times"> + </span>]:<span class="lineCov">       2776 :         if (!result) {</span></a>
+<a name="1193"><span class="lineNum">    1193 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2786 times"> + </span>]:<span class="lineCov">       2786 :         if (!result) {</span></a>
 <a name="1194"><span class="lineNum">    1194 </span>                :<span class="lineNoCov">          0 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1195"><span class="lineNum">    1195 </span>                :            :                                spdm_context-&gt;transcript.digest_context_mut_m1m2);</a>
 <a name="1196"><span class="lineNum">    1196 </span>                :<span class="lineNoCov">          0 :             spdm_context-&gt;transcript.digest_context_mut_m1m2 = NULL;</span></a>
 <a name="1197"><span class="lineNum">    1197 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1198"><span class="lineNum">    1198 </span>                :            :         }</a>
 <a name="1199"><span class="lineNum">    1199 </span>                :            : </a>
-<a name="1200"><span class="lineNum">    1200 </span>                :<span class="lineCov">       2776 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
+<a name="1200"><span class="lineNum">    1200 </span>                :<span class="lineCov">       2786 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="1201"><span class="lineNum">    1201 </span>                :            :     }</a>
 <a name="1202"><span class="lineNum">    1202 </span>                :            : #endif</a>
 <a name="1203"><span class="lineNum">    1203 </span>                :            : }</a>
@@ -1493,14 +1493,14 @@
 <a name="1407"><span class="lineNum">    1407 </span>                :            :  * @return RETURN_SUCCESS          message is appended.</a>
 <a name="1408"><span class="lineNum">    1408 </span>                :            :  * @return RETURN_OUT_OF_RESOURCES message is not appended because the internal cache is full.</a>
 <a name="1409"><span class="lineNum">    1409 </span>                :            :  **/</a>
-<a name="1410"><span class="lineNum">    1410 </span>                :<span class="lineCov">        263 : libspdm_return_t libspdm_append_message_k(libspdm_context_t *spdm_context,</span></a>
+<a name="1410"><span class="lineNum">    1410 </span>                :<span class="lineCov">        262 : libspdm_return_t libspdm_append_message_k(libspdm_context_t *spdm_context,</span></a>
 <a name="1411"><span class="lineNum">    1411 </span>                :            :                                           void *session_info,</a>
 <a name="1412"><span class="lineNum">    1412 </span>                :            :                                           bool is_requester, const void *message,</a>
 <a name="1413"><span class="lineNum">    1413 </span>                :            :                                           size_t message_size)</a>
 <a name="1414"><span class="lineNum">    1414 </span>                :            : {</a>
 <a name="1415"><span class="lineNum">    1415 </span>                :            :     libspdm_session_info_t *spdm_session_info;</a>
 <a name="1416"><span class="lineNum">    1416 </span>                :            : </a>
-<a name="1417"><span class="lineNum">    1417 </span>                :<span class="lineCov">        263 :     spdm_session_info = session_info;</span></a>
+<a name="1417"><span class="lineNum">    1417 </span>                :<span class="lineCov">        262 :     spdm_session_info = session_info;</span></a>
 <a name="1418"><span class="lineNum">    1418 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="1419"><span class="lineNum">    1419 </span>                :            :     return libspdm_append_managed_buffer(</a>
 <a name="1420"><span class="lineNum">    1420 </span>                :            :         &amp;spdm_session_info-&gt;session_transcript.message_k, message,</a>
@@ -1514,14 +1514,14 @@
 <a name="1428"><span class="lineNum">    1428 </span>                :            :         uint32_t hash_size;</a>
 <a name="1429"><span class="lineNum">    1429 </span>                :            :         uint8_t slot_id;</a>
 <a name="1430"><span class="lineNum">    1430 </span>                :            : </a>
-<a name="1431"><span class="lineNum">    1431 </span>                :<span class="lineCov">        263 :         hash_size = libspdm_get_hash_size(spdm_context-&gt;connection_info.algorithm.base_hash_algo);</span></a>
+<a name="1431"><span class="lineNum">    1431 </span>                :<span class="lineCov">        262 :         hash_size = libspdm_get_hash_size(spdm_context-&gt;connection_info.algorithm.base_hash_algo);</span></a>
 <a name="1432"><span class="lineNum">    1432 </span>                :            : </a>
-<a name="1433"><span class="lineNum">    1433 </span>        [<span class="branchCov" title="Branch 0 was taken 137 times"> + </span><span class="branchCov" title="Branch 1 was taken 126 times"> + </span>]:<span class="lineCov">        263 :         if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
-<a name="1434"><span class="lineNum">    1434 </span>        [<span class="branchCov" title="Branch 0 was taken 77 times"> + </span><span class="branchCov" title="Branch 1 was taken 60 times"> + </span>]:<span class="lineCov">        137 :             if (!spdm_session_info-&gt;use_psk) {</span></a>
-<a name="1435"><span class="lineNum">    1435 </span>        [<span class="branchCov" title="Branch 0 was taken 56 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         77 :                 if (is_requester) {</span></a>
-<a name="1436"><span class="lineNum">    1436 </span>                :<span class="lineCov">         56 :                     slot_id = spdm_context-&gt;connection_info.peer_used_cert_chain_slot_id;</span></a>
-<a name="1437"><span class="lineNum">    1437 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 2 times"> + </span>]:<span class="lineCov">         56 :                     LIBSPDM_ASSERT((slot_id &lt; SPDM_MAX_SLOT_COUNT) || (slot_id == 0xFF));</span></a>
-<a name="1438"><span class="lineNum">    1438 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 54 times"> + </span>]:<span class="lineCov">         56 :                     if (slot_id == 0xFF) {</span></a>
+<a name="1433"><span class="lineNum">    1433 </span>        [<span class="branchCov" title="Branch 0 was taken 136 times"> + </span><span class="branchCov" title="Branch 1 was taken 126 times"> + </span>]:<span class="lineCov">        262 :         if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
+<a name="1434"><span class="lineNum">    1434 </span>        [<span class="branchCov" title="Branch 0 was taken 76 times"> + </span><span class="branchCov" title="Branch 1 was taken 60 times"> + </span>]:<span class="lineCov">        136 :             if (!spdm_session_info-&gt;use_psk) {</span></a>
+<a name="1435"><span class="lineNum">    1435 </span>        [<span class="branchCov" title="Branch 0 was taken 55 times"> + </span><span class="branchCov" title="Branch 1 was taken 21 times"> + </span>]:<span class="lineCov">         76 :                 if (is_requester) {</span></a>
+<a name="1436"><span class="lineNum">    1436 </span>                :<span class="lineCov">         55 :                     slot_id = spdm_context-&gt;connection_info.peer_used_cert_chain_slot_id;</span></a>
+<a name="1437"><span class="lineNum">    1437 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 53 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 2 times"> + </span>]:<span class="lineCov">         55 :                     LIBSPDM_ASSERT((slot_id &lt; SPDM_MAX_SLOT_COUNT) || (slot_id == 0xFF));</span></a>
+<a name="1438"><span class="lineNum">    1438 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 53 times"> + </span>]:<span class="lineCov">         55 :                     if (slot_id == 0xFF) {</span></a>
 <a name="1439"><span class="lineNum">    1439 </span>                :<span class="lineCov">          2 :                         result = libspdm_get_peer_public_key_buffer(</span></a>
 <a name="1440"><span class="lineNum">    1440 </span>                :            :                             spdm_context, (const void **)&amp;cert_chain_buffer,</a>
 <a name="1441"><span class="lineNum">    1441 </span>                :            :                             &amp;cert_chain_buffer_size);</a>
@@ -1537,15 +1537,15 @@
 <a name="1451"><span class="lineNum">    1451 </span>                :<span class="lineNoCov">          0 :                             return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1452"><span class="lineNum">    1452 </span>                :            :                         }</a>
 <a name="1453"><span class="lineNum">    1453 </span>                :            :                     } else {</a>
-<a name="1454"><span class="lineNum">    1454 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 54 times"> + </span>]:<span class="lineCov">         54 :                         LIBSPDM_ASSERT(</span></a>
+<a name="1454"><span class="lineNum">    1454 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 53 times"> + </span>]:<span class="lineCov">         53 :                         LIBSPDM_ASSERT(</span></a>
 <a name="1455"><span class="lineNum">    1455 </span>                :            :                             hash_size ==</a>
 <a name="1456"><span class="lineNum">    1456 </span>                :            :                             spdm_context-&gt;connection_info</a>
 <a name="1457"><span class="lineNum">    1457 </span>                :            :                             .peer_used_cert_chain[slot_id].buffer_hash_size);</a>
 <a name="1458"><span class="lineNum">    1458 </span>                :            : </a>
-<a name="1459"><span class="lineNum">    1459 </span>                :<span class="lineCov">         54 :                         libspdm_copy_mem(cert_chain_buffer_hash,</span></a>
+<a name="1459"><span class="lineNum">    1459 </span>                :<span class="lineCov">         53 :                         libspdm_copy_mem(cert_chain_buffer_hash,</span></a>
 <a name="1460"><span class="lineNum">    1460 </span>                :            :                                          sizeof(cert_chain_buffer_hash),</a>
 <a name="1461"><span class="lineNum">    1461 </span>                :            :                                          spdm_context-&gt;connection_info</a>
-<a name="1462"><span class="lineNum">    1462 </span>                :<span class="lineCov">         54 :                                          .peer_used_cert_chain[slot_id].buffer_hash,</span></a>
+<a name="1462"><span class="lineNum">    1462 </span>                :<span class="lineCov">         53 :                                          .peer_used_cert_chain[slot_id].buffer_hash,</span></a>
 <a name="1463"><span class="lineNum">    1463 </span>                :            :                                          hash_size);</a>
 <a name="1464"><span class="lineNum">    1464 </span>                :            :                     }</a>
 <a name="1465"><span class="lineNum">    1465 </span>                :            :                 } else {</a>
@@ -1578,52 +1578,52 @@
 <a name="1492"><span class="lineNum">    1492 </span>                :            : </a>
 <a name="1493"><span class="lineNum">    1493 </span>                :            :         /* prepare digest_context_th*/</a>
 <a name="1494"><span class="lineNum">    1494 </span>                :            : </a>
-<a name="1495"><span class="lineNum">    1495 </span>        [<span class="branchCov" title="Branch 0 was taken 137 times"> + </span><span class="branchCov" title="Branch 1 was taken 126 times"> + </span>]:<span class="lineCov">        263 :         if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
-<a name="1496"><span class="lineNum">    1496 </span>                :<span class="lineCov">        137 :             spdm_session_info-&gt;session_transcript.digest_context_th = libspdm_hash_new (</span></a>
+<a name="1495"><span class="lineNum">    1495 </span>        [<span class="branchCov" title="Branch 0 was taken 136 times"> + </span><span class="branchCov" title="Branch 1 was taken 126 times"> + </span>]:<span class="lineCov">        262 :         if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
+<a name="1496"><span class="lineNum">    1496 </span>                :<span class="lineCov">        136 :             spdm_session_info-&gt;session_transcript.digest_context_th = libspdm_hash_new (</span></a>
 <a name="1497"><span class="lineNum">    1497 </span>                :            :                 spdm_context-&gt;connection_info.algorithm.base_hash_algo);</a>
-<a name="1498"><span class="lineNum">    1498 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 137 times"> + </span>]:<span class="lineCov">        137 :             if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
+<a name="1498"><span class="lineNum">    1498 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 136 times"> + </span>]:<span class="lineCov">        136 :             if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
 <a name="1499"><span class="lineNum">    1499 </span>                :<span class="lineNoCov">          0 :                 return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1500"><span class="lineNum">    1500 </span>                :            :             }</a>
-<a name="1501"><span class="lineNum">    1501 </span>                :<span class="lineCov">        137 :             result = libspdm_hash_init (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1501"><span class="lineNum">    1501 </span>                :<span class="lineCov">        136 :             result = libspdm_hash_init (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1502"><span class="lineNum">    1502 </span>                :            :                                         spdm_session_info-&gt;session_transcript.digest_context_th);</a>
-<a name="1503"><span class="lineNum">    1503 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 137 times"> + </span>]:<span class="lineCov">        137 :             if (!result) {</span></a>
+<a name="1503"><span class="lineNum">    1503 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 136 times"> + </span>]:<span class="lineCov">        136 :             if (!result) {</span></a>
 <a name="1504"><span class="lineNum">    1504 </span>                :<span class="lineNoCov">          0 :                 libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1505"><span class="lineNum">    1505 </span>                :            :                                    spdm_session_info-&gt;session_transcript.digest_context_th);</a>
 <a name="1506"><span class="lineNum">    1506 </span>                :<span class="lineNoCov">          0 :                 return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1507"><span class="lineNum">    1507 </span>                :            :             }</a>
-<a name="1508"><span class="lineNum">    1508 </span>                :<span class="lineCov">        137 :             result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1508"><span class="lineNum">    1508 </span>                :<span class="lineCov">        136 :             result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1509"><span class="lineNum">    1509 </span>                :            :                                           spdm_session_info-&gt;session_transcript.digest_context_th,</a>
-<a name="1510"><span class="lineNum">    1510 </span>                :<span class="lineCov">        137 :                                           libspdm_get_managed_buffer(&amp;spdm_context-&gt;transcript.</span></a>
+<a name="1510"><span class="lineNum">    1510 </span>                :<span class="lineCov">        136 :                                           libspdm_get_managed_buffer(&amp;spdm_context-&gt;transcript.</span></a>
 <a name="1511"><span class="lineNum">    1511 </span>                :            :                                                                      message_a),</a>
 <a name="1512"><span class="lineNum">    1512 </span>                :            :                                           libspdm_get_managed_buffer_size(</a>
-<a name="1513"><span class="lineNum">    1513 </span>                :<span class="lineCov">        137 :                                               &amp;spdm_context-&gt;transcript.message_a));</span></a>
-<a name="1514"><span class="lineNum">    1514 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 137 times"> + </span>]:<span class="lineCov">        137 :             if (!result) {</span></a>
+<a name="1513"><span class="lineNum">    1513 </span>                :<span class="lineCov">        136 :                                               &amp;spdm_context-&gt;transcript.message_a));</span></a>
+<a name="1514"><span class="lineNum">    1514 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 136 times"> + </span>]:<span class="lineCov">        136 :             if (!result) {</span></a>
 <a name="1515"><span class="lineNum">    1515 </span>                :<span class="lineNoCov">          0 :                 libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1516"><span class="lineNum">    1516 </span>                :            :                                    spdm_session_info-&gt;session_transcript.digest_context_th);</a>
 <a name="1517"><span class="lineNum">    1517 </span>                :<span class="lineNoCov">          0 :                 return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1518"><span class="lineNum">    1518 </span>                :            :             }</a>
-<a name="1519"><span class="lineNum">    1519 </span>        [<span class="branchCov" title="Branch 0 was taken 77 times"> + </span><span class="branchCov" title="Branch 1 was taken 60 times"> + </span>]:<span class="lineCov">        137 :             if (!spdm_session_info-&gt;use_psk) {</span></a>
-<a name="1520"><span class="lineNum">    1520 </span>                :<span class="lineCov">         77 :                 result = libspdm_hash_update (</span></a>
+<a name="1519"><span class="lineNum">    1519 </span>        [<span class="branchCov" title="Branch 0 was taken 76 times"> + </span><span class="branchCov" title="Branch 1 was taken 60 times"> + </span>]:<span class="lineCov">        136 :             if (!spdm_session_info-&gt;use_psk) {</span></a>
+<a name="1520"><span class="lineNum">    1520 </span>                :<span class="lineCov">         76 :                 result = libspdm_hash_update (</span></a>
 <a name="1521"><span class="lineNum">    1521 </span>                :            :                     spdm_context-&gt;connection_info.algorithm.base_hash_algo,</a>
 <a name="1522"><span class="lineNum">    1522 </span>                :            :                     spdm_session_info-&gt;session_transcript.digest_context_th,</a>
 <a name="1523"><span class="lineNum">    1523 </span>                :            :                     cert_chain_buffer_hash, hash_size);</a>
-<a name="1524"><span class="lineNum">    1524 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 77 times"> + </span>]:<span class="lineCov">         77 :                 if (!result) {</span></a>
+<a name="1524"><span class="lineNum">    1524 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 76 times"> + </span>]:<span class="lineCov">         76 :                 if (!result) {</span></a>
 <a name="1525"><span class="lineNum">    1525 </span>                :<span class="lineNoCov">          0 :                     libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1526"><span class="lineNum">    1526 </span>                :            :                                        spdm_session_info-&gt;session_transcript.digest_context_th);</a>
 <a name="1527"><span class="lineNum">    1527 </span>                :<span class="lineNoCov">          0 :                     return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1528"><span class="lineNum">    1528 </span>                :            :                 }</a>
 <a name="1529"><span class="lineNum">    1529 </span>                :            :             }</a>
 <a name="1530"><span class="lineNum">    1530 </span>                :            :         }</a>
-<a name="1531"><span class="lineNum">    1531 </span>                :<span class="lineCov">        263 :         result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1531"><span class="lineNum">    1531 </span>                :<span class="lineCov">        262 :         result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1532"><span class="lineNum">    1532 </span>                :            :                                       spdm_session_info-&gt;session_transcript.digest_context_th,</a>
 <a name="1533"><span class="lineNum">    1533 </span>                :            :                                       message,</a>
 <a name="1534"><span class="lineNum">    1534 </span>                :            :                                       message_size);</a>
-<a name="1535"><span class="lineNum">    1535 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 263 times"> + </span>]:<span class="lineCov">        263 :         if (!result) {</span></a>
+<a name="1535"><span class="lineNum">    1535 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 262 times"> + </span>]:<span class="lineCov">        262 :         if (!result) {</span></a>
 <a name="1536"><span class="lineNum">    1536 </span>                :<span class="lineNoCov">          0 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1537"><span class="lineNum">    1537 </span>                :            :                                spdm_session_info-&gt;session_transcript.digest_context_th);</a>
 <a name="1538"><span class="lineNum">    1538 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1539"><span class="lineNum">    1539 </span>                :            :         }</a>
-<a name="1540"><span class="lineNum">    1540 </span>                :<span class="lineCov">        263 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
+<a name="1540"><span class="lineNum">    1540 </span>                :<span class="lineCov">        262 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="1541"><span class="lineNum">    1541 </span>                :            :     }</a>
 <a name="1542"><span class="lineNum">    1542 </span>                :            : #endif</a>
 <a name="1543"><span class="lineNum">    1543 </span>                :            : }</a>
@@ -1640,14 +1640,14 @@
 <a name="1554"><span class="lineNum">    1554 </span>                :            :  * @return RETURN_SUCCESS          message is appended.</a>
 <a name="1555"><span class="lineNum">    1555 </span>                :            :  * @return RETURN_OUT_OF_RESOURCES message is not appended because the internal cache is full.</a>
 <a name="1556"><span class="lineNum">    1556 </span>                :            :  **/</a>
-<a name="1557"><span class="lineNum">    1557 </span>                :<span class="lineCov">        216 : libspdm_return_t libspdm_append_message_f(libspdm_context_t *spdm_context,</span></a>
+<a name="1557"><span class="lineNum">    1557 </span>                :<span class="lineCov">        213 : libspdm_return_t libspdm_append_message_f(libspdm_context_t *spdm_context,</span></a>
 <a name="1558"><span class="lineNum">    1558 </span>                :            :                                           void *session_info,</a>
 <a name="1559"><span class="lineNum">    1559 </span>                :            :                                           bool is_requester, const void *message,</a>
 <a name="1560"><span class="lineNum">    1560 </span>                :            :                                           size_t message_size)</a>
 <a name="1561"><span class="lineNum">    1561 </span>                :            : {</a>
 <a name="1562"><span class="lineNum">    1562 </span>                :            :     libspdm_session_info_t *spdm_session_info;</a>
 <a name="1563"><span class="lineNum">    1563 </span>                :            : </a>
-<a name="1564"><span class="lineNum">    1564 </span>                :<span class="lineCov">        216 :     spdm_session_info = session_info;</span></a>
+<a name="1564"><span class="lineNum">    1564 </span>                :<span class="lineCov">        213 :     spdm_session_info = session_info;</span></a>
 <a name="1565"><span class="lineNum">    1565 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="1566"><span class="lineNum">    1566 </span>                :            :     return libspdm_append_managed_buffer(</a>
 <a name="1567"><span class="lineNum">    1567 </span>                :            :         &amp;spdm_session_info-&gt;session_transcript.message_f, message,</a>
@@ -1662,42 +1662,42 @@
 <a name="1576"><span class="lineNum">    1576 </span>                :            :         libspdm_return_t status;</a>
 <a name="1577"><span class="lineNum">    1577 </span>                :            :         uint8_t slot_id;</a>
 <a name="1578"><span class="lineNum">    1578 </span>                :            : </a>
-<a name="1579"><span class="lineNum">    1579 </span>                :<span class="lineCov">        216 :         hash_size = libspdm_get_hash_size(spdm_context-&gt;connection_info.algorithm.base_hash_algo);</span></a>
+<a name="1579"><span class="lineNum">    1579 </span>                :<span class="lineCov">        213 :         hash_size = libspdm_get_hash_size(spdm_context-&gt;connection_info.algorithm.base_hash_algo);</span></a>
 <a name="1580"><span class="lineNum">    1580 </span>                :            : </a>
-<a name="1581"><span class="lineNum">    1581 </span>        [<span class="branchCov" title="Branch 0 was taken 85 times"> + </span><span class="branchCov" title="Branch 1 was taken 131 times"> + </span>]:<span class="lineCov">        216 :         if (!spdm_session_info-&gt;session_transcript.message_f_initialized) {</span></a>
+<a name="1581"><span class="lineNum">    1581 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 129 times"> + </span>]:<span class="lineCov">        213 :         if (!spdm_session_info-&gt;session_transcript.message_f_initialized) {</span></a>
 <a name="1582"><span class="lineNum">    1582 </span>                :            :             /* digest_context_th might be NULL in unit test, where message_k is hardcoded. */</a>
-<a name="1583"><span class="lineNum">    1583 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">         85 :             if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
+<a name="1583"><span class="lineNum">    1583 </span>        [<span class="branchCov" title="Branch 0 was taken 83 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">         84 :             if (spdm_session_info-&gt;session_transcript.digest_context_th == NULL) {</span></a>
 <a name="1584"><span class="lineNum">    1584 </span>                :            :                 status =</a>
-<a name="1585"><span class="lineNum">    1585 </span>                :<span class="lineCov">         84 :                     libspdm_append_message_k (spdm_context, session_info, is_requester, NULL, 0);</span></a>
-<a name="1586"><span class="lineNum">    1586 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">         84 :                 if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
+<a name="1585"><span class="lineNum">    1585 </span>                :<span class="lineCov">         83 :                     libspdm_append_message_k (spdm_context, session_info, is_requester, NULL, 0);</span></a>
+<a name="1586"><span class="lineNum">    1586 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 83 times"> + </span>]:<span class="lineCov">         83 :                 if (LIBSPDM_STATUS_IS_ERROR(status)) {</span></a>
 <a name="1587"><span class="lineNum">    1587 </span>                :<span class="lineNoCov">          0 :                     return status;</span></a>
 <a name="1588"><span class="lineNum">    1588 </span>                :            :                 }</a>
 <a name="1589"><span class="lineNum">    1589 </span>                :            :             }</a>
 <a name="1590"><span class="lineNum">    1590 </span>                :            : </a>
-<a name="1591"><span class="lineNum">    1591 </span>  [<span class="branchCov" title="Branch 0 was taken 49 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchCov" title="Branch 3 was taken 38 times"> + </span>]:<span class="lineCov">         85 :             if (!spdm_session_info-&gt;use_psk &amp;&amp; spdm_session_info-&gt;mut_auth_requested) {</span></a>
-<a name="1592"><span class="lineNum">    1592 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         11 :                 if (is_requester) {</span></a>
-<a name="1593"><span class="lineNum">    1593 </span>                :<span class="lineCov">          6 :                     slot_id = spdm_context-&gt;connection_info.local_used_cert_chain_slot_id;</span></a>
-<a name="1594"><span class="lineNum">    1594 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          6 :                     LIBSPDM_ASSERT((slot_id &lt; SPDM_MAX_SLOT_COUNT) || (slot_id == 0xFF));</span></a>
-<a name="1595"><span class="lineNum">    1595 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          6 :                     if (slot_id == 0xFF) {</span></a>
+<a name="1591"><span class="lineNum">    1591 </span>  [<span class="branchCov" title="Branch 0 was taken 48 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span><span class="branchCov" title="Branch 2 was taken 10 times"> + </span><span class="branchCov" title="Branch 3 was taken 38 times"> + </span>]:<span class="lineCov">         84 :             if (!spdm_session_info-&gt;use_psk &amp;&amp; spdm_session_info-&gt;mut_auth_requested) {</span></a>
+<a name="1592"><span class="lineNum">    1592 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         10 :                 if (is_requester) {</span></a>
+<a name="1593"><span class="lineNum">    1593 </span>                :<span class="lineCov">          5 :                     slot_id = spdm_context-&gt;connection_info.local_used_cert_chain_slot_id;</span></a>
+<a name="1594"><span class="lineNum">    1594 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          5 :                     LIBSPDM_ASSERT((slot_id &lt; SPDM_MAX_SLOT_COUNT) || (slot_id == 0xFF));</span></a>
+<a name="1595"><span class="lineNum">    1595 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :                     if (slot_id == 0xFF) {</span></a>
 <a name="1596"><span class="lineNum">    1596 </span>                :<span class="lineNoCov">          0 :                         result = libspdm_get_local_public_key_buffer(</span></a>
 <a name="1597"><span class="lineNum">    1597 </span>                :            :                             spdm_context,</a>
 <a name="1598"><span class="lineNum">    1598 </span>                :            :                             (const void **)&amp;mut_cert_chain_buffer,</a>
 <a name="1599"><span class="lineNum">    1599 </span>                :            :                             &amp;mut_cert_chain_buffer_size);</a>
 <a name="1600"><span class="lineNum">    1600 </span>                :            :                     } else {</a>
-<a name="1601"><span class="lineNum">    1601 </span>                :<span class="lineCov">          6 :                         result = libspdm_get_local_cert_chain_buffer(</span></a>
+<a name="1601"><span class="lineNum">    1601 </span>                :<span class="lineCov">          5 :                         result = libspdm_get_local_cert_chain_buffer(</span></a>
 <a name="1602"><span class="lineNum">    1602 </span>                :            :                             spdm_context,</a>
 <a name="1603"><span class="lineNum">    1603 </span>                :            :                             (const void **)&amp;mut_cert_chain_buffer,</a>
 <a name="1604"><span class="lineNum">    1604 </span>                :            :                             &amp;mut_cert_chain_buffer_size);</a>
 <a name="1605"><span class="lineNum">    1605 </span>                :            :                     }</a>
-<a name="1606"><span class="lineNum">    1606 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          6 :                     if (!result) {</span></a>
+<a name="1606"><span class="lineNum">    1606 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :                     if (!result) {</span></a>
 <a name="1607"><span class="lineNum">    1607 </span>                :<span class="lineNoCov">          0 :                         return LIBSPDM_STATUS_INVALID_STATE_LOCAL;</span></a>
 <a name="1608"><span class="lineNum">    1608 </span>                :            :                     }</a>
 <a name="1609"><span class="lineNum">    1609 </span>                :            : </a>
-<a name="1610"><span class="lineNum">    1610 </span>                :<span class="lineCov">          6 :                     result = libspdm_hash_all(</span></a>
+<a name="1610"><span class="lineNum">    1610 </span>                :<span class="lineCov">          5 :                     result = libspdm_hash_all(</span></a>
 <a name="1611"><span class="lineNum">    1611 </span>                :            :                         spdm_context-&gt;connection_info.algorithm.base_hash_algo,</a>
 <a name="1612"><span class="lineNum">    1612 </span>                :            :                         mut_cert_chain_buffer, mut_cert_chain_buffer_size,</a>
 <a name="1613"><span class="lineNum">    1613 </span>                :            :                         mut_cert_chain_buffer_hash);</a>
-<a name="1614"><span class="lineNum">    1614 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          6 :                     if (!result) {</span></a>
+<a name="1614"><span class="lineNum">    1614 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :                     if (!result) {</span></a>
 <a name="1615"><span class="lineNum">    1615 </span>                :<span class="lineNoCov">          0 :                         return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1616"><span class="lineNum">    1616 </span>                :            :                     }</a>
 <a name="1617"><span class="lineNum">    1617 </span>                :            :                 } else {</a>
@@ -1737,16 +1737,16 @@
 <a name="1651"><span class="lineNum">    1651 </span>                :            :             /* It is first time call, backup current message_k context</a>
 <a name="1652"><span class="lineNum">    1652 </span>                :            :              * this backup will be used in reset_message_f.*/</a>
 <a name="1653"><span class="lineNum">    1653 </span>                :            : </a>
-<a name="1654"><span class="lineNum">    1654 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 85 times"> + </span>]:<span class="lineCov">         85 :             LIBSPDM_ASSERT (spdm_session_info-&gt;session_transcript.digest_context_th != NULL);</span></a>
-<a name="1655"><span class="lineNum">    1655 </span>                :<span class="lineCov">         85 :             spdm_session_info-&gt;session_transcript.digest_context_th_backup = libspdm_hash_new (</span></a>
+<a name="1654"><span class="lineNum">    1654 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">         84 :             LIBSPDM_ASSERT (spdm_session_info-&gt;session_transcript.digest_context_th != NULL);</span></a>
+<a name="1655"><span class="lineNum">    1655 </span>                :<span class="lineCov">         84 :             spdm_session_info-&gt;session_transcript.digest_context_th_backup = libspdm_hash_new (</span></a>
 <a name="1656"><span class="lineNum">    1656 </span>                :            :                 spdm_context-&gt;connection_info.algorithm.base_hash_algo);</a>
-<a name="1657"><span class="lineNum">    1657 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 85 times"> + </span>]:<span class="lineCov">         85 :             if (spdm_session_info-&gt;session_transcript.digest_context_th_backup == NULL) {</span></a>
+<a name="1657"><span class="lineNum">    1657 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">         84 :             if (spdm_session_info-&gt;session_transcript.digest_context_th_backup == NULL) {</span></a>
 <a name="1658"><span class="lineNum">    1658 </span>                :<span class="lineNoCov">          0 :                 return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1659"><span class="lineNum">    1659 </span>                :            :             }</a>
-<a name="1660"><span class="lineNum">    1660 </span>                :<span class="lineCov">         85 :             result = libspdm_hash_duplicate (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
-<a name="1661"><span class="lineNum">    1661 </span>                :<span class="lineCov">         85 :                                              spdm_session_info-&gt;session_transcript.digest_context_th,</span></a>
+<a name="1660"><span class="lineNum">    1660 </span>                :<span class="lineCov">         84 :             result = libspdm_hash_duplicate (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1661"><span class="lineNum">    1661 </span>                :<span class="lineCov">         84 :                                              spdm_session_info-&gt;session_transcript.digest_context_th,</span></a>
 <a name="1662"><span class="lineNum">    1662 </span>                :            :                                              spdm_session_info-&gt;session_transcript.digest_context_th_backup);</a>
-<a name="1663"><span class="lineNum">    1663 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 85 times"> + </span>]:<span class="lineCov">         85 :             if (!result) {</span></a>
+<a name="1663"><span class="lineNum">    1663 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">         84 :             if (!result) {</span></a>
 <a name="1664"><span class="lineNum">    1664 </span>                :<span class="lineNoCov">          0 :                 libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1665"><span class="lineNum">    1665 </span>                :            :                                    spdm_session_info-&gt;session_transcript.digest_context_th_backup);</a>
 <a name="1666"><span class="lineNum">    1666 </span>                :<span class="lineNoCov">          0 :                 spdm_session_info-&gt;session_transcript.digest_context_th_backup = NULL;</span></a>
@@ -1757,14 +1757,14 @@
 <a name="1671"><span class="lineNum">    1671 </span>                :            : </a>
 <a name="1672"><span class="lineNum">    1672 </span>                :            :         /* prepare digest_context_th*/</a>
 <a name="1673"><span class="lineNum">    1673 </span>                :            : </a>
-<a name="1674"><span class="lineNum">    1674 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 216 times"> + </span>]:<span class="lineCov">        216 :         LIBSPDM_ASSERT (spdm_session_info-&gt;session_transcript.digest_context_th != NULL);</span></a>
-<a name="1675"><span class="lineNum">    1675 </span>        [<span class="branchCov" title="Branch 0 was taken 85 times"> + </span><span class="branchCov" title="Branch 1 was taken 131 times"> + </span>]:<span class="lineCov">        216 :         if (!spdm_session_info-&gt;session_transcript.message_f_initialized) {</span></a>
-<a name="1676"><span class="lineNum">    1676 </span>  [<span class="branchCov" title="Branch 0 was taken 49 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchCov" title="Branch 3 was taken 38 times"> + </span>]:<span class="lineCov">         85 :             if (!spdm_session_info-&gt;use_psk &amp;&amp; spdm_session_info-&gt;mut_auth_requested) {</span></a>
-<a name="1677"><span class="lineNum">    1677 </span>                :<span class="lineCov">         11 :                 result = libspdm_hash_update (</span></a>
+<a name="1674"><span class="lineNum">    1674 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 213 times"> + </span>]:<span class="lineCov">        213 :         LIBSPDM_ASSERT (spdm_session_info-&gt;session_transcript.digest_context_th != NULL);</span></a>
+<a name="1675"><span class="lineNum">    1675 </span>        [<span class="branchCov" title="Branch 0 was taken 84 times"> + </span><span class="branchCov" title="Branch 1 was taken 129 times"> + </span>]:<span class="lineCov">        213 :         if (!spdm_session_info-&gt;session_transcript.message_f_initialized) {</span></a>
+<a name="1676"><span class="lineNum">    1676 </span>  [<span class="branchCov" title="Branch 0 was taken 48 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span><span class="branchCov" title="Branch 2 was taken 10 times"> + </span><span class="branchCov" title="Branch 3 was taken 38 times"> + </span>]:<span class="lineCov">         84 :             if (!spdm_session_info-&gt;use_psk &amp;&amp; spdm_session_info-&gt;mut_auth_requested) {</span></a>
+<a name="1677"><span class="lineNum">    1677 </span>                :<span class="lineCov">         10 :                 result = libspdm_hash_update (</span></a>
 <a name="1678"><span class="lineNum">    1678 </span>                :            :                     spdm_context-&gt;connection_info.algorithm.base_hash_algo,</a>
 <a name="1679"><span class="lineNum">    1679 </span>                :            :                     spdm_session_info-&gt;session_transcript.digest_context_th,</a>
 <a name="1680"><span class="lineNum">    1680 </span>                :            :                     mut_cert_chain_buffer_hash, hash_size);</a>
-<a name="1681"><span class="lineNum">    1681 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         11 :                 if (!result) {</span></a>
+<a name="1681"><span class="lineNum">    1681 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 10 times"> + </span>]:<span class="lineCov">         10 :                 if (!result) {</span></a>
 <a name="1682"><span class="lineNum">    1682 </span>                :<span class="lineNoCov">          0 :                     libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1683"><span class="lineNum">    1683 </span>                :            :                                        spdm_session_info-&gt;session_transcript.digest_context_th);</a>
 <a name="1684"><span class="lineNum">    1684 </span>                :<span class="lineNoCov">          0 :                     spdm_session_info-&gt;session_transcript.digest_context_th = NULL;</span></a>
@@ -1772,19 +1772,19 @@
 <a name="1686"><span class="lineNum">    1686 </span>                :            :                 }</a>
 <a name="1687"><span class="lineNum">    1687 </span>                :            :             }</a>
 <a name="1688"><span class="lineNum">    1688 </span>                :            :         }</a>
-<a name="1689"><span class="lineNum">    1689 </span>                :<span class="lineCov">        216 :         result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1689"><span class="lineNum">    1689 </span>                :<span class="lineCov">        213 :         result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1690"><span class="lineNum">    1690 </span>                :            :                                       spdm_session_info-&gt;session_transcript.digest_context_th,</a>
 <a name="1691"><span class="lineNum">    1691 </span>                :            :                                       message,</a>
 <a name="1692"><span class="lineNum">    1692 </span>                :            :                                       message_size);</a>
-<a name="1693"><span class="lineNum">    1693 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 216 times"> + </span>]:<span class="lineCov">        216 :         if (!result) {</span></a>
+<a name="1693"><span class="lineNum">    1693 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 213 times"> + </span>]:<span class="lineCov">        213 :         if (!result) {</span></a>
 <a name="1694"><span class="lineNum">    1694 </span>                :<span class="lineNoCov">          0 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1695"><span class="lineNum">    1695 </span>                :            :                                spdm_session_info-&gt;session_transcript.digest_context_th);</a>
 <a name="1696"><span class="lineNum">    1696 </span>                :<span class="lineNoCov">          0 :             spdm_session_info-&gt;session_transcript.digest_context_th = NULL;</span></a>
 <a name="1697"><span class="lineNum">    1697 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1698"><span class="lineNum">    1698 </span>                :            :         }</a>
 <a name="1699"><span class="lineNum">    1699 </span>                :            : </a>
-<a name="1700"><span class="lineNum">    1700 </span>                :<span class="lineCov">        216 :         spdm_session_info-&gt;session_transcript.message_f_initialized = true;</span></a>
-<a name="1701"><span class="lineNum">    1701 </span>                :<span class="lineCov">        216 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
+<a name="1700"><span class="lineNum">    1700 </span>                :<span class="lineCov">        213 :         spdm_session_info-&gt;session_transcript.message_f_initialized = true;</span></a>
+<a name="1701"><span class="lineNum">    1701 </span>                :<span class="lineCov">        213 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="1702"><span class="lineNum">    1702 </span>                :            :     }</a>
 <a name="1703"><span class="lineNum">    1703 </span>                :            : #endif</a>
 <a name="1704"><span class="lineNum">    1704 </span>                :            : }</a>
@@ -1814,9 +1814,9 @@
 <a name="1728"><span class="lineNum">    1728 </span>                :            :  *</a>
 <a name="1729"><span class="lineNum">    1729 </span>                :            :  * @return the connection version.</a>
 <a name="1730"><span class="lineNum">    1730 </span>                :            :  **/</a>
-<a name="1731"><span class="lineNum">    1731 </span>                :<span class="lineCov">       7062 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
+<a name="1731"><span class="lineNum">    1731 </span>                :<span class="lineCov">       7030 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
 <a name="1732"><span class="lineNum">    1732 </span>                :            : {</a>
-<a name="1733"><span class="lineNum">    1733 </span>                :<span class="lineCov">       7062 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
+<a name="1733"><span class="lineNum">    1733 </span>                :<span class="lineCov">       7030 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
 <a name="1734"><span class="lineNum">    1734 </span>                :            : }</a>
 <a name="1735"><span class="lineNum">    1735 </span>                :            : </a>
 <a name="1736"><span class="lineNum">    1736 </span>                :            : /**</a>
@@ -1830,7 +1830,7 @@
 <a name="1744"><span class="lineNum">    1744 </span>                :            :  * @retval true  the capabilities flag is supported.</a>
 <a name="1745"><span class="lineNum">    1745 </span>                :            :  * @retval false the capabilities flag is not supported.</a>
 <a name="1746"><span class="lineNum">    1746 </span>                :            :  **/</a>
-<a name="1747"><span class="lineNum">    1747 </span>                :<span class="lineCov">       7229 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
+<a name="1747"><span class="lineNum">    1747 </span>                :<span class="lineCov">       7211 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
 <a name="1748"><span class="lineNum">    1748 </span>                :            :                                             bool is_requester,</a>
 <a name="1749"><span class="lineNum">    1749 </span>                :            :                                             uint32_t requester_capabilities_flag,</a>
 <a name="1750"><span class="lineNum">    1750 </span>                :            :                                             uint32_t responder_capabilities_flag)</a>
@@ -1838,21 +1838,21 @@
 <a name="1752"><span class="lineNum">    1752 </span>                :            :     uint32_t negotiated_requester_capabilities_flag;</a>
 <a name="1753"><span class="lineNum">    1753 </span>                :            :     uint32_t negotiated_responder_capabilities_flag;</a>
 <a name="1754"><span class="lineNum">    1754 </span>                :            : </a>
-<a name="1755"><span class="lineNum">    1755 </span>        [<span class="branchCov" title="Branch 0 was taken 3569 times"> + </span><span class="branchCov" title="Branch 1 was taken 3660 times"> + </span>]:<span class="lineCov">       7229 :     if (is_requester) {</span></a>
-<a name="1756"><span class="lineNum">    1756 </span>                :<span class="lineCov">       3569 :         negotiated_requester_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
-<a name="1757"><span class="lineNum">    1757 </span>                :<span class="lineCov">       3569 :         negotiated_responder_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
+<a name="1755"><span class="lineNum">    1755 </span>        [<span class="branchCov" title="Branch 0 was taken 3562 times"> + </span><span class="branchCov" title="Branch 1 was taken 3649 times"> + </span>]:<span class="lineCov">       7211 :     if (is_requester) {</span></a>
+<a name="1756"><span class="lineNum">    1756 </span>                :<span class="lineCov">       3562 :         negotiated_requester_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
+<a name="1757"><span class="lineNum">    1757 </span>                :<span class="lineCov">       3562 :         negotiated_responder_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
 <a name="1758"><span class="lineNum">    1758 </span>                :            :     } else {</a>
-<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineCov">       3660 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
-<a name="1760"><span class="lineNum">    1760 </span>                :<span class="lineCov">       3660 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
+<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineCov">       3649 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
+<a name="1760"><span class="lineNum">    1760 </span>                :<span class="lineCov">       3649 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
 <a name="1761"><span class="lineNum">    1761 </span>                :            :     }</a>
 <a name="1762"><span class="lineNum">    1762 </span>                :            : </a>
-<a name="1763"><span class="lineNum">    1763 </span>        [<span class="branchCov" title="Branch 0 was taken 4343 times"> + </span><span class="branchCov" title="Branch 1 was taken 2886 times"> + </span>]:<span class="lineCov">       7229 :     if (((requester_capabilities_flag == 0) ||</span></a>
-<a name="1764"><span class="lineNum">    1764 </span>        [<span class="branchCov" title="Branch 0 was taken 2144 times"> + </span><span class="branchCov" title="Branch 1 was taken 2199 times"> + </span>]:<span class="lineCov">       4343 :          ((negotiated_requester_capabilities_flag &amp;</span></a>
-<a name="1765"><span class="lineNum">    1765 </span>        [<span class="branchCov" title="Branch 0 was taken 3624 times"> + </span><span class="branchCov" title="Branch 1 was taken 1406 times"> + </span>]:<span class="lineCov">       5030 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
-<a name="1766"><span class="lineNum">    1766 </span>                :<span class="lineCov">       3624 :         ((responder_capabilities_flag == 0) ||</span></a>
-<a name="1767"><span class="lineNum">    1767 </span>        [<span class="branchCov" title="Branch 0 was taken 3019 times"> + </span><span class="branchCov" title="Branch 1 was taken 605 times"> + </span>]:<span class="lineCov">       3624 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
+<a name="1763"><span class="lineNum">    1763 </span>        [<span class="branchCov" title="Branch 0 was taken 4332 times"> + </span><span class="branchCov" title="Branch 1 was taken 2879 times"> + </span>]:<span class="lineCov">       7211 :     if (((requester_capabilities_flag == 0) ||</span></a>
+<a name="1764"><span class="lineNum">    1764 </span>        [<span class="branchCov" title="Branch 0 was taken 2133 times"> + </span><span class="branchCov" title="Branch 1 was taken 2199 times"> + </span>]:<span class="lineCov">       4332 :          ((negotiated_requester_capabilities_flag &amp;</span></a>
+<a name="1765"><span class="lineNum">    1765 </span>        [<span class="branchCov" title="Branch 0 was taken 3609 times"> + </span><span class="branchCov" title="Branch 1 was taken 1403 times"> + </span>]:<span class="lineCov">       5012 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
+<a name="1766"><span class="lineNum">    1766 </span>                :<span class="lineCov">       3609 :         ((responder_capabilities_flag == 0) ||</span></a>
+<a name="1767"><span class="lineNum">    1767 </span>        [<span class="branchCov" title="Branch 0 was taken 3004 times"> + </span><span class="branchCov" title="Branch 1 was taken 605 times"> + </span>]:<span class="lineCov">       3609 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
 <a name="1768"><span class="lineNum">    1768 </span>                :            :            responder_capabilities_flag) != 0))) {</a>
-<a name="1769"><span class="lineNum">    1769 </span>                :<span class="lineCov">       4425 :         return true;</span></a>
+<a name="1769"><span class="lineNum">    1769 </span>                :<span class="lineCov">       4407 :         return true;</span></a>
 <a name="1770"><span class="lineNum">    1770 </span>                :            :     } else {</a>
 <a name="1771"><span class="lineNum">    1771 </span>                :<span class="lineCov">       2804 :         return false;</span></a>
 <a name="1772"><span class="lineNum">    1772 </span>                :            :     }</a>
@@ -2000,19 +2000,19 @@
 <a name="1914"><span class="lineNum">    1914 </span>                :            :  * @param  scratch_buffer_size      Size of the scratch buffer.</a>
 <a name="1915"><span class="lineNum">    1915 </span>                :            :  *</a>
 <a name="1916"><span class="lineNum">    1916 </span>                :            :  **/</a>
-<a name="1917"><span class="lineNum">    1917 </span>                :<span class="lineCov">       5220 : void libspdm_get_scratch_buffer (</span></a>
+<a name="1917"><span class="lineNum">    1917 </span>                :<span class="lineCov">       5218 : void libspdm_get_scratch_buffer (</span></a>
 <a name="1918"><span class="lineNum">    1918 </span>                :            :     void *spdm_context,</a>
 <a name="1919"><span class="lineNum">    1919 </span>                :            :     void **scratch_buffer,</a>
 <a name="1920"><span class="lineNum">    1920 </span>                :            :     size_t *scratch_buffer_size)</a>
 <a name="1921"><span class="lineNum">    1921 </span>                :            : {</a>
 <a name="1922"><span class="lineNum">    1922 </span>                :            :     libspdm_context_t *context;</a>
 <a name="1923"><span class="lineNum">    1923 </span>                :            : </a>
-<a name="1924"><span class="lineNum">    1924 </span>                :<span class="lineCov">       5220 :     context = spdm_context;</span></a>
-<a name="1925"><span class="lineNum">    1925 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5220 times"> + </span>]:<span class="lineCov">       5220 :     LIBSPDM_ASSERT (context-&gt;scratch_buffer != NULL);</span></a>
-<a name="1926"><span class="lineNum">    1926 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5220 times"> + </span>]:<span class="lineCov">       5220 :     LIBSPDM_ASSERT (context-&gt;scratch_buffer_size &gt;= LIBSPDM_SCRATCH_BUFFER_SIZE);</span></a>
-<a name="1927"><span class="lineNum">    1927 </span>                :<span class="lineCov">       5220 :     *scratch_buffer = context-&gt;scratch_buffer;</span></a>
-<a name="1928"><span class="lineNum">    1928 </span>                :<span class="lineCov">       5220 :     *scratch_buffer_size = context-&gt;scratch_buffer_size;</span></a>
-<a name="1929"><span class="lineNum">    1929 </span>                :<span class="lineCov">       5220 : }</span></a>
+<a name="1924"><span class="lineNum">    1924 </span>                :<span class="lineCov">       5218 :     context = spdm_context;</span></a>
+<a name="1925"><span class="lineNum">    1925 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5218 times"> + </span>]:<span class="lineCov">       5218 :     LIBSPDM_ASSERT (context-&gt;scratch_buffer != NULL);</span></a>
+<a name="1926"><span class="lineNum">    1926 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5218 times"> + </span>]:<span class="lineCov">       5218 :     LIBSPDM_ASSERT (context-&gt;scratch_buffer_size &gt;= LIBSPDM_SCRATCH_BUFFER_SIZE);</span></a>
+<a name="1927"><span class="lineNum">    1927 </span>                :<span class="lineCov">       5218 :     *scratch_buffer = context-&gt;scratch_buffer;</span></a>
+<a name="1928"><span class="lineNum">    1928 </span>                :<span class="lineCov">       5218 :     *scratch_buffer_size = context-&gt;scratch_buffer_size;</span></a>
+<a name="1929"><span class="lineNum">    1929 </span>                :<span class="lineCov">       5218 : }</span></a>
 <a name="1930"><span class="lineNum">    1930 </span>                :            : </a>
 <a name="1931"><span class="lineNum">    1931 </span>                :            : /**</a>
 <a name="1932"><span class="lineNum">    1932 </span>                :            :  * Acquire a device sender buffer for transport layer message.</a>
@@ -2023,26 +2023,26 @@
 <a name="1937"><span class="lineNum">    1937 </span>                :            :  *</a>
 <a name="1938"><span class="lineNum">    1938 </span>                :            :  * @retval RETURN_SUCCESS               The sender buffer is acquired.</a>
 <a name="1939"><span class="lineNum">    1939 </span>                :            :  **/</a>
-<a name="1940"><span class="lineNum">    1940 </span>                :<span class="lineCov">       2409 : libspdm_return_t libspdm_acquire_sender_buffer (</span></a>
+<a name="1940"><span class="lineNum">    1940 </span>                :<span class="lineCov">       2408 : libspdm_return_t libspdm_acquire_sender_buffer (</span></a>
 <a name="1941"><span class="lineNum">    1941 </span>                :            :     libspdm_context_t *spdm_context, size_t *max_msg_size, void **msg_buf_ptr)</a>
 <a name="1942"><span class="lineNum">    1942 </span>                :            : {</a>
 <a name="1943"><span class="lineNum">    1943 </span>                :            :     libspdm_return_t status;</a>
 <a name="1944"><span class="lineNum">    1944 </span>                :            : </a>
-<a name="1945"><span class="lineNum">    1945 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2409 times"> + </span>]:<span class="lineCov">       2409 :     LIBSPDM_ASSERT (spdm_context-&gt;sender_buffer == NULL);</span></a>
-<a name="1946"><span class="lineNum">    1946 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2409 times"> + </span>]:<span class="lineCov">       2409 :     LIBSPDM_ASSERT (spdm_context-&gt;sender_buffer_size == 0);</span></a>
-<a name="1947"><span class="lineNum">    1947 </span>                :<span class="lineCov">       2409 :     status = spdm_context-&gt;acquire_sender_buffer (spdm_context, max_msg_size, msg_buf_ptr);</span></a>
-<a name="1948"><span class="lineNum">    1948 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 2403 times"> + </span>]:<span class="lineCov">       2409 :     if (status != LIBSPDM_STATUS_SUCCESS) {</span></a>
+<a name="1945"><span class="lineNum">    1945 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2408 times"> + </span>]:<span class="lineCov">       2408 :     LIBSPDM_ASSERT (spdm_context-&gt;sender_buffer == NULL);</span></a>
+<a name="1946"><span class="lineNum">    1946 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2408 times"> + </span>]:<span class="lineCov">       2408 :     LIBSPDM_ASSERT (spdm_context-&gt;sender_buffer_size == 0);</span></a>
+<a name="1947"><span class="lineNum">    1947 </span>                :<span class="lineCov">       2408 :     status = spdm_context-&gt;acquire_sender_buffer (spdm_context, max_msg_size, msg_buf_ptr);</span></a>
+<a name="1948"><span class="lineNum">    1948 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 2402 times"> + </span>]:<span class="lineCov">       2408 :     if (status != LIBSPDM_STATUS_SUCCESS) {</span></a>
 <a name="1949"><span class="lineNum">    1949 </span>                :<span class="lineCov">          6 :         return status;</span></a>
 <a name="1950"><span class="lineNum">    1950 </span>                :            :     }</a>
-<a name="1951"><span class="lineNum">    1951 </span>                :<span class="lineCov">       2403 :     spdm_context-&gt;sender_buffer = *msg_buf_ptr;</span></a>
-<a name="1952"><span class="lineNum">    1952 </span>                :<span class="lineCov">       2403 :     spdm_context-&gt;sender_buffer_size = *max_msg_size;</span></a>
+<a name="1951"><span class="lineNum">    1951 </span>                :<span class="lineCov">       2402 :     spdm_context-&gt;sender_buffer = *msg_buf_ptr;</span></a>
+<a name="1952"><span class="lineNum">    1952 </span>                :<span class="lineCov">       2402 :     spdm_context-&gt;sender_buffer_size = *max_msg_size;</span></a>
 <a name="1953"><span class="lineNum">    1953 </span>                :            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="1954"><span class="lineNum">    1954 </span>                :            :     /* it return scratch buffer, because the requester need build message there.*/</a>
-<a name="1955"><span class="lineNum">    1955 </span>                :<span class="lineCov">       2403 :     *msg_buf_ptr = spdm_context-&gt;scratch_buffer +</span></a>
+<a name="1955"><span class="lineNum">    1955 </span>                :<span class="lineCov">       2402 :     *msg_buf_ptr = spdm_context-&gt;scratch_buffer +</span></a>
 <a name="1956"><span class="lineNum">    1956 </span>                :            :                    LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_OFFSET;</a>
-<a name="1957"><span class="lineNum">    1957 </span>                :<span class="lineCov">       2403 :     *max_msg_size = LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_CAPACITY;</span></a>
+<a name="1957"><span class="lineNum">    1957 </span>                :<span class="lineCov">       2402 :     *max_msg_size = LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_CAPACITY;</span></a>
 <a name="1958"><span class="lineNum">    1958 </span>                :            :     #endif</a>
-<a name="1959"><span class="lineNum">    1959 </span>                :<span class="lineCov">       2403 :     return LIBSPDM_STATUS_SUCCESS;</span></a>
+<a name="1959"><span class="lineNum">    1959 </span>                :<span class="lineCov">       2402 :     return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="1960"><span class="lineNum">    1960 </span>                :            : }</a>
 <a name="1961"><span class="lineNum">    1961 </span>                :            : </a>
 <a name="1962"><span class="lineNum">    1962 </span>                :            : /**</a>
@@ -2052,15 +2052,15 @@
 <a name="1966"><span class="lineNum">    1966 </span>                :            :  *</a>
 <a name="1967"><span class="lineNum">    1967 </span>                :            :  * @retval RETURN_SUCCESS               The sender buffer is Released.</a>
 <a name="1968"><span class="lineNum">    1968 </span>                :            :  **/</a>
-<a name="1969"><span class="lineNum">    1969 </span>                :<span class="lineCov">       2403 : void libspdm_release_sender_buffer (libspdm_context_t *spdm_context)</span></a>
+<a name="1969"><span class="lineNum">    1969 </span>                :<span class="lineCov">       2402 : void libspdm_release_sender_buffer (libspdm_context_t *spdm_context)</span></a>
 <a name="1970"><span class="lineNum">    1970 </span>                :            : {</a>
-<a name="1971"><span class="lineNum">    1971 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2403 times"> + </span>]:<span class="lineCov">       2403 :     LIBSPDM_ASSERT(spdm_context-&gt;sender_buffer != NULL);</span></a>
-<a name="1972"><span class="lineNum">    1972 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2403 times"> + </span>]:<span class="lineCov">       2403 :     LIBSPDM_ASSERT(spdm_context-&gt;sender_buffer_size != 0);</span></a>
+<a name="1971"><span class="lineNum">    1971 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2402 times"> + </span>]:<span class="lineCov">       2402 :     LIBSPDM_ASSERT(spdm_context-&gt;sender_buffer != NULL);</span></a>
+<a name="1972"><span class="lineNum">    1972 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2402 times"> + </span>]:<span class="lineCov">       2402 :     LIBSPDM_ASSERT(spdm_context-&gt;sender_buffer_size != 0);</span></a>
 <a name="1973"><span class="lineNum">    1973 </span>                :            : </a>
-<a name="1974"><span class="lineNum">    1974 </span>                :<span class="lineCov">       2403 :     spdm_context-&gt;release_sender_buffer (spdm_context, spdm_context-&gt;sender_buffer);</span></a>
-<a name="1975"><span class="lineNum">    1975 </span>                :<span class="lineCov">       2403 :     spdm_context-&gt;sender_buffer = NULL;</span></a>
-<a name="1976"><span class="lineNum">    1976 </span>                :<span class="lineCov">       2403 :     spdm_context-&gt;sender_buffer_size = 0;</span></a>
-<a name="1977"><span class="lineNum">    1977 </span>                :<span class="lineCov">       2403 : }</span></a>
+<a name="1974"><span class="lineNum">    1974 </span>                :<span class="lineCov">       2402 :     spdm_context-&gt;release_sender_buffer (spdm_context, spdm_context-&gt;sender_buffer);</span></a>
+<a name="1975"><span class="lineNum">    1975 </span>                :<span class="lineCov">       2402 :     spdm_context-&gt;sender_buffer = NULL;</span></a>
+<a name="1976"><span class="lineNum">    1976 </span>                :<span class="lineCov">       2402 :     spdm_context-&gt;sender_buffer_size = 0;</span></a>
+<a name="1977"><span class="lineNum">    1977 </span>                :<span class="lineCov">       2402 : }</span></a>
 <a name="1978"><span class="lineNum">    1978 </span>                :            : </a>
 <a name="1979"><span class="lineNum">    1979 </span>                :            : /**</a>
 <a name="1980"><span class="lineNum">    1980 </span>                :            :  * Get the sender buffer.</a>
@@ -2070,14 +2070,14 @@
 <a name="1984"><span class="lineNum">    1984 </span>                :            :  * @param  receiver_buffer_size       Size of the sender buffer.</a>
 <a name="1985"><span class="lineNum">    1985 </span>                :            :  *</a>
 <a name="1986"><span class="lineNum">    1986 </span>                :            :  **/</a>
-<a name="1987"><span class="lineNum">    1987 </span>                :<span class="lineCov">       2472 : void libspdm_get_sender_buffer (</span></a>
+<a name="1987"><span class="lineNum">    1987 </span>                :<span class="lineCov">       2471 : void libspdm_get_sender_buffer (</span></a>
 <a name="1988"><span class="lineNum">    1988 </span>                :            :     libspdm_context_t *spdm_context,</a>
 <a name="1989"><span class="lineNum">    1989 </span>                :            :     void **sender_buffer,</a>
 <a name="1990"><span class="lineNum">    1990 </span>                :            :     size_t *sender_buffer_size)</a>
 <a name="1991"><span class="lineNum">    1991 </span>                :            : {</a>
-<a name="1992"><span class="lineNum">    1992 </span>                :<span class="lineCov">       2472 :     *sender_buffer = spdm_context-&gt;sender_buffer;</span></a>
-<a name="1993"><span class="lineNum">    1993 </span>                :<span class="lineCov">       2472 :     *sender_buffer_size = spdm_context-&gt;sender_buffer_size;</span></a>
-<a name="1994"><span class="lineNum">    1994 </span>                :<span class="lineCov">       2472 : }</span></a>
+<a name="1992"><span class="lineNum">    1992 </span>                :<span class="lineCov">       2471 :     *sender_buffer = spdm_context-&gt;sender_buffer;</span></a>
+<a name="1993"><span class="lineNum">    1993 </span>                :<span class="lineCov">       2471 :     *sender_buffer_size = spdm_context-&gt;sender_buffer_size;</span></a>
+<a name="1994"><span class="lineNum">    1994 </span>                :<span class="lineCov">       2471 : }</span></a>
 <a name="1995"><span class="lineNum">    1995 </span>                :            : </a>
 <a name="1996"><span class="lineNum">    1996 </span>                :            : /**</a>
 <a name="1997"><span class="lineNum">    1997 </span>                :            :  * Acquire a device receiver buffer for transport layer message.</a>
@@ -2088,26 +2088,26 @@
 <a name="2002"><span class="lineNum">    2002 </span>                :            :  *</a>
 <a name="2003"><span class="lineNum">    2003 </span>                :            :  * @retval RETURN_SUCCESS               The receiver buffer is acquired.</a>
 <a name="2004"><span class="lineNum">    2004 </span>                :            :  **/</a>
-<a name="2005"><span class="lineNum">    2005 </span>                :<span class="lineCov">       2376 : libspdm_return_t libspdm_acquire_receiver_buffer (</span></a>
+<a name="2005"><span class="lineNum">    2005 </span>                :<span class="lineCov">       2375 : libspdm_return_t libspdm_acquire_receiver_buffer (</span></a>
 <a name="2006"><span class="lineNum">    2006 </span>                :            :     libspdm_context_t *spdm_context, size_t *max_msg_size, void **msg_buf_ptr)</a>
 <a name="2007"><span class="lineNum">    2007 </span>                :            : {</a>
 <a name="2008"><span class="lineNum">    2008 </span>                :            :     libspdm_return_t status;</a>
 <a name="2009"><span class="lineNum">    2009 </span>                :            : </a>
-<a name="2010"><span class="lineNum">    2010 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2376 times"> + </span>]:<span class="lineCov">       2376 :     LIBSPDM_ASSERT (spdm_context-&gt;receiver_buffer == NULL);</span></a>
-<a name="2011"><span class="lineNum">    2011 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2376 times"> + </span>]:<span class="lineCov">       2376 :     LIBSPDM_ASSERT (spdm_context-&gt;receiver_buffer_size == 0);</span></a>
-<a name="2012"><span class="lineNum">    2012 </span>                :<span class="lineCov">       2376 :     status = spdm_context-&gt;acquire_receiver_buffer (spdm_context, max_msg_size, msg_buf_ptr);</span></a>
-<a name="2013"><span class="lineNum">    2013 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 2370 times"> + </span>]:<span class="lineCov">       2376 :     if (status != LIBSPDM_STATUS_SUCCESS) {</span></a>
+<a name="2010"><span class="lineNum">    2010 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2375 times"> + </span>]:<span class="lineCov">       2375 :     LIBSPDM_ASSERT (spdm_context-&gt;receiver_buffer == NULL);</span></a>
+<a name="2011"><span class="lineNum">    2011 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2375 times"> + </span>]:<span class="lineCov">       2375 :     LIBSPDM_ASSERT (spdm_context-&gt;receiver_buffer_size == 0);</span></a>
+<a name="2012"><span class="lineNum">    2012 </span>                :<span class="lineCov">       2375 :     status = spdm_context-&gt;acquire_receiver_buffer (spdm_context, max_msg_size, msg_buf_ptr);</span></a>
+<a name="2013"><span class="lineNum">    2013 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 2369 times"> + </span>]:<span class="lineCov">       2375 :     if (status != LIBSPDM_STATUS_SUCCESS) {</span></a>
 <a name="2014"><span class="lineNum">    2014 </span>                :<span class="lineCov">          6 :         return status;</span></a>
 <a name="2015"><span class="lineNum">    2015 </span>                :            :     }</a>
-<a name="2016"><span class="lineNum">    2016 </span>                :<span class="lineCov">       2370 :     spdm_context-&gt;receiver_buffer = *msg_buf_ptr;</span></a>
-<a name="2017"><span class="lineNum">    2017 </span>                :<span class="lineCov">       2370 :     spdm_context-&gt;receiver_buffer_size = *max_msg_size;</span></a>
+<a name="2016"><span class="lineNum">    2016 </span>                :<span class="lineCov">       2369 :     spdm_context-&gt;receiver_buffer = *msg_buf_ptr;</span></a>
+<a name="2017"><span class="lineNum">    2017 </span>                :<span class="lineCov">       2369 :     spdm_context-&gt;receiver_buffer_size = *max_msg_size;</span></a>
 <a name="2018"><span class="lineNum">    2018 </span>                :            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="2019"><span class="lineNum">    2019 </span>                :            :     /* it return scratch buffer, because the requester need build message there.*/</a>
-<a name="2020"><span class="lineNum">    2020 </span>                :<span class="lineCov">       2370 :     *msg_buf_ptr = spdm_context-&gt;scratch_buffer +</span></a>
+<a name="2020"><span class="lineNum">    2020 </span>                :<span class="lineCov">       2369 :     *msg_buf_ptr = spdm_context-&gt;scratch_buffer +</span></a>
 <a name="2021"><span class="lineNum">    2021 </span>                :            :                    LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_OFFSET;</a>
-<a name="2022"><span class="lineNum">    2022 </span>                :<span class="lineCov">       2370 :     *max_msg_size = LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_CAPACITY;</span></a>
+<a name="2022"><span class="lineNum">    2022 </span>                :<span class="lineCov">       2369 :     *max_msg_size = LIBSPDM_SCRATCH_BUFFER_LARGE_SENDER_RECEIVER_CAPACITY;</span></a>
 <a name="2023"><span class="lineNum">    2023 </span>                :            :     #endif</a>
-<a name="2024"><span class="lineNum">    2024 </span>                :<span class="lineCov">       2370 :     return LIBSPDM_STATUS_SUCCESS;</span></a>
+<a name="2024"><span class="lineNum">    2024 </span>                :<span class="lineCov">       2369 :     return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="2025"><span class="lineNum">    2025 </span>                :            : }</a>
 <a name="2026"><span class="lineNum">    2026 </span>                :            : </a>
 <a name="2027"><span class="lineNum">    2027 </span>                :            : /**</a>
@@ -2117,15 +2117,15 @@
 <a name="2031"><span class="lineNum">    2031 </span>                :            :  *</a>
 <a name="2032"><span class="lineNum">    2032 </span>                :            :  * @retval RETURN_SUCCESS               The receiver buffer is Released.</a>
 <a name="2033"><span class="lineNum">    2033 </span>                :            :  **/</a>
-<a name="2034"><span class="lineNum">    2034 </span>                :<span class="lineCov">       2370 : void libspdm_release_receiver_buffer (libspdm_context_t *spdm_context)</span></a>
+<a name="2034"><span class="lineNum">    2034 </span>                :<span class="lineCov">       2369 : void libspdm_release_receiver_buffer (libspdm_context_t *spdm_context)</span></a>
 <a name="2035"><span class="lineNum">    2035 </span>                :            : {</a>
-<a name="2036"><span class="lineNum">    2036 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2370 times"> + </span>]:<span class="lineCov">       2370 :     LIBSPDM_ASSERT(spdm_context-&gt;receiver_buffer != NULL);</span></a>
-<a name="2037"><span class="lineNum">    2037 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2370 times"> + </span>]:<span class="lineCov">       2370 :     LIBSPDM_ASSERT(spdm_context-&gt;receiver_buffer_size != 0);</span></a>
+<a name="2036"><span class="lineNum">    2036 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2369 times"> + </span>]:<span class="lineCov">       2369 :     LIBSPDM_ASSERT(spdm_context-&gt;receiver_buffer != NULL);</span></a>
+<a name="2037"><span class="lineNum">    2037 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2369 times"> + </span>]:<span class="lineCov">       2369 :     LIBSPDM_ASSERT(spdm_context-&gt;receiver_buffer_size != 0);</span></a>
 <a name="2038"><span class="lineNum">    2038 </span>                :            : </a>
-<a name="2039"><span class="lineNum">    2039 </span>                :<span class="lineCov">       2370 :     spdm_context-&gt;release_receiver_buffer (spdm_context, spdm_context-&gt;receiver_buffer);</span></a>
-<a name="2040"><span class="lineNum">    2040 </span>                :<span class="lineCov">       2370 :     spdm_context-&gt;receiver_buffer = NULL;</span></a>
-<a name="2041"><span class="lineNum">    2041 </span>                :<span class="lineCov">       2370 :     spdm_context-&gt;receiver_buffer_size = 0;</span></a>
-<a name="2042"><span class="lineNum">    2042 </span>                :<span class="lineCov">       2370 : }</span></a>
+<a name="2039"><span class="lineNum">    2039 </span>                :<span class="lineCov">       2369 :     spdm_context-&gt;release_receiver_buffer (spdm_context, spdm_context-&gt;receiver_buffer);</span></a>
+<a name="2040"><span class="lineNum">    2040 </span>                :<span class="lineCov">       2369 :     spdm_context-&gt;receiver_buffer = NULL;</span></a>
+<a name="2041"><span class="lineNum">    2041 </span>                :<span class="lineCov">       2369 :     spdm_context-&gt;receiver_buffer_size = 0;</span></a>
+<a name="2042"><span class="lineNum">    2042 </span>                :<span class="lineCov">       2369 : }</span></a>
 <a name="2043"><span class="lineNum">    2043 </span>                :            : </a>
 <a name="2044"><span class="lineNum">    2044 </span>                :            : /**</a>
 <a name="2045"><span class="lineNum">    2045 </span>                :            :  * Get the receiver buffer.</a>
@@ -2165,14 +2165,14 @@
 <a name="2079"><span class="lineNum">    2079 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="2080"><span class="lineNum">    2080 </span>                :            :  * @param  last_spdm_error                Last SPDM error struct of an SPDM context.</a>
 <a name="2081"><span class="lineNum">    2081 </span>                :            :  */</a>
-<a name="2082"><span class="lineNum">    2082 </span>                :<span class="lineCov">       2556 : void libspdm_set_last_spdm_error_struct(void *spdm_context, libspdm_error_struct_t *last_spdm_error)</span></a>
+<a name="2082"><span class="lineNum">    2082 </span>                :<span class="lineCov">       2555 : void libspdm_set_last_spdm_error_struct(void *spdm_context, libspdm_error_struct_t *last_spdm_error)</span></a>
 <a name="2083"><span class="lineNum">    2083 </span>                :            : {</a>
 <a name="2084"><span class="lineNum">    2084 </span>                :            :     libspdm_context_t *context;</a>
 <a name="2085"><span class="lineNum">    2085 </span>                :            : </a>
-<a name="2086"><span class="lineNum">    2086 </span>                :<span class="lineCov">       2556 :     context = spdm_context;</span></a>
-<a name="2087"><span class="lineNum">    2087 </span>                :<span class="lineCov">       2556 :     libspdm_copy_mem(&amp;context-&gt;last_spdm_error, sizeof(context-&gt;last_spdm_error),</span></a>
+<a name="2086"><span class="lineNum">    2086 </span>                :<span class="lineCov">       2555 :     context = spdm_context;</span></a>
+<a name="2087"><span class="lineNum">    2087 </span>                :<span class="lineCov">       2555 :     libspdm_copy_mem(&amp;context-&gt;last_spdm_error, sizeof(context-&gt;last_spdm_error),</span></a>
 <a name="2088"><span class="lineNum">    2088 </span>                :            :                      last_spdm_error, sizeof(libspdm_error_struct_t));</a>
-<a name="2089"><span class="lineNum">    2089 </span>                :<span class="lineCov">       2556 : }</span></a>
+<a name="2089"><span class="lineNum">    2089 </span>                :<span class="lineCov">       2555 : }</span></a>
 <a name="2090"><span class="lineNum">    2090 </span>                :            : </a>
 <a name="2091"><span class="lineNum">    2091 </span>                :            : /**</a>
 <a name="2092"><span class="lineNum">    2092 </span>                :            :  * Initialize an SPDM context, as well as all secured message contexts,</a>
