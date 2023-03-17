@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-16 08:13:12</td>
+            <td class="headerValue">2023-03-17 08:04:08</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">42</td>
@@ -361,13 +361,13 @@
 <a name="281"><span class="lineNum">     281 </span>                :            :         }</a>
 <a name="282"><span class="lineNum">     282 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
 <a name="283"><span class="lineNum">     283 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_DATA_CONNECTION_STATE:</span></a>
-<a name="284"><span class="lineNum">     284 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (data_size != sizeof(uint32_t)) {</span></a>
+<a name="284"><span class="lineNum">     284 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (data_size != sizeof(libspdm_connection_state_t)) {</span></a>
 <a name="285"><span class="lineNum">     285 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_PARAMETER;</span></a>
 <a name="286"><span class="lineNum">     286 </span>                :            :         }</a>
 <a name="287"><span class="lineNum">     287 </span>                :<span class="lineNoCov">          0 :         context-&gt;connection_info.connection_state = libspdm_read_uint32((const uint8_t *)data);</span></a>
 <a name="288"><span class="lineNum">     288 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
 <a name="289"><span class="lineNum">     289 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_DATA_RESPONSE_STATE:</span></a>
-<a name="290"><span class="lineNum">     290 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (data_size != sizeof(uint32_t)) {</span></a>
+<a name="290"><span class="lineNum">     290 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (data_size != sizeof(libspdm_response_state_t)) {</span></a>
 <a name="291"><span class="lineNum">     291 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_PARAMETER;</span></a>
 <a name="292"><span class="lineNum">     292 </span>                :            :         }</a>
 <a name="293"><span class="lineNum">     293 </span>                :<span class="lineNoCov">          0 :         context-&gt;response_state = libspdm_read_uint32((const uint8_t *)data);</span></a>
@@ -752,11 +752,11 @@
 <a name="666"><span class="lineNum">     666 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (parameter-&gt;location != LIBSPDM_DATA_LOCATION_CONNECTION) {</span></a>
 <a name="667"><span class="lineNum">     667 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_PARAMETER;</span></a>
 <a name="668"><span class="lineNum">     668 </span>                :            :         }</a>
-<a name="669"><span class="lineNum">     669 </span>                :<span class="lineNoCov">          0 :         target_data_size = sizeof(uint32_t);</span></a>
+<a name="669"><span class="lineNum">     669 </span>                :<span class="lineNoCov">          0 :         target_data_size = sizeof(libspdm_connection_state_t);</span></a>
 <a name="670"><span class="lineNum">     670 </span>                :<span class="lineNoCov">          0 :         target_data = &amp;context-&gt;connection_info.connection_state;</span></a>
 <a name="671"><span class="lineNum">     671 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
 <a name="672"><span class="lineNum">     672 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_DATA_RESPONSE_STATE:</span></a>
-<a name="673"><span class="lineNum">     673 </span>                :<span class="lineNoCov">          0 :         target_data_size = sizeof(uint32_t);</span></a>
+<a name="673"><span class="lineNum">     673 </span>                :<span class="lineNoCov">          0 :         target_data_size = sizeof(libspdm_response_state_t);</span></a>
 <a name="674"><span class="lineNum">     674 </span>                :<span class="lineNoCov">          0 :         target_data = &amp;context-&gt;response_state;</span></a>
 <a name="675"><span class="lineNum">     675 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
 <a name="676"><span class="lineNum">     676 </span>                :<span class="lineCov">          5 :     case LIBSPDM_DATA_PEER_SLOT_MASK:</span></a>
@@ -1814,9 +1814,9 @@
 <a name="1728"><span class="lineNum">    1728 </span>                :            :  *</a>
 <a name="1729"><span class="lineNum">    1729 </span>                :            :  * @return the connection version.</a>
 <a name="1730"><span class="lineNum">    1730 </span>                :            :  **/</a>
-<a name="1731"><span class="lineNum">    1731 </span>                :<span class="lineCov">       7023 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
+<a name="1731"><span class="lineNum">    1731 </span>                :<span class="lineCov">       7026 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
 <a name="1732"><span class="lineNum">    1732 </span>                :            : {</a>
-<a name="1733"><span class="lineNum">    1733 </span>                :<span class="lineCov">       7023 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
+<a name="1733"><span class="lineNum">    1733 </span>                :<span class="lineCov">       7026 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
 <a name="1734"><span class="lineNum">    1734 </span>                :            : }</a>
 <a name="1735"><span class="lineNum">    1735 </span>                :            : </a>
 <a name="1736"><span class="lineNum">    1736 </span>                :            : /**</a>
@@ -1830,7 +1830,7 @@
 <a name="1744"><span class="lineNum">    1744 </span>                :            :  * @retval true  the capabilities flag is supported.</a>
 <a name="1745"><span class="lineNum">    1745 </span>                :            :  * @retval false the capabilities flag is not supported.</a>
 <a name="1746"><span class="lineNum">    1746 </span>                :            :  **/</a>
-<a name="1747"><span class="lineNum">    1747 </span>                :<span class="lineCov">       7209 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
+<a name="1747"><span class="lineNum">    1747 </span>                :<span class="lineCov">       7215 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
 <a name="1748"><span class="lineNum">    1748 </span>                :            :                                             bool is_requester,</a>
 <a name="1749"><span class="lineNum">    1749 </span>                :            :                                             uint32_t requester_capabilities_flag,</a>
 <a name="1750"><span class="lineNum">    1750 </span>                :            :                                             uint32_t responder_capabilities_flag)</a>
@@ -1838,21 +1838,21 @@
 <a name="1752"><span class="lineNum">    1752 </span>                :            :     uint32_t negotiated_requester_capabilities_flag;</a>
 <a name="1753"><span class="lineNum">    1753 </span>                :            :     uint32_t negotiated_responder_capabilities_flag;</a>
 <a name="1754"><span class="lineNum">    1754 </span>                :            : </a>
-<a name="1755"><span class="lineNum">    1755 </span>        [<span class="branchCov" title="Branch 0 was taken 3560 times"> + </span><span class="branchCov" title="Branch 1 was taken 3649 times"> + </span>]:<span class="lineCov">       7209 :     if (is_requester) {</span></a>
+<a name="1755"><span class="lineNum">    1755 </span>        [<span class="branchCov" title="Branch 0 was taken 3560 times"> + </span><span class="branchCov" title="Branch 1 was taken 3655 times"> + </span>]:<span class="lineCov">       7215 :     if (is_requester) {</span></a>
 <a name="1756"><span class="lineNum">    1756 </span>                :<span class="lineCov">       3560 :         negotiated_requester_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
 <a name="1757"><span class="lineNum">    1757 </span>                :<span class="lineCov">       3560 :         negotiated_responder_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
 <a name="1758"><span class="lineNum">    1758 </span>                :            :     } else {</a>
-<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineCov">       3649 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
-<a name="1760"><span class="lineNum">    1760 </span>                :<span class="lineCov">       3649 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
+<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineCov">       3655 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
+<a name="1760"><span class="lineNum">    1760 </span>                :<span class="lineCov">       3655 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
 <a name="1761"><span class="lineNum">    1761 </span>                :            :     }</a>
 <a name="1762"><span class="lineNum">    1762 </span>                :            : </a>
-<a name="1763"><span class="lineNum">    1763 </span>        [<span class="branchCov" title="Branch 0 was taken 4330 times"> + </span><span class="branchCov" title="Branch 1 was taken 2879 times"> + </span>]:<span class="lineCov">       7209 :     if (((requester_capabilities_flag == 0) ||</span></a>
+<a name="1763"><span class="lineNum">    1763 </span>        [<span class="branchCov" title="Branch 0 was taken 4330 times"> + </span><span class="branchCov" title="Branch 1 was taken 2885 times"> + </span>]:<span class="lineCov">       7215 :     if (((requester_capabilities_flag == 0) ||</span></a>
 <a name="1764"><span class="lineNum">    1764 </span>        [<span class="branchCov" title="Branch 0 was taken 2132 times"> + </span><span class="branchCov" title="Branch 1 was taken 2198 times"> + </span>]:<span class="lineCov">       4330 :          ((negotiated_requester_capabilities_flag &amp;</span></a>
-<a name="1765"><span class="lineNum">    1765 </span>        [<span class="branchCov" title="Branch 0 was taken 3608 times"> + </span><span class="branchCov" title="Branch 1 was taken 1403 times"> + </span>]:<span class="lineCov">       5011 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
-<a name="1766"><span class="lineNum">    1766 </span>                :<span class="lineCov">       3608 :         ((responder_capabilities_flag == 0) ||</span></a>
-<a name="1767"><span class="lineNum">    1767 </span>        [<span class="branchCov" title="Branch 0 was taken 3003 times"> + </span><span class="branchCov" title="Branch 1 was taken 605 times"> + </span>]:<span class="lineCov">       3608 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
+<a name="1765"><span class="lineNum">    1765 </span>        [<span class="branchCov" title="Branch 0 was taken 3614 times"> + </span><span class="branchCov" title="Branch 1 was taken 1403 times"> + </span>]:<span class="lineCov">       5017 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
+<a name="1766"><span class="lineNum">    1766 </span>                :<span class="lineCov">       3614 :         ((responder_capabilities_flag == 0) ||</span></a>
+<a name="1767"><span class="lineNum">    1767 </span>        [<span class="branchCov" title="Branch 0 was taken 3009 times"> + </span><span class="branchCov" title="Branch 1 was taken 605 times"> + </span>]:<span class="lineCov">       3614 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
 <a name="1768"><span class="lineNum">    1768 </span>                :            :            responder_capabilities_flag) != 0))) {</a>
-<a name="1769"><span class="lineNum">    1769 </span>                :<span class="lineCov">       4406 :         return true;</span></a>
+<a name="1769"><span class="lineNum">    1769 </span>                :<span class="lineCov">       4412 :         return true;</span></a>
 <a name="1770"><span class="lineNum">    1770 </span>                :            :     } else {</a>
 <a name="1771"><span class="lineNum">    1771 </span>                :<span class="lineCov">       2803 :         return false;</span></a>
 <a name="1772"><span class="lineNum">    1772 </span>                :            :     }</a>

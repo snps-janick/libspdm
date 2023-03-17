@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-16 08:13:12</td>
+            <td class="headerValue">2023-03-17 08:04:08</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
@@ -1306,7 +1306,7 @@
 <a name="1231"><span class="lineNum">    1231 </span>                :<span class="lineCov">        171 :     return true;</span></a>
 <a name="1232"><span class="lineNum">    1232 </span>                :            : }</a>
 <a name="1233"><span class="lineNum">    1233 </span>                :            : </a>
-<a name="1234"><span class="lineNum">    1234 </span>                :<span class="lineCov">          4 : bool libspdm_verify_req_info(uint8_t *req_info, uint16_t req_info_len)</span></a>
+<a name="1234"><span class="lineNum">    1234 </span>                :<span class="lineCov">          6 : bool libspdm_verify_req_info(uint8_t *req_info, uint16_t req_info_len)</span></a>
 <a name="1235"><span class="lineNum">    1235 </span>                :            : {</a>
 <a name="1236"><span class="lineNum">    1236 </span>                :            :     bool ret;</a>
 <a name="1237"><span class="lineNum">    1237 </span>                :            :     uint8_t *ptr;</a>
@@ -1314,78 +1314,78 @@
 <a name="1239"><span class="lineNum">    1239 </span>                :            :     size_t obj_len;</a>
 <a name="1240"><span class="lineNum">    1240 </span>                :            :     uint8_t *end;</a>
 <a name="1241"><span class="lineNum">    1241 </span>                :            : </a>
-<a name="1242"><span class="lineNum">    1242 </span>                :<span class="lineCov">          4 :     length = (int32_t)req_info_len;</span></a>
-<a name="1243"><span class="lineNum">    1243 </span>                :<span class="lineCov">          4 :     ptr = req_info;</span></a>
-<a name="1244"><span class="lineNum">    1244 </span>                :<span class="lineCov">          4 :     obj_len = 0;</span></a>
-<a name="1245"><span class="lineNum">    1245 </span>                :<span class="lineCov">          4 :     end = ptr + length;</span></a>
-<a name="1246"><span class="lineNum">    1246 </span>                :<span class="lineCov">          4 :     ret = true;</span></a>
+<a name="1242"><span class="lineNum">    1242 </span>                :<span class="lineCov">          6 :     length = (int32_t)req_info_len;</span></a>
+<a name="1243"><span class="lineNum">    1243 </span>                :<span class="lineCov">          6 :     ptr = req_info;</span></a>
+<a name="1244"><span class="lineNum">    1244 </span>                :<span class="lineCov">          6 :     obj_len = 0;</span></a>
+<a name="1245"><span class="lineNum">    1245 </span>                :<span class="lineCov">          6 :     end = ptr + length;</span></a>
+<a name="1246"><span class="lineNum">    1246 </span>                :<span class="lineCov">          6 :     ret = true;</span></a>
 <a name="1247"><span class="lineNum">    1247 </span>                :            : </a>
-<a name="1248"><span class="lineNum">    1248 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          4 :     if (req_info_len == 0) {</span></a>
+<a name="1248"><span class="lineNum">    1248 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">          6 :     if (req_info_len == 0) {</span></a>
 <a name="1249"><span class="lineNum">    1249 </span>                :<span class="lineCov">          2 :         return true;</span></a>
 <a name="1250"><span class="lineNum">    1250 </span>                :            :     }</a>
 <a name="1251"><span class="lineNum">    1251 </span>                :            : </a>
 <a name="1252"><span class="lineNum">    1252 </span>                :            :     /*req_info sequence*/</a>
-<a name="1253"><span class="lineNum">    1253 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1253"><span class="lineNum">    1253 </span>                :<span class="lineCov">          4 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
 <a name="1254"><span class="lineNum">    1254 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1255"><span class="lineNum">    1255 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          2 :     if (!ret) {</span></a>
+<a name="1255"><span class="lineNum">    1255 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          4 :     if (!ret) {</span></a>
 <a name="1256"><span class="lineNum">    1256 </span>                :<span class="lineCov">          1 :         return false;</span></a>
 <a name="1257"><span class="lineNum">    1257 </span>                :            :     }</a>
 <a name="1258"><span class="lineNum">    1258 </span>                :            : </a>
 <a name="1259"><span class="lineNum">    1259 </span>                :            :     /*integer:version*/</a>
-<a name="1260"><span class="lineNum">    1260 </span>                :<span class="lineCov">          1 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_INTEGER);</span></a>
-<a name="1261"><span class="lineNum">    1261 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!ret) {</span></a>
+<a name="1260"><span class="lineNum">    1260 </span>                :<span class="lineCov">          3 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_INTEGER);</span></a>
+<a name="1261"><span class="lineNum">    1261 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :     if (!ret) {</span></a>
 <a name="1262"><span class="lineNum">    1262 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="1263"><span class="lineNum">    1263 </span>                :            :     } else {</a>
-<a name="1264"><span class="lineNum">    1264 </span>                :<span class="lineCov">          1 :         ptr += obj_len;</span></a>
+<a name="1264"><span class="lineNum">    1264 </span>                :<span class="lineCov">          3 :         ptr += obj_len;</span></a>
 <a name="1265"><span class="lineNum">    1265 </span>                :            :     }</a>
 <a name="1266"><span class="lineNum">    1266 </span>                :            : </a>
 <a name="1267"><span class="lineNum">    1267 </span>                :            :     /*sequence:subject name*/</a>
-<a name="1268"><span class="lineNum">    1268 </span>                :<span class="lineCov">          1 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1268"><span class="lineNum">    1268 </span>                :<span class="lineCov">          3 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
 <a name="1269"><span class="lineNum">    1269 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1270"><span class="lineNum">    1270 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!ret) {</span></a>
+<a name="1270"><span class="lineNum">    1270 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :     if (!ret) {</span></a>
 <a name="1271"><span class="lineNum">    1271 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="1272"><span class="lineNum">    1272 </span>                :            :     } else {</a>
-<a name="1273"><span class="lineNum">    1273 </span>                :<span class="lineCov">          1 :         ptr += obj_len;</span></a>
+<a name="1273"><span class="lineNum">    1273 </span>                :<span class="lineCov">          3 :         ptr += obj_len;</span></a>
 <a name="1274"><span class="lineNum">    1274 </span>                :            :     }</a>
 <a name="1275"><span class="lineNum">    1275 </span>                :            : </a>
 <a name="1276"><span class="lineNum">    1276 </span>                :            :     /*sequence:subject pkinfo*/</a>
-<a name="1277"><span class="lineNum">    1277 </span>                :<span class="lineCov">          1 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1277"><span class="lineNum">    1277 </span>                :<span class="lineCov">          3 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
 <a name="1278"><span class="lineNum">    1278 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1279"><span class="lineNum">    1279 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!ret) {</span></a>
+<a name="1279"><span class="lineNum">    1279 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :     if (!ret) {</span></a>
 <a name="1280"><span class="lineNum">    1280 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="1281"><span class="lineNum">    1281 </span>                :            :     } else {</a>
-<a name="1282"><span class="lineNum">    1282 </span>                :<span class="lineCov">          1 :         ptr += obj_len;</span></a>
+<a name="1282"><span class="lineNum">    1282 </span>                :<span class="lineCov">          3 :         ptr += obj_len;</span></a>
 <a name="1283"><span class="lineNum">    1283 </span>                :            :     }</a>
 <a name="1284"><span class="lineNum">    1284 </span>                :            : </a>
 <a name="1285"><span class="lineNum">    1285 </span>                :            :     /*[0]: attributes*/</a>
-<a name="1286"><span class="lineNum">    1286 </span>                :<span class="lineCov">          1 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1286"><span class="lineNum">    1286 </span>                :<span class="lineCov">          3 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
 <a name="1287"><span class="lineNum">    1287 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_CONTEXT_SPECIFIC |</a>
 <a name="1288"><span class="lineNum">    1288 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
 <a name="1289"><span class="lineNum">    1289 </span>                :            :     /*req_info format error, don't have attributes tag*/</a>
-<a name="1290"><span class="lineNum">    1290 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!ret) {</span></a>
+<a name="1290"><span class="lineNum">    1290 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :     if (!ret) {</span></a>
 <a name="1291"><span class="lineNum">    1291 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="1292"><span class="lineNum">    1292 </span>                :            :     }</a>
 <a name="1293"><span class="lineNum">    1293 </span>                :            : </a>
 <a name="1294"><span class="lineNum">    1294 </span>                :            :     /*there is no attributes object*/</a>
-<a name="1295"><span class="lineNum">    1295 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (ptr == end) {</span></a>
+<a name="1295"><span class="lineNum">    1295 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :     if (ptr == end) {</span></a>
 <a name="1296"><span class="lineNum">    1296 </span>                :<span class="lineNoCov">          0 :         return true;</span></a>
 <a name="1297"><span class="lineNum">    1297 </span>                :            :     }</a>
 <a name="1298"><span class="lineNum">    1298 </span>                :            : </a>
 <a name="1299"><span class="lineNum">    1299 </span>                :            :     /*there is some attributes object: 0,1,2 ...*/</a>
-<a name="1300"><span class="lineNum">    1300 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :     while (ret)</span></a>
+<a name="1300"><span class="lineNum">    1300 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          6 :     while (ret)</span></a>
 <a name="1301"><span class="lineNum">    1301 </span>                :            :     {</a>
-<a name="1302"><span class="lineNum">    1302 </span>                :<span class="lineCov">          2 :         ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1302"><span class="lineNum">    1302 </span>                :<span class="lineCov">          6 :         ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
 <a name="1303"><span class="lineNum">    1303 </span>                :            :                                    LIBSPDM_CRYPTO_ASN1_SEQUENCE |</a>
 <a name="1304"><span class="lineNum">    1304 </span>                :            :                                    LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1305"><span class="lineNum">    1305 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          2 :         if (ret) {</span></a>
-<a name="1306"><span class="lineNum">    1306 </span>                :<span class="lineCov">          1 :             ptr += obj_len;</span></a>
+<a name="1305"><span class="lineNum">    1305 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          6 :         if (ret) {</span></a>
+<a name="1306"><span class="lineNum">    1306 </span>                :<span class="lineCov">          3 :             ptr += obj_len;</span></a>
 <a name="1307"><span class="lineNum">    1307 </span>                :            :         } else {</a>
-<a name="1308"><span class="lineNum">    1308 </span>                :<span class="lineCov">          1 :             break;</span></a>
+<a name="1308"><span class="lineNum">    1308 </span>                :<span class="lineCov">          3 :             break;</span></a>
 <a name="1309"><span class="lineNum">    1309 </span>                :            :         }</a>
 <a name="1310"><span class="lineNum">    1310 </span>                :            :     }</a>
 <a name="1311"><span class="lineNum">    1311 </span>                :            : </a>
-<a name="1312"><span class="lineNum">    1312 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :     if (ptr == end) {</span></a>
-<a name="1313"><span class="lineNum">    1313 </span>                :<span class="lineCov">          1 :         return true;</span></a>
+<a name="1312"><span class="lineNum">    1312 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :     if (ptr == end) {</span></a>
+<a name="1313"><span class="lineNum">    1313 </span>                :<span class="lineCov">          3 :         return true;</span></a>
 <a name="1314"><span class="lineNum">    1314 </span>                :            :     } else {</a>
 <a name="1315"><span class="lineNum">    1315 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="1316"><span class="lineNum">    1316 </span>                :            :     }</a>

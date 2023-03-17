@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-03-16 08:13:12</td>
+            <td class="headerValue">2023-03-17 08:04:08</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -86,13 +86,13 @@
 <a name="15"><span class="lineNum">      15 </span>                :            :     }</a>
 <a name="16"><span class="lineNum">      16 </span>                :<span class="lineCov">         27 : }</span></a>
 <a name="17"><span class="lineNum">      17 </span>                :            : </a>
-<a name="18"><span class="lineNum">      18 </span>                :<span class="lineCov">      14025 : void libspdm_internal_dump_data(const uint8_t *data, size_t size)</span></a>
+<a name="18"><span class="lineNum">      18 </span>                :<span class="lineCov">      14032 : void libspdm_internal_dump_data(const uint8_t *data, size_t size)</span></a>
 <a name="19"><span class="lineNum">      19 </span>                :            : {</a>
 <a name="20"><span class="lineNum">      20 </span>                :            :     size_t index;</a>
-<a name="21"><span class="lineNum">      21 </span>        [<span class="branchCov" title="Branch 0 was taken 276474 times"> + </span><span class="branchCov" title="Branch 1 was taken 14025 times"> + </span>]:<span class="lineCov">     290499 :     for (index = 0; index &lt; size; index++) {</span></a>
-<a name="22"><span class="lineNum">      22 </span>                :<span class="lineCov">     276474 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;%02x &quot;, (size_t)data[index]));</span></a>
+<a name="21"><span class="lineNum">      21 </span>        [<span class="branchCov" title="Branch 0 was taken 276710 times"> + </span><span class="branchCov" title="Branch 1 was taken 14032 times"> + </span>]:<span class="lineCov">     290742 :     for (index = 0; index &lt; size; index++) {</span></a>
+<a name="22"><span class="lineNum">      22 </span>                :<span class="lineCov">     276710 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;%02x &quot;, (size_t)data[index]));</span></a>
 <a name="23"><span class="lineNum">      23 </span>                :            :     }</a>
-<a name="24"><span class="lineNum">      24 </span>                :<span class="lineCov">      14025 : }</span></a>
+<a name="24"><span class="lineNum">      24 </span>                :<span class="lineCov">      14032 : }</span></a>
 <a name="25"><span class="lineNum">      25 </span>                :            : </a>
 <a name="26"><span class="lineNum">      26 </span>                :<span class="lineCov">       7469 : void libspdm_internal_dump_hex(const uint8_t *data, size_t size)</span></a>
 <a name="27"><span class="lineNum">      27 </span>                :            : {</a>
@@ -104,10 +104,10 @@
 <a name="33"><span class="lineNum">      33 </span>                :            : </a>
 <a name="34"><span class="lineNum">      34 </span>                :<span class="lineCov">       7469 :     count = size / COLUMN_SIZE;</span></a>
 <a name="35"><span class="lineNum">      35 </span>                :<span class="lineCov">       7469 :     left = size % COLUMN_SIZE;</span></a>
-<a name="36"><span class="lineNum">      36 </span>        [<span class="branchCov" title="Branch 0 was taken 4895 times"> + </span><span class="branchCov" title="Branch 1 was taken 7469 times"> + </span>]:<span class="lineCov">      12364 :     for (index = 0; index &lt; count; index++) {</span></a>
-<a name="37"><span class="lineNum">      37 </span>                :<span class="lineCov">       4895 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;%04x: &quot;, index * COLUMN_SIZE));</span></a>
-<a name="38"><span class="lineNum">      38 </span>                :<span class="lineCov">       4895 :         LIBSPDM_INTERNAL_DUMP_DATA(data + index * COLUMN_SIZE, COLUMN_SIZE);</span></a>
-<a name="39"><span class="lineNum">      39 </span>                :<span class="lineCov">       4895 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;\n&quot;));</span></a>
+<a name="36"><span class="lineNum">      36 </span>        [<span class="branchCov" title="Branch 0 was taken 4902 times"> + </span><span class="branchCov" title="Branch 1 was taken 7469 times"> + </span>]:<span class="lineCov">      12371 :     for (index = 0; index &lt; count; index++) {</span></a>
+<a name="37"><span class="lineNum">      37 </span>                :<span class="lineCov">       4902 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;%04x: &quot;, index * COLUMN_SIZE));</span></a>
+<a name="38"><span class="lineNum">      38 </span>                :<span class="lineCov">       4902 :         LIBSPDM_INTERNAL_DUMP_DATA(data + index * COLUMN_SIZE, COLUMN_SIZE);</span></a>
+<a name="39"><span class="lineNum">      39 </span>                :<span class="lineCov">       4902 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO, &quot;\n&quot;));</span></a>
 <a name="40"><span class="lineNum">      40 </span>                :            :     }</a>
 <a name="41"><span class="lineNum">      41 </span>                :            : </a>
 <a name="42"><span class="lineNum">      42 </span>        [<span class="branchCov" title="Branch 0 was taken 7173 times"> + </span><span class="branchCov" title="Branch 1 was taken 296 times"> + </span>]:<span class="lineCov">       7469 :     if (left != 0) {</span></a>
