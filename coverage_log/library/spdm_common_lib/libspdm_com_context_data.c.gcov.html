@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-04 08:04:22</td>
+            <td class="headerValue">2023-04-05 08:04:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">42</td>
@@ -251,7 +251,7 @@
 <a name="171"><span class="lineNum">     171 </span>                :            :         }</a>
 <a name="172"><span class="lineNum">     172 </span>                :<span class="lineCov">          3 :         data32 = libspdm_read_uint32((const uint8_t *)data);</span></a>
 <a name="173"><span class="lineNum">     173 </span>                :            :         /* Only allow set smaller value*/</a>
-<a name="174"><span class="lineNum">     174 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :         LIBSPDM_ASSERT (data32 &lt;= LIBSPDM_MAX_MESSAGE_BUFFER_SIZE);</span></a>
+<a name="174"><span class="lineNum">     174 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :         LIBSPDM_ASSERT (data32 &lt;= LIBSPDM_DATA_TRANSFER_SIZE);</span></a>
 <a name="175"><span class="lineNum">     175 </span>                :<span class="lineCov">          3 :         context-&gt;local_context.capability.data_transfer_size = data32;</span></a>
 <a name="176"><span class="lineNum">     176 </span>                :<span class="lineCov">          3 :         break;</span></a>
 <a name="177"><span class="lineNum">     177 </span>                :<span class="lineCov">          1 :     case LIBSPDM_DATA_CAPABILITY_MAX_SPDM_MSG_SIZE:</span></a>
@@ -260,7 +260,7 @@
 <a name="180"><span class="lineNum">     180 </span>                :            :         }</a>
 <a name="181"><span class="lineNum">     181 </span>                :<span class="lineCov">          1 :         data32 = libspdm_read_uint32((const uint8_t *)data);</span></a>
 <a name="182"><span class="lineNum">     182 </span>                :            :         /* Only allow set smaller value. Need different value for CHUNK - TBD*/</a>
-<a name="183"><span class="lineNum">     183 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :         LIBSPDM_ASSERT (data32 &lt;= LIBSPDM_MAX_MESSAGE_BUFFER_SIZE);</span></a>
+<a name="183"><span class="lineNum">     183 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :         LIBSPDM_ASSERT (data32 &lt;= LIBSPDM_MAX_SPDM_MSG_SIZE);</span></a>
 <a name="184"><span class="lineNum">     184 </span>                :<span class="lineCov">          1 :         context-&gt;local_context.capability.max_spdm_msg_size = data32;</span></a>
 <a name="185"><span class="lineNum">     185 </span>                :<span class="lineCov">          1 :         break;</span></a>
 <a name="186"><span class="lineNum">     186 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_DATA_MEASUREMENT_SPEC:</span></a>
@@ -940,11 +940,11 @@
 <a name="854"><span class="lineNum">     854 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="855"><span class="lineNum">     855 </span>                :            :  * @param  session_info                  A pointer to the SPDM session context.</a>
 <a name="856"><span class="lineNum">     856 </span>                :            :  **/</a>
-<a name="857"><span class="lineNum">     857 </span>                :<span class="lineCov">       3821 : void libspdm_reset_message_m(libspdm_context_t *spdm_context, void *session_info)</span></a>
+<a name="857"><span class="lineNum">     857 </span>                :<span class="lineCov">       3822 : void libspdm_reset_message_m(libspdm_context_t *spdm_context, void *session_info)</span></a>
 <a name="858"><span class="lineNum">     858 </span>                :            : {</a>
 <a name="859"><span class="lineNum">     859 </span>                :            :     libspdm_session_info_t *spdm_session_info;</a>
 <a name="860"><span class="lineNum">     860 </span>                :            : </a>
-<a name="861"><span class="lineNum">     861 </span>                :<span class="lineCov">       3821 :     spdm_session_info = session_info;</span></a>
+<a name="861"><span class="lineNum">     861 </span>                :<span class="lineCov">       3822 :     spdm_session_info = session_info;</span></a>
 <a name="862"><span class="lineNum">     862 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="863"><span class="lineNum">     863 </span>                :            :     if (spdm_session_info == NULL) {</a>
 <a name="864"><span class="lineNum">     864 </span>                :            :         libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_m);</a>
@@ -952,8 +952,8 @@
 <a name="866"><span class="lineNum">     866 </span>                :            :         libspdm_reset_managed_buffer(&amp;spdm_session_info-&gt;session_transcript.message_m);</a>
 <a name="867"><span class="lineNum">     867 </span>                :            :     }</a>
 <a name="868"><span class="lineNum">     868 </span>                :            : #else</a>
-<a name="869"><span class="lineNum">     869 </span>        [<span class="branchCov" title="Branch 0 was taken 3564 times"> + </span><span class="branchCov" title="Branch 1 was taken 257 times"> + </span>]:<span class="lineCov">       3821 :     if (spdm_session_info == NULL) {</span></a>
-<a name="870"><span class="lineNum">     870 </span>        [<span class="branchCov" title="Branch 0 was taken 44 times"> + </span><span class="branchCov" title="Branch 1 was taken 3520 times"> + </span>]:<span class="lineCov">       3564 :         if (spdm_context-&gt;transcript.digest_context_l1l2 != NULL) {</span></a>
+<a name="869"><span class="lineNum">     869 </span>        [<span class="branchCov" title="Branch 0 was taken 3565 times"> + </span><span class="branchCov" title="Branch 1 was taken 257 times"> + </span>]:<span class="lineCov">       3822 :     if (spdm_session_info == NULL) {</span></a>
+<a name="870"><span class="lineNum">     870 </span>        [<span class="branchCov" title="Branch 0 was taken 44 times"> + </span><span class="branchCov" title="Branch 1 was taken 3521 times"> + </span>]:<span class="lineCov">       3565 :         if (spdm_context-&gt;transcript.digest_context_l1l2 != NULL) {</span></a>
 <a name="871"><span class="lineNum">     871 </span>                :<span class="lineCov">         44 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="872"><span class="lineNum">     872 </span>                :            :                                spdm_context-&gt;transcript.digest_context_l1l2);</a>
 <a name="873"><span class="lineNum">     873 </span>                :<span class="lineCov">         44 :             spdm_context-&gt;transcript.digest_context_l1l2 = NULL;</span></a>
@@ -966,7 +966,7 @@
 <a name="880"><span class="lineNum">     880 </span>                :            :         }</a>
 <a name="881"><span class="lineNum">     881 </span>                :            :     }</a>
 <a name="882"><span class="lineNum">     882 </span>                :            : #endif</a>
-<a name="883"><span class="lineNum">     883 </span>                :<span class="lineCov">       3821 : }</span></a>
+<a name="883"><span class="lineNum">     883 </span>                :<span class="lineCov">       3822 : }</span></a>
 <a name="884"><span class="lineNum">     884 </span>                :            : </a>
 <a name="885"><span class="lineNum">     885 </span>                :            : /**</a>
 <a name="886"><span class="lineNum">     886 </span>                :            :  * Reset message K cache in SPDM context.</a>
@@ -1031,24 +1031,24 @@
 <a name="945"><span class="lineNum">     945 </span>                :            :  * @param  spdm_session_info             A pointer to the SPDM session context.</a>
 <a name="946"><span class="lineNum">     946 </span>                :            :  * @param  spdm_request                   The SPDM request code.</a>
 <a name="947"><span class="lineNum">     947 </span>                :            :  */</a>
-<a name="948"><span class="lineNum">     948 </span>                :<span class="lineCov">       3954 : void libspdm_reset_message_buffer_via_request_code(void *context, void *session_info,</span></a>
+<a name="948"><span class="lineNum">     948 </span>                :<span class="lineCov">       3955 : void libspdm_reset_message_buffer_via_request_code(void *context, void *session_info,</span></a>
 <a name="949"><span class="lineNum">     949 </span>                :            :                                                    uint8_t request_code)</a>
 <a name="950"><span class="lineNum">     950 </span>                :            : {</a>
 <a name="951"><span class="lineNum">     951 </span>                :            :     libspdm_context_t *spdm_context;</a>
 <a name="952"><span class="lineNum">     952 </span>                :            : </a>
-<a name="953"><span class="lineNum">     953 </span>                :<span class="lineCov">       3954 :     spdm_context = context;</span></a>
+<a name="953"><span class="lineNum">     953 </span>                :<span class="lineCov">       3955 :     spdm_context = context;</span></a>
 <a name="954"><span class="lineNum">     954 </span>                :            :     /**</a>
 <a name="955"><span class="lineNum">     955 </span>                :            :      * Any request other than SPDM_GET_MEASUREMENTS resets L1/L2</a>
 <a name="956"><span class="lineNum">     956 </span>                :            :      */</a>
-<a name="957"><span class="lineNum">     957 </span>        [<span class="branchCov" title="Branch 0 was taken 3640 times"> + </span><span class="branchCov" title="Branch 1 was taken 314 times"> + </span>]:<span class="lineCov">       3954 :     if (request_code != SPDM_GET_MEASUREMENTS) {</span></a>
-<a name="958"><span class="lineNum">     958 </span>                :<span class="lineCov">       3640 :         libspdm_reset_message_m(spdm_context, session_info);</span></a>
+<a name="957"><span class="lineNum">     957 </span>        [<span class="branchCov" title="Branch 0 was taken 3641 times"> + </span><span class="branchCov" title="Branch 1 was taken 314 times"> + </span>]:<span class="lineCov">       3955 :     if (request_code != SPDM_GET_MEASUREMENTS) {</span></a>
+<a name="958"><span class="lineNum">     958 </span>                :<span class="lineCov">       3641 :         libspdm_reset_message_m(spdm_context, session_info);</span></a>
 <a name="959"><span class="lineNum">     959 </span>                :            :     }</a>
 <a name="960"><span class="lineNum">     960 </span>                :            :     /**</a>
 <a name="961"><span class="lineNum">     961 </span>                :            :      * If the Requester issued GET_MEASUREMENTS or KEY_EXCHANGE or FINISH or PSK_EXCHANGE</a>
 <a name="962"><span class="lineNum">     962 </span>                :            :      * or PSK_FINISH or KEY_UPDATE or HEARTBEAT or GET_ENCAPSULATED_REQUEST or DELIVER_ENCAPSULATED_RESPONSE</a>
 <a name="963"><span class="lineNum">     963 </span>                :            :      * or END_SESSION request(s) and skipped CHALLENGE completion, M1 and M2 are reset to null.</a>
 <a name="964"><span class="lineNum">     964 </span>                :            :      */</a>
-<a name="965"><span class="lineNum">     965 </span>  [<span class="branchCov" title="Branch 0 was taken 726 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchCov" title="Branch 2 was taken 47 times"> + </span><span class="branchCov" title="Branch 3 was taken 3176 times"> + </span>]:<span class="lineCov">       3954 :     switch (request_code)</span></a>
+<a name="965"><span class="lineNum">     965 </span>  [<span class="branchCov" title="Branch 0 was taken 726 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchCov" title="Branch 2 was taken 47 times"> + </span><span class="branchCov" title="Branch 3 was taken 3177 times"> + </span>]:<span class="lineCov">       3955 :     switch (request_code)</span></a>
 <a name="966"><span class="lineNum">     966 </span>                :            :     {</a>
 <a name="967"><span class="lineNum">     967 </span>                :<span class="lineCov">        726 :     case SPDM_KEY_EXCHANGE:</span></a>
 <a name="968"><span class="lineNum">     968 </span>                :            :     case SPDM_GET_MEASUREMENTS:</a>
@@ -1077,10 +1077,10 @@
 <a name="991"><span class="lineNum">     991 </span>                :<span class="lineCov">         47 :     case SPDM_GET_DIGESTS:</span></a>
 <a name="992"><span class="lineNum">     992 </span>                :<span class="lineCov">         47 :         libspdm_reset_message_b(spdm_context);</span></a>
 <a name="993"><span class="lineNum">     993 </span>                :<span class="lineCov">         47 :         break;</span></a>
-<a name="994"><span class="lineNum">     994 </span>                :<span class="lineCov">       3176 :     default:</span></a>
-<a name="995"><span class="lineNum">     995 </span>                :<span class="lineCov">       3176 :         break;</span></a>
+<a name="994"><span class="lineNum">     994 </span>                :<span class="lineCov">       3177 :     default:</span></a>
+<a name="995"><span class="lineNum">     995 </span>                :<span class="lineCov">       3177 :         break;</span></a>
 <a name="996"><span class="lineNum">     996 </span>                :            :     }</a>
-<a name="997"><span class="lineNum">     997 </span>                :<span class="lineCov">       3954 : }</span></a>
+<a name="997"><span class="lineNum">     997 </span>                :<span class="lineCov">       3955 : }</span></a>
 <a name="998"><span class="lineNum">     998 </span>                :            : /**</a>
 <a name="999"><span class="lineNum">     999 </span>                :            :  * Append message A cache in SPDM context.</a>
 <a name="1000"><span class="lineNum">    1000 </span>                :            :  *</a>
@@ -1834,7 +1834,7 @@
 <a name="1748"><span class="lineNum">    1748 </span>                :            :  * @retval true  the capabilities flag is supported.</a>
 <a name="1749"><span class="lineNum">    1749 </span>                :            :  * @retval false the capabilities flag is not supported.</a>
 <a name="1750"><span class="lineNum">    1750 </span>                :            :  **/</a>
-<a name="1751"><span class="lineNum">    1751 </span>                :<span class="lineCov">       7216 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
+<a name="1751"><span class="lineNum">    1751 </span>                :<span class="lineCov">       7229 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
 <a name="1752"><span class="lineNum">    1752 </span>                :            :                                             bool is_requester,</a>
 <a name="1753"><span class="lineNum">    1753 </span>                :            :                                             uint32_t requester_capabilities_flag,</a>
 <a name="1754"><span class="lineNum">    1754 </span>                :            :                                             uint32_t responder_capabilities_flag)</a>
@@ -1842,23 +1842,23 @@
 <a name="1756"><span class="lineNum">    1756 </span>                :            :     uint32_t negotiated_requester_capabilities_flag;</a>
 <a name="1757"><span class="lineNum">    1757 </span>                :            :     uint32_t negotiated_responder_capabilities_flag;</a>
 <a name="1758"><span class="lineNum">    1758 </span>                :            : </a>
-<a name="1759"><span class="lineNum">    1759 </span>        [<span class="branchCov" title="Branch 0 was taken 3560 times"> + </span><span class="branchCov" title="Branch 1 was taken 3656 times"> + </span>]:<span class="lineCov">       7216 :     if (is_requester) {</span></a>
+<a name="1759"><span class="lineNum">    1759 </span>        [<span class="branchCov" title="Branch 0 was taken 3560 times"> + </span><span class="branchCov" title="Branch 1 was taken 3669 times"> + </span>]:<span class="lineCov">       7229 :     if (is_requester) {</span></a>
 <a name="1760"><span class="lineNum">    1760 </span>                :<span class="lineCov">       3560 :         negotiated_requester_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
 <a name="1761"><span class="lineNum">    1761 </span>                :<span class="lineCov">       3560 :         negotiated_responder_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
 <a name="1762"><span class="lineNum">    1762 </span>                :            :     } else {</a>
-<a name="1763"><span class="lineNum">    1763 </span>                :<span class="lineCov">       3656 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
-<a name="1764"><span class="lineNum">    1764 </span>                :<span class="lineCov">       3656 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
+<a name="1763"><span class="lineNum">    1763 </span>                :<span class="lineCov">       3669 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
+<a name="1764"><span class="lineNum">    1764 </span>                :<span class="lineCov">       3669 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
 <a name="1765"><span class="lineNum">    1765 </span>                :            :     }</a>
 <a name="1766"><span class="lineNum">    1766 </span>                :            : </a>
-<a name="1767"><span class="lineNum">    1767 </span>        [<span class="branchCov" title="Branch 0 was taken 4331 times"> + </span><span class="branchCov" title="Branch 1 was taken 2885 times"> + </span>]:<span class="lineCov">       7216 :     if (((requester_capabilities_flag == 0) ||</span></a>
-<a name="1768"><span class="lineNum">    1768 </span>        [<span class="branchCov" title="Branch 0 was taken 2133 times"> + </span><span class="branchCov" title="Branch 1 was taken 2198 times"> + </span>]:<span class="lineCov">       4331 :          ((negotiated_requester_capabilities_flag &amp;</span></a>
-<a name="1769"><span class="lineNum">    1769 </span>        [<span class="branchCov" title="Branch 0 was taken 3615 times"> + </span><span class="branchCov" title="Branch 1 was taken 1403 times"> + </span>]:<span class="lineCov">       5018 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
-<a name="1770"><span class="lineNum">    1770 </span>                :<span class="lineCov">       3615 :         ((responder_capabilities_flag == 0) ||</span></a>
-<a name="1771"><span class="lineNum">    1771 </span>        [<span class="branchCov" title="Branch 0 was taken 3010 times"> + </span><span class="branchCov" title="Branch 1 was taken 605 times"> + </span>]:<span class="lineCov">       3615 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
+<a name="1767"><span class="lineNum">    1767 </span>        [<span class="branchCov" title="Branch 0 was taken 4339 times"> + </span><span class="branchCov" title="Branch 1 was taken 2890 times"> + </span>]:<span class="lineCov">       7229 :     if (((requester_capabilities_flag == 0) ||</span></a>
+<a name="1768"><span class="lineNum">    1768 </span>        [<span class="branchCov" title="Branch 0 was taken 2141 times"> + </span><span class="branchCov" title="Branch 1 was taken 2198 times"> + </span>]:<span class="lineCov">       4339 :          ((negotiated_requester_capabilities_flag &amp;</span></a>
+<a name="1769"><span class="lineNum">    1769 </span>        [<span class="branchCov" title="Branch 0 was taken 3628 times"> + </span><span class="branchCov" title="Branch 1 was taken 1403 times"> + </span>]:<span class="lineCov">       5031 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
+<a name="1770"><span class="lineNum">    1770 </span>                :<span class="lineCov">       3628 :         ((responder_capabilities_flag == 0) ||</span></a>
+<a name="1771"><span class="lineNum">    1771 </span>        [<span class="branchCov" title="Branch 0 was taken 3020 times"> + </span><span class="branchCov" title="Branch 1 was taken 608 times"> + </span>]:<span class="lineCov">       3628 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
 <a name="1772"><span class="lineNum">    1772 </span>                :            :            responder_capabilities_flag) != 0))) {</a>
-<a name="1773"><span class="lineNum">    1773 </span>                :<span class="lineCov">       4413 :         return true;</span></a>
+<a name="1773"><span class="lineNum">    1773 </span>                :<span class="lineCov">       4423 :         return true;</span></a>
 <a name="1774"><span class="lineNum">    1774 </span>                :            :     } else {</a>
-<a name="1775"><span class="lineNum">    1775 </span>                :<span class="lineCov">       2803 :         return false;</span></a>
+<a name="1775"><span class="lineNum">    1775 </span>                :<span class="lineCov">       2806 :         return false;</span></a>
 <a name="1776"><span class="lineNum">    1776 </span>                :            :     }</a>
 <a name="1777"><span class="lineNum">    1777 </span>                :            : }</a>
 <a name="1778"><span class="lineNum">    1778 </span>                :            : </a>
