@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-05 08:04:58</td>
+            <td class="headerValue">2023-04-06 08:04:19</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -92,13 +92,13 @@
 <a name="21"><span class="lineNum">      21 </span>                :<span class="lineCov">         18 :     spdm_test_context = libspdm_get_test_context();</span></a>
 <a name="22"><span class="lineNum">      22 </span>                :            :     static uint8_t sub_index = 0;</a>
 <a name="23"><span class="lineNum">      23 </span>                :            :     spdm_deliver_encapsulated_response_request_t *spdm_deliver_encapsulated_response_request;</a>
-<a name="24"><span class="lineNum">      24 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="24"><span class="lineNum">      24 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_BUFFER_SIZE];</a>
 <a name="25"><span class="lineNum">      25 </span>                :            :     size_t decode_message_size;</a>
 <a name="26"><span class="lineNum">      26 </span>                :            :     spdm_error_response_t *spdm_response;</a>
 <a name="27"><span class="lineNum">      27 </span>                :            :     libspdm_return_t status;</a>
 <a name="28"><span class="lineNum">      28 </span>                :            :     uint32_t *message_session_id;</a>
 <a name="29"><span class="lineNum">      29 </span>                :            :     bool is_message_app_message;</a>
-<a name="30"><span class="lineNum">      30 </span>                :            :     uint8_t message_buffer[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="30"><span class="lineNum">      30 </span>                :            :     uint8_t message_buffer[LIBSPDM_SENDER_BUFFER_SIZE];</a>
 <a name="31"><span class="lineNum">      31 </span>                :            : </a>
 <a name="32"><span class="lineNum">      32 </span>                :<span class="lineCov">         18 :     memcpy(message_buffer, request, request_size);</span></a>
 <a name="33"><span class="lineNum">      33 </span>                :            : </a>
@@ -176,7 +176,7 @@
 <a name="103"><span class="lineNum">     103 </span>                :            :     libspdm_test_context_t *spdm_test_context;</a>
 <a name="104"><span class="lineNum">     104 </span>                :            :     spdm_encapsulated_request_response_t *libspdm_encapsulated_request_response;</a>
 <a name="105"><span class="lineNum">     105 </span>                :            :     uint8_t *digest;</a>
-<a name="106"><span class="lineNum">     106 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="106"><span class="lineNum">     106 </span>                :            :     uint8_t temp_buf[LIBSPDM_RECEIVER_BUFFER_SIZE];</a>
 <a name="107"><span class="lineNum">     107 </span>                :            :     size_t temp_buf_size;</a>
 <a name="108"><span class="lineNum">     108 </span>                :            :     uint8_t *temp_buf_ptr;</a>
 <a name="109"><span class="lineNum">     109 </span>                :            : </a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-05 08:04:58</td>
+            <td class="headerValue">2023-04-06 08:04:19</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -456,7 +456,7 @@
 <a name="385"><span class="lineNum">     385 </span>                :            :     libspdm_context_t *spdm_context;</a>
 <a name="386"><span class="lineNum">     386 </span>                :            :     spdm_deliver_encapsulated_response_request_t *spdm_response_requester;</a>
 <a name="387"><span class="lineNum">     387 </span>                :            :     spdm_digest_response_t *spdm_response_requester_digest;</a>
-<a name="388"><span class="lineNum">     388 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="388"><span class="lineNum">     388 </span>                :            :     uint8_t temp_buf[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="389"><span class="lineNum">     389 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="390"><span class="lineNum">     390 </span>                :            :     size_t spdm_response_requester_size;</a>
 <a name="391"><span class="lineNum">     391 </span>                :            :     size_t spdm_response_requester_digest_size;</a>
@@ -498,7 +498,7 @@
 <a name="427"><span class="lineNum">     427 </span>                :            : </a>
 <a name="428"><span class="lineNum">     428 </span>                :<span class="lineCov">          1 :     spdm_response_requester = (void *)temp_buf;</span></a>
 <a name="429"><span class="lineNum">     429 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(spdm_response_requester,</span></a>
-<a name="430"><span class="lineNum">     430 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size,</a>
+<a name="430"><span class="lineNum">     430 </span>                :            :                      sizeof(temp_buf),</a>
 <a name="431"><span class="lineNum">     431 </span>                :            :                      &amp;m_libspdm_m_deliver_encapsulated_response_request_t1,</a>
 <a name="432"><span class="lineNum">     432 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size);</a>
 <a name="433"><span class="lineNum">     433 </span>                :            : </a>
@@ -541,7 +541,7 @@
 <a name="470"><span class="lineNum">     470 </span>                :            :     libspdm_context_t *spdm_context;</a>
 <a name="471"><span class="lineNum">     471 </span>                :            :     spdm_deliver_encapsulated_response_request_t *spdm_response_requester;</a>
 <a name="472"><span class="lineNum">     472 </span>                :            :     spdm_certificate_response_t *spdm_response_requester_certificate;</a>
-<a name="473"><span class="lineNum">     473 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="473"><span class="lineNum">     473 </span>                :            :     uint8_t temp_buf[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="474"><span class="lineNum">     474 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="475"><span class="lineNum">     475 </span>                :            :     size_t spdm_response_requester_size;</a>
 <a name="476"><span class="lineNum">     476 </span>                :            :     size_t data_size;</a>
@@ -583,7 +583,7 @@
 <a name="512"><span class="lineNum">     512 </span>                :            : </a>
 <a name="513"><span class="lineNum">     513 </span>                :<span class="lineCov">          1 :     spdm_response_requester = (void *)temp_buf;</span></a>
 <a name="514"><span class="lineNum">     514 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(spdm_response_requester,</span></a>
-<a name="515"><span class="lineNum">     515 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size,</a>
+<a name="515"><span class="lineNum">     515 </span>                :            :                      sizeof(temp_buf),</a>
 <a name="516"><span class="lineNum">     516 </span>                :            :                      &amp;m_libspdm_m_deliver_encapsulated_response_request_t1,</a>
 <a name="517"><span class="lineNum">     517 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size);</a>
 <a name="518"><span class="lineNum">     518 </span>                :            : </a>
@@ -634,7 +634,7 @@
 <a name="563"><span class="lineNum">     563 </span>                :            :     libspdm_context_t *spdm_context;</a>
 <a name="564"><span class="lineNum">     564 </span>                :            :     spdm_deliver_encapsulated_response_request_t *spdm_response_requester;</a>
 <a name="565"><span class="lineNum">     565 </span>                :            :     spdm_key_update_response_t *spdm_response_requester_key_update;</a>
-<a name="566"><span class="lineNum">     566 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="566"><span class="lineNum">     566 </span>                :            :     uint8_t temp_buf[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="567"><span class="lineNum">     567 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="568"><span class="lineNum">     568 </span>                :            :     size_t spdm_response_requester_size;</a>
 <a name="569"><span class="lineNum">     569 </span>                :            :     size_t data_size;</a>
@@ -690,7 +690,7 @@
 <a name="619"><span class="lineNum">     619 </span>                :            : </a>
 <a name="620"><span class="lineNum">     620 </span>                :<span class="lineCov">          1 :     spdm_response_requester = (void *)temp_buf;</span></a>
 <a name="621"><span class="lineNum">     621 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(spdm_response_requester,</span></a>
-<a name="622"><span class="lineNum">     622 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size,</a>
+<a name="622"><span class="lineNum">     622 </span>                :            :                      sizeof(temp_buf),</a>
 <a name="623"><span class="lineNum">     623 </span>                :            :                      &amp;m_libspdm_m_deliver_encapsulated_response_request_t1,</a>
 <a name="624"><span class="lineNum">     624 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size);</a>
 <a name="625"><span class="lineNum">     625 </span>                :            : </a>
@@ -834,7 +834,7 @@
 <a name="763"><span class="lineNum">     763 </span>                :            :     libspdm_context_t *spdm_context;</a>
 <a name="764"><span class="lineNum">     764 </span>                :            :     spdm_deliver_encapsulated_response_request_t *spdm_response_requester;</a>
 <a name="765"><span class="lineNum">     765 </span>                :            :     spdm_certificate_response_t *spdm_response_requester_certificate;</a>
-<a name="766"><span class="lineNum">     766 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="766"><span class="lineNum">     766 </span>                :            :     uint8_t temp_buf[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="767"><span class="lineNum">     767 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="768"><span class="lineNum">     768 </span>                :            :     size_t spdm_response_requester_size;</a>
 <a name="769"><span class="lineNum">     769 </span>                :            :     size_t data_size;</a>
@@ -876,7 +876,7 @@
 <a name="805"><span class="lineNum">     805 </span>                :            : </a>
 <a name="806"><span class="lineNum">     806 </span>                :<span class="lineCov">          1 :     spdm_response_requester = (void *)temp_buf;</span></a>
 <a name="807"><span class="lineNum">     807 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(spdm_response_requester,</span></a>
-<a name="808"><span class="lineNum">     808 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size,</a>
+<a name="808"><span class="lineNum">     808 </span>                :            :                      sizeof(temp_buf),</a>
 <a name="809"><span class="lineNum">     809 </span>                :            :                      &amp;m_libspdm_m_deliver_encapsulated_response_request_t1,</a>
 <a name="810"><span class="lineNum">     810 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t1_size);</a>
 <a name="811"><span class="lineNum">     811 </span>                :            : </a>
@@ -935,7 +935,7 @@
 <a name="864"><span class="lineNum">     864 </span>                :            :     spdm_encapsulated_response_ack_response_t *spdm_response;</a>
 <a name="865"><span class="lineNum">     865 </span>                :            :     spdm_deliver_encapsulated_response_request_t *spdm_response_requester;</a>
 <a name="866"><span class="lineNum">     866 </span>                :            :     spdm_digest_response_t *spdm_response_requester_digest;</a>
-<a name="867"><span class="lineNum">     867 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="867"><span class="lineNum">     867 </span>                :            :     uint8_t temp_buf[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="868"><span class="lineNum">     868 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="869"><span class="lineNum">     869 </span>                :            :     size_t spdm_response_requester_size;</a>
 <a name="870"><span class="lineNum">     870 </span>                :            :     size_t spdm_response_requester_digest_size;</a>
@@ -977,7 +977,7 @@
 <a name="906"><span class="lineNum">     906 </span>                :            : </a>
 <a name="907"><span class="lineNum">     907 </span>                :<span class="lineCov">          1 :     spdm_response_requester = (void *)temp_buf;</span></a>
 <a name="908"><span class="lineNum">     908 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(spdm_response_requester,</span></a>
-<a name="909"><span class="lineNum">     909 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t2_size,</a>
+<a name="909"><span class="lineNum">     909 </span>                :            :                      sizeof(temp_buf),</a>
 <a name="910"><span class="lineNum">     910 </span>                :            :                      &amp;m_libspdm_m_deliver_encapsulated_response_request_t2,</a>
 <a name="911"><span class="lineNum">     911 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t2_size);</a>
 <a name="912"><span class="lineNum">     912 </span>                :            : </a>
@@ -1038,7 +1038,7 @@
 <a name="967"><span class="lineNum">     967 </span>                :            :     spdm_encapsulated_response_ack_response_t *spdm_response;</a>
 <a name="968"><span class="lineNum">     968 </span>                :            :     spdm_deliver_encapsulated_response_request_t *spdm_request;</a>
 <a name="969"><span class="lineNum">     969 </span>                :            :     spdm_error_response_data_response_not_ready_t *EncapsulatedResponse;</a>
-<a name="970"><span class="lineNum">     970 </span>                :            :     uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="970"><span class="lineNum">     970 </span>                :            :     uint8_t temp_buf[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="971"><span class="lineNum">     971 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="972"><span class="lineNum">     972 </span>                :            :     size_t spdm_request_size;</a>
 <a name="973"><span class="lineNum">     973 </span>                :            :     size_t EncapsulatedResponse_size;</a>
@@ -1068,7 +1068,7 @@
 <a name="997"><span class="lineNum">     997 </span>                :            : </a>
 <a name="998"><span class="lineNum">     998 </span>                :<span class="lineCov">          1 :     spdm_request = (void *)temp_buf;</span></a>
 <a name="999"><span class="lineNum">     999 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(spdm_request,</span></a>
-<a name="1000"><span class="lineNum">    1000 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t2_size,</a>
+<a name="1000"><span class="lineNum">    1000 </span>                :            :                      sizeof(temp_buf),</a>
 <a name="1001"><span class="lineNum">    1001 </span>                :            :                      &amp;m_libspdm_m_deliver_encapsulated_response_request_t2,</a>
 <a name="1002"><span class="lineNum">    1002 </span>                :            :                      m_libspdm_m_deliver_encapsulated_response_request_t2_size);</a>
 <a name="1003"><span class="lineNum">    1003 </span>                :            : </a>

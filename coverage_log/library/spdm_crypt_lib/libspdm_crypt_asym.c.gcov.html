@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-05 08:04:58</td>
+            <td class="headerValue">2023-04-06 08:04:19</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">22</td>
@@ -342,12 +342,12 @@
 <a name="268"><span class="lineNum">     268 </span>                :            :     }</a>
 <a name="269"><span class="lineNum">     269 </span>                :            : }</a>
 <a name="270"><span class="lineNum">     270 </span>                :            : </a>
-<a name="271"><span class="lineNum">     271 </span>                :<span class="lineCov">        743 : void libspdm_asym_free(uint32_t base_asym_algo, void *context)</span></a>
+<a name="271"><span class="lineNum">     271 </span>                :<span class="lineCov">        744 : void libspdm_asym_free(uint32_t base_asym_algo, void *context)</span></a>
 <a name="272"><span class="lineNum">     272 </span>                :            : {</a>
-<a name="273"><span class="lineNum">     273 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 741 times"> + </span>]:<span class="lineCov">        743 :     if (context == NULL) {</span></a>
+<a name="273"><span class="lineNum">     273 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 742 times"> + </span>]:<span class="lineCov">        744 :     if (context == NULL) {</span></a>
 <a name="274"><span class="lineNum">     274 </span>                :<span class="lineCov">          2 :         return;</span></a>
 <a name="275"><span class="lineNum">     275 </span>                :            :     }</a>
-<a name="276"><span class="lineNum">     276 </span>  [<span class="branchCov" title="Branch 0 was taken 46 times"> + </span><span class="branchCov" title="Branch 1 was taken 695 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        741 :     switch (base_asym_algo) {</span></a>
+<a name="276"><span class="lineNum">     276 </span>  [<span class="branchCov" title="Branch 0 was taken 46 times"> + </span><span class="branchCov" title="Branch 1 was taken 696 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        742 :     switch (base_asym_algo) {</span></a>
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 4 was not taken"> - </span>]
 <a name="277"><span class="lineNum">     277 </span>                :<span class="lineCov">         46 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSASSA_2048:</span></a>
 <a name="278"><span class="lineNum">     278 </span>                :            :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSASSA_3072:</a>
@@ -361,15 +361,15 @@
 <a name="286"><span class="lineNum">     286 </span>                :            :         LIBSPDM_ASSERT(false);</a>
 <a name="287"><span class="lineNum">     287 </span>                :            : #endif</a>
 <a name="288"><span class="lineNum">     288 </span>                :<span class="lineCov">         46 :         break;</span></a>
-<a name="289"><span class="lineNum">     289 </span>                :<span class="lineCov">        695 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P256:</span></a>
+<a name="289"><span class="lineNum">     289 </span>                :<span class="lineCov">        696 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P256:</span></a>
 <a name="290"><span class="lineNum">     290 </span>                :            :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P384:</a>
 <a name="291"><span class="lineNum">     291 </span>                :            :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P521:</a>
 <a name="292"><span class="lineNum">     292 </span>                :            : #if LIBSPDM_ECDSA_SUPPORT</a>
-<a name="293"><span class="lineNum">     293 </span>                :<span class="lineCov">        695 :         libspdm_ec_free(context);</span></a>
+<a name="293"><span class="lineNum">     293 </span>                :<span class="lineCov">        696 :         libspdm_ec_free(context);</span></a>
 <a name="294"><span class="lineNum">     294 </span>                :            : #else</a>
 <a name="295"><span class="lineNum">     295 </span>                :            :         LIBSPDM_ASSERT(false);</a>
 <a name="296"><span class="lineNum">     296 </span>                :            : #endif</a>
-<a name="297"><span class="lineNum">     297 </span>                :<span class="lineCov">        695 :         break;</span></a>
+<a name="297"><span class="lineNum">     297 </span>                :<span class="lineCov">        696 :         break;</span></a>
 <a name="298"><span class="lineNum">     298 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_EDDSA_ED25519:</span></a>
 <a name="299"><span class="lineNum">     299 </span>                :            :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_EDDSA_ED448:</a>
 <a name="300"><span class="lineNum">     300 </span>                :            : #if (LIBSPDM_EDDSA_ED25519_SUPPORT) || (LIBSPDM_EDDSA_ED448_SUPPORT)</a>

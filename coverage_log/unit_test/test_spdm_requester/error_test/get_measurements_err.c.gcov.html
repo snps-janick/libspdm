@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-05 08:04:58</td>
+            <td class="headerValue">2023-04-06 08:04:19</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">41</td>
@@ -144,7 +144,7 @@
 <a name="73"><span class="lineNum">      73 </span>                :            :     bool is_app_message;</a>
 <a name="74"><span class="lineNum">      74 </span>                :            :     uint8_t *app_message;</a>
 <a name="75"><span class="lineNum">      75 </span>                :            :     size_t app_message_size;</a>
-<a name="76"><span class="lineNum">      76 </span>                :            :     uint8_t message_buffer[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="76"><span class="lineNum">      76 </span>                :            :     uint8_t message_buffer[LIBSPDM_SENDER_BUFFER_SIZE];</a>
 <a name="77"><span class="lineNum">      77 </span>                :            : </a>
 <a name="78"><span class="lineNum">      78 </span>                :<span class="lineCov">        141 :     memcpy(message_buffer, request, request_size);</span></a>
 <a name="79"><span class="lineNum">      79 </span>                :            : </a>
@@ -2563,7 +2563,7 @@
 <a name="2478"><span class="lineNum">    2478 </span>                :<span class="lineNoCov">          0 :     case 0x23: {</span></a>
 <a name="2479"><span class="lineNum">    2479 </span>                :            :         spdm_measurements_response_t *spdm_response;</a>
 <a name="2480"><span class="lineNum">    2480 </span>                :            :         spdm_measurement_block_dmtf_t *measurment_block;</a>
-<a name="2481"><span class="lineNum">    2481 </span>                :            :         uint8_t temp_buf[LIBSPDM_SENDER_RECEIVE_BUFFER_SIZE];</a>
+<a name="2481"><span class="lineNum">    2481 </span>                :            :         uint8_t temp_buf[LIBSPDM_RECEIVER_BUFFER_SIZE];</a>
 <a name="2482"><span class="lineNum">    2482 </span>                :            :         size_t temp_buf_size;</a>
 <a name="2483"><span class="lineNum">    2483 </span>                :            :         uint8_t* temp_buf_ptr;</a>
 <a name="2484"><span class="lineNum">    2484 </span>                :            : </a>
