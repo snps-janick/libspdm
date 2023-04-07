@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-06 08:04:19</td>
+            <td class="headerValue">2023-04-07 08:05:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">35</td>
@@ -508,7 +508,7 @@
 <a name="425"><span class="lineNum">     425 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="426"><span class="lineNum">     426 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="427"><span class="lineNum">     427 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="428"><span class="lineNum">     428 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="428"><span class="lineNum">     428 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="429"><span class="lineNum">     429 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="430"><span class="lineNum">     430 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="431"><span class="lineNum">     431 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -674,7 +674,7 @@
 <a name="591"><span class="lineNum">     591 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="592"><span class="lineNum">     592 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="593"><span class="lineNum">     593 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="594"><span class="lineNum">     594 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="594"><span class="lineNum">     594 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="595"><span class="lineNum">     595 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="596"><span class="lineNum">     596 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="597"><span class="lineNum">     597 </span>                :<span class="lineNoCov">          0 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -908,7 +908,7 @@
 <a name="825"><span class="lineNum">     825 </span>                :            :                 SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="826"><span class="lineNum">     826 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="827"><span class="lineNum">     827 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;rsp_session_id =</span></a>
-<a name="828"><span class="lineNum">     828 </span>                :<span class="lineNoCov">          0 :                 libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="828"><span class="lineNum">     828 </span>                :<span class="lineNoCov">          0 :                 libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="829"><span class="lineNum">     829 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="830"><span class="lineNum">     830 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="831"><span class="lineNum">     831 </span>                :<span class="lineNoCov">          0 :             libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -1164,7 +1164,7 @@
 <a name="1081"><span class="lineNum">    1081 </span>                :            :                 SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="1082"><span class="lineNum">    1082 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1083"><span class="lineNum">    1083 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1084"><span class="lineNum">    1084 </span>                :<span class="lineNoCov">          0 :                 libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1084"><span class="lineNum">    1084 </span>                :<span class="lineNoCov">          0 :                 libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="1085"><span class="lineNum">    1085 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="1086"><span class="lineNum">    1086 </span>                :<span class="lineNoCov">          0 :             spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="1087"><span class="lineNum">    1087 </span>                :<span class="lineNoCov">          0 :             libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -1375,7 +1375,7 @@
 <a name="1292"><span class="lineNum">    1292 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="1293"><span class="lineNum">    1293 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1294"><span class="lineNum">    1294 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1295"><span class="lineNum">    1295 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1295"><span class="lineNum">    1295 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="1296"><span class="lineNum">    1296 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="1297"><span class="lineNum">    1297 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="1298"><span class="lineNum">    1298 </span>                :<span class="lineNoCov">          0 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -1545,7 +1545,7 @@
 <a name="1462"><span class="lineNum">    1462 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.request_response_code = SPDM_KEY_EXCHANGE_RSP;</span></a>
 <a name="1463"><span class="lineNum">    1463 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1464"><span class="lineNum">    1464 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1465"><span class="lineNum">    1465 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1465"><span class="lineNum">    1465 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="1466"><span class="lineNum">    1466 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="1467"><span class="lineNum">    1467 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="1468"><span class="lineNum">    1468 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -1720,7 +1720,7 @@
 <a name="1637"><span class="lineNum">    1637 </span>                :            :         /* Incorrect response code. */</a>
 <a name="1638"><span class="lineNum">    1638 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.request_response_code = SPDM_DIGESTS;</span></a>
 <a name="1639"><span class="lineNum">    1639 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
-<a name="1640"><span class="lineNum">    1640 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1640"><span class="lineNum">    1640 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="1641"><span class="lineNum">    1641 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="1642"><span class="lineNum">    1642 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="1643"><span class="lineNum">    1643 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE, spdm_response-&gt;random_data);</span></a>
@@ -1890,7 +1890,7 @@
 <a name="1807"><span class="lineNum">    1807 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
 <a name="1808"><span class="lineNum">    1808 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.request_response_code = SPDM_KEY_EXCHANGE_RSP;</span></a>
 <a name="1809"><span class="lineNum">    1809 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
-<a name="1810"><span class="lineNum">    1810 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1810"><span class="lineNum">    1810 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="1811"><span class="lineNum">    1811 </span>                :            :         /* Mutual authentication is requested even though it is not supported. */</a>
 <a name="1812"><span class="lineNum">    1812 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 1;</span></a>
 <a name="1813"><span class="lineNum">    1813 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
@@ -2062,7 +2062,7 @@
 <a name="1979"><span class="lineNum">    1979 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="1980"><span class="lineNum">    1980 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1981"><span class="lineNum">    1981 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1982"><span class="lineNum">    1982 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1982"><span class="lineNum">    1982 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="1983"><span class="lineNum">    1983 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="1984"><span class="lineNum">    1984 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="1985"><span class="lineNum">    1985 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -2229,7 +2229,7 @@
 <a name="2146"><span class="lineNum">    2146 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="2147"><span class="lineNum">    2147 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2148"><span class="lineNum">    2148 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2149"><span class="lineNum">    2149 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2149"><span class="lineNum">    2149 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="2150"><span class="lineNum">    2150 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="2151"><span class="lineNum">    2151 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="2152"><span class="lineNum">    2152 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -2400,7 +2400,7 @@
 <a name="2317"><span class="lineNum">    2317 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="2318"><span class="lineNum">    2318 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2319"><span class="lineNum">    2319 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2320"><span class="lineNum">    2320 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2320"><span class="lineNum">    2320 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="2321"><span class="lineNum">    2321 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="2322"><span class="lineNum">    2322 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="2323"><span class="lineNum">    2323 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -2574,7 +2574,7 @@
 <a name="2491"><span class="lineNum">    2491 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="2492"><span class="lineNum">    2492 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2493"><span class="lineNum">    2493 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2494"><span class="lineNum">    2494 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2494"><span class="lineNum">    2494 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="2495"><span class="lineNum">    2495 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="2496"><span class="lineNum">    2496 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="2497"><span class="lineNum">    2497 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -2746,7 +2746,7 @@
 <a name="2663"><span class="lineNum">    2663 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="2664"><span class="lineNum">    2664 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 5;</span></a>
 <a name="2665"><span class="lineNum">    2665 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2666"><span class="lineNum">    2666 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2666"><span class="lineNum">    2666 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="2667"><span class="lineNum">    2667 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="2668"><span class="lineNum">    2668 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="2669"><span class="lineNum">    2669 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -2906,7 +2906,7 @@
 <a name="2823"><span class="lineNum">    2823 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
 <a name="2824"><span class="lineNum">    2824 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.request_response_code = SPDM_KEY_EXCHANGE_RSP;</span></a>
 <a name="2825"><span class="lineNum">    2825 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
-<a name="2826"><span class="lineNum">    2826 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2826"><span class="lineNum">    2826 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="2827"><span class="lineNum">    2827 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="2828"><span class="lineNum">    2828 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="2829"><span class="lineNum">    2829 </span>                :<span class="lineCov">          1 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE, spdm_response-&gt;random_data);</span></a>
@@ -3069,7 +3069,7 @@
 <a name="2986"><span class="lineNum">    2986 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="2987"><span class="lineNum">    2987 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2988"><span class="lineNum">    2988 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2989"><span class="lineNum">    2989 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2989"><span class="lineNum">    2989 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="2990"><span class="lineNum">    2990 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="2991"><span class="lineNum">    2991 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="2992"><span class="lineNum">    2992 </span>                :<span class="lineNoCov">          0 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -3236,7 +3236,7 @@
 <a name="3153"><span class="lineNum">    3153 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="3154"><span class="lineNum">    3154 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="3155"><span class="lineNum">    3155 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="3156"><span class="lineNum">    3156 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="3156"><span class="lineNum">    3156 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="3157"><span class="lineNum">    3157 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested =</span></a>
 <a name="3158"><span class="lineNum">    3158 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED;</a>
 <a name="3159"><span class="lineNum">    3159 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0xF;</span></a>
@@ -3404,7 +3404,7 @@
 <a name="3321"><span class="lineNum">    3321 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="3322"><span class="lineNum">    3322 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="3323"><span class="lineNum">    3323 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="3324"><span class="lineNum">    3324 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="3324"><span class="lineNum">    3324 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="3325"><span class="lineNum">    3325 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested =</span></a>
 <a name="3326"><span class="lineNum">    3326 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED_WITH_ENCAP_REQUEST;</a>
 <a name="3327"><span class="lineNum">    3327 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0xF;</span></a>
@@ -3572,7 +3572,7 @@
 <a name="3489"><span class="lineNum">    3489 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="3490"><span class="lineNum">    3490 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="3491"><span class="lineNum">    3491 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="3492"><span class="lineNum">    3492 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="3492"><span class="lineNum">    3492 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="3493"><span class="lineNum">    3493 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested =</span></a>
 <a name="3494"><span class="lineNum">    3494 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED_WITH_GET_DIGESTS;</a>
 <a name="3495"><span class="lineNum">    3495 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0xF;</span></a>
@@ -3740,7 +3740,7 @@
 <a name="3657"><span class="lineNum">    3657 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="3658"><span class="lineNum">    3658 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="3659"><span class="lineNum">    3659 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="3660"><span class="lineNum">    3660 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="3660"><span class="lineNum">    3660 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="3661"><span class="lineNum">    3661 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested =</span></a>
 <a name="3662"><span class="lineNum">    3662 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED |</a>
 <a name="3663"><span class="lineNum">    3663 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED_WITH_ENCAP_REQUEST;</a>
@@ -3909,7 +3909,7 @@
 <a name="3826"><span class="lineNum">    3826 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="3827"><span class="lineNum">    3827 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="3828"><span class="lineNum">    3828 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="3829"><span class="lineNum">    3829 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="3829"><span class="lineNum">    3829 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="3830"><span class="lineNum">    3830 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested =</span></a>
 <a name="3831"><span class="lineNum">    3831 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED |</a>
 <a name="3832"><span class="lineNum">    3832 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED_WITH_GET_DIGESTS;</a>
@@ -4078,7 +4078,7 @@
 <a name="3995"><span class="lineNum">    3995 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="3996"><span class="lineNum">    3996 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="3997"><span class="lineNum">    3997 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="3998"><span class="lineNum">    3998 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="3998"><span class="lineNum">    3998 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="3999"><span class="lineNum">    3999 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested =</span></a>
 <a name="4000"><span class="lineNum">    4000 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED_WITH_ENCAP_REQUEST |</a>
 <a name="4001"><span class="lineNum">    4001 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED_WITH_GET_DIGESTS;</a>
@@ -4239,7 +4239,7 @@
 <a name="4156"><span class="lineNum">    4156 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
 <a name="4157"><span class="lineNum">    4157 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.request_response_code = SPDM_KEY_EXCHANGE_RSP;</span></a>
 <a name="4158"><span class="lineNum">    4158 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
-<a name="4159"><span class="lineNum">    4159 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="4159"><span class="lineNum">    4159 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="4160"><span class="lineNum">    4160 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="4161"><span class="lineNum">    4161 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="4162"><span class="lineNum">    4162 </span>                :<span class="lineNoCov">          0 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE, spdm_response-&gt;random_data);</span></a>
@@ -4398,7 +4398,7 @@
 <a name="4315"><span class="lineNum">    4315 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="4316"><span class="lineNum">    4316 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="4317"><span class="lineNum">    4317 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="4318"><span class="lineNum">    4318 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="4318"><span class="lineNum">    4318 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="4319"><span class="lineNum">    4319 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;mut_auth_requested = 0;</span></a>
 <a name="4320"><span class="lineNum">    4320 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;req_slot_id_param = 0;</span></a>
 <a name="4321"><span class="lineNum">    4321 </span>                :<span class="lineNoCov">          0 :         libspdm_get_random_number(SPDM_RANDOM_DATA_SIZE,</span></a>
@@ -4565,7 +4565,7 @@
 <a name="4482"><span class="lineNum">    4482 </span>                :            :             SPDM_KEY_EXCHANGE_RSP;</a>
 <a name="4483"><span class="lineNum">    4483 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="4484"><span class="lineNum">    4484 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="4485"><span class="lineNum">    4485 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="4485"><span class="lineNum">    4485 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, false);</span></a>
 <a name="4486"><span class="lineNum">    4486 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;mut_auth_requested =</span></a>
 <a name="4487"><span class="lineNum">    4487 </span>                :            :             SPDM_KEY_EXCHANGE_RESPONSE_MUT_AUTH_REQUESTED;</a>
 <a name="4488"><span class="lineNum">    4488 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;req_slot_id_param = 9;  /* Invalid SlotID */</span></a>

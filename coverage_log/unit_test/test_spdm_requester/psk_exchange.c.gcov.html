@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-06 08:04:19</td>
+            <td class="headerValue">2023-04-07 08:05:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">29</td>
@@ -444,7 +444,7 @@
 <a name="363"><span class="lineNum">     363 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="364"><span class="lineNum">     364 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="365"><span class="lineNum">     365 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="366"><span class="lineNum">     366 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="366"><span class="lineNum">     366 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="367"><span class="lineNum">     367 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="368"><span class="lineNum">     368 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="369"><span class="lineNum">     369 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -567,7 +567,7 @@
 <a name="486"><span class="lineNum">     486 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="487"><span class="lineNum">     487 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="488"><span class="lineNum">     488 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="489"><span class="lineNum">     489 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="489"><span class="lineNum">     489 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="490"><span class="lineNum">     490 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="491"><span class="lineNum">     491 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="492"><span class="lineNum">     492 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;opaque_length =</span></a>
@@ -757,7 +757,7 @@
 <a name="676"><span class="lineNum">     676 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="677"><span class="lineNum">     677 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="678"><span class="lineNum">     678 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;rsp_session_id =</span></a>
-<a name="679"><span class="lineNum">     679 </span>                :<span class="lineCov">          1 :                 libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="679"><span class="lineNum">     679 </span>                :<span class="lineCov">          1 :                 libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="680"><span class="lineNum">     680 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;reserved = 0;</span></a>
 <a name="681"><span class="lineNum">     681 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="682"><span class="lineNum">     682 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;opaque_length =</span></a>
@@ -968,7 +968,7 @@
 <a name="887"><span class="lineNum">     887 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="888"><span class="lineNum">     888 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="889"><span class="lineNum">     889 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;rsp_session_id =</span></a>
-<a name="890"><span class="lineNum">     890 </span>                :<span class="lineCov">          1 :                 libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="890"><span class="lineNum">     890 </span>                :<span class="lineCov">          1 :                 libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="891"><span class="lineNum">     891 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;reserved = 0;</span></a>
 <a name="892"><span class="lineNum">     892 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="893"><span class="lineNum">     893 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;opaque_length =</span></a>
@@ -1136,7 +1136,7 @@
 <a name="1055"><span class="lineNum">    1055 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1056"><span class="lineNum">    1056 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="1057"><span class="lineNum">    1057 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1058"><span class="lineNum">    1058 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1058"><span class="lineNum">    1058 </span>                :<span class="lineNoCov">          0 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1059"><span class="lineNum">    1059 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1060"><span class="lineNum">    1060 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1061"><span class="lineNum">    1061 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;opaque_length =</span></a>
@@ -1252,7 +1252,7 @@
 <a name="1171"><span class="lineNum">    1171 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.request_response_code = SPDM_PSK_EXCHANGE_RSP;</span></a>
 <a name="1172"><span class="lineNum">    1172 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1173"><span class="lineNum">    1173 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
-<a name="1174"><span class="lineNum">    1174 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1174"><span class="lineNum">    1174 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id = libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1175"><span class="lineNum">    1175 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1176"><span class="lineNum">    1176 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1177"><span class="lineNum">    1177 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length = (uint16_t)opaque_psk_exchange_rsp_size;</span></a>
@@ -1373,7 +1373,7 @@
 <a name="1292"><span class="lineNum">    1292 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1293"><span class="lineNum">    1293 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="1294"><span class="lineNum">    1294 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1295"><span class="lineNum">    1295 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1295"><span class="lineNum">    1295 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1296"><span class="lineNum">    1296 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1297"><span class="lineNum">    1297 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1298"><span class="lineNum">    1298 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -1503,7 +1503,7 @@
 <a name="1422"><span class="lineNum">    1422 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1423"><span class="lineNum">    1423 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="1424"><span class="lineNum">    1424 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1425"><span class="lineNum">    1425 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1425"><span class="lineNum">    1425 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1426"><span class="lineNum">    1426 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1427"><span class="lineNum">    1427 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1428"><span class="lineNum">    1428 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -1639,7 +1639,7 @@
 <a name="1558"><span class="lineNum">    1558 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1559"><span class="lineNum">    1559 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="1560"><span class="lineNum">    1560 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1561"><span class="lineNum">    1561 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1561"><span class="lineNum">    1561 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1562"><span class="lineNum">    1562 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1563"><span class="lineNum">    1563 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1564"><span class="lineNum">    1564 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -1774,7 +1774,7 @@
 <a name="1693"><span class="lineNum">    1693 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1694"><span class="lineNum">    1694 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="1695"><span class="lineNum">    1695 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1696"><span class="lineNum">    1696 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1696"><span class="lineNum">    1696 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1697"><span class="lineNum">    1697 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1698"><span class="lineNum">    1698 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1699"><span class="lineNum">    1699 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -1906,7 +1906,7 @@
 <a name="1825"><span class="lineNum">    1825 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1826"><span class="lineNum">    1826 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="1827"><span class="lineNum">    1827 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1828"><span class="lineNum">    1828 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1828"><span class="lineNum">    1828 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1829"><span class="lineNum">    1829 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1830"><span class="lineNum">    1830 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1831"><span class="lineNum">    1831 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2033,7 +2033,7 @@
 <a name="1952"><span class="lineNum">    1952 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="1953"><span class="lineNum">    1953 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="1954"><span class="lineNum">    1954 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="1955"><span class="lineNum">    1955 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="1955"><span class="lineNum">    1955 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="1956"><span class="lineNum">    1956 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="1957"><span class="lineNum">    1957 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="1958"><span class="lineNum">    1958 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2164,7 +2164,7 @@
 <a name="2083"><span class="lineNum">    2083 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2084"><span class="lineNum">    2084 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2085"><span class="lineNum">    2085 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2086"><span class="lineNum">    2086 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2086"><span class="lineNum">    2086 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2087"><span class="lineNum">    2087 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2088"><span class="lineNum">    2088 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="2089"><span class="lineNum">    2089 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2294,7 +2294,7 @@
 <a name="2213"><span class="lineNum">    2213 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 5;</span></a>
 <a name="2214"><span class="lineNum">    2214 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2215"><span class="lineNum">    2215 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2216"><span class="lineNum">    2216 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2216"><span class="lineNum">    2216 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2217"><span class="lineNum">    2217 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2218"><span class="lineNum">    2218 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="2219"><span class="lineNum">    2219 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2419,7 +2419,7 @@
 <a name="2338"><span class="lineNum">    2338 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 5;</span></a>
 <a name="2339"><span class="lineNum">    2339 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2340"><span class="lineNum">    2340 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2341"><span class="lineNum">    2341 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2341"><span class="lineNum">    2341 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2342"><span class="lineNum">    2342 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2343"><span class="lineNum">    2343 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="2344"><span class="lineNum">    2344 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2544,7 +2544,7 @@
 <a name="2463"><span class="lineNum">    2463 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2464"><span class="lineNum">    2464 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2465"><span class="lineNum">    2465 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2466"><span class="lineNum">    2466 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2466"><span class="lineNum">    2466 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2467"><span class="lineNum">    2467 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2468"><span class="lineNum">    2468 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="2469"><span class="lineNum">    2469 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2669,7 +2669,7 @@
 <a name="2588"><span class="lineNum">    2588 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2589"><span class="lineNum">    2589 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2590"><span class="lineNum">    2590 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2591"><span class="lineNum">    2591 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2591"><span class="lineNum">    2591 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2592"><span class="lineNum">    2592 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2593"><span class="lineNum">    2593 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="2594"><span class="lineNum">    2594 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2797,7 +2797,7 @@
 <a name="2716"><span class="lineNum">    2716 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2717"><span class="lineNum">    2717 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2718"><span class="lineNum">    2718 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2719"><span class="lineNum">    2719 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2719"><span class="lineNum">    2719 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2720"><span class="lineNum">    2720 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2721"><span class="lineNum">    2721 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = 0;</span></a>
 <a name="2722"><span class="lineNum">    2722 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -2920,7 +2920,7 @@
 <a name="2839"><span class="lineNum">    2839 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2840"><span class="lineNum">    2840 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2841"><span class="lineNum">    2841 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2842"><span class="lineNum">    2842 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2842"><span class="lineNum">    2842 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2843"><span class="lineNum">    2843 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2844"><span class="lineNum">    2844 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = LIBSPDM_PSK_CONTEXT_LENGTH;</span></a>
 <a name="2845"><span class="lineNum">    2845 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
@@ -3043,7 +3043,7 @@
 <a name="2962"><span class="lineNum">    2962 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param1 = 0;</span></a>
 <a name="2963"><span class="lineNum">    2963 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.param2 = 0;</span></a>
 <a name="2964"><span class="lineNum">    2964 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;rsp_session_id =</span></a>
-<a name="2965"><span class="lineNum">    2965 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context);</span></a>
+<a name="2965"><span class="lineNum">    2965 </span>                :<span class="lineCov">          1 :             libspdm_allocate_rsp_session_id(spdm_context, true);</span></a>
 <a name="2966"><span class="lineNum">    2966 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;reserved = 0;</span></a>
 <a name="2967"><span class="lineNum">    2967 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;context_length = 0;</span></a>
 <a name="2968"><span class="lineNum">    2968 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;opaque_length =</span></a>
