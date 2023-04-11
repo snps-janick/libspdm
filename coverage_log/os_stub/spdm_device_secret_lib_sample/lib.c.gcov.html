@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-10 08:04:39</td>
+            <td class="headerValue">2023-04-11 08:04:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -1992,7 +1992,7 @@
 <a name="1908"><span class="lineNum">    1908 </span>                :            : </a>
 <a name="1909"><span class="lineNum">    1909 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_PSK_EX_CAP</a>
 <a name="1910"><span class="lineNum">    1910 </span>                :            : </a>
-<a name="1911"><span class="lineNum">    1911 </span>                :            : uint8_t m_libspdm_my_zero_filled_buffer[64];</a>
+<a name="1911"><span class="lineNum">    1911 </span>                :            : uint8_t m_libspdm_my_zero_filled_buffer[LIBSPDM_MAX_HASH_SIZE];</a>
 <a name="1912"><span class="lineNum">    1912 </span>                :            : uint8_t m_libspdm_bin_str0[0x11] = {</a>
 <a name="1913"><span class="lineNum">    1913 </span>                :            :     0x00, 0x00, /* length - to be filled*/</a>
 <a name="1914"><span class="lineNum">    1914 </span>                :            :     /* SPDM_VERSION_1_1_BIN_CONCAT_LABEL */</a>
@@ -2014,7 +2014,7 @@
 <a name="1930"><span class="lineNum">    1930 </span>                :            :     size_t psk_size;</a>
 <a name="1931"><span class="lineNum">    1931 </span>                :            :     size_t hash_size;</a>
 <a name="1932"><span class="lineNum">    1932 </span>                :            :     bool result;</a>
-<a name="1933"><span class="lineNum">    1933 </span>                :            :     uint8_t handshake_secret[64];</a>
+<a name="1933"><span class="lineNum">    1933 </span>                :            :     uint8_t handshake_secret[LIBSPDM_MAX_HASH_SIZE];</a>
 <a name="1934"><span class="lineNum">    1934 </span>                :            : </a>
 <a name="1935"><span class="lineNum">    1935 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 62 times"> + </span>]:<span class="lineCov">         66 :     if (psk_hint_size == 0) {</span></a>
 <a name="1936"><span class="lineNum">    1936 </span>                :<span class="lineCov">          4 :         psk = LIBSPDM_TEST_PSK_DATA_STRING;</span></a>
@@ -2059,9 +2059,9 @@
 <a name="1975"><span class="lineNum">    1975 </span>                :            :     size_t psk_size;</a>
 <a name="1976"><span class="lineNum">    1976 </span>                :            :     size_t hash_size;</a>
 <a name="1977"><span class="lineNum">    1977 </span>                :            :     bool result;</a>
-<a name="1978"><span class="lineNum">    1978 </span>                :            :     uint8_t handshake_secret[64];</a>
-<a name="1979"><span class="lineNum">    1979 </span>                :            :     uint8_t salt1[64];</a>
-<a name="1980"><span class="lineNum">    1980 </span>                :            :     uint8_t master_secret[64];</a>
+<a name="1978"><span class="lineNum">    1978 </span>                :            :     uint8_t handshake_secret[LIBSPDM_MAX_HASH_SIZE];</a>
+<a name="1979"><span class="lineNum">    1979 </span>                :            :     uint8_t salt1[LIBSPDM_MAX_HASH_SIZE];</a>
+<a name="1980"><span class="lineNum">    1980 </span>                :            :     uint8_t master_secret[LIBSPDM_MAX_HASH_SIZE];</a>
 <a name="1981"><span class="lineNum">    1981 </span>                :            : </a>
 <a name="1982"><span class="lineNum">    1982 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span>]:<span class="lineCov">         33 :     if (psk_hint_size == 0) {</span></a>
 <a name="1983"><span class="lineNum">    1983 </span>                :<span class="lineNoCov">          0 :         psk = LIBSPDM_TEST_PSK_DATA_STRING;</span></a>
