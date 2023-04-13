@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-12 08:04:58</td>
+            <td class="headerValue">2023-04-13 08:04:15</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">26</td>
@@ -1328,7 +1328,7 @@
 <a name="1257"><span class="lineNum">    1257 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          5 :     for (index = 0; index &lt; LIBSPDM_MAX_SESSION_COUNT; index++)</span></a>
 <a name="1258"><span class="lineNum">    1258 </span>                :            :     {</a>
 <a name="1259"><span class="lineNum">    1259 </span>                :            :         /* Ensure the SPDM context points to the specified memory. */</a>
-<a name="1260"><span class="lineNum">    1260 </span>                :<span class="lineCov">          4 :         assert_int_equal(spdm_context-&gt;session_info[index].secured_message_context,</span></a>
+<a name="1260"><span class="lineNum">    1260 </span>                :<span class="lineCov">          4 :         assert_ptr_equal(spdm_context-&gt;session_info[index].secured_message_context,</span></a>
 <a name="1261"><span class="lineNum">    1261 </span>                :            :                          secured_message_contexts[index]);</a>
 <a name="1262"><span class="lineNum">    1262 </span>                :            :     }</a>
 <a name="1263"><span class="lineNum">    1263 </span>                :            : </a>
