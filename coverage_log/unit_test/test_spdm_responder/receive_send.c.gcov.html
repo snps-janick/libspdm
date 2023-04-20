@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">89</td>
-            <td class="headerCovTableEntry">89</td>
+            <td class="headerCovTableEntry">90</td>
+            <td class="headerCovTableEntry">90</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-04-19 08:06:27</td>
+            <td class="headerValue">2023-04-20 08:04:18</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -258,7 +258,7 @@
 <a name="187"><span class="lineNum">     187 </span>                :<span class="lineCov">          1 :     spdm_request.header.request_response_code = SPDM_VENDOR_DEFINED_REQUEST;</span></a>
 <a name="188"><span class="lineNum">     188 </span>                :            : </a>
 <a name="189"><span class="lineNum">     189 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(spdm_context-&gt;last_spdm_request,</span></a>
-<a name="190"><span class="lineNum">     190 </span>                :            :                      sizeof(spdm_context-&gt;last_spdm_request),</a>
+<a name="190"><span class="lineNum">     190 </span>                :<span class="lineCov">          1 :                      libspdm_get_scratch_buffer_last_spdm_request_capacity(spdm_context),</span></a>
 <a name="191"><span class="lineNum">     191 </span>                :            :                      &amp;spdm_request, sizeof(spdm_request));</a>
 <a name="192"><span class="lineNum">     192 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;last_spdm_request_size = sizeof(spdm_request);</span></a>
 <a name="193"><span class="lineNum">     193 </span>                :            : </a>
