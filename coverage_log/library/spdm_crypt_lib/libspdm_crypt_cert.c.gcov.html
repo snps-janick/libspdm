@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">352</td>
-            <td class="headerCovTableEntry">500</td>
-            <td class="headerCovTableEntryLo">70.4 %</td>
+            <td class="headerCovTableEntry">498</td>
+            <td class="headerCovTableEntryLo">70.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-05-05 08:04:08</td>
+            <td class="headerValue">2023-05-06 08:04:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -243,17 +243,17 @@
 <a name="171"><span class="lineNum">     171 </span>                :            : #if !LIBSPDM_EDDSA_ED448_SUPPORT</a>
 <a name="172"><span class="lineNum">     172 </span>                :            :         LIBSPDM_ASSERT(base_asym_algo!= SPDM_ALGORITHMS_BASE_ASYM_ALGO_EDDSA_ED448);</a>
 <a name="173"><span class="lineNum">     173 </span>                :            : #endif</a>
-<a name="174"><span class="lineNum">     174 </span>                :<span class="lineNoCov">          0 :         return libspdm_ecd_get_public_key_from_x509;</span></a>
+<a name="174"><span class="lineNum">     174 </span>                :            :         return libspdm_ecd_get_public_key_from_x509;</a>
 <a name="175"><span class="lineNum">     175 </span>                :            : #else</a>
-<a name="176"><span class="lineNum">     176 </span>                :            :         LIBSPDM_ASSERT(false);</a>
-<a name="177"><span class="lineNum">     177 </span>                :            :         break;</a>
+<a name="176"><span class="lineNum">     176 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(false);</span></a>
+<a name="177"><span class="lineNum">     177 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
 <a name="178"><span class="lineNum">     178 </span>                :            : #endif</a>
 <a name="179"><span class="lineNum">     179 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_SM2_ECC_SM2_P256:</span></a>
 <a name="180"><span class="lineNum">     180 </span>                :            : #if LIBSPDM_SM2_DSA_SUPPORT</a>
-<a name="181"><span class="lineNum">     181 </span>                :<span class="lineNoCov">          0 :         return libspdm_sm2_get_public_key_from_x509;</span></a>
+<a name="181"><span class="lineNum">     181 </span>                :            :         return libspdm_sm2_get_public_key_from_x509;</a>
 <a name="182"><span class="lineNum">     182 </span>                :            : #else</a>
-<a name="183"><span class="lineNum">     183 </span>                :            :         LIBSPDM_ASSERT(false);</a>
-<a name="184"><span class="lineNum">     184 </span>                :            :         break;</a>
+<a name="183"><span class="lineNum">     183 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(false);</span></a>
+<a name="184"><span class="lineNum">     184 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
 <a name="185"><span class="lineNum">     185 </span>                :            : #endif</a>
 <a name="186"><span class="lineNum">     186 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
 <a name="187"><span class="lineNum">     187 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(false);</span></a>
@@ -449,15 +449,15 @@
 <a name="375"><span class="lineNum">     375 </span>                :            : #endif</a>
 <a name="376"><span class="lineNum">     376 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_EDDSA_ED25519:</span></a>
 <a name="377"><span class="lineNum">     377 </span>                :            : #if LIBSPDM_EDDSA_ED25519_SUPPORT</a>
-<a name="378"><span class="lineNum">     378 </span>                :<span class="lineNoCov">          0 :         return 3;</span></a>
+<a name="378"><span class="lineNum">     378 </span>                :            :         return 3;</a>
 <a name="379"><span class="lineNum">     379 </span>                :            : #else</a>
-<a name="380"><span class="lineNum">     380 </span>                :            :         return 0;</a>
+<a name="380"><span class="lineNum">     380 </span>                :<span class="lineNoCov">          0 :         return 0;</span></a>
 <a name="381"><span class="lineNum">     381 </span>                :            : #endif</a>
 <a name="382"><span class="lineNum">     382 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_EDDSA_ED448:</span></a>
 <a name="383"><span class="lineNum">     383 </span>                :            : #if LIBSPDM_EDDSA_ED448_SUPPORT</a>
-<a name="384"><span class="lineNum">     384 </span>                :<span class="lineNoCov">          0 :         return 3;</span></a>
+<a name="384"><span class="lineNum">     384 </span>                :            :         return 3;</a>
 <a name="385"><span class="lineNum">     385 </span>                :            : #else</a>
-<a name="386"><span class="lineNum">     386 </span>                :            :         return 0;</a>
+<a name="386"><span class="lineNum">     386 </span>                :<span class="lineNoCov">          0 :         return 0;</span></a>
 <a name="387"><span class="lineNum">     387 </span>                :            : #endif</a>
 <a name="388"><span class="lineNum">     388 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
 <a name="389"><span class="lineNum">     389 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(false);</span></a>
@@ -559,21 +559,21 @@
 <a name="483"><span class="lineNum">     483 </span>                :            : </a>
 <a name="484"><span class="lineNum">     484 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_EDDSA_ED25519: {</span></a>
 <a name="485"><span class="lineNum">     485 </span>                :            : #if LIBSPDM_EDDSA_ED25519_SUPPORT</a>
-<a name="486"><span class="lineNum">     486 </span>                :<span class="lineNoCov">          0 :         uint8_t encry_algo_oid_ed25519[] = ENCRY_ALGO_ED25519_OID;</span></a>
-<a name="487"><span class="lineNum">     487 </span>                :<span class="lineNoCov">          0 :         libspdm_copy_mem(oid, oid_len, encry_algo_oid_ed25519, oid_len);</span></a>
+<a name="486"><span class="lineNum">     486 </span>                :            :         uint8_t encry_algo_oid_ed25519[] = ENCRY_ALGO_ED25519_OID;</a>
+<a name="487"><span class="lineNum">     487 </span>                :            :         libspdm_copy_mem(oid, oid_len, encry_algo_oid_ed25519, oid_len);</a>
 <a name="488"><span class="lineNum">     488 </span>                :            : #else</a>
-<a name="489"><span class="lineNum">     489 </span>                :            :         return false;</a>
+<a name="489"><span class="lineNum">     489 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="490"><span class="lineNum">     490 </span>                :            : #endif</a>
-<a name="491"><span class="lineNum">     491 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
+<a name="491"><span class="lineNum">     491 </span>                :            :         break;</a>
 <a name="492"><span class="lineNum">     492 </span>                :            :     }</a>
 <a name="493"><span class="lineNum">     493 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_EDDSA_ED448: {</span></a>
 <a name="494"><span class="lineNum">     494 </span>                :            : #if LIBSPDM_EDDSA_ED448_SUPPORT</a>
-<a name="495"><span class="lineNum">     495 </span>                :<span class="lineNoCov">          0 :         uint8_t encry_algo_oid_ed448[] = ENCRY_ALGO_ED448_OID;</span></a>
-<a name="496"><span class="lineNum">     496 </span>                :<span class="lineNoCov">          0 :         libspdm_copy_mem(oid, oid_len, encry_algo_oid_ed448, oid_len);</span></a>
+<a name="495"><span class="lineNum">     495 </span>                :            :         uint8_t encry_algo_oid_ed448[] = ENCRY_ALGO_ED448_OID;</a>
+<a name="496"><span class="lineNum">     496 </span>                :            :         libspdm_copy_mem(oid, oid_len, encry_algo_oid_ed448, oid_len);</a>
 <a name="497"><span class="lineNum">     497 </span>                :            : #else</a>
-<a name="498"><span class="lineNum">     498 </span>                :            :         return false;</a>
+<a name="498"><span class="lineNum">     498 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="499"><span class="lineNum">     499 </span>                :            : #endif</a>
-<a name="500"><span class="lineNum">     500 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
+<a name="500"><span class="lineNum">     500 </span>                :            :         break;</a>
 <a name="501"><span class="lineNum">     501 </span>                :            :     }</a>
 <a name="502"><span class="lineNum">     502 </span>                :            : </a>
 <a name="503"><span class="lineNum">     503 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
