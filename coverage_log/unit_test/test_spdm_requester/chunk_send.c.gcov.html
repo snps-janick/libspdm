@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">193</td>
-            <td class="headerCovTableEntry">198</td>
+            <td class="headerCovTableEntry">194</td>
+            <td class="headerCovTableEntry">199</td>
             <td class="headerCovTableEntryHi">97.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-05-08 08:04:30</td>
+            <td class="headerValue">2023-05-09 08:04:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -371,149 +371,150 @@
 <a name="300"><span class="lineNum">     300 </span>                :<span class="lineCov">         10 :     spdm_test_context-&gt;case_id = case_id;</span></a>
 <a name="301"><span class="lineNum">     301 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;connection_info.version = SPDM_MESSAGE_VERSION_12 &lt;&lt;</span></a>
 <a name="302"><span class="lineNum">     302 </span>                :            :                                             SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
-<a name="303"><span class="lineNum">     303 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;connection_info.connection_state =</span></a>
-<a name="304"><span class="lineNum">     304 </span>                :            :         LIBSPDM_CONNECTION_STATE_AFTER_CAPABILITIES;</a>
-<a name="305"><span class="lineNum">     305 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;connection_info.capability.flags |=</span></a>
-<a name="306"><span class="lineNum">     306 </span>                :            :         (SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_CAP</a>
-<a name="307"><span class="lineNum">     307 </span>                :            :          | SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CHUNK_CAP);</a>
-<a name="308"><span class="lineNum">     308 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">         10 :     if (case_id != 10) {</span></a>
-<a name="309"><span class="lineNum">     309 </span>                :            :         spdm_context-&gt;connection_info.capability.data_transfer_size</a>
-<a name="310"><span class="lineNum">     310 </span>                :<span class="lineCov">          9 :             = CHUNK_SEND_REQUESTER_UNIT_TEST_DATA_TRANSFER_SIZE;</span></a>
-<a name="311"><span class="lineNum">     311 </span>                :            :         spdm_context-&gt;local_context.capability.sender_data_transfer_size</a>
-<a name="312"><span class="lineNum">     312 </span>                :<span class="lineCov">          9 :             = LIBSPDM_DATA_TRANSFER_SIZE;</span></a>
-<a name="313"><span class="lineNum">     313 </span>                :            :     } else {</a>
-<a name="314"><span class="lineNum">     314 </span>                :            :         spdm_context-&gt;connection_info.capability.data_transfer_size</a>
-<a name="315"><span class="lineNum">     315 </span>                :<span class="lineCov">          1 :             = LIBSPDM_DATA_TRANSFER_SIZE;</span></a>
-<a name="316"><span class="lineNum">     316 </span>                :            :         spdm_context-&gt;local_context.capability.sender_data_transfer_size</a>
-<a name="317"><span class="lineNum">     317 </span>                :<span class="lineCov">          1 :             = CHUNK_SEND_REQUESTER_UNIT_TEST_DATA_TRANSFER_SIZE;</span></a>
-<a name="318"><span class="lineNum">     318 </span>                :            :     }</a>
-<a name="319"><span class="lineNum">     319 </span>                :            : </a>
-<a name="320"><span class="lineNum">     320 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
-<a name="321"><span class="lineNum">     321 </span>                :            :         SPDM_GET_CAPABILITIES_REQUEST_FLAGS_CHUNK_CAP;</a>
-<a name="322"><span class="lineNum">     322 </span>                :            : </a>
-<a name="323"><span class="lineNum">     323 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.algorithm.measurement_hash_algo =</span></a>
-<a name="324"><span class="lineNum">     324 </span>                :            :         m_libspdm_use_measurement_hash_algo;</a>
-<a name="325"><span class="lineNum">     325 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.algorithm.base_asym_algo = m_libspdm_use_asym_algo;</span></a>
-<a name="326"><span class="lineNum">     326 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.algorithm.base_hash_algo = m_libspdm_use_hash_algo;</span></a>
-<a name="327"><span class="lineNum">     327 </span>                :<span class="lineCov">         10 :     libspdm_reset_message_a(spdm_context);</span></a>
-<a name="328"><span class="lineNum">     328 </span>                :            : </a>
-<a name="329"><span class="lineNum">     329 </span>                :<span class="lineCov">         10 :     status = libspdm_negotiate_algorithms(spdm_context);</span></a>
-<a name="330"><span class="lineNum">     330 </span>                :<span class="lineCov">         10 :     return status;</span></a>
-<a name="331"><span class="lineNum">     331 </span>                :            : }</a>
-<a name="332"><span class="lineNum">     332 </span>                :            : </a>
-<a name="333"><span class="lineNum">     333 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case1(void** state)</span></a>
-<a name="334"><span class="lineNum">     334 </span>                :            : {</a>
-<a name="335"><span class="lineNum">     335 </span>                :            :     libspdm_return_t status;</a>
-<a name="336"><span class="lineNum">     336 </span>                :            : </a>
-<a name="337"><span class="lineNum">     337 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 1);</span></a>
-<a name="338"><span class="lineNum">     338 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="339"><span class="lineNum">     339 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="340"><span class="lineNum">     340 </span>                :            : </a>
-<a name="341"><span class="lineNum">     341 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case2(void** state)</span></a>
-<a name="342"><span class="lineNum">     342 </span>                :            : {</a>
-<a name="343"><span class="lineNum">     343 </span>                :            :     libspdm_return_t status;</a>
-<a name="344"><span class="lineNum">     344 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 2);</span></a>
-<a name="345"><span class="lineNum">     345 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SEND_FAIL);</span></a>
-<a name="346"><span class="lineNum">     346 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="347"><span class="lineNum">     347 </span>                :            : </a>
-<a name="348"><span class="lineNum">     348 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case3(void** state)</span></a>
-<a name="349"><span class="lineNum">     349 </span>                :            : {</a>
-<a name="350"><span class="lineNum">     350 </span>                :            :     libspdm_return_t status;</a>
-<a name="351"><span class="lineNum">     351 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 3);</span></a>
-<a name="352"><span class="lineNum">     352 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_RECEIVE_FAIL);</span></a>
-<a name="353"><span class="lineNum">     353 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="354"><span class="lineNum">     354 </span>                :            : </a>
-<a name="355"><span class="lineNum">     355 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case4(void** state)</span></a>
-<a name="356"><span class="lineNum">     356 </span>                :            : {</a>
-<a name="357"><span class="lineNum">     357 </span>                :            :     libspdm_return_t status;</a>
-<a name="358"><span class="lineNum">     358 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 4);</span></a>
-<a name="359"><span class="lineNum">     359 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
-<a name="360"><span class="lineNum">     360 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="361"><span class="lineNum">     361 </span>                :            : </a>
-<a name="362"><span class="lineNum">     362 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case5(void** state)</span></a>
-<a name="363"><span class="lineNum">     363 </span>                :            : {</a>
-<a name="364"><span class="lineNum">     364 </span>                :            :     libspdm_return_t status;</a>
-<a name="365"><span class="lineNum">     365 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 5);</span></a>
-<a name="366"><span class="lineNum">     366 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
-<a name="367"><span class="lineNum">     367 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="368"><span class="lineNum">     368 </span>                :            : </a>
-<a name="369"><span class="lineNum">     369 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case6(void** state)</span></a>
-<a name="370"><span class="lineNum">     370 </span>                :            : {</a>
-<a name="371"><span class="lineNum">     371 </span>                :            :     libspdm_return_t status;</a>
-<a name="372"><span class="lineNum">     372 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 6);</span></a>
-<a name="373"><span class="lineNum">     373 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_SIZE);</span></a>
-<a name="374"><span class="lineNum">     374 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="375"><span class="lineNum">     375 </span>                :            : </a>
-<a name="376"><span class="lineNum">     376 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case7(void** state)</span></a>
-<a name="377"><span class="lineNum">     377 </span>                :            : {</a>
-<a name="378"><span class="lineNum">     378 </span>                :            :     libspdm_return_t status;</a>
-<a name="379"><span class="lineNum">     379 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 7);</span></a>
-<a name="380"><span class="lineNum">     380 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_ERROR_PEER);</span></a>
-<a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="382"><span class="lineNum">     382 </span>                :            : </a>
-<a name="383"><span class="lineNum">     383 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case8(void** state)</span></a>
-<a name="384"><span class="lineNum">     384 </span>                :            : {</a>
-<a name="385"><span class="lineNum">     385 </span>                :            :     libspdm_return_t status;</a>
-<a name="386"><span class="lineNum">     386 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 8);</span></a>
-<a name="387"><span class="lineNum">     387 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
-<a name="388"><span class="lineNum">     388 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="389"><span class="lineNum">     389 </span>                :            : </a>
-<a name="390"><span class="lineNum">     390 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case9(void** state)</span></a>
-<a name="391"><span class="lineNum">     391 </span>                :            : {</a>
-<a name="392"><span class="lineNum">     392 </span>                :            :     libspdm_return_t status;</a>
-<a name="393"><span class="lineNum">     393 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 9);</span></a>
-<a name="394"><span class="lineNum">     394 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
-<a name="395"><span class="lineNum">     395 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="396"><span class="lineNum">     396 </span>                :            : </a>
-<a name="397"><span class="lineNum">     397 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case10(void** state)</span></a>
-<a name="398"><span class="lineNum">     398 </span>                :            : {</a>
-<a name="399"><span class="lineNum">     399 </span>                :            :     libspdm_return_t status;</a>
-<a name="400"><span class="lineNum">     400 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 10);</span></a>
-<a name="401"><span class="lineNum">     401 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="402"><span class="lineNum">     402 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="403"><span class="lineNum">     403 </span>                :            : </a>
-<a name="404"><span class="lineNum">     404 </span>                :            : libspdm_test_context_t m_libspdm_requester_chunk_send_test_context = {</a>
-<a name="405"><span class="lineNum">     405 </span>                :            :     LIBSPDM_TEST_CONTEXT_VERSION,</a>
-<a name="406"><span class="lineNum">     406 </span>                :            :     true,</a>
-<a name="407"><span class="lineNum">     407 </span>                :            :     libspdm_requester_chunk_send_test_send_message,</a>
-<a name="408"><span class="lineNum">     408 </span>                :            :     libspdm_requester_chunk_send_test_receive_message,</a>
-<a name="409"><span class="lineNum">     409 </span>                :            : };</a>
-<a name="410"><span class="lineNum">     410 </span>                :            : </a>
-<a name="411"><span class="lineNum">     411 </span>                :<span class="lineCov">          1 : int libspdm_requester_chunk_send_test_main(void)</span></a>
-<a name="412"><span class="lineNum">     412 </span>                :            : {</a>
-<a name="413"><span class="lineNum">     413 </span>                :            :     /* Test the CHUNK_SEND handlers in various requester handlers */</a>
-<a name="414"><span class="lineNum">     414 </span>                :<span class="lineCov">          1 :     const struct CMUnitTest spdm_requester_chunk_send_tests[] = {</span></a>
-<a name="415"><span class="lineNum">     415 </span>                :            :         /* Request Algorithms successfully sent in chunks. */</a>
-<a name="416"><span class="lineNum">     416 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case1),</a>
-<a name="417"><span class="lineNum">     417 </span>                :            :         /* Chunk Request fail send */</a>
-<a name="418"><span class="lineNum">     418 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case2),</a>
-<a name="419"><span class="lineNum">     419 </span>                :            :         /* Chunk Response fail receive */</a>
-<a name="420"><span class="lineNum">     420 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case3),</a>
-<a name="421"><span class="lineNum">     421 </span>                :            :         /* Chunk Response has bad SPDM version */</a>
-<a name="422"><span class="lineNum">     422 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case4),</a>
-<a name="423"><span class="lineNum">     423 </span>                :            :         /* Chunk Response has bad request response code */</a>
-<a name="424"><span class="lineNum">     424 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case5),</a>
-<a name="425"><span class="lineNum">     425 </span>                :            :         /* Chunk Response has bad response size */</a>
-<a name="426"><span class="lineNum">     426 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case6),</a>
-<a name="427"><span class="lineNum">     427 </span>                :            :         /* Chunk Response has early error detected */</a>
-<a name="428"><span class="lineNum">     428 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case7),</a>
-<a name="429"><span class="lineNum">     429 </span>                :            :         /* Chunk Response has bad chunk handle */</a>
-<a name="430"><span class="lineNum">     430 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case8),</a>
-<a name="431"><span class="lineNum">     431 </span>                :            :         /* Chunk Response has bad chunk seq no */</a>
-<a name="432"><span class="lineNum">     432 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case9),</a>
-<a name="433"><span class="lineNum">     433 </span>                :            :         /* sent in chunks due to greater than the sending transmit buffer size. */</a>
-<a name="434"><span class="lineNum">     434 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case10),</a>
-<a name="435"><span class="lineNum">     435 </span>                :            :     };</a>
-<a name="436"><span class="lineNum">     436 </span>                :            : </a>
-<a name="437"><span class="lineNum">     437 </span>                :<span class="lineCov">          1 :     libspdm_setup_test_context(</span></a>
-<a name="438"><span class="lineNum">     438 </span>                :            :         &amp;m_libspdm_requester_chunk_send_test_context);</a>
-<a name="439"><span class="lineNum">     439 </span>                :            : </a>
-<a name="440"><span class="lineNum">     440 </span>                :<span class="lineCov">          1 :     return cmocka_run_group_tests(spdm_requester_chunk_send_tests,</span></a>
-<a name="441"><span class="lineNum">     441 </span>                :            :                                   libspdm_unit_test_group_setup,</a>
-<a name="442"><span class="lineNum">     442 </span>                :            :                                   libspdm_unit_test_group_teardown);</a>
-<a name="443"><span class="lineNum">     443 </span>                :            : }</a>
-<a name="444"><span class="lineNum">     444 </span>                :            : </a>
-<a name="445"><span class="lineNum">     445 </span>                :            : #endif /* LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP*/</a>
+<a name="303"><span class="lineNum">     303 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;connection_info.capability.max_spdm_msg_size = LIBSPDM_MAX_SPDM_MSG_SIZE;</span></a>
+<a name="304"><span class="lineNum">     304 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;connection_info.connection_state =</span></a>
+<a name="305"><span class="lineNum">     305 </span>                :            :         LIBSPDM_CONNECTION_STATE_AFTER_CAPABILITIES;</a>
+<a name="306"><span class="lineNum">     306 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;connection_info.capability.flags |=</span></a>
+<a name="307"><span class="lineNum">     307 </span>                :            :         (SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_CAP</a>
+<a name="308"><span class="lineNum">     308 </span>                :            :          | SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CHUNK_CAP);</a>
+<a name="309"><span class="lineNum">     309 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">         10 :     if (case_id != 10) {</span></a>
+<a name="310"><span class="lineNum">     310 </span>                :            :         spdm_context-&gt;connection_info.capability.data_transfer_size</a>
+<a name="311"><span class="lineNum">     311 </span>                :<span class="lineCov">          9 :             = CHUNK_SEND_REQUESTER_UNIT_TEST_DATA_TRANSFER_SIZE;</span></a>
+<a name="312"><span class="lineNum">     312 </span>                :            :         spdm_context-&gt;local_context.capability.sender_data_transfer_size</a>
+<a name="313"><span class="lineNum">     313 </span>                :<span class="lineCov">          9 :             = LIBSPDM_DATA_TRANSFER_SIZE;</span></a>
+<a name="314"><span class="lineNum">     314 </span>                :            :     } else {</a>
+<a name="315"><span class="lineNum">     315 </span>                :            :         spdm_context-&gt;connection_info.capability.data_transfer_size</a>
+<a name="316"><span class="lineNum">     316 </span>                :<span class="lineCov">          1 :             = LIBSPDM_DATA_TRANSFER_SIZE;</span></a>
+<a name="317"><span class="lineNum">     317 </span>                :            :         spdm_context-&gt;local_context.capability.sender_data_transfer_size</a>
+<a name="318"><span class="lineNum">     318 </span>                :<span class="lineCov">          1 :             = CHUNK_SEND_REQUESTER_UNIT_TEST_DATA_TRANSFER_SIZE;</span></a>
+<a name="319"><span class="lineNum">     319 </span>                :            :     }</a>
+<a name="320"><span class="lineNum">     320 </span>                :            : </a>
+<a name="321"><span class="lineNum">     321 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
+<a name="322"><span class="lineNum">     322 </span>                :            :         SPDM_GET_CAPABILITIES_REQUEST_FLAGS_CHUNK_CAP;</a>
+<a name="323"><span class="lineNum">     323 </span>                :            : </a>
+<a name="324"><span class="lineNum">     324 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.algorithm.measurement_hash_algo =</span></a>
+<a name="325"><span class="lineNum">     325 </span>                :            :         m_libspdm_use_measurement_hash_algo;</a>
+<a name="326"><span class="lineNum">     326 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.algorithm.base_asym_algo = m_libspdm_use_asym_algo;</span></a>
+<a name="327"><span class="lineNum">     327 </span>                :<span class="lineCov">         10 :     spdm_context-&gt;local_context.algorithm.base_hash_algo = m_libspdm_use_hash_algo;</span></a>
+<a name="328"><span class="lineNum">     328 </span>                :<span class="lineCov">         10 :     libspdm_reset_message_a(spdm_context);</span></a>
+<a name="329"><span class="lineNum">     329 </span>                :            : </a>
+<a name="330"><span class="lineNum">     330 </span>                :<span class="lineCov">         10 :     status = libspdm_negotiate_algorithms(spdm_context);</span></a>
+<a name="331"><span class="lineNum">     331 </span>                :<span class="lineCov">         10 :     return status;</span></a>
+<a name="332"><span class="lineNum">     332 </span>                :            : }</a>
+<a name="333"><span class="lineNum">     333 </span>                :            : </a>
+<a name="334"><span class="lineNum">     334 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case1(void** state)</span></a>
+<a name="335"><span class="lineNum">     335 </span>                :            : {</a>
+<a name="336"><span class="lineNum">     336 </span>                :            :     libspdm_return_t status;</a>
+<a name="337"><span class="lineNum">     337 </span>                :            : </a>
+<a name="338"><span class="lineNum">     338 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 1);</span></a>
+<a name="339"><span class="lineNum">     339 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="340"><span class="lineNum">     340 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="341"><span class="lineNum">     341 </span>                :            : </a>
+<a name="342"><span class="lineNum">     342 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case2(void** state)</span></a>
+<a name="343"><span class="lineNum">     343 </span>                :            : {</a>
+<a name="344"><span class="lineNum">     344 </span>                :            :     libspdm_return_t status;</a>
+<a name="345"><span class="lineNum">     345 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 2);</span></a>
+<a name="346"><span class="lineNum">     346 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SEND_FAIL);</span></a>
+<a name="347"><span class="lineNum">     347 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="348"><span class="lineNum">     348 </span>                :            : </a>
+<a name="349"><span class="lineNum">     349 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case3(void** state)</span></a>
+<a name="350"><span class="lineNum">     350 </span>                :            : {</a>
+<a name="351"><span class="lineNum">     351 </span>                :            :     libspdm_return_t status;</a>
+<a name="352"><span class="lineNum">     352 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 3);</span></a>
+<a name="353"><span class="lineNum">     353 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_RECEIVE_FAIL);</span></a>
+<a name="354"><span class="lineNum">     354 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="355"><span class="lineNum">     355 </span>                :            : </a>
+<a name="356"><span class="lineNum">     356 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case4(void** state)</span></a>
+<a name="357"><span class="lineNum">     357 </span>                :            : {</a>
+<a name="358"><span class="lineNum">     358 </span>                :            :     libspdm_return_t status;</a>
+<a name="359"><span class="lineNum">     359 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 4);</span></a>
+<a name="360"><span class="lineNum">     360 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
+<a name="361"><span class="lineNum">     361 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="362"><span class="lineNum">     362 </span>                :            : </a>
+<a name="363"><span class="lineNum">     363 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case5(void** state)</span></a>
+<a name="364"><span class="lineNum">     364 </span>                :            : {</a>
+<a name="365"><span class="lineNum">     365 </span>                :            :     libspdm_return_t status;</a>
+<a name="366"><span class="lineNum">     366 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 5);</span></a>
+<a name="367"><span class="lineNum">     367 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
+<a name="368"><span class="lineNum">     368 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="369"><span class="lineNum">     369 </span>                :            : </a>
+<a name="370"><span class="lineNum">     370 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case6(void** state)</span></a>
+<a name="371"><span class="lineNum">     371 </span>                :            : {</a>
+<a name="372"><span class="lineNum">     372 </span>                :            :     libspdm_return_t status;</a>
+<a name="373"><span class="lineNum">     373 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 6);</span></a>
+<a name="374"><span class="lineNum">     374 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_SIZE);</span></a>
+<a name="375"><span class="lineNum">     375 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="376"><span class="lineNum">     376 </span>                :            : </a>
+<a name="377"><span class="lineNum">     377 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case7(void** state)</span></a>
+<a name="378"><span class="lineNum">     378 </span>                :            : {</a>
+<a name="379"><span class="lineNum">     379 </span>                :            :     libspdm_return_t status;</a>
+<a name="380"><span class="lineNum">     380 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 7);</span></a>
+<a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_ERROR_PEER);</span></a>
+<a name="382"><span class="lineNum">     382 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="383"><span class="lineNum">     383 </span>                :            : </a>
+<a name="384"><span class="lineNum">     384 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case8(void** state)</span></a>
+<a name="385"><span class="lineNum">     385 </span>                :            : {</a>
+<a name="386"><span class="lineNum">     386 </span>                :            :     libspdm_return_t status;</a>
+<a name="387"><span class="lineNum">     387 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 8);</span></a>
+<a name="388"><span class="lineNum">     388 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
+<a name="389"><span class="lineNum">     389 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="390"><span class="lineNum">     390 </span>                :            : </a>
+<a name="391"><span class="lineNum">     391 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case9(void** state)</span></a>
+<a name="392"><span class="lineNum">     392 </span>                :            : {</a>
+<a name="393"><span class="lineNum">     393 </span>                :            :     libspdm_return_t status;</a>
+<a name="394"><span class="lineNum">     394 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 9);</span></a>
+<a name="395"><span class="lineNum">     395 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
+<a name="396"><span class="lineNum">     396 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="397"><span class="lineNum">     397 </span>                :            : </a>
+<a name="398"><span class="lineNum">     398 </span>                :<span class="lineCov">          1 : void libspdm_test_requester_chunk_send_case10(void** state)</span></a>
+<a name="399"><span class="lineNum">     399 </span>                :            : {</a>
+<a name="400"><span class="lineNum">     400 </span>                :            :     libspdm_return_t status;</a>
+<a name="401"><span class="lineNum">     401 </span>                :<span class="lineCov">          1 :     status = libspdm_test_requester_chunk_send_generic_test_case(state, 10);</span></a>
+<a name="402"><span class="lineNum">     402 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="403"><span class="lineNum">     403 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="404"><span class="lineNum">     404 </span>                :            : </a>
+<a name="405"><span class="lineNum">     405 </span>                :            : libspdm_test_context_t m_libspdm_requester_chunk_send_test_context = {</a>
+<a name="406"><span class="lineNum">     406 </span>                :            :     LIBSPDM_TEST_CONTEXT_VERSION,</a>
+<a name="407"><span class="lineNum">     407 </span>                :            :     true,</a>
+<a name="408"><span class="lineNum">     408 </span>                :            :     libspdm_requester_chunk_send_test_send_message,</a>
+<a name="409"><span class="lineNum">     409 </span>                :            :     libspdm_requester_chunk_send_test_receive_message,</a>
+<a name="410"><span class="lineNum">     410 </span>                :            : };</a>
+<a name="411"><span class="lineNum">     411 </span>                :            : </a>
+<a name="412"><span class="lineNum">     412 </span>                :<span class="lineCov">          1 : int libspdm_requester_chunk_send_test_main(void)</span></a>
+<a name="413"><span class="lineNum">     413 </span>                :            : {</a>
+<a name="414"><span class="lineNum">     414 </span>                :            :     /* Test the CHUNK_SEND handlers in various requester handlers */</a>
+<a name="415"><span class="lineNum">     415 </span>                :<span class="lineCov">          1 :     const struct CMUnitTest spdm_requester_chunk_send_tests[] = {</span></a>
+<a name="416"><span class="lineNum">     416 </span>                :            :         /* Request Algorithms successfully sent in chunks. */</a>
+<a name="417"><span class="lineNum">     417 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case1),</a>
+<a name="418"><span class="lineNum">     418 </span>                :            :         /* Chunk Request fail send */</a>
+<a name="419"><span class="lineNum">     419 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case2),</a>
+<a name="420"><span class="lineNum">     420 </span>                :            :         /* Chunk Response fail receive */</a>
+<a name="421"><span class="lineNum">     421 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case3),</a>
+<a name="422"><span class="lineNum">     422 </span>                :            :         /* Chunk Response has bad SPDM version */</a>
+<a name="423"><span class="lineNum">     423 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case4),</a>
+<a name="424"><span class="lineNum">     424 </span>                :            :         /* Chunk Response has bad request response code */</a>
+<a name="425"><span class="lineNum">     425 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case5),</a>
+<a name="426"><span class="lineNum">     426 </span>                :            :         /* Chunk Response has bad response size */</a>
+<a name="427"><span class="lineNum">     427 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case6),</a>
+<a name="428"><span class="lineNum">     428 </span>                :            :         /* Chunk Response has early error detected */</a>
+<a name="429"><span class="lineNum">     429 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case7),</a>
+<a name="430"><span class="lineNum">     430 </span>                :            :         /* Chunk Response has bad chunk handle */</a>
+<a name="431"><span class="lineNum">     431 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case8),</a>
+<a name="432"><span class="lineNum">     432 </span>                :            :         /* Chunk Response has bad chunk seq no */</a>
+<a name="433"><span class="lineNum">     433 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case9),</a>
+<a name="434"><span class="lineNum">     434 </span>                :            :         /* sent in chunks due to greater than the sending transmit buffer size. */</a>
+<a name="435"><span class="lineNum">     435 </span>                :            :         cmocka_unit_test(libspdm_test_requester_chunk_send_case10),</a>
+<a name="436"><span class="lineNum">     436 </span>                :            :     };</a>
+<a name="437"><span class="lineNum">     437 </span>                :            : </a>
+<a name="438"><span class="lineNum">     438 </span>                :<span class="lineCov">          1 :     libspdm_setup_test_context(</span></a>
+<a name="439"><span class="lineNum">     439 </span>                :            :         &amp;m_libspdm_requester_chunk_send_test_context);</a>
+<a name="440"><span class="lineNum">     440 </span>                :            : </a>
+<a name="441"><span class="lineNum">     441 </span>                :<span class="lineCov">          1 :     return cmocka_run_group_tests(spdm_requester_chunk_send_tests,</span></a>
+<a name="442"><span class="lineNum">     442 </span>                :            :                                   libspdm_unit_test_group_setup,</a>
+<a name="443"><span class="lineNum">     443 </span>                :            :                                   libspdm_unit_test_group_teardown);</a>
+<a name="444"><span class="lineNum">     444 </span>                :            : }</a>
+<a name="445"><span class="lineNum">     445 </span>                :            : </a>
+<a name="446"><span class="lineNum">     446 </span>                :            : #endif /* LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP*/</a>
 </pre>
       </td>
     </tr>
