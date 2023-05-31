@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-05-30 08:04:19</td>
+            <td class="headerValue">2023-05-31 08:05:32</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">43</td>
@@ -1134,7 +1134,7 @@
 <a name="1047"><span class="lineNum">    1047 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;ct_exponent = 0;</span></a>
 <a name="1048"><span class="lineNum">    1048 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;flags = LIBSPDM_DEFAULT_CAPABILITY_RESPONSE_FLAG_VERSION_12;</span></a>
 <a name="1049"><span class="lineNum">    1049 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;data_transfer_size = LIBSPDM_DATA_TRANSFER_SIZE;</span></a>
-<a name="1050"><span class="lineNum">    1050 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;max_spdm_msg_size = LIBSPDM_MAX_SPDM_MSG_SIZE - 1;</span></a>
+<a name="1050"><span class="lineNum">    1050 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;max_spdm_msg_size = LIBSPDM_DATA_TRANSFER_SIZE - 1;</span></a>
 <a name="1051"><span class="lineNum">    1051 </span>                :            : </a>
 <a name="1052"><span class="lineNum">    1052 </span>                :<span class="lineCov">          1 :         libspdm_transport_test_encode_message(spdm_context, NULL, false,</span></a>
 <a name="1053"><span class="lineNum">    1053 </span>                :            :                                               false, spdm_response_size,</a>
