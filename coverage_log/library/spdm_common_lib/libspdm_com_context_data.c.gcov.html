@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-05-31 08:05:32</td>
+            <td class="headerValue">2023-06-01 08:04:06</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">55</td>
@@ -1968,9 +1968,9 @@
 <a name="1882"><span class="lineNum">    1882 </span>                :            :  *</a>
 <a name="1883"><span class="lineNum">    1883 </span>                :            :  * @return the connection version.</a>
 <a name="1884"><span class="lineNum">    1884 </span>                :            :  **/</a>
-<a name="1885"><span class="lineNum">    1885 </span>                :<span class="lineCov">       9131 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
+<a name="1885"><span class="lineNum">    1885 </span>                :<span class="lineCov">       9134 : uint8_t libspdm_get_connection_version(const libspdm_context_t *spdm_context)</span></a>
 <a name="1886"><span class="lineNum">    1886 </span>                :            : {</a>
-<a name="1887"><span class="lineNum">    1887 </span>                :<span class="lineCov">       9131 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
+<a name="1887"><span class="lineNum">    1887 </span>                :<span class="lineCov">       9134 :     return (uint8_t)(spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
 <a name="1888"><span class="lineNum">    1888 </span>                :            : }</a>
 <a name="1889"><span class="lineNum">    1889 </span>                :            : </a>
 <a name="1890"><span class="lineNum">    1890 </span>                :            : /**</a>
@@ -1984,7 +1984,7 @@
 <a name="1898"><span class="lineNum">    1898 </span>                :            :  * @retval true  the capabilities flag is supported.</a>
 <a name="1899"><span class="lineNum">    1899 </span>                :            :  * @retval false the capabilities flag is not supported.</a>
 <a name="1900"><span class="lineNum">    1900 </span>                :            :  **/</a>
-<a name="1901"><span class="lineNum">    1901 </span>                :<span class="lineCov">       7325 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
+<a name="1901"><span class="lineNum">    1901 </span>                :<span class="lineCov">       7327 : bool libspdm_is_capabilities_flag_supported(const libspdm_context_t *spdm_context,</span></a>
 <a name="1902"><span class="lineNum">    1902 </span>                :            :                                             bool is_requester,</a>
 <a name="1903"><span class="lineNum">    1903 </span>                :            :                                             uint32_t requester_capabilities_flag,</a>
 <a name="1904"><span class="lineNum">    1904 </span>                :            :                                             uint32_t responder_capabilities_flag)</a>
@@ -1992,21 +1992,21 @@
 <a name="1906"><span class="lineNum">    1906 </span>                :            :     uint32_t negotiated_requester_capabilities_flag;</a>
 <a name="1907"><span class="lineNum">    1907 </span>                :            :     uint32_t negotiated_responder_capabilities_flag;</a>
 <a name="1908"><span class="lineNum">    1908 </span>                :            : </a>
-<a name="1909"><span class="lineNum">    1909 </span>        [<span class="branchCov" title="Branch 0 was taken 3613 times"> + </span><span class="branchCov" title="Branch 1 was taken 3712 times"> + </span>]:<span class="lineCov">       7325 :     if (is_requester) {</span></a>
+<a name="1909"><span class="lineNum">    1909 </span>        [<span class="branchCov" title="Branch 0 was taken 3613 times"> + </span><span class="branchCov" title="Branch 1 was taken 3714 times"> + </span>]:<span class="lineCov">       7327 :     if (is_requester) {</span></a>
 <a name="1910"><span class="lineNum">    1910 </span>                :<span class="lineCov">       3613 :         negotiated_requester_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
 <a name="1911"><span class="lineNum">    1911 </span>                :<span class="lineCov">       3613 :         negotiated_responder_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
 <a name="1912"><span class="lineNum">    1912 </span>                :            :     } else {</a>
-<a name="1913"><span class="lineNum">    1913 </span>                :<span class="lineCov">       3712 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
-<a name="1914"><span class="lineNum">    1914 </span>                :<span class="lineCov">       3712 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
+<a name="1913"><span class="lineNum">    1913 </span>                :<span class="lineCov">       3714 :         negotiated_requester_capabilities_flag = spdm_context-&gt;connection_info.capability.flags;</span></a>
+<a name="1914"><span class="lineNum">    1914 </span>                :<span class="lineCov">       3714 :         negotiated_responder_capabilities_flag = spdm_context-&gt;local_context.capability.flags;</span></a>
 <a name="1915"><span class="lineNum">    1915 </span>                :            :     }</a>
 <a name="1916"><span class="lineNum">    1916 </span>                :            : </a>
-<a name="1917"><span class="lineNum">    1917 </span>        [<span class="branchCov" title="Branch 0 was taken 4379 times"> + </span><span class="branchCov" title="Branch 1 was taken 2946 times"> + </span>]:<span class="lineCov">       7325 :     if (((requester_capabilities_flag == 0) ||</span></a>
+<a name="1917"><span class="lineNum">    1917 </span>        [<span class="branchCov" title="Branch 0 was taken 4379 times"> + </span><span class="branchCov" title="Branch 1 was taken 2948 times"> + </span>]:<span class="lineCov">       7327 :     if (((requester_capabilities_flag == 0) ||</span></a>
 <a name="1918"><span class="lineNum">    1918 </span>        [<span class="branchCov" title="Branch 0 was taken 2159 times"> + </span><span class="branchCov" title="Branch 1 was taken 2220 times"> + </span>]:<span class="lineCov">       4379 :          ((negotiated_requester_capabilities_flag &amp;</span></a>
-<a name="1919"><span class="lineNum">    1919 </span>        [<span class="branchCov" title="Branch 0 was taken 3687 times"> + </span><span class="branchCov" title="Branch 1 was taken 1418 times"> + </span>]:<span class="lineCov">       5105 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
-<a name="1920"><span class="lineNum">    1920 </span>                :<span class="lineCov">       3687 :         ((responder_capabilities_flag == 0) ||</span></a>
-<a name="1921"><span class="lineNum">    1921 </span>        [<span class="branchCov" title="Branch 0 was taken 3057 times"> + </span><span class="branchCov" title="Branch 1 was taken 630 times"> + </span>]:<span class="lineCov">       3687 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
+<a name="1919"><span class="lineNum">    1919 </span>        [<span class="branchCov" title="Branch 0 was taken 3689 times"> + </span><span class="branchCov" title="Branch 1 was taken 1418 times"> + </span>]:<span class="lineCov">       5107 :            requester_capabilities_flag) != 0)) &amp;&amp;</span></a>
+<a name="1920"><span class="lineNum">    1920 </span>                :<span class="lineCov">       3689 :         ((responder_capabilities_flag == 0) ||</span></a>
+<a name="1921"><span class="lineNum">    1921 </span>        [<span class="branchCov" title="Branch 0 was taken 3059 times"> + </span><span class="branchCov" title="Branch 1 was taken 630 times"> + </span>]:<span class="lineCov">       3689 :          ((negotiated_responder_capabilities_flag &amp;</span></a>
 <a name="1922"><span class="lineNum">    1922 </span>                :            :            responder_capabilities_flag) != 0))) {</a>
-<a name="1923"><span class="lineNum">    1923 </span>                :<span class="lineCov">       4475 :         return true;</span></a>
+<a name="1923"><span class="lineNum">    1923 </span>                :<span class="lineCov">       4477 :         return true;</span></a>
 <a name="1924"><span class="lineNum">    1924 </span>                :            :     } else {</a>
 <a name="1925"><span class="lineNum">    1925 </span>                :<span class="lineCov">       2850 :         return false;</span></a>
 <a name="1926"><span class="lineNum">    1926 </span>                :            :     }</a>
