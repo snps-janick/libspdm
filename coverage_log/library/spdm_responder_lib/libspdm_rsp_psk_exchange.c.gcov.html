@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-04 08:04:11</td>
+            <td class="headerValue">2023-06-05 08:04:41</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -153,7 +153,7 @@
 <a name="82"><span class="lineNum">      82 </span>                :            :     spdm_psk_exchange_response_t *spdm_response;</a>
 <a name="83"><span class="lineNum">      83 </span>                :            :     bool result;</a>
 <a name="84"><span class="lineNum">      84 </span>                :            :     uint32_t session_id;</a>
-<a name="85"><span class="lineNum">      85 </span>                :            :     size_t measurement_summary_hash_size;</a>
+<a name="85"><span class="lineNum">      85 </span>                :            :     uint32_t measurement_summary_hash_size;</a>
 <a name="86"><span class="lineNum">      86 </span>                :            :     uint32_t hmac_size;</a>
 <a name="87"><span class="lineNum">      87 </span>                :            :     const uint8_t *cptr;</a>
 <a name="88"><span class="lineNum">      88 </span>                :            :     uint8_t *ptr;</a>
@@ -262,7 +262,7 @@
 <a name="191"><span class="lineNum">     191 </span>                :            :         }</a>
 <a name="192"><span class="lineNum">     192 </span>                :            :     }</a>
 <a name="193"><span class="lineNum">     193 </span>                :            : </a>
-<a name="194"><span class="lineNum">     194 </span>                :<span class="lineCov">         24 :     measurement_summary_hash_size = libspdm_get_measurement_summary_hash_size(</span></a>
+<a name="194"><span class="lineNum">     194 </span>                :<span class="lineCov">         12 :     measurement_summary_hash_size = libspdm_get_measurement_summary_hash_size(</span></a>
 <a name="195"><span class="lineNum">     195 </span>                :<span class="lineCov">         12 :         spdm_context, false, spdm_request-&gt;header.param1);</span></a>
 <a name="196"><span class="lineNum">     196 </span>                :<span class="lineCov">         12 :     hmac_size = libspdm_get_hash_size(spdm_context-&gt;connection_info.algorithm.base_hash_algo);</span></a>
 <a name="197"><span class="lineNum">     197 </span>                :            : </a>
@@ -374,7 +374,7 @@
 <a name="303"><span class="lineNum">     303 </span>                :            :             spdm_context-&gt;connection_info.algorithm.measurement_hash_algo,</a>
 <a name="304"><span class="lineNum">     304 </span>                :<span class="lineCov">          3 :             spdm_request-&gt;header.param1,</span></a>
 <a name="305"><span class="lineNum">     305 </span>                :            :             ptr,</a>
-<a name="306"><span class="lineNum">     306 </span>                :            :             &amp;measurement_summary_hash_size);</a>
+<a name="306"><span class="lineNum">     306 </span>                :            :             measurement_summary_hash_size);</a>
 <a name="307"><span class="lineNum">     307 </span>                :            :     }</a>
 <a name="308"><span class="lineNum">     308 </span>                :            :     else {</a>
 <a name="309"><span class="lineNum">     309 </span>                :<span class="lineCov">          8 :         result = true;</span></a>

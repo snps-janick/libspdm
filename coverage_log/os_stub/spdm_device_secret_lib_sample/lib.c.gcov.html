@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-04 08:04:11</td>
+            <td class="headerValue">2023-06-05 08:04:41</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">20</td>
@@ -1686,7 +1686,7 @@
 <a name="1604"><span class="lineNum">    1604 </span>                :            :     uint8_t measurement_specification, uint32_t measurement_hash_algo,</a>
 <a name="1605"><span class="lineNum">    1605 </span>                :            :     uint8_t measurement_summary_hash_type,</a>
 <a name="1606"><span class="lineNum">    1606 </span>                :            :     uint8_t *measurement_summary_hash,</a>
-<a name="1607"><span class="lineNum">    1607 </span>                :            :     size_t *measurement_summary_hash_size)</a>
+<a name="1607"><span class="lineNum">    1607 </span>                :            :     uint32_t measurement_summary_hash_size)</a>
 <a name="1608"><span class="lineNum">    1608 </span>                :            : {</a>
 <a name="1609"><span class="lineNum">    1609 </span>                :            :     uint8_t measurement_data[LIBSPDM_MAX_MEASUREMENT_RECORD_SIZE];</a>
 <a name="1610"><span class="lineNum">    1610 </span>                :            :     size_t index;</a>
@@ -1705,7 +1705,7 @@
 <a name="1623"><span class="lineNum">    1623 </span>                :            : </a>
 <a name="1624"><span class="lineNum">    1624 </span>                :<span class="lineCov">         10 :     case SPDM_CHALLENGE_REQUEST_TCB_COMPONENT_MEASUREMENT_HASH:</span></a>
 <a name="1625"><span class="lineNum">    1625 </span>                :            :     case SPDM_CHALLENGE_REQUEST_ALL_MEASUREMENTS_HASH:</a>
-<a name="1626"><span class="lineNum">    1626 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 10 times"> + </span>]:<span class="lineCov">         10 :         if (*measurement_summary_hash_size != libspdm_get_hash_size(base_hash_algo)) {</span></a>
+<a name="1626"><span class="lineNum">    1626 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 10 times"> + </span>]:<span class="lineCov">         10 :         if (measurement_summary_hash_size != libspdm_get_hash_size(base_hash_algo)) {</span></a>
 <a name="1627"><span class="lineNum">    1627 </span>                :<span class="lineNoCov">          0 :             return false;</span></a>
 <a name="1628"><span class="lineNum">    1628 </span>                :            :         }</a>
 <a name="1629"><span class="lineNum">    1629 </span>                :            : </a>

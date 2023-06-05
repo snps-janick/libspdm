@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-04 08:04:11</td>
+            <td class="headerValue">2023-06-05 08:04:41</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">55</td>
@@ -1090,11 +1090,11 @@
 <a name="1004"><span class="lineNum">    1004 </span>                :            :  * @param  spdm_context                  A pointer to the SPDM context.</a>
 <a name="1005"><span class="lineNum">    1005 </span>                :            :  * @param  session_info                  A pointer to the SPDM session context.</a>
 <a name="1006"><span class="lineNum">    1006 </span>                :            :  **/</a>
-<a name="1007"><span class="lineNum">    1007 </span>                :<span class="lineCov">       3864 : void libspdm_reset_message_m(libspdm_context_t *spdm_context, void *session_info)</span></a>
+<a name="1007"><span class="lineNum">    1007 </span>                :<span class="lineCov">       3865 : void libspdm_reset_message_m(libspdm_context_t *spdm_context, void *session_info)</span></a>
 <a name="1008"><span class="lineNum">    1008 </span>                :            : {</a>
 <a name="1009"><span class="lineNum">    1009 </span>                :            :     libspdm_session_info_t *spdm_session_info;</a>
 <a name="1010"><span class="lineNum">    1010 </span>                :            : </a>
-<a name="1011"><span class="lineNum">    1011 </span>                :<span class="lineCov">       3864 :     spdm_session_info = session_info;</span></a>
+<a name="1011"><span class="lineNum">    1011 </span>                :<span class="lineCov">       3865 :     spdm_session_info = session_info;</span></a>
 <a name="1012"><span class="lineNum">    1012 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="1013"><span class="lineNum">    1013 </span>                :            :     if (spdm_session_info == NULL) {</a>
 <a name="1014"><span class="lineNum">    1014 </span>                :            :         libspdm_reset_managed_buffer(&amp;spdm_context-&gt;transcript.message_m);</a>
@@ -1102,11 +1102,11 @@
 <a name="1016"><span class="lineNum">    1016 </span>                :            :         libspdm_reset_managed_buffer(&amp;spdm_session_info-&gt;session_transcript.message_m);</a>
 <a name="1017"><span class="lineNum">    1017 </span>                :            :     }</a>
 <a name="1018"><span class="lineNum">    1018 </span>                :            : #else</a>
-<a name="1019"><span class="lineNum">    1019 </span>        [<span class="branchCov" title="Branch 0 was taken 3607 times"> + </span><span class="branchCov" title="Branch 1 was taken 257 times"> + </span>]:<span class="lineCov">       3864 :     if (spdm_session_info == NULL) {</span></a>
-<a name="1020"><span class="lineNum">    1020 </span>        [<span class="branchCov" title="Branch 0 was taken 46 times"> + </span><span class="branchCov" title="Branch 1 was taken 3561 times"> + </span>]:<span class="lineCov">       3607 :         if (spdm_context-&gt;transcript.digest_context_l1l2 != NULL) {</span></a>
-<a name="1021"><span class="lineNum">    1021 </span>                :<span class="lineCov">         46 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1019"><span class="lineNum">    1019 </span>        [<span class="branchCov" title="Branch 0 was taken 3608 times"> + </span><span class="branchCov" title="Branch 1 was taken 257 times"> + </span>]:<span class="lineCov">       3865 :     if (spdm_session_info == NULL) {</span></a>
+<a name="1020"><span class="lineNum">    1020 </span>        [<span class="branchCov" title="Branch 0 was taken 47 times"> + </span><span class="branchCov" title="Branch 1 was taken 3561 times"> + </span>]:<span class="lineCov">       3608 :         if (spdm_context-&gt;transcript.digest_context_l1l2 != NULL) {</span></a>
+<a name="1021"><span class="lineNum">    1021 </span>                :<span class="lineCov">         47 :             libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1022"><span class="lineNum">    1022 </span>                :            :                                spdm_context-&gt;transcript.digest_context_l1l2);</a>
-<a name="1023"><span class="lineNum">    1023 </span>                :<span class="lineCov">         46 :             spdm_context-&gt;transcript.digest_context_l1l2 = NULL;</span></a>
+<a name="1023"><span class="lineNum">    1023 </span>                :<span class="lineCov">         47 :             spdm_context-&gt;transcript.digest_context_l1l2 = NULL;</span></a>
 <a name="1024"><span class="lineNum">    1024 </span>                :            :         }</a>
 <a name="1025"><span class="lineNum">    1025 </span>                :            :     } else {</a>
 <a name="1026"><span class="lineNum">    1026 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 255 times"> + </span>]:<span class="lineCov">        257 :         if (spdm_session_info-&gt;session_transcript.digest_context_l1l2 != NULL) {</span></a>
@@ -1116,7 +1116,7 @@
 <a name="1030"><span class="lineNum">    1030 </span>                :            :         }</a>
 <a name="1031"><span class="lineNum">    1031 </span>                :            :     }</a>
 <a name="1032"><span class="lineNum">    1032 </span>                :            : #endif</a>
-<a name="1033"><span class="lineNum">    1033 </span>                :<span class="lineCov">       3864 : }</span></a>
+<a name="1033"><span class="lineNum">    1033 </span>                :<span class="lineCov">       3865 : }</span></a>
 <a name="1034"><span class="lineNum">    1034 </span>                :            : </a>
 <a name="1035"><span class="lineNum">    1035 </span>                :            : /**</a>
 <a name="1036"><span class="lineNum">    1036 </span>                :            :  * Reset message K cache in SPDM context.</a>
@@ -1523,12 +1523,12 @@
 <a name="1437"><span class="lineNum">    1437 </span>                :            :  * @return RETURN_SUCCESS          message is appended.</a>
 <a name="1438"><span class="lineNum">    1438 </span>                :            :  * @return RETURN_OUT_OF_RESOURCES message is not appended because the internal cache is full.</a>
 <a name="1439"><span class="lineNum">    1439 </span>                :            :  **/</a>
-<a name="1440"><span class="lineNum">    1440 </span>                :<span class="lineCov">        492 : libspdm_return_t libspdm_append_message_m(libspdm_context_t *spdm_context, void *session_info,</span></a>
+<a name="1440"><span class="lineNum">    1440 </span>                :<span class="lineCov">        494 : libspdm_return_t libspdm_append_message_m(libspdm_context_t *spdm_context, void *session_info,</span></a>
 <a name="1441"><span class="lineNum">    1441 </span>                :            :                                           const void *message, size_t message_size)</a>
 <a name="1442"><span class="lineNum">    1442 </span>                :            : {</a>
 <a name="1443"><span class="lineNum">    1443 </span>                :            :     libspdm_session_info_t *spdm_session_info;</a>
 <a name="1444"><span class="lineNum">    1444 </span>                :            : </a>
-<a name="1445"><span class="lineNum">    1445 </span>                :<span class="lineCov">        492 :     spdm_session_info = session_info;</span></a>
+<a name="1445"><span class="lineNum">    1445 </span>                :<span class="lineCov">        494 :     spdm_session_info = session_info;</span></a>
 <a name="1446"><span class="lineNum">    1446 </span>                :            : #if LIBSPDM_RECORD_TRANSCRIPT_DATA_SUPPORT</a>
 <a name="1447"><span class="lineNum">    1447 </span>                :            :     if (spdm_session_info == NULL) {</a>
 <a name="1448"><span class="lineNum">    1448 </span>                :            :         return libspdm_append_managed_buffer(&amp;spdm_context-&gt;transcript.message_m,</a>
@@ -1541,22 +1541,22 @@
 <a name="1455"><span class="lineNum">    1455 </span>                :            :     {</a>
 <a name="1456"><span class="lineNum">    1456 </span>                :            :         bool result;</a>
 <a name="1457"><span class="lineNum">    1457 </span>                :            : </a>
-<a name="1458"><span class="lineNum">    1458 </span>        [<span class="branchCov" title="Branch 0 was taken 488 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">        492 :         if (spdm_session_info == NULL) {</span></a>
-<a name="1459"><span class="lineNum">    1459 </span>        [<span class="branchCov" title="Branch 0 was taken 46 times"> + </span><span class="branchCov" title="Branch 1 was taken 442 times"> + </span>]:<span class="lineCov">        488 :             if (spdm_context-&gt;transcript.digest_context_l1l2 == NULL) {</span></a>
-<a name="1460"><span class="lineNum">    1460 </span>                :<span class="lineCov">         46 :                 spdm_context-&gt;transcript.digest_context_l1l2 = libspdm_hash_new (</span></a>
+<a name="1458"><span class="lineNum">    1458 </span>        [<span class="branchCov" title="Branch 0 was taken 490 times"> + </span><span class="branchCov" title="Branch 1 was taken 4 times"> + </span>]:<span class="lineCov">        494 :         if (spdm_session_info == NULL) {</span></a>
+<a name="1459"><span class="lineNum">    1459 </span>        [<span class="branchCov" title="Branch 0 was taken 47 times"> + </span><span class="branchCov" title="Branch 1 was taken 443 times"> + </span>]:<span class="lineCov">        490 :             if (spdm_context-&gt;transcript.digest_context_l1l2 == NULL) {</span></a>
+<a name="1460"><span class="lineNum">    1460 </span>                :<span class="lineCov">         47 :                 spdm_context-&gt;transcript.digest_context_l1l2 = libspdm_hash_new (</span></a>
 <a name="1461"><span class="lineNum">    1461 </span>                :            :                     spdm_context-&gt;connection_info.algorithm.base_hash_algo);</a>
-<a name="1462"><span class="lineNum">    1462 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 46 times"> + </span>]:<span class="lineCov">         46 :                 if (spdm_context-&gt;transcript.digest_context_l1l2 == NULL) {</span></a>
+<a name="1462"><span class="lineNum">    1462 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 47 times"> + </span>]:<span class="lineCov">         47 :                 if (spdm_context-&gt;transcript.digest_context_l1l2 == NULL) {</span></a>
 <a name="1463"><span class="lineNum">    1463 </span>                :<span class="lineNoCov">          0 :                     return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1464"><span class="lineNum">    1464 </span>                :            :                 }</a>
-<a name="1465"><span class="lineNum">    1465 </span>                :<span class="lineCov">         46 :                 result = libspdm_hash_init (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1465"><span class="lineNum">    1465 </span>                :<span class="lineCov">         47 :                 result = libspdm_hash_init (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1466"><span class="lineNum">    1466 </span>                :            :                                             spdm_context-&gt;transcript.digest_context_l1l2);</a>
-<a name="1467"><span class="lineNum">    1467 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 46 times"> + </span>]:<span class="lineCov">         46 :                 if (!result) {</span></a>
+<a name="1467"><span class="lineNum">    1467 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 47 times"> + </span>]:<span class="lineCov">         47 :                 if (!result) {</span></a>
 <a name="1468"><span class="lineNum">    1468 </span>                :<span class="lineNoCov">          0 :                     libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1469"><span class="lineNum">    1469 </span>                :            :                                        spdm_context-&gt;transcript.digest_context_l1l2);</a>
 <a name="1470"><span class="lineNum">    1470 </span>                :<span class="lineNoCov">          0 :                     spdm_context-&gt;transcript.digest_context_l1l2 = NULL;</span></a>
 <a name="1471"><span class="lineNum">    1471 </span>                :<span class="lineNoCov">          0 :                     return LIBSPDM_STATUS_CRYPTO_ERROR;</span></a>
 <a name="1472"><span class="lineNum">    1472 </span>                :            :                 }</a>
-<a name="1473"><span class="lineNum">    1473 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 35 times"> + </span>]:<span class="lineCov">         46 :                 if ((spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT) &gt;</span></a>
+<a name="1473"><span class="lineNum">    1473 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span>]:<span class="lineCov">         47 :                 if ((spdm_context-&gt;connection_info.version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT) &gt;</span></a>
 <a name="1474"><span class="lineNum">    1474 </span>                :            :                     SPDM_MESSAGE_VERSION_11) {</a>
 <a name="1475"><span class="lineNum">    1475 </span>                :            : </a>
 <a name="1476"><span class="lineNum">    1476 </span>                :            :                     /* Need append VCA since 1.2 script */</a>
@@ -1575,10 +1575,10 @@
 <a name="1489"><span class="lineNum">    1489 </span>                :            :                     }</a>
 <a name="1490"><span class="lineNum">    1490 </span>                :            :                 }</a>
 <a name="1491"><span class="lineNum">    1491 </span>                :            :             }</a>
-<a name="1492"><span class="lineNum">    1492 </span>                :<span class="lineCov">        488 :             result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
+<a name="1492"><span class="lineNum">    1492 </span>                :<span class="lineCov">        490 :             result = libspdm_hash_update (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1493"><span class="lineNum">    1493 </span>                :            :                                           spdm_context-&gt;transcript.digest_context_l1l2, message,</a>
 <a name="1494"><span class="lineNum">    1494 </span>                :            :                                           message_size);</a>
-<a name="1495"><span class="lineNum">    1495 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 488 times"> + </span>]:<span class="lineCov">        488 :             if (!result) {</span></a>
+<a name="1495"><span class="lineNum">    1495 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 490 times"> + </span>]:<span class="lineCov">        490 :             if (!result) {</span></a>
 <a name="1496"><span class="lineNum">    1496 </span>                :<span class="lineNoCov">          0 :                 libspdm_hash_free (spdm_context-&gt;connection_info.algorithm.base_hash_algo,</span></a>
 <a name="1497"><span class="lineNum">    1497 </span>                :            :                                    spdm_context-&gt;transcript.digest_context_l1l2);</a>
 <a name="1498"><span class="lineNum">    1498 </span>                :<span class="lineNoCov">          0 :                 spdm_context-&gt;transcript.digest_context_l1l2 = NULL;</span></a>
@@ -1630,7 +1630,7 @@
 <a name="1544"><span class="lineNum">    1544 </span>                :            :             }</a>
 <a name="1545"><span class="lineNum">    1545 </span>                :            :         }</a>
 <a name="1546"><span class="lineNum">    1546 </span>                :            : </a>
-<a name="1547"><span class="lineNum">    1547 </span>                :<span class="lineCov">        492 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
+<a name="1547"><span class="lineNum">    1547 </span>                :<span class="lineCov">        494 :         return LIBSPDM_STATUS_SUCCESS;</span></a>
 <a name="1548"><span class="lineNum">    1548 </span>                :            :     }</a>
 <a name="1549"><span class="lineNum">    1549 </span>                :            : #endif</a>
 <a name="1550"><span class="lineNum">    1550 </span>                :            : }</a>

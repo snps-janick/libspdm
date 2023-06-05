@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-04 08:04:11</td>
+            <td class="headerValue">2023-06-05 08:04:41</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
@@ -995,7 +995,7 @@
 <a name="924"><span class="lineNum">     924 </span>                :            :     size_t response_size;</a>
 <a name="925"><span class="lineNum">     925 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="926"><span class="lineNum">     926 </span>                :            :     uint8_t measurement_hash[LIBSPDM_MAX_HASH_SIZE];</a>
-<a name="927"><span class="lineNum">     927 </span>                :            :     size_t measurement_summary_hash_size;</a>
+<a name="927"><span class="lineNum">     927 </span>                :            :     uint32_t measurement_summary_hash_size;</a>
 <a name="928"><span class="lineNum">     928 </span>                :            :     spdm_psk_exchange_response_t *spdm_response;</a>
 <a name="929"><span class="lineNum">     929 </span>                :            :     void *data1;</a>
 <a name="930"><span class="lineNum">     930 </span>                :            :     size_t data_size1;</a>
@@ -1081,7 +1081,7 @@
 <a name="1010"><span class="lineNum">    1010 </span>                :            :                      SPDM_PSK_EXCHANGE_RSP);</a>
 <a name="1011"><span class="lineNum">    1011 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;rsp_session_id, 0xFFFF);</span></a>
 <a name="1012"><span class="lineNum">    1012 </span>                :            : </a>
-<a name="1013"><span class="lineNum">    1013 </span>                :<span class="lineCov">          2 :     measurement_summary_hash_size = libspdm_get_measurement_summary_hash_size(</span></a>
+<a name="1013"><span class="lineNum">    1013 </span>                :<span class="lineCov">          1 :     measurement_summary_hash_size = libspdm_get_measurement_summary_hash_size(</span></a>
 <a name="1014"><span class="lineNum">    1014 </span>                :<span class="lineCov">          1 :         spdm_context, false, m_libspdm_psk_exchange_request4.header.param1);</span></a>
 <a name="1015"><span class="lineNum">    1015 </span>                :<span class="lineCov">          1 :     libspdm_generate_measurement_summary_hash(</span></a>
 <a name="1016"><span class="lineNum">    1016 </span>                :<span class="lineCov">          1 :         spdm_context-&gt;connection_info.version,</span></a>
@@ -1090,7 +1090,7 @@
 <a name="1019"><span class="lineNum">    1019 </span>                :            :         spdm_context-&gt;connection_info.algorithm.measurement_hash_algo,</a>
 <a name="1020"><span class="lineNum">    1020 </span>                :<span class="lineCov">          1 :         m_libspdm_psk_exchange_request4.header.param1,</span></a>
 <a name="1021"><span class="lineNum">    1021 </span>                :            :         measurement_hash,</a>
-<a name="1022"><span class="lineNum">    1022 </span>                :            :         &amp;measurement_summary_hash_size);</a>
+<a name="1022"><span class="lineNum">    1022 </span>                :            :         measurement_summary_hash_size);</a>
 <a name="1023"><span class="lineNum">    1023 </span>                :<span class="lineCov">          1 :     assert_memory_equal(</span></a>
 <a name="1024"><span class="lineNum">    1024 </span>                :            :         (uint8_t *)response +</a>
 <a name="1025"><span class="lineNum">    1025 </span>                :            :         sizeof(spdm_psk_exchange_response_t),</a>
@@ -1112,7 +1112,7 @@
 <a name="1041"><span class="lineNum">    1041 </span>                :            :     size_t response_size;</a>
 <a name="1042"><span class="lineNum">    1042 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
 <a name="1043"><span class="lineNum">    1043 </span>                :            :     uint8_t measurement_hash[LIBSPDM_MAX_HASH_SIZE];</a>
-<a name="1044"><span class="lineNum">    1044 </span>                :            :     size_t measurement_summary_hash_size;</a>
+<a name="1044"><span class="lineNum">    1044 </span>                :            :     uint32_t measurement_summary_hash_size;</a>
 <a name="1045"><span class="lineNum">    1045 </span>                :            :     spdm_psk_exchange_response_t *spdm_response;</a>
 <a name="1046"><span class="lineNum">    1046 </span>                :            :     void *data1;</a>
 <a name="1047"><span class="lineNum">    1047 </span>                :            :     size_t data_size1;</a>
@@ -1198,7 +1198,7 @@
 <a name="1127"><span class="lineNum">    1127 </span>                :            :                      SPDM_PSK_EXCHANGE_RSP);</a>
 <a name="1128"><span class="lineNum">    1128 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;rsp_session_id, 0xFFFF);</span></a>
 <a name="1129"><span class="lineNum">    1129 </span>                :            : </a>
-<a name="1130"><span class="lineNum">    1130 </span>                :<span class="lineCov">          2 :     measurement_summary_hash_size = libspdm_get_measurement_summary_hash_size(</span></a>
+<a name="1130"><span class="lineNum">    1130 </span>                :<span class="lineCov">          1 :     measurement_summary_hash_size = libspdm_get_measurement_summary_hash_size(</span></a>
 <a name="1131"><span class="lineNum">    1131 </span>                :<span class="lineCov">          1 :         spdm_context, false, m_libspdm_psk_exchange_request5.header.param1);</span></a>
 <a name="1132"><span class="lineNum">    1132 </span>                :<span class="lineCov">          1 :     libspdm_generate_measurement_summary_hash(</span></a>
 <a name="1133"><span class="lineNum">    1133 </span>                :<span class="lineCov">          1 :         spdm_context-&gt;connection_info.version,</span></a>
@@ -1207,7 +1207,7 @@
 <a name="1136"><span class="lineNum">    1136 </span>                :            :         spdm_context-&gt;connection_info.algorithm.measurement_hash_algo,</a>
 <a name="1137"><span class="lineNum">    1137 </span>                :<span class="lineCov">          1 :         m_libspdm_psk_exchange_request5.header.param1,</span></a>
 <a name="1138"><span class="lineNum">    1138 </span>                :            :         measurement_hash,</a>
-<a name="1139"><span class="lineNum">    1139 </span>                :            :         &amp;measurement_summary_hash_size);</a>
+<a name="1139"><span class="lineNum">    1139 </span>                :            :         measurement_summary_hash_size);</a>
 <a name="1140"><span class="lineNum">    1140 </span>                :<span class="lineCov">          1 :     assert_memory_equal(</span></a>
 <a name="1141"><span class="lineNum">    1141 </span>                :            :         (uint8_t *)response +</a>
 <a name="1142"><span class="lineNum">    1142 </span>                :            :         sizeof(spdm_psk_exchange_response_t),</a>
