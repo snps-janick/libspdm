@@ -31,27 +31,27 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">336</td>
+            <td class="headerCovTableEntry">340</td>
             <td class="headerCovTableEntry">559</td>
-            <td class="headerCovTableEntryLo">60.1 %</td>
+            <td class="headerCovTableEntryLo">60.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-05 08:04:41</td>
+            <td class="headerValue">2023-06-06 08:05:32</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntry">22</td>
             <td class="headerCovTableEntry">38</td>
-            <td class="headerCovTableEntryLo">55.3 %</td>
+            <td class="headerCovTableEntryLo">57.9 %</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">106</td>
+            <td class="headerCovTableEntry">108</td>
             <td class="headerCovTableEntry">283</td>
-            <td class="headerCovTableEntryLo">37.5 %</td>
+            <td class="headerCovTableEntryLo">38.2 %</td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -1506,11 +1506,11 @@
 <a name="1428"><span class="lineNum">    1428 </span>                :            : /**</a>
 <a name="1429"><span class="lineNum">    1429 </span>                :            :  * Return 0 if before &lt;= after, 1 otherwise</a>
 <a name="1430"><span class="lineNum">    1430 </span>                :            :  **/</a>
-<a name="1431"><span class="lineNum">    1431 </span>                :<span class="lineNoCov">          0 : static int32_t libspdm_internal_x509_check_time(const mbedtls_x509_time *before,</span></a>
+<a name="1431"><span class="lineNum">    1431 </span>                :<span class="lineCov">       1256 : static int32_t libspdm_internal_x509_check_time(const mbedtls_x509_time *before,</span></a>
 <a name="1432"><span class="lineNum">    1432 </span>                :            :                                                 const mbedtls_x509_time *after)</a>
 <a name="1433"><span class="lineNum">    1433 </span>                :            : {</a>
-<a name="1434"><span class="lineNum">    1434 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (before-&gt;year &gt; after-&gt;year)</span></a>
-<a name="1435"><span class="lineNum">    1435 </span>                :<span class="lineNoCov">          0 :         return (1);</span></a>
+<a name="1434"><span class="lineNum">    1434 </span>        [<span class="branchCov" title="Branch 0 was taken 1256 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1256 :     if (before-&gt;year &gt; after-&gt;year)</span></a>
+<a name="1435"><span class="lineNum">    1435 </span>                :<span class="lineCov">       1256 :         return (1);</span></a>
 <a name="1436"><span class="lineNum">    1436 </span>                :            : </a>
 <a name="1437"><span class="lineNum">    1437 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (before-&gt;year == after-&gt;year &amp;&amp; before-&gt;mon &gt; after-&gt;mon)</span></a>
 <a name="1438"><span class="lineNum">    1438 </span>                :<span class="lineNoCov">          0 :         return (1);</span></a>
@@ -1642,288 +1642,287 @@
 <a name="1564"><span class="lineNum">    1564 </span>  [<span class="branchCov" title="Branch 0 was taken 1256 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1256 times"> + </span>]:<span class="lineCov">       1256 :     if (date_time1 == NULL || date_time2 == NULL) {</span></a>
 <a name="1565"><span class="lineNum">    1565 </span>                :<span class="lineNoCov">          0 :         return -2;</span></a>
 <a name="1566"><span class="lineNum">    1566 </span>                :            :     }</a>
-<a name="1567"><span class="lineNum">    1567 </span>        [<span class="branchCov" title="Branch 0 was taken 1256 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1256 :     if (libspdm_consttime_is_mem_equal(date_time2, date_time1, sizeof(mbedtls_x509_time)) ==</span></a>
-<a name="1568"><span class="lineNum">    1568 </span>                :            :         0) {</a>
-<a name="1569"><span class="lineNum">    1569 </span>                :<span class="lineCov">       1256 :         return 0;</span></a>
-<a name="1570"><span class="lineNum">    1570 </span>                :            :     }</a>
-<a name="1571"><span class="lineNum">    1571 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :     if (libspdm_internal_x509_check_time((const mbedtls_x509_time *)date_time1,</span></a>
-<a name="1572"><span class="lineNum">    1572 </span>                :            :                                          (const mbedtls_x509_time *)date_time2) == 0) {</a>
-<a name="1573"><span class="lineNum">    1573 </span>                :<span class="lineNoCov">          0 :         return -1;</span></a>
-<a name="1574"><span class="lineNum">    1574 </span>                :            :     } else {</a>
-<a name="1575"><span class="lineNum">    1575 </span>                :<span class="lineNoCov">          0 :         return 1;</span></a>
-<a name="1576"><span class="lineNum">    1576 </span>                :            :     }</a>
-<a name="1577"><span class="lineNum">    1577 </span>                :            : }</a>
-<a name="1578"><span class="lineNum">    1578 </span>                :            : </a>
-<a name="1579"><span class="lineNum">    1579 </span>                :            : /**</a>
-<a name="1580"><span class="lineNum">    1580 </span>                :            :  * Set all attributes object form req_info to CSR</a>
-<a name="1581"><span class="lineNum">    1581 </span>                :            :  *</a>
-<a name="1582"><span class="lineNum">    1582 </span>                :            :  * @param[in]      req                   CSR to set attributes</a>
-<a name="1583"><span class="lineNum">    1583 </span>                :            :  * @param[in]      req_info              requester info to gen CSR</a>
-<a name="1584"><span class="lineNum">    1584 </span>                :            :  * @param[in]      req_info_len          The len of requester info</a>
-<a name="1585"><span class="lineNum">    1585 </span>                :            :  *</a>
-<a name="1586"><span class="lineNum">    1586 </span>                :            :  * @retval  true   Success Set.</a>
-<a name="1587"><span class="lineNum">    1587 </span>                :            :  * @retval  false  Set failed.</a>
-<a name="1588"><span class="lineNum">    1588 </span>                :            :  **/</a>
-<a name="1589"><span class="lineNum">    1589 </span>                :<span class="lineCov">          2 : bool libspdm_set_attribute_for_req(mbedtls_x509write_csr *req, uint8_t *req_info,</span></a>
-<a name="1590"><span class="lineNum">    1590 </span>                :            :                                    size_t req_info_len)</a>
-<a name="1591"><span class="lineNum">    1591 </span>                :            : {</a>
-<a name="1592"><span class="lineNum">    1592 </span>                :            :     uint8_t *ptr;</a>
-<a name="1593"><span class="lineNum">    1593 </span>                :            :     int32_t length;</a>
-<a name="1594"><span class="lineNum">    1594 </span>                :            :     size_t obj_len;</a>
-<a name="1595"><span class="lineNum">    1595 </span>                :            :     bool ret;</a>
-<a name="1596"><span class="lineNum">    1596 </span>                :            :     uint8_t *end;</a>
-<a name="1597"><span class="lineNum">    1597 </span>                :            :     uint8_t *ptr_old;</a>
-<a name="1598"><span class="lineNum">    1598 </span>                :            : </a>
-<a name="1599"><span class="lineNum">    1599 </span>                :            :     uint8_t *oid;</a>
-<a name="1600"><span class="lineNum">    1600 </span>                :            :     size_t oid_len;</a>
-<a name="1601"><span class="lineNum">    1601 </span>                :            :     uint8_t *val;</a>
-<a name="1602"><span class="lineNum">    1602 </span>                :            :     size_t val_len;</a>
-<a name="1603"><span class="lineNum">    1603 </span>                :            : </a>
-<a name="1604"><span class="lineNum">    1604 </span>                :<span class="lineCov">          2 :     length = (int32_t)req_info_len;</span></a>
-<a name="1605"><span class="lineNum">    1605 </span>                :<span class="lineCov">          2 :     ptr = req_info;</span></a>
-<a name="1606"><span class="lineNum">    1606 </span>                :<span class="lineCov">          2 :     obj_len = 0;</span></a>
-<a name="1607"><span class="lineNum">    1607 </span>                :<span class="lineCov">          2 :     end = ptr + length;</span></a>
-<a name="1608"><span class="lineNum">    1608 </span>                :<span class="lineCov">          2 :     ret = false;</span></a>
-<a name="1609"><span class="lineNum">    1609 </span>                :            : </a>
-<a name="1610"><span class="lineNum">    1610 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :     if (req_info == NULL) {</span></a>
-<a name="1611"><span class="lineNum">    1611 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
-<a name="1612"><span class="lineNum">    1612 </span>                :            :     }</a>
-<a name="1613"><span class="lineNum">    1613 </span>                :            : </a>
-<a name="1614"><span class="lineNum">    1614 </span>                :            :     /*req_info sequence, all ret is ok because the req_info has been verified before*/</a>
-<a name="1615"><span class="lineNum">    1615 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
-<a name="1616"><span class="lineNum">    1616 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1617"><span class="lineNum">    1617 </span>                :            : </a>
-<a name="1618"><span class="lineNum">    1618 </span>                :            :     /*integer:version*/</a>
-<a name="1619"><span class="lineNum">    1619 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_INTEGER);</span></a>
-<a name="1620"><span class="lineNum">    1620 </span>                :<span class="lineCov">          2 :     ptr += obj_len;</span></a>
-<a name="1621"><span class="lineNum">    1621 </span>                :            : </a>
-<a name="1622"><span class="lineNum">    1622 </span>                :            :     /*sequence:subject name*/</a>
-<a name="1623"><span class="lineNum">    1623 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
-<a name="1624"><span class="lineNum">    1624 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1625"><span class="lineNum">    1625 </span>                :<span class="lineCov">          2 :     ptr += obj_len;</span></a>
-<a name="1626"><span class="lineNum">    1626 </span>                :            : </a>
-<a name="1627"><span class="lineNum">    1627 </span>                :            :     /*sequence:subject pkinfo*/</a>
-<a name="1628"><span class="lineNum">    1628 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
-<a name="1629"><span class="lineNum">    1629 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1630"><span class="lineNum">    1630 </span>                :<span class="lineCov">          2 :     ptr += obj_len;</span></a>
+<a name="1567"><span class="lineNum">    1567 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1256 times"> + </span>]:<span class="lineCov">       1256 :     if (libspdm_consttime_is_mem_equal(date_time2, date_time1, sizeof(mbedtls_x509_time))) {</span></a>
+<a name="1568"><span class="lineNum">    1568 </span>                :<span class="lineNoCov">          0 :         return 0;</span></a>
+<a name="1569"><span class="lineNum">    1569 </span>                :            :     }</a>
+<a name="1570"><span class="lineNum">    1570 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1256 times"> + </span>]:<span class="lineCov">       1256 :     if (libspdm_internal_x509_check_time((const mbedtls_x509_time *)date_time1,</span></a>
+<a name="1571"><span class="lineNum">    1571 </span>                :            :                                          (const mbedtls_x509_time *)date_time2) == 0) {</a>
+<a name="1572"><span class="lineNum">    1572 </span>                :<span class="lineNoCov">          0 :         return -1;</span></a>
+<a name="1573"><span class="lineNum">    1573 </span>                :            :     } else {</a>
+<a name="1574"><span class="lineNum">    1574 </span>                :<span class="lineCov">       1256 :         return 1;</span></a>
+<a name="1575"><span class="lineNum">    1575 </span>                :            :     }</a>
+<a name="1576"><span class="lineNum">    1576 </span>                :            : }</a>
+<a name="1577"><span class="lineNum">    1577 </span>                :            : </a>
+<a name="1578"><span class="lineNum">    1578 </span>                :            : /**</a>
+<a name="1579"><span class="lineNum">    1579 </span>                :            :  * Set all attributes object form req_info to CSR</a>
+<a name="1580"><span class="lineNum">    1580 </span>                :            :  *</a>
+<a name="1581"><span class="lineNum">    1581 </span>                :            :  * @param[in]      req                   CSR to set attributes</a>
+<a name="1582"><span class="lineNum">    1582 </span>                :            :  * @param[in]      req_info              requester info to gen CSR</a>
+<a name="1583"><span class="lineNum">    1583 </span>                :            :  * @param[in]      req_info_len          The len of requester info</a>
+<a name="1584"><span class="lineNum">    1584 </span>                :            :  *</a>
+<a name="1585"><span class="lineNum">    1585 </span>                :            :  * @retval  true   Success Set.</a>
+<a name="1586"><span class="lineNum">    1586 </span>                :            :  * @retval  false  Set failed.</a>
+<a name="1587"><span class="lineNum">    1587 </span>                :            :  **/</a>
+<a name="1588"><span class="lineNum">    1588 </span>                :<span class="lineCov">          2 : bool libspdm_set_attribute_for_req(mbedtls_x509write_csr *req, uint8_t *req_info,</span></a>
+<a name="1589"><span class="lineNum">    1589 </span>                :            :                                    size_t req_info_len)</a>
+<a name="1590"><span class="lineNum">    1590 </span>                :            : {</a>
+<a name="1591"><span class="lineNum">    1591 </span>                :            :     uint8_t *ptr;</a>
+<a name="1592"><span class="lineNum">    1592 </span>                :            :     int32_t length;</a>
+<a name="1593"><span class="lineNum">    1593 </span>                :            :     size_t obj_len;</a>
+<a name="1594"><span class="lineNum">    1594 </span>                :            :     bool ret;</a>
+<a name="1595"><span class="lineNum">    1595 </span>                :            :     uint8_t *end;</a>
+<a name="1596"><span class="lineNum">    1596 </span>                :            :     uint8_t *ptr_old;</a>
+<a name="1597"><span class="lineNum">    1597 </span>                :            : </a>
+<a name="1598"><span class="lineNum">    1598 </span>                :            :     uint8_t *oid;</a>
+<a name="1599"><span class="lineNum">    1599 </span>                :            :     size_t oid_len;</a>
+<a name="1600"><span class="lineNum">    1600 </span>                :            :     uint8_t *val;</a>
+<a name="1601"><span class="lineNum">    1601 </span>                :            :     size_t val_len;</a>
+<a name="1602"><span class="lineNum">    1602 </span>                :            : </a>
+<a name="1603"><span class="lineNum">    1603 </span>                :<span class="lineCov">          2 :     length = (int32_t)req_info_len;</span></a>
+<a name="1604"><span class="lineNum">    1604 </span>                :<span class="lineCov">          2 :     ptr = req_info;</span></a>
+<a name="1605"><span class="lineNum">    1605 </span>                :<span class="lineCov">          2 :     obj_len = 0;</span></a>
+<a name="1606"><span class="lineNum">    1606 </span>                :<span class="lineCov">          2 :     end = ptr + length;</span></a>
+<a name="1607"><span class="lineNum">    1607 </span>                :<span class="lineCov">          2 :     ret = false;</span></a>
+<a name="1608"><span class="lineNum">    1608 </span>                :            : </a>
+<a name="1609"><span class="lineNum">    1609 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :     if (req_info == NULL) {</span></a>
+<a name="1610"><span class="lineNum">    1610 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
+<a name="1611"><span class="lineNum">    1611 </span>                :            :     }</a>
+<a name="1612"><span class="lineNum">    1612 </span>                :            : </a>
+<a name="1613"><span class="lineNum">    1613 </span>                :            :     /*req_info sequence, all ret is ok because the req_info has been verified before*/</a>
+<a name="1614"><span class="lineNum">    1614 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1615"><span class="lineNum">    1615 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
+<a name="1616"><span class="lineNum">    1616 </span>                :            : </a>
+<a name="1617"><span class="lineNum">    1617 </span>                :            :     /*integer:version*/</a>
+<a name="1618"><span class="lineNum">    1618 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_INTEGER);</span></a>
+<a name="1619"><span class="lineNum">    1619 </span>                :<span class="lineCov">          2 :     ptr += obj_len;</span></a>
+<a name="1620"><span class="lineNum">    1620 </span>                :            : </a>
+<a name="1621"><span class="lineNum">    1621 </span>                :            :     /*sequence:subject name*/</a>
+<a name="1622"><span class="lineNum">    1622 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1623"><span class="lineNum">    1623 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
+<a name="1624"><span class="lineNum">    1624 </span>                :<span class="lineCov">          2 :     ptr += obj_len;</span></a>
+<a name="1625"><span class="lineNum">    1625 </span>                :            : </a>
+<a name="1626"><span class="lineNum">    1626 </span>                :            :     /*sequence:subject pkinfo*/</a>
+<a name="1627"><span class="lineNum">    1627 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1628"><span class="lineNum">    1628 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
+<a name="1629"><span class="lineNum">    1629 </span>                :<span class="lineCov">          2 :     ptr += obj_len;</span></a>
+<a name="1630"><span class="lineNum">    1630 </span>                :            : </a>
 <a name="1631"><span class="lineNum">    1631 </span>                :            : </a>
-<a name="1632"><span class="lineNum">    1632 </span>                :            : </a>
-<a name="1633"><span class="lineNum">    1633 </span>                :            :     /*[0]: attributes*/</a>
-<a name="1634"><span class="lineNum">    1634 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
-<a name="1635"><span class="lineNum">    1635 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_CONTEXT_SPECIFIC |</a>
-<a name="1636"><span class="lineNum">    1636 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1637"><span class="lineNum">    1637 </span>                :            :     /*there is no attributes*/</a>
-<a name="1638"><span class="lineNum">    1638 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :     if (ptr == end) {</span></a>
-<a name="1639"><span class="lineNum">    1639 </span>                :<span class="lineNoCov">          0 :         return true;</span></a>
-<a name="1640"><span class="lineNum">    1640 </span>                :            :     }</a>
-<a name="1641"><span class="lineNum">    1641 </span>                :            : </a>
-<a name="1642"><span class="lineNum">    1642 </span>                :            :     /*there is some attributes object: 1,2 ...*/</a>
-<a name="1643"><span class="lineNum">    1643 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          4 :     while (ret)</span></a>
-<a name="1644"><span class="lineNum">    1644 </span>                :            :     {</a>
-<a name="1645"><span class="lineNum">    1645 </span>                :<span class="lineCov">          2 :         ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
-<a name="1646"><span class="lineNum">    1646 </span>                :            :                                    LIBSPDM_CRYPTO_ASN1_SEQUENCE |</a>
-<a name="1647"><span class="lineNum">    1647 </span>                :            :                                    LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1648"><span class="lineNum">    1648 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :         if (ret) {</span></a>
-<a name="1649"><span class="lineNum">    1649 </span>                :            :             /*save old positon*/</a>
-<a name="1650"><span class="lineNum">    1650 </span>                :<span class="lineCov">          2 :             ptr_old = ptr;</span></a>
-<a name="1651"><span class="lineNum">    1651 </span>                :            : </a>
-<a name="1652"><span class="lineNum">    1652 </span>                :            :             /*move to the next sequence*/</a>
-<a name="1653"><span class="lineNum">    1653 </span>                :<span class="lineCov">          2 :             ptr += obj_len;</span></a>
-<a name="1654"><span class="lineNum">    1654 </span>                :            : </a>
-<a name="1655"><span class="lineNum">    1655 </span>                :            :             /*get attributes oid*/</a>
-<a name="1656"><span class="lineNum">    1656 </span>                :<span class="lineCov">          2 :             ret = libspdm_asn1_get_tag(&amp;ptr_old, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_OID);</span></a>
-<a name="1657"><span class="lineNum">    1657 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (!ret) {</span></a>
-<a name="1658"><span class="lineNum">    1658 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
-<a name="1659"><span class="lineNum">    1659 </span>                :            :             }</a>
-<a name="1660"><span class="lineNum">    1660 </span>                :<span class="lineCov">          2 :             oid = ptr_old;</span></a>
-<a name="1661"><span class="lineNum">    1661 </span>                :<span class="lineCov">          2 :             oid_len = obj_len;</span></a>
-<a name="1662"><span class="lineNum">    1662 </span>                :            : </a>
-<a name="1663"><span class="lineNum">    1663 </span>                :<span class="lineCov">          2 :             ptr_old += obj_len;</span></a>
-<a name="1664"><span class="lineNum">    1664 </span>                :            :             /*get attributes val*/</a>
-<a name="1665"><span class="lineNum">    1665 </span>                :<span class="lineCov">          2 :             ret = libspdm_asn1_get_tag(&amp;ptr_old, end, &amp;obj_len,</span></a>
-<a name="1666"><span class="lineNum">    1666 </span>                :            :                                        LIBSPDM_CRYPTO_ASN1_SET |</a>
-<a name="1667"><span class="lineNum">    1667 </span>                :            :                                        LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
-<a name="1668"><span class="lineNum">    1668 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (!ret) {</span></a>
-<a name="1669"><span class="lineNum">    1669 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
-<a name="1670"><span class="lineNum">    1670 </span>                :            :             }</a>
-<a name="1671"><span class="lineNum">    1671 </span>                :<span class="lineCov">          2 :             ret = libspdm_asn1_get_tag(&amp;ptr_old, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_UTF8_STRING);</span></a>
-<a name="1672"><span class="lineNum">    1672 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (!ret) {</span></a>
-<a name="1673"><span class="lineNum">    1673 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
-<a name="1674"><span class="lineNum">    1674 </span>                :            :             }</a>
-<a name="1675"><span class="lineNum">    1675 </span>                :<span class="lineCov">          2 :             val = ptr_old;</span></a>
-<a name="1676"><span class="lineNum">    1676 </span>                :<span class="lineCov">          2 :             val_len = obj_len;</span></a>
-<a name="1677"><span class="lineNum">    1677 </span>                :            : </a>
-<a name="1678"><span class="lineNum">    1678 </span>                :            :             /*set attributes*/</a>
-<a name="1679"><span class="lineNum">    1679 </span>                :<span class="lineCov">          2 :             ret = mbedtls_x509write_csr_set_extension(req, oid, oid_len, val, val_len);</span></a>
-<a name="1680"><span class="lineNum">    1680 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (ret) {</span></a>
-<a name="1681"><span class="lineNum">    1681 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
-<a name="1682"><span class="lineNum">    1682 </span>                :            :             }</a>
-<a name="1683"><span class="lineNum">    1683 </span>                :            : </a>
-<a name="1684"><span class="lineNum">    1684 </span>                :            :         } else {</a>
-<a name="1685"><span class="lineNum">    1685 </span>                :<span class="lineNoCov">          0 :             break;</span></a>
-<a name="1686"><span class="lineNum">    1686 </span>                :            :         }</a>
-<a name="1687"><span class="lineNum">    1687 </span>                :            :     }</a>
-<a name="1688"><span class="lineNum">    1688 </span>                :            : </a>
-<a name="1689"><span class="lineNum">    1689 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :     if (ptr == end) {</span></a>
-<a name="1690"><span class="lineNum">    1690 </span>                :<span class="lineCov">          2 :         return true;</span></a>
-<a name="1691"><span class="lineNum">    1691 </span>                :            :     } else {</a>
-<a name="1692"><span class="lineNum">    1692 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
-<a name="1693"><span class="lineNum">    1693 </span>                :            :     }</a>
-<a name="1694"><span class="lineNum">    1694 </span>                :            : }</a>
-<a name="1695"><span class="lineNum">    1695 </span>                :            : </a>
-<a name="1696"><span class="lineNum">    1696 </span>                :            : /**</a>
-<a name="1697"><span class="lineNum">    1697 </span>                :            :  * Gen CSR</a>
-<a name="1698"><span class="lineNum">    1698 </span>                :            :  *</a>
-<a name="1699"><span class="lineNum">    1699 </span>                :            :  * @param[in]      hash_nid              hash algo for sign</a>
-<a name="1700"><span class="lineNum">    1700 </span>                :            :  * @param[in]      asym_nid              asym algo for sign</a>
-<a name="1701"><span class="lineNum">    1701 </span>                :            :  *</a>
-<a name="1702"><span class="lineNum">    1702 </span>                :            :  * @param[in]      requester_info        requester info to gen CSR</a>
-<a name="1703"><span class="lineNum">    1703 </span>                :            :  * @param[in]      requester_info_length The len of requester info</a>
-<a name="1704"><span class="lineNum">    1704 </span>                :            :  *</a>
-<a name="1705"><span class="lineNum">    1705 </span>                :            :  * @param[in]      context               Pointer to asymmetric context</a>
-<a name="1706"><span class="lineNum">    1706 </span>                :            :  * @param[in]      subject_name          Subject name: should be break with ',' in the middle</a>
-<a name="1707"><span class="lineNum">    1707 </span>                :            :  *                                       example: &quot;C=AA,CN=BB&quot;</a>
-<a name="1708"><span class="lineNum">    1708 </span>                :            :  * Subject names should contain a comma-separated list of OID types and values:</a>
-<a name="1709"><span class="lineNum">    1709 </span>                :            :  * The valid OID type name is in:</a>
-<a name="1710"><span class="lineNum">    1710 </span>                :            :  * {&quot;CN&quot;, &quot;commonName&quot;, &quot;C&quot;, &quot;countryName&quot;, &quot;O&quot;, &quot;organizationName&quot;,&quot;L&quot;,</a>
-<a name="1711"><span class="lineNum">    1711 </span>                :            :  * &quot;OU&quot;, &quot;organizationalUnitName&quot;, &quot;ST&quot;, &quot;stateOrProvinceName&quot;, &quot;emailAddress&quot;,</a>
-<a name="1712"><span class="lineNum">    1712 </span>                :            :  * &quot;serialNumber&quot;, &quot;postalAddress&quot;, &quot;postalCode&quot;, &quot;dnQualifier&quot;, &quot;title&quot;,</a>
-<a name="1713"><span class="lineNum">    1713 </span>                :            :  * &quot;SN&quot;,&quot;givenName&quot;,&quot;GN&quot;, &quot;initials&quot;, &quot;pseudonym&quot;, &quot;generationQualifier&quot;, &quot;domainComponent&quot;, &quot;DC&quot;}.</a>
-<a name="1714"><span class="lineNum">    1714 </span>                :            :  * Note: The object of C and countryName should be CSR Supported Country Codes</a>
-<a name="1715"><span class="lineNum">    1715 </span>                :            :  *</a>
-<a name="1716"><span class="lineNum">    1716 </span>                :            :  * @param[in]      csr_len               For input, csr_len is the size of store CSR buffer.</a>
-<a name="1717"><span class="lineNum">    1717 </span>                :            :  *                                       For output, csr_len is CSR len for DER format</a>
-<a name="1718"><span class="lineNum">    1718 </span>                :            :  * @param[in]      csr_pointer           For input, csr_pointer is buffer address to store CSR.</a>
-<a name="1719"><span class="lineNum">    1719 </span>                :            :  *                                       For output, csr_pointer is address for stored CSR.</a>
-<a name="1720"><span class="lineNum">    1720 </span>                :            :  *                                       The csr_pointer address will be changed.</a>
-<a name="1721"><span class="lineNum">    1721 </span>                :            :  *</a>
-<a name="1722"><span class="lineNum">    1722 </span>                :            :  * @retval  true   Success.</a>
-<a name="1723"><span class="lineNum">    1723 </span>                :            :  * @retval  false  Failed to gen CSR.</a>
-<a name="1724"><span class="lineNum">    1724 </span>                :            :  **/</a>
-<a name="1725"><span class="lineNum">    1725 </span>                :<span class="lineCov">          5 : bool libspdm_gen_x509_csr(size_t hash_nid, size_t asym_nid,</span></a>
-<a name="1726"><span class="lineNum">    1726 </span>                :            :                           uint8_t *requester_info, size_t requester_info_length,</a>
-<a name="1727"><span class="lineNum">    1727 </span>                :            :                           void *context, char *subject_name,</a>
-<a name="1728"><span class="lineNum">    1728 </span>                :            :                           size_t *csr_len, uint8_t *csr_pointer)</a>
-<a name="1729"><span class="lineNum">    1729 </span>                :            : {</a>
-<a name="1730"><span class="lineNum">    1730 </span>                :            :     int ret;</a>
-<a name="1731"><span class="lineNum">    1731 </span>                :            :     bool result;</a>
-<a name="1732"><span class="lineNum">    1732 </span>                :            :     size_t csr_buffer_size;</a>
-<a name="1733"><span class="lineNum">    1733 </span>                :            : </a>
-<a name="1734"><span class="lineNum">    1734 </span>                :            :     mbedtls_x509write_csr req;</a>
-<a name="1735"><span class="lineNum">    1735 </span>                :            :     mbedtls_md_type_t md_alg;</a>
-<a name="1736"><span class="lineNum">    1736 </span>                :            :     mbedtls_pk_context key;</a>
-<a name="1737"><span class="lineNum">    1737 </span>                :            : </a>
-<a name="1738"><span class="lineNum">    1738 </span>                :            :     /* Init */</a>
-<a name="1739"><span class="lineNum">    1739 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_init(&amp;req);</span></a>
-<a name="1740"><span class="lineNum">    1740 </span>                :<span class="lineCov">          5 :     mbedtls_pk_init(&amp;key);</span></a>
-<a name="1741"><span class="lineNum">    1741 </span>                :<span class="lineCov">          5 :     csr_buffer_size = *csr_len;</span></a>
-<a name="1742"><span class="lineNum">    1742 </span>                :            : </a>
-<a name="1743"><span class="lineNum">    1743 </span>                :<span class="lineCov">          5 :     ret = 1;</span></a>
-<a name="1744"><span class="lineNum">    1744 </span>     [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          5 :     switch (asym_nid)</span></a>
-<a name="1745"><span class="lineNum">    1745 </span>                :            :     {</a>
-<a name="1746"><span class="lineNum">    1746 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_CRYPTO_NID_RSASSA2048:</span></a>
-<a name="1747"><span class="lineNum">    1747 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSAPSS2048:</a>
-<a name="1748"><span class="lineNum">    1748 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSASSA3072:</a>
-<a name="1749"><span class="lineNum">    1749 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSAPSS3072:</a>
-<a name="1750"><span class="lineNum">    1750 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSASSA4096:</a>
-<a name="1751"><span class="lineNum">    1751 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSAPSS4096:</a>
-<a name="1752"><span class="lineNum">    1752 </span>                :<span class="lineNoCov">          0 :         ret = mbedtls_pk_setup(&amp;key, mbedtls_pk_info_from_type(MBEDTLS_PK_RSA));</span></a>
-<a name="1753"><span class="lineNum">    1753 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (ret != 0) {</span></a>
-<a name="1754"><span class="lineNum">    1754 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_pk_setup %d&quot;, ret));</span></a>
-<a name="1755"><span class="lineNum">    1755 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
-<a name="1756"><span class="lineNum">    1756 </span>                :            :         }</a>
-<a name="1757"><span class="lineNum">    1757 </span>                :<span class="lineNoCov">          0 :         ret = mbedtls_rsa_copy(mbedtls_pk_rsa(key), (mbedtls_rsa_context *)context);</span></a>
-<a name="1758"><span class="lineNum">    1758 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (ret != 0) {</span></a>
-<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_rsa_copy %d&quot;, ret));</span></a>
-<a name="1760"><span class="lineNum">    1760 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
-<a name="1761"><span class="lineNum">    1761 </span>                :            :         }</a>
-<a name="1762"><span class="lineNum">    1762 </span>                :<span class="lineNoCov">          0 :         ret = mbedtls_rsa_complete(mbedtls_pk_rsa(key));</span></a>
-<a name="1763"><span class="lineNum">    1763 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (ret != 0) {</span></a>
-<a name="1764"><span class="lineNum">    1764 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_rsa_complete %d&quot;, ret));</span></a>
-<a name="1765"><span class="lineNum">    1765 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
-<a name="1766"><span class="lineNum">    1766 </span>                :            :         }</a>
-<a name="1767"><span class="lineNum">    1767 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
-<a name="1768"><span class="lineNum">    1768 </span>                :<span class="lineCov">          5 :     case LIBSPDM_CRYPTO_NID_ECDSA_NIST_P256:</span></a>
-<a name="1769"><span class="lineNum">    1769 </span>                :            :     case LIBSPDM_CRYPTO_NID_ECDSA_NIST_P384:</a>
-<a name="1770"><span class="lineNum">    1770 </span>                :            :     case LIBSPDM_CRYPTO_NID_ECDSA_NIST_P521:</a>
-<a name="1771"><span class="lineNum">    1771 </span>                :<span class="lineCov">          5 :         ret = mbedtls_pk_setup(&amp;key, mbedtls_pk_info_from_type(MBEDTLS_PK_ECKEY));</span></a>
-<a name="1772"><span class="lineNum">    1772 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :         if (ret != 0) {</span></a>
-<a name="1773"><span class="lineNum">    1773 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_pk_setup %d&quot;, ret));</span></a>
-<a name="1774"><span class="lineNum">    1774 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
-<a name="1775"><span class="lineNum">    1775 </span>                :            :         }</a>
-<a name="1776"><span class="lineNum">    1776 </span>                :            :         /*mbedtls_ecdh_context include mbedtls_ecdsa_context,can be treated as mbedtls_ecdsa_context*/</a>
-<a name="1777"><span class="lineNum">    1777 </span>                :<span class="lineCov">          5 :         ret = mbedtls_ecdsa_from_keypair(mbedtls_pk_ec(key), (mbedtls_ecdsa_context *)context);</span></a>
-<a name="1778"><span class="lineNum">    1778 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :         if (ret != 0) {</span></a>
-<a name="1779"><span class="lineNum">    1779 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_ecdsa_from_keypair %d&quot;, ret));</span></a>
-<a name="1780"><span class="lineNum">    1780 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
-<a name="1781"><span class="lineNum">    1781 </span>                :            :         }</a>
-<a name="1782"><span class="lineNum">    1782 </span>                :<span class="lineCov">          5 :         break;</span></a>
-<a name="1783"><span class="lineNum">    1783 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
-<a name="1784"><span class="lineNum">    1784 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
-<a name="1785"><span class="lineNum">    1785 </span>                :            :     }</a>
-<a name="1786"><span class="lineNum">    1786 </span>                :            : </a>
-<a name="1787"><span class="lineNum">    1787 </span>  [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          5 :     switch (hash_nid)</span></a>
-<a name="1788"><span class="lineNum">    1788 </span>                :            :     {</a>
-<a name="1789"><span class="lineNum">    1789 </span>                :<span class="lineCov">          5 :     case LIBSPDM_CRYPTO_NID_SHA256:</span></a>
-<a name="1790"><span class="lineNum">    1790 </span>                :<span class="lineCov">          5 :         md_alg = MBEDTLS_MD_SHA256;</span></a>
-<a name="1791"><span class="lineNum">    1791 </span>                :<span class="lineCov">          5 :         break;</span></a>
-<a name="1792"><span class="lineNum">    1792 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_CRYPTO_NID_SHA384:</span></a>
-<a name="1793"><span class="lineNum">    1793 </span>                :<span class="lineNoCov">          0 :         md_alg = MBEDTLS_MD_SHA384;</span></a>
-<a name="1794"><span class="lineNum">    1794 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
-<a name="1795"><span class="lineNum">    1795 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_CRYPTO_NID_SHA512:</span></a>
-<a name="1796"><span class="lineNum">    1796 </span>                :<span class="lineNoCov">          0 :         md_alg = MBEDTLS_MD_SHA512;</span></a>
-<a name="1797"><span class="lineNum">    1797 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
-<a name="1798"><span class="lineNum">    1798 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
-<a name="1799"><span class="lineNum">    1799 </span>                :<span class="lineNoCov">          0 :         ret = 1;</span></a>
-<a name="1800"><span class="lineNum">    1800 </span>                :<span class="lineNoCov">          0 :         goto free_all;</span></a>
-<a name="1801"><span class="lineNum">    1801 </span>                :            :     }</a>
-<a name="1802"><span class="lineNum">    1802 </span>                :            : </a>
-<a name="1803"><span class="lineNum">    1803 </span>                :            :     /* requester info parse*/</a>
-<a name="1804"><span class="lineNum">    1804 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          5 :     if (requester_info_length != 0) {</span></a>
-<a name="1805"><span class="lineNum">    1805 </span>                :<span class="lineCov">          2 :         result = libspdm_set_attribute_for_req(&amp;req, requester_info, requester_info_length);</span></a>
-<a name="1806"><span class="lineNum">    1806 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :         if (!result) {</span></a>
-<a name="1807"><span class="lineNum">    1807 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;set_attribute failed !\n&quot;));</span></a>
-<a name="1808"><span class="lineNum">    1808 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
-<a name="1809"><span class="lineNum">    1809 </span>                :            :         }</a>
-<a name="1810"><span class="lineNum">    1810 </span>                :            :     }</a>
-<a name="1811"><span class="lineNum">    1811 </span>                :            : </a>
-<a name="1812"><span class="lineNum">    1812 </span>                :            :     /* Set the md alg */</a>
-<a name="1813"><span class="lineNum">    1813 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_set_md_alg(&amp;req, md_alg);</span></a>
-<a name="1814"><span class="lineNum">    1814 </span>                :            : </a>
-<a name="1815"><span class="lineNum">    1815 </span>                :            :     /* Set the subject name */</a>
-<a name="1816"><span class="lineNum">    1816 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :     if (subject_name != NULL) {</span></a>
-<a name="1817"><span class="lineNum">    1817 </span>                :<span class="lineCov">          5 :         ret = mbedtls_x509write_csr_set_subject_name(&amp;req, subject_name);</span></a>
-<a name="1818"><span class="lineNum">    1818 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :         if (ret != 0) {</span></a>
-<a name="1819"><span class="lineNum">    1819 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,</span></a>
-<a name="1820"><span class="lineNum">    1820 </span>                :            :                            &quot;failed\n ! mbedtls_x509write_csr_set_subject_name returned %d&quot;, ret));</a>
-<a name="1821"><span class="lineNum">    1821 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
-<a name="1822"><span class="lineNum">    1822 </span>                :            :         }</a>
-<a name="1823"><span class="lineNum">    1823 </span>                :            :     }</a>
-<a name="1824"><span class="lineNum">    1824 </span>                :            : </a>
-<a name="1825"><span class="lineNum">    1825 </span>                :            :     /* Set key */</a>
-<a name="1826"><span class="lineNum">    1826 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_set_key(&amp;req, &amp;key);</span></a>
-<a name="1827"><span class="lineNum">    1827 </span>                :            : </a>
-<a name="1828"><span class="lineNum">    1828 </span>                :            :     /*csr data is written at the end of the buffer*/</a>
-<a name="1829"><span class="lineNum">    1829 </span>                :<span class="lineCov">          5 :     ret = mbedtls_x509write_csr_der(&amp;req, csr_pointer, csr_buffer_size, libspdm_myrand, NULL);</span></a>
-<a name="1830"><span class="lineNum">    1830 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :     if (ret &lt;= 0) {</span></a>
-<a name="1831"><span class="lineNum">    1831 </span>                :<span class="lineNoCov">          0 :         ret = 1;</span></a>
-<a name="1832"><span class="lineNum">    1832 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;mbedtls_x509write_csr_der failed \n&quot;));</span></a>
-<a name="1833"><span class="lineNum">    1833 </span>                :<span class="lineNoCov">          0 :         goto free_all;</span></a>
-<a name="1834"><span class="lineNum">    1834 </span>                :            :     }</a>
-<a name="1835"><span class="lineNum">    1835 </span>                :            : </a>
-<a name="1836"><span class="lineNum">    1836 </span>                :<span class="lineCov">          5 :     *csr_len = (size_t)ret;</span></a>
-<a name="1837"><span class="lineNum">    1837 </span>                :            :     /*make csr_pointer store csr data*/</a>
-<a name="1838"><span class="lineNum">    1838 </span>                :<span class="lineCov">          5 :     memmove(csr_pointer, csr_pointer + csr_buffer_size - *csr_len, *csr_len);</span></a>
-<a name="1839"><span class="lineNum">    1839 </span>                :            : </a>
-<a name="1840"><span class="lineNum">    1840 </span>                :<span class="lineCov">          5 :     ret = 0;</span></a>
-<a name="1841"><span class="lineNum">    1841 </span>                :<span class="lineCov">          5 : free_all:</span></a>
-<a name="1842"><span class="lineNum">    1842 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_free(&amp;req);</span></a>
-<a name="1843"><span class="lineNum">    1843 </span>                :<span class="lineCov">          5 :     mbedtls_pk_free(&amp;key);</span></a>
-<a name="1844"><span class="lineNum">    1844 </span>                :            : </a>
-<a name="1845"><span class="lineNum">    1845 </span>                :<span class="lineCov">          5 :     return(ret == 0);</span></a>
-<a name="1846"><span class="lineNum">    1846 </span>                :            : }</a>
-<a name="1847"><span class="lineNum">    1847 </span>                :            : </a>
-<a name="1848"><span class="lineNum">    1848 </span>                :            : #endif</a>
+<a name="1632"><span class="lineNum">    1632 </span>                :            :     /*[0]: attributes*/</a>
+<a name="1633"><span class="lineNum">    1633 </span>                :<span class="lineCov">          2 :     ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1634"><span class="lineNum">    1634 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_CONTEXT_SPECIFIC |</a>
+<a name="1635"><span class="lineNum">    1635 </span>                :            :                                LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
+<a name="1636"><span class="lineNum">    1636 </span>                :            :     /*there is no attributes*/</a>
+<a name="1637"><span class="lineNum">    1637 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :     if (ptr == end) {</span></a>
+<a name="1638"><span class="lineNum">    1638 </span>                :<span class="lineNoCov">          0 :         return true;</span></a>
+<a name="1639"><span class="lineNum">    1639 </span>                :            :     }</a>
+<a name="1640"><span class="lineNum">    1640 </span>                :            : </a>
+<a name="1641"><span class="lineNum">    1641 </span>                :            :     /*there is some attributes object: 1,2 ...*/</a>
+<a name="1642"><span class="lineNum">    1642 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          4 :     while (ret)</span></a>
+<a name="1643"><span class="lineNum">    1643 </span>                :            :     {</a>
+<a name="1644"><span class="lineNum">    1644 </span>                :<span class="lineCov">          2 :         ret = libspdm_asn1_get_tag(&amp;ptr, end, &amp;obj_len,</span></a>
+<a name="1645"><span class="lineNum">    1645 </span>                :            :                                    LIBSPDM_CRYPTO_ASN1_SEQUENCE |</a>
+<a name="1646"><span class="lineNum">    1646 </span>                :            :                                    LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
+<a name="1647"><span class="lineNum">    1647 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :         if (ret) {</span></a>
+<a name="1648"><span class="lineNum">    1648 </span>                :            :             /*save old positon*/</a>
+<a name="1649"><span class="lineNum">    1649 </span>                :<span class="lineCov">          2 :             ptr_old = ptr;</span></a>
+<a name="1650"><span class="lineNum">    1650 </span>                :            : </a>
+<a name="1651"><span class="lineNum">    1651 </span>                :            :             /*move to the next sequence*/</a>
+<a name="1652"><span class="lineNum">    1652 </span>                :<span class="lineCov">          2 :             ptr += obj_len;</span></a>
+<a name="1653"><span class="lineNum">    1653 </span>                :            : </a>
+<a name="1654"><span class="lineNum">    1654 </span>                :            :             /*get attributes oid*/</a>
+<a name="1655"><span class="lineNum">    1655 </span>                :<span class="lineCov">          2 :             ret = libspdm_asn1_get_tag(&amp;ptr_old, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_OID);</span></a>
+<a name="1656"><span class="lineNum">    1656 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (!ret) {</span></a>
+<a name="1657"><span class="lineNum">    1657 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
+<a name="1658"><span class="lineNum">    1658 </span>                :            :             }</a>
+<a name="1659"><span class="lineNum">    1659 </span>                :<span class="lineCov">          2 :             oid = ptr_old;</span></a>
+<a name="1660"><span class="lineNum">    1660 </span>                :<span class="lineCov">          2 :             oid_len = obj_len;</span></a>
+<a name="1661"><span class="lineNum">    1661 </span>                :            : </a>
+<a name="1662"><span class="lineNum">    1662 </span>                :<span class="lineCov">          2 :             ptr_old += obj_len;</span></a>
+<a name="1663"><span class="lineNum">    1663 </span>                :            :             /*get attributes val*/</a>
+<a name="1664"><span class="lineNum">    1664 </span>                :<span class="lineCov">          2 :             ret = libspdm_asn1_get_tag(&amp;ptr_old, end, &amp;obj_len,</span></a>
+<a name="1665"><span class="lineNum">    1665 </span>                :            :                                        LIBSPDM_CRYPTO_ASN1_SET |</a>
+<a name="1666"><span class="lineNum">    1666 </span>                :            :                                        LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);</a>
+<a name="1667"><span class="lineNum">    1667 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (!ret) {</span></a>
+<a name="1668"><span class="lineNum">    1668 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
+<a name="1669"><span class="lineNum">    1669 </span>                :            :             }</a>
+<a name="1670"><span class="lineNum">    1670 </span>                :<span class="lineCov">          2 :             ret = libspdm_asn1_get_tag(&amp;ptr_old, end, &amp;obj_len, LIBSPDM_CRYPTO_ASN1_UTF8_STRING);</span></a>
+<a name="1671"><span class="lineNum">    1671 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (!ret) {</span></a>
+<a name="1672"><span class="lineNum">    1672 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
+<a name="1673"><span class="lineNum">    1673 </span>                :            :             }</a>
+<a name="1674"><span class="lineNum">    1674 </span>                :<span class="lineCov">          2 :             val = ptr_old;</span></a>
+<a name="1675"><span class="lineNum">    1675 </span>                :<span class="lineCov">          2 :             val_len = obj_len;</span></a>
+<a name="1676"><span class="lineNum">    1676 </span>                :            : </a>
+<a name="1677"><span class="lineNum">    1677 </span>                :            :             /*set attributes*/</a>
+<a name="1678"><span class="lineNum">    1678 </span>                :<span class="lineCov">          2 :             ret = mbedtls_x509write_csr_set_extension(req, oid, oid_len, val, val_len);</span></a>
+<a name="1679"><span class="lineNum">    1679 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :             if (ret) {</span></a>
+<a name="1680"><span class="lineNum">    1680 </span>                :<span class="lineNoCov">          0 :                 return false;</span></a>
+<a name="1681"><span class="lineNum">    1681 </span>                :            :             }</a>
+<a name="1682"><span class="lineNum">    1682 </span>                :            : </a>
+<a name="1683"><span class="lineNum">    1683 </span>                :            :         } else {</a>
+<a name="1684"><span class="lineNum">    1684 </span>                :<span class="lineNoCov">          0 :             break;</span></a>
+<a name="1685"><span class="lineNum">    1685 </span>                :            :         }</a>
+<a name="1686"><span class="lineNum">    1686 </span>                :            :     }</a>
+<a name="1687"><span class="lineNum">    1687 </span>                :            : </a>
+<a name="1688"><span class="lineNum">    1688 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          2 :     if (ptr == end) {</span></a>
+<a name="1689"><span class="lineNum">    1689 </span>                :<span class="lineCov">          2 :         return true;</span></a>
+<a name="1690"><span class="lineNum">    1690 </span>                :            :     } else {</a>
+<a name="1691"><span class="lineNum">    1691 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
+<a name="1692"><span class="lineNum">    1692 </span>                :            :     }</a>
+<a name="1693"><span class="lineNum">    1693 </span>                :            : }</a>
+<a name="1694"><span class="lineNum">    1694 </span>                :            : </a>
+<a name="1695"><span class="lineNum">    1695 </span>                :            : /**</a>
+<a name="1696"><span class="lineNum">    1696 </span>                :            :  * Gen CSR</a>
+<a name="1697"><span class="lineNum">    1697 </span>                :            :  *</a>
+<a name="1698"><span class="lineNum">    1698 </span>                :            :  * @param[in]      hash_nid              hash algo for sign</a>
+<a name="1699"><span class="lineNum">    1699 </span>                :            :  * @param[in]      asym_nid              asym algo for sign</a>
+<a name="1700"><span class="lineNum">    1700 </span>                :            :  *</a>
+<a name="1701"><span class="lineNum">    1701 </span>                :            :  * @param[in]      requester_info        requester info to gen CSR</a>
+<a name="1702"><span class="lineNum">    1702 </span>                :            :  * @param[in]      requester_info_length The len of requester info</a>
+<a name="1703"><span class="lineNum">    1703 </span>                :            :  *</a>
+<a name="1704"><span class="lineNum">    1704 </span>                :            :  * @param[in]      context               Pointer to asymmetric context</a>
+<a name="1705"><span class="lineNum">    1705 </span>                :            :  * @param[in]      subject_name          Subject name: should be break with ',' in the middle</a>
+<a name="1706"><span class="lineNum">    1706 </span>                :            :  *                                       example: &quot;C=AA,CN=BB&quot;</a>
+<a name="1707"><span class="lineNum">    1707 </span>                :            :  * Subject names should contain a comma-separated list of OID types and values:</a>
+<a name="1708"><span class="lineNum">    1708 </span>                :            :  * The valid OID type name is in:</a>
+<a name="1709"><span class="lineNum">    1709 </span>                :            :  * {&quot;CN&quot;, &quot;commonName&quot;, &quot;C&quot;, &quot;countryName&quot;, &quot;O&quot;, &quot;organizationName&quot;,&quot;L&quot;,</a>
+<a name="1710"><span class="lineNum">    1710 </span>                :            :  * &quot;OU&quot;, &quot;organizationalUnitName&quot;, &quot;ST&quot;, &quot;stateOrProvinceName&quot;, &quot;emailAddress&quot;,</a>
+<a name="1711"><span class="lineNum">    1711 </span>                :            :  * &quot;serialNumber&quot;, &quot;postalAddress&quot;, &quot;postalCode&quot;, &quot;dnQualifier&quot;, &quot;title&quot;,</a>
+<a name="1712"><span class="lineNum">    1712 </span>                :            :  * &quot;SN&quot;,&quot;givenName&quot;,&quot;GN&quot;, &quot;initials&quot;, &quot;pseudonym&quot;, &quot;generationQualifier&quot;, &quot;domainComponent&quot;, &quot;DC&quot;}.</a>
+<a name="1713"><span class="lineNum">    1713 </span>                :            :  * Note: The object of C and countryName should be CSR Supported Country Codes</a>
+<a name="1714"><span class="lineNum">    1714 </span>                :            :  *</a>
+<a name="1715"><span class="lineNum">    1715 </span>                :            :  * @param[in]      csr_len               For input, csr_len is the size of store CSR buffer.</a>
+<a name="1716"><span class="lineNum">    1716 </span>                :            :  *                                       For output, csr_len is CSR len for DER format</a>
+<a name="1717"><span class="lineNum">    1717 </span>                :            :  * @param[in]      csr_pointer           For input, csr_pointer is buffer address to store CSR.</a>
+<a name="1718"><span class="lineNum">    1718 </span>                :            :  *                                       For output, csr_pointer is address for stored CSR.</a>
+<a name="1719"><span class="lineNum">    1719 </span>                :            :  *                                       The csr_pointer address will be changed.</a>
+<a name="1720"><span class="lineNum">    1720 </span>                :            :  *</a>
+<a name="1721"><span class="lineNum">    1721 </span>                :            :  * @retval  true   Success.</a>
+<a name="1722"><span class="lineNum">    1722 </span>                :            :  * @retval  false  Failed to gen CSR.</a>
+<a name="1723"><span class="lineNum">    1723 </span>                :            :  **/</a>
+<a name="1724"><span class="lineNum">    1724 </span>                :<span class="lineCov">          5 : bool libspdm_gen_x509_csr(size_t hash_nid, size_t asym_nid,</span></a>
+<a name="1725"><span class="lineNum">    1725 </span>                :            :                           uint8_t *requester_info, size_t requester_info_length,</a>
+<a name="1726"><span class="lineNum">    1726 </span>                :            :                           void *context, char *subject_name,</a>
+<a name="1727"><span class="lineNum">    1727 </span>                :            :                           size_t *csr_len, uint8_t *csr_pointer)</a>
+<a name="1728"><span class="lineNum">    1728 </span>                :            : {</a>
+<a name="1729"><span class="lineNum">    1729 </span>                :            :     int ret;</a>
+<a name="1730"><span class="lineNum">    1730 </span>                :            :     bool result;</a>
+<a name="1731"><span class="lineNum">    1731 </span>                :            :     size_t csr_buffer_size;</a>
+<a name="1732"><span class="lineNum">    1732 </span>                :            : </a>
+<a name="1733"><span class="lineNum">    1733 </span>                :            :     mbedtls_x509write_csr req;</a>
+<a name="1734"><span class="lineNum">    1734 </span>                :            :     mbedtls_md_type_t md_alg;</a>
+<a name="1735"><span class="lineNum">    1735 </span>                :            :     mbedtls_pk_context key;</a>
+<a name="1736"><span class="lineNum">    1736 </span>                :            : </a>
+<a name="1737"><span class="lineNum">    1737 </span>                :            :     /* Init */</a>
+<a name="1738"><span class="lineNum">    1738 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_init(&amp;req);</span></a>
+<a name="1739"><span class="lineNum">    1739 </span>                :<span class="lineCov">          5 :     mbedtls_pk_init(&amp;key);</span></a>
+<a name="1740"><span class="lineNum">    1740 </span>                :<span class="lineCov">          5 :     csr_buffer_size = *csr_len;</span></a>
+<a name="1741"><span class="lineNum">    1741 </span>                :            : </a>
+<a name="1742"><span class="lineNum">    1742 </span>                :<span class="lineCov">          5 :     ret = 1;</span></a>
+<a name="1743"><span class="lineNum">    1743 </span>     [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">          5 :     switch (asym_nid)</span></a>
+<a name="1744"><span class="lineNum">    1744 </span>                :            :     {</a>
+<a name="1745"><span class="lineNum">    1745 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_CRYPTO_NID_RSASSA2048:</span></a>
+<a name="1746"><span class="lineNum">    1746 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSAPSS2048:</a>
+<a name="1747"><span class="lineNum">    1747 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSASSA3072:</a>
+<a name="1748"><span class="lineNum">    1748 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSAPSS3072:</a>
+<a name="1749"><span class="lineNum">    1749 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSASSA4096:</a>
+<a name="1750"><span class="lineNum">    1750 </span>                :            :     case LIBSPDM_CRYPTO_NID_RSAPSS4096:</a>
+<a name="1751"><span class="lineNum">    1751 </span>                :<span class="lineNoCov">          0 :         ret = mbedtls_pk_setup(&amp;key, mbedtls_pk_info_from_type(MBEDTLS_PK_RSA));</span></a>
+<a name="1752"><span class="lineNum">    1752 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (ret != 0) {</span></a>
+<a name="1753"><span class="lineNum">    1753 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_pk_setup %d&quot;, ret));</span></a>
+<a name="1754"><span class="lineNum">    1754 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
+<a name="1755"><span class="lineNum">    1755 </span>                :            :         }</a>
+<a name="1756"><span class="lineNum">    1756 </span>                :<span class="lineNoCov">          0 :         ret = mbedtls_rsa_copy(mbedtls_pk_rsa(key), (mbedtls_rsa_context *)context);</span></a>
+<a name="1757"><span class="lineNum">    1757 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (ret != 0) {</span></a>
+<a name="1758"><span class="lineNum">    1758 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_rsa_copy %d&quot;, ret));</span></a>
+<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
+<a name="1760"><span class="lineNum">    1760 </span>                :            :         }</a>
+<a name="1761"><span class="lineNum">    1761 </span>                :<span class="lineNoCov">          0 :         ret = mbedtls_rsa_complete(mbedtls_pk_rsa(key));</span></a>
+<a name="1762"><span class="lineNum">    1762 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (ret != 0) {</span></a>
+<a name="1763"><span class="lineNum">    1763 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_rsa_complete %d&quot;, ret));</span></a>
+<a name="1764"><span class="lineNum">    1764 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
+<a name="1765"><span class="lineNum">    1765 </span>                :            :         }</a>
+<a name="1766"><span class="lineNum">    1766 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
+<a name="1767"><span class="lineNum">    1767 </span>                :<span class="lineCov">          5 :     case LIBSPDM_CRYPTO_NID_ECDSA_NIST_P256:</span></a>
+<a name="1768"><span class="lineNum">    1768 </span>                :            :     case LIBSPDM_CRYPTO_NID_ECDSA_NIST_P384:</a>
+<a name="1769"><span class="lineNum">    1769 </span>                :            :     case LIBSPDM_CRYPTO_NID_ECDSA_NIST_P521:</a>
+<a name="1770"><span class="lineNum">    1770 </span>                :<span class="lineCov">          5 :         ret = mbedtls_pk_setup(&amp;key, mbedtls_pk_info_from_type(MBEDTLS_PK_ECKEY));</span></a>
+<a name="1771"><span class="lineNum">    1771 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :         if (ret != 0) {</span></a>
+<a name="1772"><span class="lineNum">    1772 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_pk_setup %d&quot;, ret));</span></a>
+<a name="1773"><span class="lineNum">    1773 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
+<a name="1774"><span class="lineNum">    1774 </span>                :            :         }</a>
+<a name="1775"><span class="lineNum">    1775 </span>                :            :         /*mbedtls_ecdh_context include mbedtls_ecdsa_context,can be treated as mbedtls_ecdsa_context*/</a>
+<a name="1776"><span class="lineNum">    1776 </span>                :<span class="lineCov">          5 :         ret = mbedtls_ecdsa_from_keypair(mbedtls_pk_ec(key), (mbedtls_ecdsa_context *)context);</span></a>
+<a name="1777"><span class="lineNum">    1777 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :         if (ret != 0) {</span></a>
+<a name="1778"><span class="lineNum">    1778 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;failed\n ! mbedtls_ecdsa_from_keypair %d&quot;, ret));</span></a>
+<a name="1779"><span class="lineNum">    1779 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
+<a name="1780"><span class="lineNum">    1780 </span>                :            :         }</a>
+<a name="1781"><span class="lineNum">    1781 </span>                :<span class="lineCov">          5 :         break;</span></a>
+<a name="1782"><span class="lineNum">    1782 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
+<a name="1783"><span class="lineNum">    1783 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
+<a name="1784"><span class="lineNum">    1784 </span>                :            :     }</a>
+<a name="1785"><span class="lineNum">    1785 </span>                :            : </a>
+<a name="1786"><span class="lineNum">    1786 </span>  [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          5 :     switch (hash_nid)</span></a>
+<a name="1787"><span class="lineNum">    1787 </span>                :            :     {</a>
+<a name="1788"><span class="lineNum">    1788 </span>                :<span class="lineCov">          5 :     case LIBSPDM_CRYPTO_NID_SHA256:</span></a>
+<a name="1789"><span class="lineNum">    1789 </span>                :<span class="lineCov">          5 :         md_alg = MBEDTLS_MD_SHA256;</span></a>
+<a name="1790"><span class="lineNum">    1790 </span>                :<span class="lineCov">          5 :         break;</span></a>
+<a name="1791"><span class="lineNum">    1791 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_CRYPTO_NID_SHA384:</span></a>
+<a name="1792"><span class="lineNum">    1792 </span>                :<span class="lineNoCov">          0 :         md_alg = MBEDTLS_MD_SHA384;</span></a>
+<a name="1793"><span class="lineNum">    1793 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
+<a name="1794"><span class="lineNum">    1794 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_CRYPTO_NID_SHA512:</span></a>
+<a name="1795"><span class="lineNum">    1795 </span>                :<span class="lineNoCov">          0 :         md_alg = MBEDTLS_MD_SHA512;</span></a>
+<a name="1796"><span class="lineNum">    1796 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
+<a name="1797"><span class="lineNum">    1797 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
+<a name="1798"><span class="lineNum">    1798 </span>                :<span class="lineNoCov">          0 :         ret = 1;</span></a>
+<a name="1799"><span class="lineNum">    1799 </span>                :<span class="lineNoCov">          0 :         goto free_all;</span></a>
+<a name="1800"><span class="lineNum">    1800 </span>                :            :     }</a>
+<a name="1801"><span class="lineNum">    1801 </span>                :            : </a>
+<a name="1802"><span class="lineNum">    1802 </span>                :            :     /* requester info parse*/</a>
+<a name="1803"><span class="lineNum">    1803 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          5 :     if (requester_info_length != 0) {</span></a>
+<a name="1804"><span class="lineNum">    1804 </span>                :<span class="lineCov">          2 :         result = libspdm_set_attribute_for_req(&amp;req, requester_info, requester_info_length);</span></a>
+<a name="1805"><span class="lineNum">    1805 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          2 :         if (!result) {</span></a>
+<a name="1806"><span class="lineNum">    1806 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;set_attribute failed !\n&quot;));</span></a>
+<a name="1807"><span class="lineNum">    1807 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
+<a name="1808"><span class="lineNum">    1808 </span>                :            :         }</a>
+<a name="1809"><span class="lineNum">    1809 </span>                :            :     }</a>
+<a name="1810"><span class="lineNum">    1810 </span>                :            : </a>
+<a name="1811"><span class="lineNum">    1811 </span>                :            :     /* Set the md alg */</a>
+<a name="1812"><span class="lineNum">    1812 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_set_md_alg(&amp;req, md_alg);</span></a>
+<a name="1813"><span class="lineNum">    1813 </span>                :            : </a>
+<a name="1814"><span class="lineNum">    1814 </span>                :            :     /* Set the subject name */</a>
+<a name="1815"><span class="lineNum">    1815 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          5 :     if (subject_name != NULL) {</span></a>
+<a name="1816"><span class="lineNum">    1816 </span>                :<span class="lineCov">          5 :         ret = mbedtls_x509write_csr_set_subject_name(&amp;req, subject_name);</span></a>
+<a name="1817"><span class="lineNum">    1817 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :         if (ret != 0) {</span></a>
+<a name="1818"><span class="lineNum">    1818 </span>                :<span class="lineNoCov">          0 :             LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,</span></a>
+<a name="1819"><span class="lineNum">    1819 </span>                :            :                            &quot;failed\n ! mbedtls_x509write_csr_set_subject_name returned %d&quot;, ret));</a>
+<a name="1820"><span class="lineNum">    1820 </span>                :<span class="lineNoCov">          0 :             goto free_all;</span></a>
+<a name="1821"><span class="lineNum">    1821 </span>                :            :         }</a>
+<a name="1822"><span class="lineNum">    1822 </span>                :            :     }</a>
+<a name="1823"><span class="lineNum">    1823 </span>                :            : </a>
+<a name="1824"><span class="lineNum">    1824 </span>                :            :     /* Set key */</a>
+<a name="1825"><span class="lineNum">    1825 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_set_key(&amp;req, &amp;key);</span></a>
+<a name="1826"><span class="lineNum">    1826 </span>                :            : </a>
+<a name="1827"><span class="lineNum">    1827 </span>                :            :     /*csr data is written at the end of the buffer*/</a>
+<a name="1828"><span class="lineNum">    1828 </span>                :<span class="lineCov">          5 :     ret = mbedtls_x509write_csr_der(&amp;req, csr_pointer, csr_buffer_size, libspdm_myrand, NULL);</span></a>
+<a name="1829"><span class="lineNum">    1829 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :     if (ret &lt;= 0) {</span></a>
+<a name="1830"><span class="lineNum">    1830 </span>                :<span class="lineNoCov">          0 :         ret = 1;</span></a>
+<a name="1831"><span class="lineNum">    1831 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_DEBUG((LIBSPDM_DEBUG_INFO,&quot;mbedtls_x509write_csr_der failed \n&quot;));</span></a>
+<a name="1832"><span class="lineNum">    1832 </span>                :<span class="lineNoCov">          0 :         goto free_all;</span></a>
+<a name="1833"><span class="lineNum">    1833 </span>                :            :     }</a>
+<a name="1834"><span class="lineNum">    1834 </span>                :            : </a>
+<a name="1835"><span class="lineNum">    1835 </span>                :<span class="lineCov">          5 :     *csr_len = (size_t)ret;</span></a>
+<a name="1836"><span class="lineNum">    1836 </span>                :            :     /*make csr_pointer store csr data*/</a>
+<a name="1837"><span class="lineNum">    1837 </span>                :<span class="lineCov">          5 :     memmove(csr_pointer, csr_pointer + csr_buffer_size - *csr_len, *csr_len);</span></a>
+<a name="1838"><span class="lineNum">    1838 </span>                :            : </a>
+<a name="1839"><span class="lineNum">    1839 </span>                :<span class="lineCov">          5 :     ret = 0;</span></a>
+<a name="1840"><span class="lineNum">    1840 </span>                :<span class="lineCov">          5 : free_all:</span></a>
+<a name="1841"><span class="lineNum">    1841 </span>                :<span class="lineCov">          5 :     mbedtls_x509write_csr_free(&amp;req);</span></a>
+<a name="1842"><span class="lineNum">    1842 </span>                :<span class="lineCov">          5 :     mbedtls_pk_free(&amp;key);</span></a>
+<a name="1843"><span class="lineNum">    1843 </span>                :            : </a>
+<a name="1844"><span class="lineNum">    1844 </span>                :<span class="lineCov">          5 :     return(ret == 0);</span></a>
+<a name="1845"><span class="lineNum">    1845 </span>                :            : }</a>
+<a name="1846"><span class="lineNum">    1846 </span>                :            : </a>
+<a name="1847"><span class="lineNum">    1847 </span>                :            : #endif</a>
 </pre>
       </td>
     </tr>
