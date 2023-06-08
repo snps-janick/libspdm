@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-07 08:05:12</td>
+            <td class="headerValue">2023-06-08 08:04:05</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -1536,7 +1536,7 @@
 <a name="1460"><span class="lineNum">    1460 </span>                :<span class="lineCov">        178 :     return true;</span></a>
 <a name="1461"><span class="lineNum">    1461 </span>                :            : }</a>
 <a name="1462"><span class="lineNum">    1462 </span>                :            : </a>
-<a name="1463"><span class="lineNum">    1463 </span>                :<span class="lineCov">          9 : bool libspdm_verify_req_info(uint8_t *req_info, uint16_t req_info_len)</span></a>
+<a name="1463"><span class="lineNum">    1463 </span>                :<span class="lineCov">         10 : bool libspdm_verify_req_info(uint8_t *req_info, uint16_t req_info_len)</span></a>
 <a name="1464"><span class="lineNum">    1464 </span>                :            : {</a>
 <a name="1465"><span class="lineNum">    1465 </span>                :            :     bool ret;</a>
 <a name="1466"><span class="lineNum">    1466 </span>                :            :     uint8_t *ptr;</a>
@@ -1544,14 +1544,14 @@
 <a name="1468"><span class="lineNum">    1468 </span>                :            :     size_t obj_len;</a>
 <a name="1469"><span class="lineNum">    1469 </span>                :            :     uint8_t *end;</a>
 <a name="1470"><span class="lineNum">    1470 </span>                :            : </a>
-<a name="1471"><span class="lineNum">    1471 </span>                :<span class="lineCov">          9 :     length = (int32_t)req_info_len;</span></a>
-<a name="1472"><span class="lineNum">    1472 </span>                :<span class="lineCov">          9 :     ptr = req_info;</span></a>
-<a name="1473"><span class="lineNum">    1473 </span>                :<span class="lineCov">          9 :     obj_len = 0;</span></a>
-<a name="1474"><span class="lineNum">    1474 </span>                :<span class="lineCov">          9 :     end = ptr + length;</span></a>
-<a name="1475"><span class="lineNum">    1475 </span>                :<span class="lineCov">          9 :     ret = true;</span></a>
+<a name="1471"><span class="lineNum">    1471 </span>                :<span class="lineCov">         10 :     length = (int32_t)req_info_len;</span></a>
+<a name="1472"><span class="lineNum">    1472 </span>                :<span class="lineCov">         10 :     ptr = req_info;</span></a>
+<a name="1473"><span class="lineNum">    1473 </span>                :<span class="lineCov">         10 :     obj_len = 0;</span></a>
+<a name="1474"><span class="lineNum">    1474 </span>                :<span class="lineCov">         10 :     end = ptr + length;</span></a>
+<a name="1475"><span class="lineNum">    1475 </span>                :<span class="lineCov">         10 :     ret = true;</span></a>
 <a name="1476"><span class="lineNum">    1476 </span>                :            : </a>
-<a name="1477"><span class="lineNum">    1477 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          9 :     if (req_info_len == 0) {</span></a>
-<a name="1478"><span class="lineNum">    1478 </span>                :<span class="lineCov">          3 :         return true;</span></a>
+<a name="1477"><span class="lineNum">    1477 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         10 :     if (req_info_len == 0) {</span></a>
+<a name="1478"><span class="lineNum">    1478 </span>                :<span class="lineCov">          4 :         return true;</span></a>
 <a name="1479"><span class="lineNum">    1479 </span>                :            :     }</a>
 <a name="1480"><span class="lineNum">    1480 </span>                :            : </a>
 <a name="1481"><span class="lineNum">    1481 </span>                :            :     /*req_info sequence*/</a>
