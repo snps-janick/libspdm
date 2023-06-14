@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-13 08:05:26</td>
+            <td class="headerValue">2023-06-14 08:04:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">28</td>
@@ -253,7 +253,7 @@
 <a name="174"><span class="lineNum">     174 </span>                :<span class="lineCov">          1 :                              libspdm_get_hash_size(m_libspdm_use_hash_algo) +</span></a>
 <a name="175"><span class="lineNum">     175 </span>                :<span class="lineCov">          1 :                              SPDM_NONCE_SIZE + 0 + sizeof(uint16_t) + 0 +</span></a>
 <a name="176"><span class="lineNum">     176 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size(m_libspdm_use_asym_algo);</span></a>
-<a name="177"><span class="lineNum">     177 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="177"><span class="lineNum">     177 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="178"><span class="lineNum">     178 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="179"><span class="lineNum">     179 </span>                :            : </a>
 <a name="180"><span class="lineNum">     180 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -336,7 +336,7 @@
 <a name="257"><span class="lineNum">     257 </span>                :<span class="lineNoCov">          0 :                              libspdm_get_hash_size(m_libspdm_use_hash_algo) +</span></a>
 <a name="258"><span class="lineNum">     258 </span>                :<span class="lineNoCov">          0 :                              SPDM_NONCE_SIZE + 0 + sizeof(uint16_t) + 0 +</span></a>
 <a name="259"><span class="lineNum">     259 </span>                :<span class="lineNoCov">          0 :                              libspdm_get_asym_signature_size(m_libspdm_use_asym_algo);</span></a>
-<a name="260"><span class="lineNum">     260 </span>                :<span class="lineNoCov">          0 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="260"><span class="lineNum">     260 </span>                :<span class="lineNoCov">          0 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="261"><span class="lineNum">     261 </span>                :<span class="lineNoCov">          0 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="262"><span class="lineNum">     262 </span>                :            : </a>
 <a name="263"><span class="lineNum">     263 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -391,7 +391,7 @@
 <a name="312"><span class="lineNum">     312 </span>                :            :         size_t transport_header_size;</a>
 <a name="313"><span class="lineNum">     313 </span>                :            : </a>
 <a name="314"><span class="lineNum">     314 </span>                :<span class="lineCov">          1 :         spdm_response_size = sizeof(spdm_error_response_t);</span></a>
-<a name="315"><span class="lineNum">     315 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="315"><span class="lineNum">     315 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="316"><span class="lineNum">     316 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="317"><span class="lineNum">     317 </span>                :            : </a>
 <a name="318"><span class="lineNum">     318 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -412,7 +412,7 @@
 <a name="333"><span class="lineNum">     333 </span>                :            :         size_t transport_header_size;</a>
 <a name="334"><span class="lineNum">     334 </span>                :            : </a>
 <a name="335"><span class="lineNum">     335 </span>                :<span class="lineCov">          1 :         spdm_response_size = sizeof(spdm_error_response_t);</span></a>
-<a name="336"><span class="lineNum">     336 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="336"><span class="lineNum">     336 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="337"><span class="lineNum">     337 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="338"><span class="lineNum">     338 </span>                :            : </a>
 <a name="339"><span class="lineNum">     339 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -435,7 +435,7 @@
 <a name="356"><span class="lineNum">     356 </span>                :            :             size_t transport_header_size;</a>
 <a name="357"><span class="lineNum">     357 </span>                :            : </a>
 <a name="358"><span class="lineNum">     358 </span>                :<span class="lineCov">          1 :             spdm_response_size = sizeof(spdm_error_response_t);</span></a>
-<a name="359"><span class="lineNum">     359 </span>                :<span class="lineCov">          1 :             transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="359"><span class="lineNum">     359 </span>                :<span class="lineCov">          1 :             transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="360"><span class="lineNum">     360 </span>                :<span class="lineCov">          1 :             spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="361"><span class="lineNum">     361 </span>                :            : </a>
 <a name="362"><span class="lineNum">     362 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.spdm_version =</span></a>
@@ -479,7 +479,7 @@
 <a name="400"><span class="lineNum">     400 </span>                :<span class="lineCov">          1 :                 libspdm_get_hash_size(m_libspdm_use_hash_algo) +</span></a>
 <a name="401"><span class="lineNum">     401 </span>                :<span class="lineCov">          1 :                 SPDM_NONCE_SIZE + 0 + sizeof(uint16_t) + 0 +</span></a>
 <a name="402"><span class="lineNum">     402 </span>                :<span class="lineCov">          1 :                 libspdm_get_asym_signature_size(m_libspdm_use_asym_algo);</span></a>
-<a name="403"><span class="lineNum">     403 </span>                :<span class="lineCov">          1 :             transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="403"><span class="lineNum">     403 </span>                :<span class="lineCov">          1 :             transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="404"><span class="lineNum">     404 </span>                :<span class="lineCov">          1 :             spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="405"><span class="lineNum">     405 </span>                :            : </a>
 <a name="406"><span class="lineNum">     406 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.spdm_version =</span></a>
@@ -541,7 +541,7 @@
 <a name="462"><span class="lineNum">     462 </span>                :            :         size_t transport_header_size;</a>
 <a name="463"><span class="lineNum">     463 </span>                :            : </a>
 <a name="464"><span class="lineNum">     464 </span>                :<span class="lineCov">          1 :         spdm_response_size = sizeof(spdm_error_response_t);</span></a>
-<a name="465"><span class="lineNum">     465 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="465"><span class="lineNum">     465 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="466"><span class="lineNum">     466 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="467"><span class="lineNum">     467 </span>                :            : </a>
 <a name="468"><span class="lineNum">     468 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -562,7 +562,7 @@
 <a name="483"><span class="lineNum">     483 </span>                :            :         size_t transport_header_size;</a>
 <a name="484"><span class="lineNum">     484 </span>                :            : </a>
 <a name="485"><span class="lineNum">     485 </span>                :<span class="lineCov">          2 :         spdm_response_size = sizeof(spdm_error_response_data_response_not_ready_t);</span></a>
-<a name="486"><span class="lineNum">     486 </span>                :<span class="lineCov">          2 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="486"><span class="lineNum">     486 </span>                :<span class="lineCov">          2 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="487"><span class="lineNum">     487 </span>                :<span class="lineCov">          2 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="488"><span class="lineNum">     488 </span>                :            : </a>
 <a name="489"><span class="lineNum">     489 </span>                :<span class="lineCov">          2 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -591,7 +591,7 @@
 <a name="512"><span class="lineNum">     512 </span>                :            :             size_t transport_header_size;</a>
 <a name="513"><span class="lineNum">     513 </span>                :            : </a>
 <a name="514"><span class="lineNum">     514 </span>                :<span class="lineCov">          1 :             spdm_response_size = sizeof(spdm_error_response_data_response_not_ready_t);</span></a>
-<a name="515"><span class="lineNum">     515 </span>                :<span class="lineCov">          1 :             transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="515"><span class="lineNum">     515 </span>                :<span class="lineCov">          1 :             transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="516"><span class="lineNum">     516 </span>                :<span class="lineCov">          1 :             spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="517"><span class="lineNum">     517 </span>                :            : </a>
 <a name="518"><span class="lineNum">     518 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.spdm_version =</span></a>
@@ -641,7 +641,7 @@
 <a name="562"><span class="lineNum">     562 </span>                :<span class="lineCov">          1 :                 libspdm_get_hash_size(m_libspdm_use_hash_algo) +</span></a>
 <a name="563"><span class="lineNum">     563 </span>                :<span class="lineCov">          1 :                 SPDM_NONCE_SIZE + 0 + sizeof(uint16_t) + 0 +</span></a>
 <a name="564"><span class="lineNum">     564 </span>                :<span class="lineCov">          1 :                 libspdm_get_asym_signature_size(m_libspdm_use_asym_algo);</span></a>
-<a name="565"><span class="lineNum">     565 </span>                :<span class="lineCov">          1 :             transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="565"><span class="lineNum">     565 </span>                :<span class="lineCov">          1 :             transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="566"><span class="lineNum">     566 </span>                :<span class="lineCov">          1 :             spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="567"><span class="lineNum">     567 </span>                :            : </a>
 <a name="568"><span class="lineNum">     568 </span>                :<span class="lineCov">          1 :             spdm_response-&gt;header.spdm_version =</span></a>
@@ -725,7 +725,7 @@
 <a name="646"><span class="lineNum">     646 </span>                :            :                              0 +</a>
 <a name="647"><span class="lineNum">     647 </span>                :<span class="lineNoCov">          0 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="648"><span class="lineNum">     648 </span>                :<span class="lineNoCov">          0 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="649"><span class="lineNum">     649 </span>                :<span class="lineNoCov">          0 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="649"><span class="lineNum">     649 </span>                :<span class="lineNoCov">          0 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="650"><span class="lineNum">     650 </span>                :<span class="lineNoCov">          0 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="651"><span class="lineNum">     651 </span>                :            : </a>
 <a name="652"><span class="lineNum">     652 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -775,7 +775,7 @@
 <a name="696"><span class="lineNum">     696 </span>                :            :         size_t spdm_response_size;</a>
 <a name="697"><span class="lineNum">     697 </span>                :            :         size_t transport_header_size;</a>
 <a name="698"><span class="lineNum">     698 </span>                :            : </a>
-<a name="699"><span class="lineNum">     699 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="699"><span class="lineNum">     699 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="700"><span class="lineNum">     700 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="701"><span class="lineNum">     701 </span>                :<span class="lineCov">          1 :         spdm_response_size = sizeof(spdm_challenge_auth_response_t) - 1; /*smaller than standard message size*/</span></a>
 <a name="702"><span class="lineNum">     702 </span>                :            : </a>
@@ -817,7 +817,7 @@
 <a name="738"><span class="lineNum">     738 </span>                :<span class="lineCov">          1 :                              libspdm_get_hash_size (m_libspdm_use_hash_algo) +</span></a>
 <a name="739"><span class="lineNum">     739 </span>                :<span class="lineCov">          1 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="740"><span class="lineNum">     740 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="741"><span class="lineNum">     741 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="741"><span class="lineNum">     741 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="742"><span class="lineNum">     742 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="743"><span class="lineNum">     743 </span>                :            : </a>
 <a name="744"><span class="lineNum">     744 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_10; /*wrong version*/</span></a>
@@ -889,7 +889,7 @@
 <a name="810"><span class="lineNum">     810 </span>                :            :                              0 +</a>
 <a name="811"><span class="lineNum">     811 </span>                :<span class="lineCov">          1 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="812"><span class="lineNum">     812 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="813"><span class="lineNum">     813 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="813"><span class="lineNum">     813 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="814"><span class="lineNum">     814 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="815"><span class="lineNum">     815 </span>                :            : </a>
 <a name="816"><span class="lineNum">     816 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -961,7 +961,7 @@
 <a name="882"><span class="lineNum">     882 </span>                :            :                              0 +</a>
 <a name="883"><span class="lineNum">     883 </span>                :<span class="lineCov">          1 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="884"><span class="lineNum">     884 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="885"><span class="lineNum">     885 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="885"><span class="lineNum">     885 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="886"><span class="lineNum">     886 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="887"><span class="lineNum">     887 </span>                :            : </a>
 <a name="888"><span class="lineNum">     888 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1033,7 +1033,7 @@
 <a name="954"><span class="lineNum">     954 </span>                :            :                              0 +</a>
 <a name="955"><span class="lineNum">     955 </span>                :<span class="lineNoCov">          0 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="956"><span class="lineNum">     956 </span>                :<span class="lineNoCov">          0 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="957"><span class="lineNum">     957 </span>                :<span class="lineNoCov">          0 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="957"><span class="lineNum">     957 </span>                :<span class="lineNoCov">          0 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="958"><span class="lineNum">     958 </span>                :<span class="lineNoCov">          0 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="959"><span class="lineNum">     959 </span>                :            : </a>
 <a name="960"><span class="lineNum">     960 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1105,7 +1105,7 @@
 <a name="1026"><span class="lineNum">    1026 </span>                :            :                              0 +</a>
 <a name="1027"><span class="lineNum">    1027 </span>                :<span class="lineCov">          1 :                              sizeof(uint16_t) + 8 +</span></a>
 <a name="1028"><span class="lineNum">    1028 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="1029"><span class="lineNum">    1029 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1029"><span class="lineNum">    1029 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1030"><span class="lineNum">    1030 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1031"><span class="lineNum">    1031 </span>                :            : </a>
 <a name="1032"><span class="lineNum">    1032 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1180,7 +1180,7 @@
 <a name="1101"><span class="lineNum">    1101 </span>                :            :                              0 +</a>
 <a name="1102"><span class="lineNum">    1102 </span>                :<span class="lineCov">          1 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="1103"><span class="lineNum">    1103 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="1104"><span class="lineNum">    1104 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1104"><span class="lineNum">    1104 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1105"><span class="lineNum">    1105 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1106"><span class="lineNum">    1106 </span>                :            : </a>
 <a name="1107"><span class="lineNum">    1107 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1255,7 +1255,7 @@
 <a name="1176"><span class="lineNum">    1176 </span>                :<span class="lineCov">          2 :                              libspdm_get_hash_size (m_libspdm_use_hash_algo) +</span></a>
 <a name="1177"><span class="lineNum">    1177 </span>                :<span class="lineCov">          2 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="1178"><span class="lineNum">    1178 </span>                :<span class="lineCov">          2 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="1179"><span class="lineNum">    1179 </span>                :<span class="lineCov">          2 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1179"><span class="lineNum">    1179 </span>                :<span class="lineCov">          2 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1180"><span class="lineNum">    1180 </span>                :<span class="lineCov">          2 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1181"><span class="lineNum">    1181 </span>                :            : </a>
 <a name="1182"><span class="lineNum">    1182 </span>                :<span class="lineCov">          2 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1309,7 +1309,7 @@
 <a name="1230"><span class="lineNum">    1230 </span>                :            : </a>
 <a name="1231"><span class="lineNum">    1231 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         18 :         if(error_code &lt;= 0xff) {</span></a>
 <a name="1232"><span class="lineNum">    1232 </span>                :<span class="lineCov">         18 :             spdm_response_size = sizeof(spdm_error_response_t);</span></a>
-<a name="1233"><span class="lineNum">    1233 </span>                :<span class="lineCov">         18 :             transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1233"><span class="lineNum">    1233 </span>                :<span class="lineCov">         18 :             transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1234"><span class="lineNum">    1234 </span>                :<span class="lineCov">         18 :             spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1235"><span class="lineNum">    1235 </span>                :            : </a>
 <a name="1236"><span class="lineNum">    1236 </span>                :<span class="lineCov">         18 :             spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1363,7 +1363,7 @@
 <a name="1284"><span class="lineNum">    1284 </span>                :            :                              0 +</a>
 <a name="1285"><span class="lineNum">    1285 </span>                :<span class="lineNoCov">          0 :                              sizeof(uint16_t) + 0 +</span></a>
 <a name="1286"><span class="lineNum">    1286 </span>                :<span class="lineNoCov">          0 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="1287"><span class="lineNum">    1287 </span>                :<span class="lineNoCov">          0 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1287"><span class="lineNum">    1287 </span>                :<span class="lineNoCov">          0 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1288"><span class="lineNum">    1288 </span>                :<span class="lineNoCov">          0 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1289"><span class="lineNum">    1289 </span>                :            : </a>
 <a name="1290"><span class="lineNum">    1290 </span>                :<span class="lineNoCov">          0 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1429,7 +1429,7 @@
 <a name="1350"><span class="lineNum">    1350 </span>                :<span class="lineCov">          1 :                              libspdm_get_hash_size(m_libspdm_use_hash_algo) +</span></a>
 <a name="1351"><span class="lineNum">    1351 </span>                :<span class="lineCov">          1 :                              SPDM_NONCE_SIZE + 0 + sizeof(uint16_t) + 0 +</span></a>
 <a name="1352"><span class="lineNum">    1352 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size(m_libspdm_use_asym_algo);</span></a>
-<a name="1353"><span class="lineNum">    1353 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1353"><span class="lineNum">    1353 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1354"><span class="lineNum">    1354 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1355"><span class="lineNum">    1355 </span>                :            : </a>
 <a name="1356"><span class="lineNum">    1356 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1515,7 +1515,7 @@
 <a name="1436"><span class="lineNum">    1436 </span>                :<span class="lineCov">          2 :                              libspdm_get_hash_size(m_libspdm_use_hash_algo) +</span></a>
 <a name="1437"><span class="lineNum">    1437 </span>                :<span class="lineCov">          2 :                              SPDM_NONCE_SIZE + 0 + sizeof(uint16_t) + 0 +</span></a>
 <a name="1438"><span class="lineNum">    1438 </span>                :<span class="lineCov">          2 :                              libspdm_get_asym_signature_size(m_libspdm_use_asym_algo);</span></a>
-<a name="1439"><span class="lineNum">    1439 </span>                :<span class="lineCov">          2 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1439"><span class="lineNum">    1439 </span>                :<span class="lineCov">          2 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1440"><span class="lineNum">    1440 </span>                :<span class="lineCov">          2 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1441"><span class="lineNum">    1441 </span>                :            : </a>
 <a name="1442"><span class="lineNum">    1442 </span>                :<span class="lineCov">          2 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1596,7 +1596,7 @@
 <a name="1517"><span class="lineNum">    1517 </span>                :<span class="lineCov">          1 :                              libspdm_get_hash_size(m_libspdm_use_hash_algo) +</span></a>
 <a name="1518"><span class="lineNum">    1518 </span>                :<span class="lineCov">          1 :                              SPDM_NONCE_SIZE + 0 + sizeof(uint16_t) + 0 +</span></a>
 <a name="1519"><span class="lineNum">    1519 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size(m_libspdm_use_asym_algo);</span></a>
-<a name="1520"><span class="lineNum">    1520 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1520"><span class="lineNum">    1520 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1521"><span class="lineNum">    1521 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1522"><span class="lineNum">    1522 </span>                :            : </a>
 <a name="1523"><span class="lineNum">    1523 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1682,7 +1682,7 @@
 <a name="1603"><span class="lineNum">    1603 </span>                :<span class="lineCov">          1 :                              sizeof(uint16_t) +</span></a>
 <a name="1604"><span class="lineNum">    1604 </span>                :<span class="lineCov">          1 :                              opaque_length +</span></a>
 <a name="1605"><span class="lineNum">    1605 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="1606"><span class="lineNum">    1606 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1606"><span class="lineNum">    1606 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1607"><span class="lineNum">    1607 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1608"><span class="lineNum">    1608 </span>                :            : </a>
 <a name="1609"><span class="lineNum">    1609 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_11;</span></a>
@@ -1806,7 +1806,7 @@
 <a name="1727"><span class="lineNum">    1727 </span>                :            :                              0 +</a>
 <a name="1728"><span class="lineNum">    1728 </span>                :<span class="lineCov">          2 :                              sizeof(uint16_t) + m_libspdm_opaque_data_size +</span></a>
 <a name="1729"><span class="lineNum">    1729 </span>                :<span class="lineCov">          1 :                              libspdm_get_asym_signature_size (m_libspdm_use_asym_algo);</span></a>
-<a name="1730"><span class="lineNum">    1730 </span>                :<span class="lineCov">          1 :         transport_header_size = libspdm_transport_test_get_header_size(spdm_context);</span></a>
+<a name="1730"><span class="lineNum">    1730 </span>                :<span class="lineCov">          1 :         transport_header_size = LIBSPDM_TEST_TRANSPORT_HEADER_SIZE;</span></a>
 <a name="1731"><span class="lineNum">    1731 </span>                :<span class="lineCov">          1 :         spdm_response = (void *)((uint8_t *)*response + transport_header_size);</span></a>
 <a name="1732"><span class="lineNum">    1732 </span>                :            : </a>
 <a name="1733"><span class="lineNum">    1733 </span>                :<span class="lineCov">          1 :         spdm_response-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_12;</span></a>

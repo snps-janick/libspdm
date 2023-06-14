@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-13 08:05:26</td>
+            <td class="headerValue">2023-06-14 08:04:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -104,7 +104,7 @@
 <a name="33"><span class="lineNum">      33 </span>                :            :                    request_size));</a>
 <a name="34"><span class="lineNum">      34 </span>                :<span class="lineCov">       2498 :     LIBSPDM_INTERNAL_DUMP_HEX(request, request_size);</span></a>
 <a name="35"><span class="lineNum">      35 </span>                :            : </a>
-<a name="36"><span class="lineNum">      36 </span>                :<span class="lineCov">       2498 :     transport_header_size = context-&gt;transport_get_header_size(context);</span></a>
+<a name="36"><span class="lineNum">      36 </span>                :<span class="lineCov">       2498 :     transport_header_size = context-&gt;local_context.capability.transport_header_size;</span></a>
 <a name="37"><span class="lineNum">      37 </span>                :<span class="lineCov">       2498 :     libspdm_get_scratch_buffer(context, (void**) &amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="38"><span class="lineNum">      38 </span>                :<span class="lineCov">       2498 :     libspdm_get_sender_buffer(context, (void**) &amp;sender_buffer, &amp;sender_buffer_size);</span></a>
 <a name="39"><span class="lineNum">      39 </span>                :            : </a>
@@ -236,7 +236,7 @@
 <a name="165"><span class="lineNum">     165 </span>                :            :     /* always use scratch buffer to response.</a>
 <a name="166"><span class="lineNum">     166 </span>                :            :      * if it is secured message, this scratch buffer will be used.</a>
 <a name="167"><span class="lineNum">     167 </span>                :            :      * if it is normal message, the response ptr will point to receiver buffer. */</a>
-<a name="168"><span class="lineNum">     168 </span>                :<span class="lineCov">       2464 :     transport_header_size = context-&gt;transport_get_header_size(context);</span></a>
+<a name="168"><span class="lineNum">     168 </span>                :<span class="lineCov">       2464 :     transport_header_size = context-&gt;local_context.capability.transport_header_size;</span></a>
 <a name="169"><span class="lineNum">     169 </span>                :<span class="lineCov">       2464 :     libspdm_get_scratch_buffer (context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="170"><span class="lineNum">     170 </span>                :            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="171"><span class="lineNum">     171 </span>                :<span class="lineCov">       2464 :     *response = scratch_buffer + libspdm_get_scratch_buffer_secure_message_offset(context) +</span></a>
@@ -402,7 +402,7 @@
 <a name="331"><span class="lineNum">     331 </span>                :            :     }</a>
 <a name="332"><span class="lineNum">     332 </span>                :            : </a>
 <a name="333"><span class="lineNum">     333 </span>                :            :     /* now we can get sender buffer */</a>
-<a name="334"><span class="lineNum">     334 </span>                :<span class="lineCov">         10 :     transport_header_size = spdm_context-&gt;transport_get_header_size(spdm_context);</span></a>
+<a name="334"><span class="lineNum">     334 </span>                :<span class="lineCov">         10 :     transport_header_size = spdm_context-&gt;local_context.capability.transport_header_size;</span></a>
 <a name="335"><span class="lineNum">     335 </span>                :            : </a>
 <a name="336"><span class="lineNum">     336 </span>                :<span class="lineCov">         10 :     libspdm_get_scratch_buffer(spdm_context, (void**) &amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="337"><span class="lineNum">     337 </span>                :            : </a>

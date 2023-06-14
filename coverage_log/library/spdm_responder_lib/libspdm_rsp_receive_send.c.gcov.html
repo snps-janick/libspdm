@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-13 08:05:26</td>
+            <td class="headerValue">2023-06-14 08:04:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
@@ -235,7 +235,7 @@
 <a name="164"><span class="lineNum">     164 </span>                :            :     /* always use scratch buffer to response.</a>
 <a name="165"><span class="lineNum">     165 </span>                :            :      * if it is secured message, this scratch buffer will be used.</a>
 <a name="166"><span class="lineNum">     166 </span>                :            :      * if it is normal message, the response ptr will point to receiver buffer. */</a>
-<a name="167"><span class="lineNum">     167 </span>                :<span class="lineNoCov">          0 :     transport_header_size = context-&gt;transport_get_header_size(context);</span></a>
+<a name="167"><span class="lineNum">     167 </span>                :<span class="lineNoCov">          0 :     transport_header_size = context-&gt;local_context.capability.transport_header_size;</span></a>
 <a name="168"><span class="lineNum">     168 </span>                :<span class="lineNoCov">          0 :     libspdm_get_scratch_buffer (context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="169"><span class="lineNum">     169 </span>                :            :     #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
 <a name="170"><span class="lineNum">     170 </span>                :<span class="lineNoCov">          0 :     decoded_message_ptr = scratch_buffer +</span></a>
@@ -513,7 +513,7 @@
 <a name="442"><span class="lineNum">     442 </span>                :            : </a>
 <a name="443"><span class="lineNum">     443 </span>                :            :     /* For secure message, setup my_response to scratch buffer</a>
 <a name="444"><span class="lineNum">     444 </span>                :            :      * For non-secure message, setup my_response to sender buffer*/</a>
-<a name="445"><span class="lineNum">     445 </span>                :<span class="lineCov">          3 :     transport_header_size = context-&gt;transport_get_header_size(context);</span></a>
+<a name="445"><span class="lineNum">     445 </span>                :<span class="lineCov">          3 :     transport_header_size = context-&gt;local_context.capability.transport_header_size;</span></a>
 <a name="446"><span class="lineNum">     446 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span>]:<span class="lineCov">          3 :     if (session_id != NULL) {</span></a>
 <a name="447"><span class="lineNum">     447 </span>                :<span class="lineNoCov">          0 :         libspdm_get_scratch_buffer (context, (void **)&amp;scratch_buffer, &amp;scratch_buffer_size);</span></a>
 <a name="448"><span class="lineNum">     448 </span>                :            :         #if LIBSPDM_ENABLE_CAPABILITY_CHUNK_CAP</a>
