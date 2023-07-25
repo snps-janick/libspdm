@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-07-24 08:04:48</td>
+            <td class="headerValue">2023-07-25 08:04:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">35</td>
@@ -476,7 +476,7 @@
 <a name="393"><span class="lineNum">     393 </span>                :            :         size_t transport_header_size;</a>
 <a name="394"><span class="lineNum">     394 </span>                :            : </a>
 <a name="395"><span class="lineNum">     395 </span>                :<span class="lineCov">          1 :         ((libspdm_context_t *)spdm_context)-&gt;connection_info.secured_message_version =</span></a>
-<a name="396"><span class="lineNum">     396 </span>                :            :             SPDM_MESSAGE_VERSION_11 &lt;&lt; SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
+<a name="396"><span class="lineNum">     396 </span>                :            :             SECURED_SPDM_VERSION_11 &lt;&lt; SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
 <a name="397"><span class="lineNum">     397 </span>                :            :         ((libspdm_context_t *)spdm_context)</a>
 <a name="398"><span class="lineNum">     398 </span>                :<span class="lineCov">          1 :         -&gt;connection_info.algorithm.base_asym_algo =</span></a>
 <a name="399"><span class="lineNum">     399 </span>                :            :             m_libspdm_use_asym_algo;</a>
@@ -4366,7 +4366,7 @@
 <a name="4283"><span class="lineNum">    4283 </span>                :            :         size_t transport_header_size;</a>
 <a name="4284"><span class="lineNum">    4284 </span>                :            : </a>
 <a name="4285"><span class="lineNum">    4285 </span>                :<span class="lineNoCov">          0 :         ((libspdm_context_t *)spdm_context)-&gt;connection_info.secured_message_version =</span></a>
-<a name="4286"><span class="lineNum">    4286 </span>                :            :             SPDM_MESSAGE_VERSION_11 &lt;&lt; SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
+<a name="4286"><span class="lineNum">    4286 </span>                :            :             SECURED_SPDM_VERSION_11 &lt;&lt; SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
 <a name="4287"><span class="lineNum">    4287 </span>                :            :         ((libspdm_context_t *)spdm_context)</a>
 <a name="4288"><span class="lineNum">    4288 </span>                :<span class="lineNoCov">          0 :         -&gt;connection_info.algorithm.base_asym_algo =</span></a>
 <a name="4289"><span class="lineNum">    4289 </span>                :            :             m_libspdm_use_asym_algo;</a>
@@ -4772,7 +4772,7 @@
 <a name="4689"><span class="lineNum">    4689 </span>                :            :         SPDM_GET_CAPABILITIES_REQUEST_FLAGS_KEY_EX_CAP;</a>
 <a name="4690"><span class="lineNum">    4690 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.secured_message_version.spdm_version_count = 1;</span></a>
 <a name="4691"><span class="lineNum">    4691 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.secured_message_version.spdm_version[0] =</span></a>
-<a name="4692"><span class="lineNum">    4692 </span>                :            :         SPDM_MESSAGE_VERSION_11 &lt;&lt; SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
+<a name="4692"><span class="lineNum">    4692 </span>                :            :         SECURED_SPDM_VERSION_11 &lt;&lt; SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
 <a name="4693"><span class="lineNum">    4693 </span>                :<span class="lineCov">          1 :     libspdm_read_responder_public_certificate_chain(m_libspdm_use_hash_algo,</span></a>
 <a name="4694"><span class="lineNum">    4694 </span>                :            :                                                     m_libspdm_use_asym_algo, &amp;data,</a>
 <a name="4695"><span class="lineNum">    4695 </span>                :            :                                                     &amp;data_size, &amp;hash, &amp;hash_size);</a>
