@@ -466,11 +466,11 @@ libspdm_return_t libspdm_decode_secured_message(
         if (cipher_text_size > *app_message_size) {
             return LIBSPDM_STATUS_BUFFER_TOO_SMALL;
         }
-        libspdm_zero_mem(*app_message, *app_message_size);
         enc_msg_header = (void *)(record_header2 + 1);
         a_data = (const uint8_t *)record_header1;
         enc_msg = (const uint8_t *)enc_msg_header;
         dec_msg = (uint8_t *)*app_message;
+        libspdm_zero_mem(dec_msg, *app_message_size);
         enc_msg_header = (void *)dec_msg;
         tag = (const uint8_t *)record_header1 + record_header_size + cipher_text_size;
         result = libspdm_aead_decryption(
