@@ -48,7 +48,6 @@ SET(src_cryptlib_openssl
     pk/rsa_ext.c
     pk/x509.c
     rand/rand.c
-    sys_call/crt_wrapper_host.c
 )
 
 if ((ARCH STREQUAL "arm") OR (ARCH STREQUAL "aarch64"))
