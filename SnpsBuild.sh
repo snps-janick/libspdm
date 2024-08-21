@@ -35,7 +35,7 @@ echo "Building liblibspdm.so..."
       && ar x ../lib/libspdm_crypt_lib.a \
       && ar x ../lib/libcryptlib_openssl.a \
       && ar x ../lib/libspdm_device_secret_lib_null.a \
-      && ar x ../lib/libdebuglib_null.a \
+      && ar x ../lib/libdebuglib.a \
       && ar x ../lib/libplatform_lib_null.a \
       && ar x ../lib/libmalloclib.a \
       && ar x ../lib/libmemlib.a \

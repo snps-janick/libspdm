@@ -18,6 +18,15 @@
 #include "hal/base.h"
 #include "internal/libspdm_lib_config.h"
 
+/**
+ * Dynamically control the debug print verbosity -- assuming it has been compiled in
+ * By default, only LIBSPDM_DEBUG_ERROR are printed.
+ *
+ * @param  error_level  Bit-wise OR of the error level of the debug message, LIBSPDM_DEBUG_INFO and/or LIBSPDM_DEBUG_ERROR.
+ */
+extern void libspdm_set_debug_level(size_t error_level);
+
+
 #if LIBSPDM_DEBUG_PRINT_ENABLE
 
 /* Declare bits for the error_level parameter of libspdm_debug_print(). */

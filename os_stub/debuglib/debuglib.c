@@ -14,6 +14,17 @@
 
 #include "library/debuglib.h"
 
+#ifndef LIBSPDM_DEBUG_LEVEL_CONFIG
+#define LIBSPDM_DEBUG_LEVEL_CONFIG LIBSPDM_DEBUG_ERROR
+#endif
+
+static size_t sDebugLevel = LIBSPDM_DEBUG_LEVEL_CONFIG;
+
+void libspdm_set_debug_level(size_t error_level)
+{
+    sDebugLevel = error_level;
+}
+
 #if LIBSPDM_DEBUG_ASSERT_ENABLE
 #define LIBSPDM_DEBUG_LIBSPDM_ASSERT_NATIVE 0
 #define LIBSPDM_DEBUG_LIBSPDM_ASSERT_DEADLOOP 1
@@ -21,12 +32,13 @@
 #define LIBSPDM_DEBUG_LIBSPDM_ASSERT_EXIT 3
 
 #ifndef LIBSPDM_DEBUG_LIBSPDM_ASSERT_CONFIG
-#define LIBSPDM_DEBUG_LIBSPDM_ASSERT_CONFIG LIBSPDM_DEBUG_LIBSPDM_ASSERT_DEADLOOP
+#define LIBSPDM_DEBUG_LIBSPDM_ASSERT_CONFIG LIBSPDM_DEBUG_LIBSPDM_ASSERT_NATIVE
 #endif
 
 void libspdm_debug_assert(const char *file_name, size_t line_number, const char *description)
 {
     printf("LIBSPDM_ASSERT: %s(%zu): %s\n", file_name, line_number, description);
+    fflush(stdout);
 
 #if (LIBSPDM_DEBUG_LIBSPDM_ASSERT_CONFIG == LIBSPDM_DEBUG_LIBSPDM_ASSERT_DEADLOOP)
     {
@@ -54,16 +66,13 @@ void libspdm_debug_assert(const char *file_name, size_t line_number, const char 
 /* Define the maximum debug and assert message length that this library supports. */
 #define LIBSPDM_MAX_DEBUG_MESSAGE_LENGTH 0x100
 
-#ifndef LIBSPDM_DEBUG_LEVEL_CONFIG
-#define LIBSPDM_DEBUG_LEVEL_CONFIG (LIBSPDM_DEBUG_INFO | LIBSPDM_DEBUG_ERROR)
-#endif
 
 void libspdm_debug_print(size_t error_level, const char *format, ...)
 {
     char buffer[LIBSPDM_MAX_DEBUG_MESSAGE_LENGTH];
     va_list marker;
 
-    if ((error_level & LIBSPDM_DEBUG_LEVEL_CONFIG) == 0) {
+    if ((error_level & sDebugLevel) == 0) {
         return;
     }
 
