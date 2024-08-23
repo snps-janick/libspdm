@@ -418,7 +418,7 @@ void libspdm_secured_message_set_last_spdm_error_struct(
  * @retval RETURN_SUCCESS  SPDM HandshakeKey for a session is generated.
  **/
 bool libspdm_generate_session_handshake_key(void *spdm_secured_message_context,
-                                            const uint8_t *th1_hash_data);
+                                            const uint8_t *th1_hash_data, void* user_context);
 
 /**
  * This function generates SPDM DataKey for a session.
@@ -429,7 +429,7 @@ bool libspdm_generate_session_handshake_key(void *spdm_secured_message_context,
  * @retval RETURN_SUCCESS  SPDM DataKey for a session is generated.
  **/
 bool libspdm_generate_session_data_key(void *spdm_secured_message_context,
-                                       const uint8_t *th2_hash_data);
+                                       const uint8_t *th2_hash_data, void* user_context);
 
 /**
  * This function creates the updates of SPDM DataKey for a session.

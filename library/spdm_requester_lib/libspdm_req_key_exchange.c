@@ -708,7 +708,7 @@ static libspdm_return_t libspdm_try_send_receive_key_exchange(
         goto receive_done;
     }
     result = libspdm_generate_session_handshake_key(
-        session_info->secured_message_context, th1_hash_data);
+        session_info->secured_message_context, th1_hash_data, spdm_context->user);
     if (!result) {
         libspdm_free_session_id(spdm_context, *session_id);
         status = LIBSPDM_STATUS_CRYPTO_ERROR;

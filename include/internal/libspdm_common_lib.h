@@ -570,6 +570,9 @@ typedef struct {
      * This field is ignored for other SPDM versions */
     uint8_t spdm_10_11_verify_signature_endian;
 
+    /* User Data */
+    void *user;
+    
 } libspdm_context_t;
 
 #define LIBSPDM_CONTEXT_SIZE_WITHOUT_SECURED_CONTEXT (sizeof(libspdm_context_t))

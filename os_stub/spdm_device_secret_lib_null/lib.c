@@ -109,7 +109,7 @@ bool libspdm_psk_handshake_secret_hkdf_expand(
     size_t psk_hint_size,
     const uint8_t *info,
     size_t info_size,
-    uint8_t *out, size_t out_size)
+    uint8_t *out, size_t out_size, void* user)
 {
     return false;
 }
@@ -121,7 +121,7 @@ bool libspdm_psk_master_secret_hkdf_expand(
     size_t psk_hint_size,
     const uint8_t *info,
     size_t info_size, uint8_t *out,
-    size_t out_size)
+    size_t out_size, void* user)
 {
     return false;
 }

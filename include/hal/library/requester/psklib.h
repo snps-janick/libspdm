@@ -30,7 +30,7 @@ extern bool libspdm_psk_handshake_secret_hkdf_expand(
     spdm_version_number_t spdm_version,
     uint32_t base_hash_algo, const uint8_t *psk_hint,
     size_t psk_hint_size, const uint8_t *info,
-    size_t info_size, uint8_t *out, size_t out_size);
+    size_t info_size, uint8_t *out, size_t out_size, void* user);
 
 /**
  * Derive HMAC-based Expand key Derivation Function (HKDF) Expand, based upon the negotiated HKDF
@@ -52,7 +52,7 @@ extern bool libspdm_psk_master_secret_hkdf_expand(
     uint32_t base_hash_algo,
     const uint8_t *psk_hint, size_t psk_hint_size,
     const uint8_t *info, size_t info_size,
-    uint8_t *out, size_t out_size);
+    uint8_t *out, size_t out_size, void* user);
 #endif /* LIBSPDM_ENABLE_CAPABILITY_PSK_CAP */
 
 #endif /* REQUESTER_PSKLIB_H */

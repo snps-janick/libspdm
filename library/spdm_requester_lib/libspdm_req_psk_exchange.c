@@ -489,7 +489,7 @@ static libspdm_return_t libspdm_try_send_receive_psk_exchange(
         goto receive_done;
     }
     result = libspdm_generate_session_handshake_key(
-        session_info->secured_message_context, th1_hash_data);
+        session_info->secured_message_context, th1_hash_data, spdm_context->user);
     if (!result) {
         libspdm_free_session_id(spdm_context, *session_id);
         status = LIBSPDM_STATUS_CRYPTO_ERROR;
@@ -539,7 +539,7 @@ static libspdm_return_t libspdm_try_send_receive_psk_exchange(
             goto receive_done;
         }
         result = libspdm_generate_session_data_key(
-            session_info->secured_message_context, th2_hash_data);
+            session_info->secured_message_context, th2_hash_data, spdm_context->user);
         if (!result) {
             libspdm_free_session_id(spdm_context, *session_id);
             status = LIBSPDM_STATUS_CRYPTO_ERROR;

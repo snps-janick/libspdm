@@ -633,7 +633,7 @@ libspdm_return_t libspdm_get_response_finish(libspdm_context_t *spdm_context, si
                                                response_size, response);
     }
     result = libspdm_generate_session_data_key(
-        session_info->secured_message_context, th2_hash_data);
+        session_info->secured_message_context, th2_hash_data, spdm_context->user);
     if (!result) {
         return libspdm_generate_error_response(spdm_context,
                                                SPDM_ERROR_CODE_UNSPECIFIED, 0,

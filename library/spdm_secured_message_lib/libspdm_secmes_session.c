@@ -174,7 +174,7 @@ bool libspdm_generate_finished_key(
  * @retval RETURN_SUCCESS  SPDM HandshakeKey for a session is generated.
  **/
 bool libspdm_generate_session_handshake_key(void *spdm_secured_message_context,
-                                            const uint8_t *th1_hash_data)
+                                            const uint8_t *th1_hash_data, void* user_context)
 {
     bool status;
     size_t hash_size;
@@ -230,7 +230,7 @@ bool libspdm_generate_session_handshake_key(void *spdm_secured_message_context,
             secured_message_context->psk_hint_size, bin_str1,
             bin_str1_size,
             secured_message_context->handshake_secret.request_handshake_secret,
-            hash_size);
+            hash_size, user_context);
 
         if (!status) {
             return false;
@@ -273,7 +273,7 @@ bool libspdm_generate_session_handshake_key(void *spdm_secured_message_context,
             secured_message_context->psk_hint_size, bin_str2,
             bin_str2_size,
             secured_message_context->handshake_secret.response_handshake_secret,
-            hash_size);
+            hash_size, user_context);
 
         if (!status) {
             return false;
@@ -351,7 +351,7 @@ bool libspdm_generate_session_handshake_key(void *spdm_secured_message_context,
  * @retval RETURN_SUCCESS  SPDM DataKey for a session is generated.
  **/
 bool libspdm_generate_session_data_key(void *spdm_secured_message_context,
-                                       const uint8_t *th2_hash_data)
+                                       const uint8_t *th2_hash_data, void* user_context)
 {
     bool status;
     size_t hash_size;
@@ -426,7 +426,7 @@ bool libspdm_generate_session_data_key(void *spdm_secured_message_context,
             secured_message_context->psk_hint_size, bin_str3,
             bin_str3_size,
             secured_message_context->application_secret.request_data_secret,
-            hash_size);
+            hash_size, user_context);
 
         if (!status) {
             goto cleanup;
@@ -469,7 +469,7 @@ bool libspdm_generate_session_data_key(void *spdm_secured_message_context,
             secured_message_context->psk_hint_size, bin_str4,
             bin_str4_size,
             secured_message_context->application_secret.response_data_secret,
-            hash_size);
+            hash_size, user_context);
 
         if (!status) {
             goto cleanup;
@@ -513,7 +513,7 @@ bool libspdm_generate_session_data_key(void *spdm_secured_message_context,
             secured_message_context->psk_hint_size, bin_str8,
             bin_str8_size,
             secured_message_context->export_master_secret,
-            hash_size);
+            hash_size, user_context);
 
         if (!status) {
             goto cleanup;

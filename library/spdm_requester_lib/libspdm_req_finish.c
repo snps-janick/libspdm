@@ -576,7 +576,7 @@ static libspdm_return_t libspdm_try_send_receive_finish(libspdm_context_t *spdm_
         goto receive_done;
     }
     result = libspdm_generate_session_data_key(
-        session_info->secured_message_context, th2_hash_data);
+        session_info->secured_message_context, th2_hash_data, spdm_context->user);
     if (!result) {
         status = LIBSPDM_STATUS_CRYPTO_ERROR;
         goto receive_done;

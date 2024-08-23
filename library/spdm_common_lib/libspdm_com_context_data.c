@@ -699,6 +699,12 @@ libspdm_return_t libspdm_set_data(void *spdm_context, libspdm_data_type_t data_t
         }
         context->spdm_10_11_verify_signature_endian = *(uint8_t*)data;
         break;
+    case LIBSPDM_DATA_USER:
+        if (data_size != sizeof(void*)) {
+            return LIBSPDM_STATUS_INVALID_PARAMETER;
+        }
+        context->user = data;
+        break;
     default:
         return LIBSPDM_STATUS_UNSUPPORTED_CAP;
         break;
@@ -984,6 +990,10 @@ libspdm_return_t libspdm_get_data(void *spdm_context, libspdm_data_type_t data_t
     case LIBSPDM_DATA_SPDM_VERSION_10_11_VERIFY_SIGNATURE_ENDIAN:
         target_data_size = sizeof(uint8_t);
         target_data = &context->spdm_10_11_verify_signature_endian;
+        break;
+    case LIBSPDM_DATA_USER:
+        target_data_size = sizeof(void*);
+        target_data = &context->user;
         break;
     default:
         return LIBSPDM_STATUS_UNSUPPORTED_CAP;

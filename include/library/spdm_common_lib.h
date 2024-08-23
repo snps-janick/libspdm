@@ -133,6 +133,9 @@ typedef enum {
 
     /* For SPDM 1.0 and 1.1, allow signature verification in big, little, or both endians. */
     LIBSPDM_DATA_SPDM_VERSION_10_11_VERIFY_SIGNATURE_ENDIAN,
+    
+    /* User data */
+    LIBSPDM_DATA_USER,
 
     /* MAX */
     LIBSPDM_DATA_MAX

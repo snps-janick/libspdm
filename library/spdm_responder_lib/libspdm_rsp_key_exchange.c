@@ -565,7 +565,7 @@ libspdm_return_t libspdm_get_response_key_exchange(libspdm_context_t *spdm_conte
                                                response_size, response);
     }
     result = libspdm_generate_session_handshake_key(
-        session_info->secured_message_context, th1_hash_data);
+        session_info->secured_message_context, th1_hash_data, spdm_context->user);
     if (!result) {
         libspdm_free_session_id(spdm_context, session_id);
         return libspdm_generate_error_response(spdm_context,
