@@ -64,6 +64,7 @@ static bool libspdm_check_request_flag_compatibility(uint32_t capabilities_flag,
     if ((version == SPDM_MESSAGE_VERSION_11) || (version == SPDM_MESSAGE_VERSION_12)) {
         /* Illegal to return reserved values. */
         if ((psk_cap == 2) || (psk_cap == 3)) {
+            libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "ERROR:: Invalid PSK_CAP\n");
             return false;
         }
 
@@ -73,17 +74,27 @@ static bool libspdm_check_request_flag_compatibility(uint32_t capabilities_flag,
              * also implements DSP0277 secure messages, which requires at least MAC_CAP to be set.
              */
             if (mac_cap == 0) {
+            libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "ERROR: MAC_CAP must be set if KEY_EX_CAP or PSK_CAP is set.\n");
                 return false;
             }
         } else {
             if ((mac_cap == 1) || (encrypt_cap == 1) || (handshake_in_the_clear_cap == 1) ||
                 (hbeat_cap == 1) || (key_upd_cap == 1)) {
-                return false;
+              libspdm_debug_print(
+                  LIBSPDM_DEBUG_ERROR,
+                  "ERROR: MAC_CAP, ENCRYPT_CAP, HANDSHAKE_IN_THE_CLEAR_CAP, "
+                  "HEARTBEAT_CAP, and KEY_UPD_CAP must be cleared if "
+                  "KEY_EX_CAP and PSK_CAP is not set.\n");
+              return false;
             }
         }
         if ((key_ex_cap == 0) && (psk_cap == 1)) {
             if (handshake_in_the_clear_cap == 1) {
-                return false;
+              libspdm_debug_print(
+                  LIBSPDM_DEBUG_ERROR,
+                  "ERROR: HANDSHAKE_IN_THE_CLEAR_CAP must be cleared if "
+                  "KEY_EX_CAP is cleared and PSK_CAP is set.\n");
+              return false;
             }
         }
 
@@ -91,15 +102,18 @@ static bool libspdm_check_request_flag_compatibility(uint32_t capabilities_flag,
         if ((cert_cap == 1) || (pub_key_id_cap == 1)) {
             /* Certificate capabilities and public key capabilities cannot both be set. */
             if ((cert_cap == 1) && (pub_key_id_cap == 1)) {
+            libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "ERROR: CERT_CAP and PUB_KEY_ID_CAP cannot both be set.\n");
                 return false;
             }
             if ((chal_cap == 0) && (key_ex_cap == 0)) {
+            libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "ERROR: CHAL_CAP or KEY_EX_CAP must be set if CERT_CAP or PUB_KEY_ID_CAP is set.\n");
                 return false;
             }
         } else {
             /* If certificates or public keys are not enabled then these capabilities
              * cannot be enabled. */
             if ((chal_cap == 1) || (mut_auth_cap == 1)) {
+            libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "ERROR: CHAL_CAP and MUT_AUTH_CAP must be cleared if CERT_CAP and PUB_KEY_ID_CAP are not set.\n");
                 return false;
             }
         }
@@ -107,6 +121,7 @@ static bool libspdm_check_request_flag_compatibility(uint32_t capabilities_flag,
         /* Checks that originate from mutual authentication capabilities. */
         if (mut_auth_cap == 1) {
             if ((key_ex_cap == 0) && (chal_cap == 0)) {
+            libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "ERROR: KEY_EX_CAP or CHAL_CAP must be set if MUT_AUTH_CAP is set.\n");
                 return false;
             }
         }
@@ -115,6 +130,7 @@ static bool libspdm_check_request_flag_compatibility(uint32_t capabilities_flag,
     /* Checks specific to 1.1. */
     if (version == SPDM_MESSAGE_VERSION_11) {
         if ((mut_auth_cap == 1) && (encap_cap == 0)) {
+            libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "ERROR: ENCAP_CAP must be set if MUT_AUTH_CAP is set.\n");
             return false;
         }
     }
@@ -157,16 +173,18 @@ libspdm_return_t libspdm_get_response_capabilities(libspdm_context_t *spdm_conte
     }
     if (spdm_request->header.spdm_version >= SPDM_MESSAGE_VERSION_12) {
         if (request_size < sizeof(spdm_get_capabilities_request_t)) {
-            return libspdm_generate_error_response(
-                spdm_context, SPDM_ERROR_CODE_INVALID_REQUEST, 0, response_size, response);
+          return libspdm_generate_error_response(
+              spdm_context, SPDM_ERROR_CODE_INVALID_REQUEST, 0, response_size,
+              response);
         } else {
             request_size = sizeof(spdm_get_capabilities_request_t);
         }
     } else if (spdm_request->header.spdm_version >= SPDM_MESSAGE_VERSION_11) {
         if (request_size < sizeof(spdm_get_capabilities_request_t) -
             sizeof(spdm_request->data_transfer_size) - sizeof(spdm_request->max_spdm_msg_size)) {
-            return libspdm_generate_error_response(
-                spdm_context, SPDM_ERROR_CODE_INVALID_REQUEST, 0, response_size, response);
+          return libspdm_generate_error_response(
+              spdm_context, SPDM_ERROR_CODE_INVALID_REQUEST, 0, response_size,
+              response);
         } else {
             request_size = sizeof(spdm_get_capabilities_request_t) -
                            sizeof(spdm_request->data_transfer_size) -
@@ -182,6 +200,7 @@ libspdm_return_t libspdm_get_response_capabilities(libspdm_context_t *spdm_conte
     }
     if (!libspdm_check_request_flag_compatibility(
             spdm_request->flags, spdm_request->header.spdm_version)) {
+        libspdm_debug_print(LIBSPDM_DEBUG_ERROR, "Requester has invalid capabilities or does not have compatible capabilities with Responder.\n");
         return libspdm_generate_error_response(spdm_context,
                                                SPDM_ERROR_CODE_INVALID_REQUEST, 0,
                                                response_size, response);
