@@ -5,6 +5,7 @@ module purge
 # QSC-S
 #module load binutils/2.33.1
 module load gcc/9.2.0
+#module load gcc/12.3.0
 module load gmake/4.2
 module load cmake/3.22.3
 module load git/2.30.0
